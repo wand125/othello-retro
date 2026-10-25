@@ -13,7 +13,8 @@
   "trial_order": "repeat outer, fixed case order, alternate sat/auto order based on case + repeat index",
   "cpu_allocations_differ": true,
   "complete_datasets": [
-    "wsl-cpu3-20261025"
+    "wsl-cpu3-20261025",
+    "wsl-cpu3-warm-20261025"
   ],
   "common_file_hashes": {
     "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
