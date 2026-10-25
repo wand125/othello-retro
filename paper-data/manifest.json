@@ -1,0 +1,45 @@
+{
+  "prepared_at": "2026-10-25T13:01:37.878980+00:00",
+  "article_urls": [
+    "https://othello-retro.logicpuzzle.app/paper?lang=ja",
+    "https://othello-retro.logicpuzzle.app/paper?lang=en"
+  ],
+  "policy": "Supplementary evidence for the article. Explanations are in the article; implementation, models and private logs are not included.",
+  "files_sha256": {
+    "article-data.json": "17f20ffa43fca270c6d09ad88559f6a2dd37885470f33af2a986730640e65257",
+    "deep-reverse-chain.json": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b"
+  },
+  "manuscript_asset_hashes": {
+    "ui/paper.html": "1a29b285271561b4a6fb9ed476aac2671fec6e87386a935f769ac990dcc96a4f",
+    "ui/paper.js": "71cd944917fd095c6a61a5f27600973e1d0eefa4099247cc7dfef89ea1229267",
+    "ui/paper.css": "7655bb8879830bfc275172a74f7947baaa1b7f1bc9a5401ec67f03474582e798",
+    "ui/paper-data.json": "17f20ffa43fca270c6d09ad88559f6a2dd37885470f33af2a986730640e65257",
+    "cloud/build_paper.py": "bb22a66fd610e7943f5cc60d2fb2725cb8cf3f17b91c739d0b46f71f812ebfb0"
+  },
+  "verification": {
+    "nodes": 12,
+    "edges": 11,
+    "stones": [
+      61,
+      60,
+      59,
+      58,
+      57,
+      56,
+      55,
+      54,
+      53,
+      52,
+      51,
+      50
+    ],
+    "root_board_unsat": true,
+    "descendant_board_only_status": "null / not established for other next side",
+    "specified_turn_states_unreachable": true,
+    "frontier_exhaustion_depth": "not claimed",
+    "k_step_survival_test_lower_bound": "cannot reject root for k<=11 under this inverse operator and the given cheap checks",
+    "DRAT_generated": false,
+    "DRAT_independently_checked": false,
+    "source_data_sha256": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b"
+  }
+}
