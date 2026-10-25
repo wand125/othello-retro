@@ -8,7 +8,7 @@ wasm32では元の `(size_t)1 << 32` が未定義になるため、`congruence.c
 
 classicJSのfactory名は `createKissat`。Workerでは `importScripts('kissat.js'); const k = await createKissat();`、Nodeでは `require('../ui/kissat.js')` で利用できます。同じディレクトリの `kissat.wasm` をロードします。
 
-公開関数は `_kissat_init`, `_kissat_add`, `_kissat_add_buffer`, `_kissat_solve`, `_kissat_value`, `_kissat_release`, `_kissat_set_option`, `_kissat_get_option`, `_kissat_terminate`, `_kissat_reserve`, `_kissat_version`, `_kissat_signature`, `_malloc`, `_free`。`_kissat_add_buffer(solver, ptr, length)` のlengthはint32要素数でありバイト数ではありません。signed DIMACS literalを `k.HEAP32` に置き、各節を0で区切ります。空節は0一つです。bufferは投入直後に解放できます。solveはSAT=10、UNSAT=20、未確定=0、valueは符号付きliteralを返します。
+公開関数は `_kissat_init`, `_kissat_add`, `_kissat_add_buffer`, `_kissat_solve`, `_kissat_value`, `_kissat_release`, `_kissat_set_option`, `_kissat_get_option`, `_kissat_terminate`, `_kissat_reserve`, `_kissat_set_conflict_limit`, `_kissat_set_decision_limit`, `_kissat_version`, `_kissat_signature`, `_malloc`, `_free`。`_kissat_add_buffer(solver, ptr, length)` のlengthはint32要素数でありバイト数ではありません。signed DIMACS literalを `k.HEAP32` に置き、各節を0で区切ります。空節は0一つです。bufferは投入直後に解放できます。solveはSAT=10、UNSAT=20、未確定=0、valueは符号付きliteralを返します。
 
 single-thread、`-O3`、quiet、stack 1MiB、初期memory 32MiB、growth許可、上限1GiBです。同期solve中に同じWorkerへmessageを送って `_kissat_terminate` を呼ぶことはできないため、UIからの強制取消しはWorker自体を終了してください。停止したSolverは再利用せず、新Workerを初期化します。
 

@@ -4,7 +4,7 @@
 
 オセロの盤面から、標準初期配置を出発点とする合法な棋譜を一つ復元する実験です。元の対局の特定や、最善手の計算を目的としていません。
 
-- [ブラウザ試験版（SAT/WebAssembly・公開準備中）](https://wand125.github.io/othello-retro/) — [ブラウザ版のビルド・利用手順](browser-wasm/README.md)
+- [ブラウザ試験版（SAT/WebAssembly）](https://wand125.github.io/othello-retro/) — [ブラウザ版のビルド・利用手順](browser-wasm/README.md)
 - [従来のサーバー版試験公開アプリ](https://othello-retro.logicpuzzle.app/) / [作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
 - インタラクティブ論文: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 

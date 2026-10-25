@@ -4,7 +4,7 @@
 
 This experiment reconstructs one legal Othello move sequence from the standard opening position to a given board. It does not identify the original game or calculate optimal play.
 
-- [Browser SAT/WebAssembly preview — publication pending](https://wand125.github.io/othello-retro/) — [browser build and usage guide](browser-wasm/README.en.md)
+- [Browser SAT/WebAssembly preview](https://wand125.github.io/othello-retro/) — [browser build and usage guide](browser-wasm/README.en.md)
 - [Original server-backed experimental app](https://othello-retro.logicpuzzle.app/) / [Created records](https://othello-retro.logicpuzzle.app/examples)
 - Interactive article: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 

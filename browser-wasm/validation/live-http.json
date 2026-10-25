@@ -1,0 +1,19 @@
+{
+  "url": "https://wand125.github.io/othello-retro/",
+  "version": "279dff48820905cb3e0c86143863ab7784404ee6986dac9d6dcad533093da777",
+  "status": "passed",
+  "files_sha256": {
+    "index.html": "62d2f7d1bbfb4885a57b52cae5eb0ec9fbbb0e58e0c5b455291142369fd9ef7f",
+    "short.js": "ef50f328d56d7d5eedee40994f8ff63c2f062db870c45120de59ebccf7f55a17",
+    "solver-worker.js": "ce9d27d4ddf706e33a7af0ffec3b261ef6c18fb59bfbfc0e5cab3fd5f43b6108",
+    "engine.js": "3cf33f015d5caf8a8917cb7b5a141654dd998ae3c9d551fc8d723b486fcad8ed",
+    "encoder.wasm": "978f37e76cbe2832c30795986327c0f83af6425caa0a12cc059b094571134889",
+    "kissat.js": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+    "kissat.wasm": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3",
+    "verify.js": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9",
+    "sw.js": "e00a8ec4b7a553625c86b74da79ebf6fe1bb104d2b42d2152b72a1cfaadcedc3",
+    "public-examples.json": "546977b4a485a522e392f4adf4ad43836bea0947b888e1fc150bcd7a06fe9cb6",
+    "paper/index.html": "e8172b1053c0a5d9d6e7212a13839adf51c40cb6717c5fdc9da983ee128f7f5d",
+    "paper/paper-data.json": "a95bebefb9bd96abb8c28dcfae3f65aa62c43c3577ed6e38748d928d6b411e0d"
+  }
+}

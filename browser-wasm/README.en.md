@@ -23,13 +23,14 @@ Provide a usable Emscripten SDK cache. [solver/README.md](solver/README.md) and 
 ## Verification and static assembly
 
 ```sh
-node --test browser-wasm/tests/test-verify.cjs
+node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs
+node browser-wasm/tests/test-solver.cjs --smoke
 node browser-wasm/solver/smoke.cjs
 python3 browser-wasm/build_static.py --public-repo /path/to/othello-retro --records /path/to/public-records-snapshot.json --output /tmp/othello-static-new
 python3 -m http.server 8000 --directory /tmp/othello-static-new
 ```
 
-`--public-repo` selects the public repository containing the four existing paper assets. `--output` must be a new directory. The builder does not deploy. `--records` selects a public snapshot shaped as `{ "examples": [...] }`. Every record is independently replayed; only safe IDs and allowlisted public metadata are distributed. Without it, the UI's bundled records are used. Supplying the 72-record snapshot takes precedence over the bundled seven records.
+`--public-repo` selects the public repository containing the four existing paper assets. `--output` must be a new directory. The builder does not deploy. `--records` selects a public snapshot shaped as `{ "examples": [...] }`. Every record is independently replayed; only safe IDs and allowlisted public metadata are distributed. Without it, the UI's bundled records are used. The bundled 72 records are a verified snapshot; supplying another snapshot replaces that input.
 
 The generated `/paper/` preserves the manuscript, CSS, mathematics and language switching; only links and asset references change. Static redirects support `paper.html`, `examples/` and each record URL, carrying the query and fragment. Relative URLs work on both a custom domain and a GitHub Pages project subpath. `asset-manifest.json` records the version and file hashes. A Service Worker stores successfully fetched assets for offline use; first-use offline operation and continued browser storage retention are not guaranteed.
 

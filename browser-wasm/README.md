@@ -23,13 +23,14 @@ Emscriptenのcacheは利用できるSDK cacheを用意してください。Kissa
 ## 検証と静的配布
 
 ```sh
-node --test browser-wasm/tests/test-verify.cjs
+node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs
+node browser-wasm/tests/test-solver.cjs --smoke
 node browser-wasm/solver/smoke.cjs
 python3 browser-wasm/build_static.py --public-repo /path/to/othello-retro --records /path/to/public-records-snapshot.json --output /tmp/othello-static-new
 python3 -m http.server 8000 --directory /tmp/othello-static-new
 ```
 
-`--public-repo` は既存論文4ファイルを含む公開リポジトリ、`--output` はまだ存在しない新しいディレクトリです。ビルダーは自動デプロイしません。`--records` は `{ "examples": [...] }` 形式の公開棋譜snapshotです。指定した全棋譜を独立再生し、安全なIDと公開用フィールドだけを配布します。省略時はUI同梱の棋譜を使用します。72件のsnapshotを指定すれば、同梱7件よりこちらが優先されます。
+`--public-repo` は既存論文4ファイルを含む公開リポジトリ、`--output` はまだ存在しない新しいディレクトリです。ビルダーは自動デプロイしません。`--records` は `{ "examples": [...] }` 形式の公開棋譜snapshotです。指定した全棋譜を独立再生し、安全なIDと公開用フィールドだけを配布します。省略時はUI同梱の棋譜を使用します。同梱の72棋譜は検証済みsnapshotです。別のsnapshotを指定すると、そちらを使用します。
 
 生成物の `/paper/` は既存論文の本文・CSS・数式・日英切替を保持し、リンクとasset参照だけを相対化します。`paper.html` と `examples/`・各棋譜URLに静的redirectを用意し、queryとhashを引き継ぎます。独自ドメインとGitHub Pagesのproject subpathの両方で利用できます。`asset-manifest.json` は配布物のversionとハッシュを記録し、Service Workerは最初の取得が成功したassetをオフライン用に保存します。初回からのオフライン利用やブラウザによる保存領域の維持は保証しません。
 
