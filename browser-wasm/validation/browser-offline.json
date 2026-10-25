@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "release_asset_version": "279dff48820905cb3e0c86143863ab7784404ee6986dac9d6dcad533093da777",
+  "tested_paths": [
+    "/",
+    "/othello-retro/"
+  ],
+  "offline_after_initial_install": true,
+  "new_worker_offline_found_and_strictly_verified": [
+    5,
+    12
+  ],
+  "known_records": 72,
+  "paper_languages": [
+    "ja",
+    "en"
+  ],
+  "deep_chain_steps": 12,
+  "cancel_during_general_sat_and_retry": true,
+  "viewports": [
+    320,
+    390,
+    1200
+  ],
+  "api_requests": 0,
+  "page_errors": 0,
+  "original_private_report_sha256": "36e5c48d8b441d2e19b136ec0382f76240cbaf2bcf74fb296610493e7677c2bc"
+}

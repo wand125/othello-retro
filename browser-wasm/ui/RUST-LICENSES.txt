@@ -1,0 +1,7 @@
+Rust standard library runtime notices (rustc 1.98.0)
+
+The project code is MIT. The standard library and its dependencies retain their respective terms.
+Copyright holders and terms for the standard library are in:
+rust-licenses/COPYRIGHT-library.html
+License texts linked by that document are in rust-licenses/licenses/.
+The original toolchain compiler is not distributed as part of the browser application.

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "node": "v24.22.0",
+  "kissat": "4.0.3",
+  "sat": true,
+  "unsat": true,
+  "empty_clause_unsat": true,
+  "bulk_buffer": true,
+  "quiet": true,
+  "memory_growth": true
+}

@@ -1,0 +1,7 @@
+{
+  "source": "https://othello-retro.logicpuzzle.app/api/records",
+  "snapshot": "Existing public records, fetched2026-10-26JST before static migration. New browser records stay local.",
+  "count": 72,
+  "original_api_snapshot_sha256": "02a71fea608d934aa00eef7b1ff0ccdb9151e9027903955a082c0cc4f486751f",
+  "validation": "Each witness independently replayed; public metadata allowlist only."
+}

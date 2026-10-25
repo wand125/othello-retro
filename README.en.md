@@ -4,12 +4,13 @@
 
 This experiment reconstructs one legal Othello move sequence from the standard opening position to a given board. It does not identify the original game or calculate optimal play.
 
-- [Experimental web app](https://othello-retro.logicpuzzle.app/) / [Created records](https://othello-retro.logicpuzzle.app/examples)
+- [Browser SAT/WebAssembly preview — publication pending](https://wand125.github.io/othello-retro/) — [browser build and usage guide](browser-wasm/README.en.md)
+- [Original server-backed experimental app](https://othello-retro.logicpuzzle.app/) / [Created records](https://othello-retro.logicpuzzle.app/examples)
 - Interactive article: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
 The Rust/Python reconstruction, search, training and UI source is published in [`solver/`](solver/README.en.md); the vertical UI source is in [`short/`](short/README.md). Trained weights are assets of the [first experimental Release, v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0). Git tracks only model cards, license information and identifiers in `models/`, not `.pt` binaries.
 
-Download [source.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz), [models.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz) and [SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS), then follow the [build, SAT and auto instructions](solver/README.en.md). Put weights in `solver/ml/`. Compiled executables, third-party dependency binaries and original training files are not bundled. The original training files are absent, so exact retraining of the historical weights is not guaranteed.
+Download [source.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz), [models.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz) and [SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS), then follow the [build, SAT and auto instructions](solver/README.en.md). Put weights in `solver/ml/`. That native v0.1.0 source distribution excludes compiled executables, third-party dependency binaries and original training files. The separate [`browser-wasm/`](browser-wasm/README.en.md) contains compiled Rust-encoder and Kissat WASM, rebuild sources and applicable notices. The original training files are absent, so exact retraining of the historical weights is not guaranteed.
 
 Test boards, reference records, measured results and **measurement tools for connecting another program or environment to the same frozen banks** are also published. The tools use the Python 3.10+ standard library on Linux/macOS/WSL. Their integration fixture only looks up reference records; it does not measure reconstruction performance.
 
@@ -19,6 +20,7 @@ Test boards, reference records, measured results and **measurement tools for con
 
 | Topic | 日本語 | English |
 |---|---|---|
+| Browser SAT, static distribution and offline use | [ブラウザ版手順](browser-wasm/README.md) | [Browser guide](browser-wasm/README.en.md) |
 | Build, SAT, auto and training | [本体手順](solver/README.md) | [Engine guide](solver/README.en.md) |
 | Model provenance, download and terms | [モデルカード](models/MODEL_CARD.ja.md) | [Model card](models/MODEL_CARD.en.md) |
 | Connect, run, analyze, and export an external program's results | [runner利用手順](runner/README.md) | [Runner guide](runner/README.en.md) |
@@ -50,8 +52,10 @@ Eight-case SHA-256: `292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1
 
 ## License and publication scope
 
-Original source in `solver/`, `short/` and `runner/`, plus ordinary original project documentation, is [MIT](LICENSE). The two synthetic banks retain their existing [MIT scope](BENCHMARK_LICENSE.md). Weights/model cards and original article prose/figures are [CC BY 4.0](licenses/CC-BY-4.0.txt), with attribution **wand125** and changes indicated when modified. See [LICENSE_SCOPE.md](LICENSE_SCOPE.md) for the distinction between functional article code, prose and third-party material. External software and cited works retain their own terms.
+Original source in `solver/`, `short/`, `runner/` and `browser-wasm/` (except third-party components and fixture-specific terms), plus ordinary original project documentation, is [MIT](LICENSE). The two synthetic banks retain their existing [MIT scope](BENCHMARK_LICENSE.md). Weights/model cards and original article prose/figures are [CC BY 4.0](licenses/CC-BY-4.0.txt), with attribution **wand125** and changes indicated when modified. See [LICENSE_SCOPE.md](LICENSE_SCOPE.md) for the distinction between functional article code, prose and third-party material. External software and cited works retain their own terms.
 
-The experimental web app collects and stores newly created boards, move sequences, computation times, and related creation information, and publishes them as created records. Past usage jobs are not bulk-published.
+The browser preview computes locally and stores new records in the browser; sharing requires JSON export or another explicit step. Existing public records are bundled as a static snapshot.
+
+The original server-backed experimental app collects and stores newly created boards, move sequences, computation times, and related creation information, and publishes them as created records. Past usage jobs are not bulk-published.
 
 Usage logs, browser identifiers, credentials, and private infrastructure configuration are excluded from publication. Keep private runner output in `.runs/` and user configuration in `*.local.json`; use the runner's export tool to write a separate public directory. Third-party implementations are obtained as dependencies; see the [publication scope](CODE_PUBLICATION.en.md) for the shipped files and notices.

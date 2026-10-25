@@ -1,0 +1,11 @@
+--- a/src/congruence.c
++++ b/src/congruence.c
+@@ -390,7 +390,7 @@
+   return res;
+ }
+ 
+-#define MAX_HASH_TABLE_SIZE ((size_t) 1 << 32)
++#define MAX_HASH_TABLE_SIZE ((uint64_t) 1 << 32)
+ 
+ static bool closure_hash_table_is_full (closure *closure) {
+   if (closure->hash.size == MAX_HASH_TABLE_SIZE)

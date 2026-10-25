@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "purpose": "Mock encoder/SAT control-flow regression; real solver acceptance is separate",
+  "runtime": "v24.22.0",
+  "tests": [
+    {
+      "name": "probe UNSAT falls through to verified full SAT",
+      "status": "passed"
+    },
+    {
+      "name": "probe unknown falls through to verified full SAT",
+      "status": "passed"
+    },
+    {
+      "name": "probe SAT is independently verified and released",
+      "status": "passed"
+    },
+    {
+      "name": "only full UNSAT gives final unreachability",
+      "status": "passed"
+    },
+    {
+      "name": "restricted UNSAT plus full unknown stays unknown",
+      "status": "passed"
+    },
+    {
+      "name": "common preprocessing rejection is authoritative",
+      "status": "passed"
+    },
+    {
+      "name": "invalid SAT witness is rejected and the solver is released",
+      "status": "passed"
+    },
+    {
+      "name": "policy records SAT-only work limits and an unlimited full stage",
+      "status": "passed"
+    }
+  ]
+}

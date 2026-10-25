@@ -1,0 +1,53 @@
+// SPDX-License-Identifier: MIT
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const createKissat = require('../ui/kissat.js');
+
+(async () => {
+  const output = [];
+  const module = await createKissat({print: x => output.push(x), printErr: x => output.push(x)});
+  assert.equal(module.UTF8ToString(module._kissat_version()), '4.0.3');
+  const solver = module._kissat_init();
+  assert(solver);
+  // (a OR b) AND NOT a => b. Includes clause terminators in the bulk buffer.
+  const literals = new Int32Array([1,2,0,-1,0]);
+  const ptr = module._malloc(literals.byteLength);
+  module.HEAP32.set(literals, ptr/4);
+  module._kissat_add_buffer(solver,ptr,literals.length);
+  module._free(ptr);
+  assert.equal(module._kissat_solve(solver),10);
+  assert.equal(module._kissat_value(solver,1),-1);
+  assert.equal(module._kissat_value(solver,2),2);
+  module._kissat_release(solver);
+  const contradictory = module._kissat_init();
+  for (const lit of [1,0,-1,0]) module._kissat_add(contradictory,lit);
+  assert.equal(module._kissat_solve(contradictory),20);
+  module._kissat_release(contradictory);
+  const emptyClause = module._kissat_init();
+  module._kissat_add(emptyClause,0);
+  assert.equal(module._kissat_solve(emptyClause),20);
+  module._kissat_release(emptyClause);
+  const memoryBefore = module.HEAP32.buffer.byteLength;
+  const large = module._malloc(40*1024*1024);
+  assert(large);
+  assert(module.HEAP32.buffer.byteLength > memoryBefore);
+  module._free(large);
+  const afterGrowth = module._kissat_init();
+  module._kissat_reserve(afterGrowth,2);
+  const optionBytes = Buffer.from('seed\0');
+  const optionPtr = module._malloc(optionBytes.length);
+  new Uint8Array(module.HEAP32.buffer).set(optionBytes,optionPtr);
+  module._kissat_set_option(afterGrowth,optionPtr,3);
+  assert.equal(module._kissat_get_option(afterGrowth,optionPtr),3);
+  module._free(optionPtr);
+  module._kissat_add(afterGrowth,1);
+  module._kissat_add(afterGrowth,0);
+  assert.equal(module._kissat_solve(afterGrowth),10);
+  module._kissat_release(afterGrowth);
+  assert.deepEqual(output,[], 'quiet library must produce no solver output');
+  const result = {status:'passed',node:process.version,kissat:'4.0.3',sat:true,unsat:true,empty_clause_unsat:true,bulk_buffer:true,quiet:true,memory_growth:true};
+  fs.writeFileSync(path.join(__dirname,'smoke-result.json'),JSON.stringify(result,null,2)+'\n');
+  console.log(JSON.stringify(result));
+})().catch(error => { console.error(error);process.exitCode=1; });

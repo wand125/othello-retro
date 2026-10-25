@@ -4,12 +4,13 @@
 
 オセロの盤面から、標準初期配置を出発点とする合法な棋譜を一つ復元する実験です。元の対局の特定や、最善手の計算を目的としていません。
 
-- [試験公開アプリ](https://othello-retro.logicpuzzle.app/) / [作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
+- [ブラウザ試験版（SAT/WebAssembly・公開準備中）](https://wand125.github.io/othello-retro/) — [ブラウザ版のビルド・利用手順](browser-wasm/README.md)
+- [従来のサーバー版試験公開アプリ](https://othello-retro.logicpuzzle.app/) / [作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
 - インタラクティブ論文: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
 Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/README.md)、縦長UIを[`short/`](short/README.md)で公開しています。学習済み重みは[最初の試験公開Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)の添付ファイルです。Gitの`models/`には[モデルカード](models/MODEL_CARD.ja.md)、ライセンス、識別manifestだけを置き、`.pt`は含めません。
 
-[ソース `source.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz)・[重み `models.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz)・[SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS)から取得し、[ビルド・SAT・autoの実行手順](solver/README.md)に従ってください。重みは`solver/ml/`へ配置します。実行バイナリ、外部依存のバイナリ、元訓練データは同梱しません。元データが現存しないため、過去の重みを完全に再学習できるという主張でもありません。
+[ソース `source.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz)・[重み `models.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz)・[SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS)から取得し、[ビルド・SAT・autoの実行手順](solver/README.md)に従ってください。重みは`solver/ml/`へ配置します。このnative版Release v0.1.0のソース配布には実行バイナリ、外部依存のバイナリ、元訓練データを同梱しません。別の[`browser-wasm/`](browser-wasm/README.md)にはコンパイル済みRust encoderとKissatのWASM、再ビルド用ソース・通知を収録します。元データが現存しないため、過去の重みを完全に再学習できるという主張でもありません。
 
 テスト盤面・参照棋譜・実測結果と、**別環境・別プログラムを同じ固定bankへ接続する測定ツール**も公開しています。`runner/`はPython 3.10以降の標準ライブラリだけで動作します（Linux・macOS・WSL）。接続確認用fixtureは参照解の検索だけを行い、復元性能を測るものではありません。
 
@@ -19,6 +20,7 @@ Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/REA
 
 | 内容 | 日本語 | English |
 |---|---|---|
+| ブラウザSAT版・静的配布・オフライン | [ブラウザ版手順](browser-wasm/README.md) | [Browser guide](browser-wasm/README.en.md) |
 | 復元器のビルド・SAT・auto・学習 | [本体手順](solver/README.md) | [Engine guide](solver/README.en.md) |
 | モデルの来歴・取得・利用条件 | [モデルカード](models/MODEL_CARD.ja.md) | [Model card](models/MODEL_CARD.en.md) |
 | 外部プログラムの接続・実行・解析・公開用export | [runner利用手順](runner/README.md) | [Runner guide](runner/README.en.md) |
@@ -50,8 +52,10 @@ Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/REA
 
 ## 利用条件と公開範囲
 
-自作ソース（`solver/`・`short/`・`runner/`）と通常の自作プロジェクト文書は[MIT](LICENSE)、既存の二つの合成bankも従来の[MIT対象範囲](BENCHMARK_LICENSE.md)を維持します。重み・モデルカードと、自作論文本文・自作図は[CC BY 4.0](licenses/CC-BY-4.0.txt)です。著作者表示は **wand125**。改変時は変更を示してください。論文の機能コードと本文、第三者素材の区別は[LICENSE_SCOPE.md](LICENSE_SCOPE.md)を参照してください。外部ソルバー・ライブラリ・引用文献はそれぞれの条件を保持します。
+自作ソース（`solver/`・`short/`・`runner/`・`browser-wasm/`、第三者とfixtureの例外を除く）と通常の自作プロジェクト文書は[MIT](LICENSE)、既存の二つの合成bankも従来の[MIT対象範囲](BENCHMARK_LICENSE.md)を維持します。重み・モデルカードと、自作論文本文・自作図は[CC BY 4.0](licenses/CC-BY-4.0.txt)です。著作者表示は **wand125**。改変時は変更を示してください。論文の機能コードと本文、第三者素材の区別は[LICENSE_SCOPE.md](LICENSE_SCOPE.md)を参照してください。外部ソルバー・ライブラリ・引用文献はそれぞれの条件を保持します。
 
-試験公開アプリでは、新規に作成する盤面・棋譜・計算時間などを取得・保存し、作成された棋譜として公開します。過去の利用ジョブを一括公開することはしません。
+ブラウザ試験版は計算を端末内で行い、作成した棋譜をブラウザに保存します。共有にはJSONの書き出しなどが必要です。既存の公開棋譜snapshotを静的配布へ含めます。
+
+従来のサーバー版試験公開アプリでは、新規に作成する盤面・棋譜・計算時間などを取得・保存し、作成された棋譜として公開します。過去の利用ジョブを一括公開することはしません。
 
 利用記録、ブラウザ識別子、認証情報、私有インフラ設定は公開物へ含めません。測定ツールの私用出力は `.runs/`、利用者設定は `*.local.json` へ置き、公開時はrunnerのexportで別ディレクトリへ出力してください。第三者実装は依存関係として取得し、配布範囲と通知は[公開状況](CODE_PUBLICATION.md)へ記録しています。

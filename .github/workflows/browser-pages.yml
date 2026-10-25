@@ -1,0 +1,53 @@
+name: Browser SAT app
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'browser-wasm/**'
+      - 'solver/ui/paper*'
+      - '.github/workflows/browser-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: browser-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - uses: actions/configure-pages@v5
+      - name: Verify independent rules and SAT verdict handling
+        env:
+          RETRO_FIXTURE_SOURCE_REPO: ${{ github.workspace }}
+        run: node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs
+      - name: Test browser solver binaries
+        run: node browser-wasm/tests/test-solver.cjs --smoke
+      - name: Assemble static files
+        run: python3 browser-wasm/build_static.py --public-repo . --output "$RUNNER_TEMP/othello-retro-site"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/othello-retro-site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy static app
+        id: deployment
+        uses: actions/deploy-pages@v4

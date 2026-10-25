@@ -65,3 +65,15 @@ vendor/
 !paper-data/*.py
 !paper-data/deep-root-general.cnf.gz
 !paper-data/deep-root-general-solver.log
+
+# Reviewed static browser implementation, including its third-party notices.
+!browser-wasm/**
+browser-wasm/**/target/
+browser-wasm/**/__pycache__/
+browser-wasm/private-export/
+browser-wasm/work-state.private.json
+browser-wasm/solver/build/
+browser-wasm/solver/build.log
+browser-wasm/validation/prototype*
+browser-wasm/validation/general-only-prototype-note.json
+!.github/workflows/browser-pages.yml

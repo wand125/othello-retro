@@ -8,6 +8,12 @@ The published `runner/` contains general-purpose measurement tools using only th
 
 The Rust/Python engine, UI/server and frozen measurement harness are published in [`solver/`](solver/README.en.md), with the vertical UI in `short/`. Weights are assets of the [experimental Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0). Standard-library runner dependencies are separate from the engine's Rust, ML and video dependencies.
 
+## Separate browser SAT edition
+
+[`browser-wasm/`](browser-wasm/README.en.md) contains compiled WASM for the Rust CNF encoder and Kissat 4.0.3, rebuild sources and notices. SAT runs in one Worker without trained models, Python or a computation server. A bounded no-pass SAT probe is followed by the general encoding allowing passes when it does not find a witness. Restricted-probe UNSAT alone never establishes general unreachability; only a necessary-condition rejection or general-encoding UNSAT does. An independent JavaScript replay validates every `found` witness.
+
+Original-code MIT and the Kissat, Rust standard-library and Emscripten/runtime binary notices remain separate. [Fixture terms](browser-wasm/tests/LICENSE.md) distinguish MIT bank-derived cases from two CC BY 4.0 article-derived cases. The original four-environment native measurements are not browser performance measurements; mobile performance is unmeasured.
+
 ## Original reconstruction workflow
 
 1. Check necessary conditions such as stone count and occupancy of the four opening center squares.
@@ -41,4 +47,4 @@ Original source is [MIT](LICENSE), and the two synthetic banks retain their exis
 
 Build with Rust 1.98.0 and C++17; install Kissat 4.0.3 separately. The same Rust source passed a locked release build, all nine unit tests, finite/unbounded SAT smoke tests and independent replay. See the [engine guide](solver/README.en.md) and [model card](models/MODEL_CARD.en.md).
 
-Compiled dependencies, Python wheels, WASM and container images are not bundled. Original training JSONL files are absent and are not distributed. Restricted teacher labels, unknown-as-positive training, unconfirmed artifact-specific holdout accuracy and incomplete retraining reproducibility remain scientific limits after source publication. Any later binary/video-library distribution needs a review of its actual bundled components. See [publication scope](CODE_PUBLICATION.en.md).
+The native v0.1.0 source distribution excludes compiled dependencies, Python wheels, WASM and container images. The separate browser edition includes the compiled WASM and applicable notices described above. Original training JSONL files are absent and are not distributed. Restricted teacher labels, unknown-as-positive training, unconfirmed artifact-specific holdout accuracy and incomplete retraining reproducibility remain scientific limits after source publication. Any later binary/video-library distribution needs a review of its actual bundled components. See [publication scope](CODE_PUBLICATION.en.md).

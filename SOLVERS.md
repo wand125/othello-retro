@@ -8,6 +8,12 @@
 
 復元器のRust/Pythonソース、UI・サーバーと凍結測定harnessは[`solver/`](solver/README.md)、縦長UIは`short/`に公開しています。学習済み重みは[試験公開Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)の添付ファイルです。公開runnerの標準ライブラリ依存と、復元器のRust・ML・動画関連依存を区別します。
 
+## 別のブラウザSAT版
+
+[`browser-wasm/`](browser-wasm/README.md)にはRust製CNF encoderとKissat 4.0.3のcompiled WASM、再ビルド用ソース、通知を収録します。学習モデル・Python・計算サーバーを使わず、単一Worker内でSATを実行します。短いパスなしSAT probeで見つからなければ、パスを許す一般形へ進みます。限定probeのUNSATだけで一般到達不能とは判定せず、必要条件違反または一般形UNSATだけを到達不能とします。`found`は独立JavaScriptで合法再生します。
+
+自作コードMITと、Kissat・Rust標準ライブラリ・Emscripten等のバイナリ通知は別に保持します。受入れfixtureのbank由来MITと論文由来2件のCC BY 4.0は[fixture条件](browser-wasm/tests/LICENSE.md)へ明示しています。元の4環境native測定をブラウザの性能値とは扱わず、モバイル性能は未測定です。
+
 ## 元プログラムの復元の流れ
 
 1. 石数、初期配置の中央4マスなどの必要条件を調べる。
@@ -41,4 +47,4 @@
 
 ビルドはRust1.98.0とC++17、Kissatは別途4.0.3を用意します。Rust同一ソースでlocked release build、全9単体テスト、有限・無制限SATと独立再生を確認済みです。実行手順は[本体README](solver/README.md)、重みの取得・来歴は[モデルカード](models/MODEL_CARD.ja.md)を参照してください。
 
-依存の実行バイナリ・Python wheel・WASM・コンテナは同梱しません。元訓練JSONLは現物がなく配布しません。teacherの限定条件、未知ラベルを正例にする学習処理、最終重みのholdout精度と完全再学習の未確認は、コード公開によって解消したとは扱いません。動画依存などを含むバイナリを別に配布する場合は、その実際の同梱物の通知確認が必要です。[公開範囲](CODE_PUBLICATION.md)を参照してください。
+native版Release v0.1.0のソース配布には依存の実行バイナリ・Python wheel・WASM・コンテナを同梱しません。別のブラウザ版には上記のcompiled WASMと対応通知を含めます。元訓練JSONLは現物がなく配布しません。teacherの限定条件、未知ラベルを正例にする学習処理、最終重みのholdout精度と完全再学習の未確認は、コード公開によって解消したとは扱いません。動画依存などを含むバイナリを別に配布する場合は、その実際の同梱物の通知確認が必要です。[公開範囲](CODE_PUBLICATION.md)を参照してください。
