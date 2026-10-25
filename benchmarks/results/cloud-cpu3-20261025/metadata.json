@@ -1,0 +1,40 @@
+{
+  "started_at": "2026-10-25T10:25:36.779549+00:00",
+  "environment": "Cloud Run asia-northeast1 4 vCPU / 4 GiB",
+  "image": "asia-northeast1-docker.pkg.dev/wandsbox125/othello-retro/app@sha256:89270cc621f0786ae17d03bea53b98cf608412fa07a2d4de80806b2004d4787b",
+  "time_limit_seconds": 60,
+  "repeat": 3,
+  "cases_sha256": "292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1a8d64",
+  "invocation": "Administrator-created Firestore items and authenticated Cloud Tasks; identical benchmarks/run.py --_single subprocess; sequential trials",
+  "timing_note": "wall_seconds is inside the identical CLI runner, excluding task queue, worker start, HTTP and polling. Cold means fresh model worker. Warm preload is measured separately. OS caches are not reset. invocation_seconds is helper subprocess wall; dispatch_to_observation_seconds includes queue/poll/network.",
+  "quota": "No public daily counter consumed; private administrator job logs retained.",
+  "environment_actual": {
+    "device": "cpu",
+    "platform": "Linux-6.9.12-x86_64-with-glibc2.36",
+    "note": "Fresh CLI subprocess per trial; OS caches are not reset. Times exclude Cloud Tasks, HTTP, polling and this metadata collection.",
+    "python": "3.12.15",
+    "machine": "x86_64",
+    "torch_threads": 2,
+    "numpy_version": "2.2.6",
+    "kissat_version": "4.0.3",
+    "logical_cpus_visible": 9,
+    "torch_version": "2.6.0+cpu",
+    "hashes": {
+      "ml/search.py": "7dde92020cd83964cec7f8fed8788822a298ffbdd32614fb0f69093406cb6470",
+      "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+      "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+      "benchmarks/run.py": "210bcb6775d89b4b2050f012508770945e837f3753dc41c8d50bcdf13d65667f",
+      "ml/worker.py": "2cbaf49eaf316cfa863d48c5c8df8653d0bdfdf6864442abdce960106455d9d6",
+      "target/release/othello-retro": "0942de456b79564e9e527833a7ffb03483e138119a38809baaff17af301afeaf",
+      "ui/server.py": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729"
+    },
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "2",
+      "OTHELLO_DEVICE": "cpu",
+      "RETRO_TORCH_THREADS": null,
+      "OMP_NUM_THREADS": "2",
+      "MKL_NUM_THREADS": "2",
+      "RETRO_DEVICE": null
+    }
+  }
+}
