@@ -1,0 +1,100 @@
+{
+  "version": "v0.1.0",
+  "status": "passed",
+  "native_source_aggregate_sha256": "037720e71b2d8f64def7716176ce81d8c6fb9e08718ae9a6f1bffe860b972ce7",
+  "formal_benchmark_source_and_weight_hashes": "all match both unchanged frozen banks",
+  "native_validation": {
+    "rust": "1.98.0",
+    "kissat": "4.0.3",
+    "unit_tests_passed": 9,
+    "finite_and_unbounded_smoke": "passed; records independently replayed",
+    "policy": "Reuse validation of byte-identical Cargo/Rust source, rather than rerun unchanged native tests."
+  },
+  "new_distribution_checks": {
+    "python_files_parsed": 37,
+    "javascript_files_parsed": 5,
+    "cloud_unit_tests_passed": 23,
+    "wsl_durable_store_tests_passed": 7,
+    "export_privacy_and_illegal_turn_regression": "passed",
+    "new_file_private_information_scan": "passed; synthetic redaction fixtures retained",
+    "model_binaries_in_git": false
+  },
+  "models": {
+    "status": "passed",
+    "purpose": "Release model loading/numerical sanity only; not model accuracy or solver performance",
+    "environment": {
+      "python": "3.12.2",
+      "torch": "2.2.2",
+      "numpy": "1.26.4",
+      "platform": "macOS-26.2-arm64-arm-64bit",
+      "device": "cpu",
+      "threads": 2,
+      "nice": 19
+    },
+    "architecture": {
+      "source": "public-repository:solver/ml/train.py",
+      "source_sha256": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+      "class": "Net(False)"
+    },
+    "load_policy": {
+      "weights_only": true,
+      "map_location": "cpu",
+      "strict_state_dict": true
+    },
+    "artifacts": [
+      {
+        "file": "models/model.pt",
+        "bytes": 1257333,
+        "sha256": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+        "origin_bytes_identical": true,
+        "strict_load": "passed",
+        "state_tensors": 67,
+        "parameters": 307841,
+        "floating_dtype": "torch.float32",
+        "all_floating_tensors_finite": true,
+        "synthetic_probe": {
+          "description": "one all-zero and one all-one 5x8x8 tensor; not legal-board examples or accuracy evaluation",
+          "output_shape": [
+            2
+          ],
+          "output_values": [
+            -40.70535659790039,
+            0.7068454027175903
+          ],
+          "finite": true,
+          "nonconstant": true
+        }
+      },
+      {
+        "file": "models/model_passes.pt",
+        "bytes": 1256602,
+        "sha256": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+        "origin_bytes_identical": true,
+        "strict_load": "passed",
+        "state_tensors": 67,
+        "parameters": 307841,
+        "floating_dtype": "torch.float32",
+        "all_floating_tensors_finite": true,
+        "synthetic_probe": {
+          "description": "one all-zero and one all-one 5x8x8 tensor; not legal-board examples or accuracy evaluation",
+          "output_shape": [
+            2
+          ],
+          "output_values": [
+            -53.493473052978516,
+            -5.753703594207764
+          ],
+          "finite": true,
+          "nonconstant": true
+        }
+      }
+    ],
+    "architecture_source_unchanged": true,
+    "elapsed_seconds": 1.185833084047772
+  },
+  "limits": [
+    "Source-only executable distribution: users build Rust and install external dependencies.",
+    "Original training data absent; exact retraining and artifact-specific holdout accuracy are not established.",
+    "Model load/probe checks do not evaluate reconstruction accuracy or speed."
+  ]
+}

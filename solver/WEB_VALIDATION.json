@@ -1,0 +1,44 @@
+{
+  "privacy_pattern_hits": [],
+  "python_sources_compile": true,
+  "cloud_contract_tests": {
+    "passed": 23,
+    "seconds": 1.045
+  },
+  "example_builder_explicit_input": {
+    "examples": 7,
+    "verified": true
+  },
+  "frozen_file_hashes": {
+    "solver/ui/server.py": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+    "solver/cloud/records.py": "9f7ac0659afdb24eec3190cd632984a30d0edee509ed2eb713171dc39aae0c7b"
+  },
+  "third_party_bundle_included": false,
+  "live_audio_default": {
+    "url": "https://othello-retro.logicpuzzle.app/short",
+    "checked_at": "2026-10-25T16:53:59.525Z",
+    "errors": [],
+    "real_compute_requests": 0,
+    "new_context": "wood",
+    "playback_audio_sources": 2,
+    "muted_playback": "passed",
+    "existing_setting": "pop",
+    "public_js_sha256": "05bdab6098d58ad84f62df87523f4bdcc892a08747c6199a3ac0251f1bb29ccd",
+    "default_line": "let soundVoice = Object.hasOwn(soundPresets,load(\"voice\")) ? load(\"voice\") : \"wood\";",
+    "new_deployment_required": false
+  },
+  "third_party_acquisition": {
+    "version": "1.62.1",
+    "license": "MPL-2.0",
+    "pinned_archive_sha256": "bf97e177e9a86a115f04cd92af4255617e8b73e33628d98594c372235ab61e53",
+    "verified_sha512_integrity": true,
+    "preferred_typescript_sources": 67,
+    "global_bundle_recipe_tested": true,
+    "esbuild_version": "0.25.11",
+    "temporary_generated_bytes": 1590863,
+    "generated_global": "Mediabunny",
+    "license_notice_retained": true,
+    "third_party_files_added_to_stage": false
+  },
+  "build_examples_verify_implementation_unchanged": true
+}

@@ -1,4 +1,4 @@
-# Othello Retro — テストケース・測定ツール・結果
+# Othello Retro — ソース・重み・ベンチマーク
 
 [日本語](README.md) | [English](README.en.md)
 
@@ -7,14 +7,20 @@
 - [試験公開アプリ](https://othello-retro.logicpuzzle.app/) / [作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
 - インタラクティブ論文: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
-このリポジトリでは、テスト盤面・参照棋譜・実測結果・使用ソルバー情報に加え、**別環境・別プログラムを同じ固定bankへ接続する測定ツール**を公開しています。測定ツールはPython 3.10以降の標準ライブラリだけで動作します（Linux・macOS・WSL）。自分の外部プログラムをJSONで接続してください。
+Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/README.md)、縦長UIを[`short/`](short/README.md)で公開しています。学習済み重みは[最初の試験公開Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)の添付ファイルです。Gitの`models/`には[モデルカード](models/MODEL_CARD.ja.md)、ライセンス、識別manifestだけを置き、`.pt`は含めません。
 
-元の復元器本体、実行ファイル、学習済みモデルは未配布です。したがって、このリポジトリだけから元の復元プログラムを再現・実行することはできません。接続確認用fixtureは参照解の検索だけを行い、復元性能を測るものではありません。
+[ソース `source.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz)・[重み `models.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz)・[SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS)から取得し、[ビルド・SAT・autoの実行手順](solver/README.md)に従ってください。重みは`solver/ml/`へ配置します。実行バイナリ、外部依存のバイナリ、元訓練データは同梱しません。元データが現存しないため、過去の重みを完全に再学習できるという主張でもありません。
+
+テスト盤面・参照棋譜・実測結果と、**別環境・別プログラムを同じ固定bankへ接続する測定ツール**も公開しています。`runner/`はPython 3.10以降の標準ライブラリだけで動作します（Linux・macOS・WSL）。接続確認用fixtureは参照解の検索だけを行い、復元性能を測るものではありません。
+
+`SHA256SUMS`は個別の二つの重み用です。ソース・モデル用archiveを含む全添付ファイルには[RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS)を使います。
 
 ## 測定ツールと資料
 
 | 内容 | 日本語 | English |
 |---|---|---|
+| 復元器のビルド・SAT・auto・学習 | [本体手順](solver/README.md) | [Engine guide](solver/README.en.md) |
+| モデルの来歴・取得・利用条件 | [モデルカード](models/MODEL_CARD.ja.md) | [Model card](models/MODEL_CARD.en.md) |
 | 外部プログラムの接続・実行・解析・公開用export | [runner利用手順](runner/README.md) | [Runner guide](runner/README.en.md) |
 | 生成規則・棋譜・ログ・集計・公開ファイルの検証 | [検証手順](runner/VALIDATION.md) | [Validation guide](runner/VALIDATION.en.md) |
 | 正式測定の完了状況・結果 | [測定結果](BENCHMARK_RESULTS.md) | [Results](BENCHMARK_RESULTS.en.md) |
@@ -44,8 +50,8 @@
 
 ## 利用条件と公開範囲
 
-新規測定ツール `runner/` と、上記の途中・終局の二つの合成bankは[MITライセンス](BENCHMARK_LICENSE.md)で利用・改変・再配布できます。詳しい対象範囲と通知義務は同文書と [runner/LICENSE](runner/LICENSE) を参照してください。この許諾は、論文本文や未配布の復元器・モデルなどへ一括してライセンスを付与するものではありません。
+自作ソース（`solver/`・`short/`・`runner/`）と通常の自作プロジェクト文書は[MIT](LICENSE)、既存の二つの合成bankも従来の[MIT対象範囲](BENCHMARK_LICENSE.md)を維持します。重み・モデルカードと、自作論文本文・自作図は[CC BY 4.0](licenses/CC-BY-4.0.txt)です。著作者表示は **wand125**。改変時は変更を示してください。論文の機能コードと本文、第三者素材の区別は[LICENSE_SCOPE.md](LICENSE_SCOPE.md)を参照してください。外部ソルバー・ライブラリ・引用文献はそれぞれの条件を保持します。
 
 試験公開アプリでは、新規に作成する盤面・棋譜・計算時間などを取得・保存し、作成された棋譜として公開します。過去の利用ジョブを一括公開することはしません。
 
-利用記録、ブラウザ識別子、認証情報、私有インフラ設定は公開物へ含めません。測定ツールの私用出力は `.runs/`、利用者設定は `*.local.json` へ置き、公開時はrunnerのexportで別ディレクトリへ出力してください。元の復元器・モデルと第三者依存の配布条件の確認は継続しています。
+利用記録、ブラウザ識別子、認証情報、私有インフラ設定は公開物へ含めません。測定ツールの私用出力は `.runs/`、利用者設定は `*.local.json` へ置き、公開時はrunnerのexportで別ディレクトリへ出力してください。第三者実装は依存関係として取得し、配布範囲と通知は[公開状況](CODE_PUBLICATION.md)へ記録しています。

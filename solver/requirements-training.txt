@@ -1,0 +1,8 @@
+# train_final.py needs only requirements-inference.txt.
+# These additional exact versions are the locally observed comparison-tool environment,
+# not a recovered lock of the historical weight-training environment.
+-r requirements-inference.txt
+scikit-learn==1.7.2
+scipy==1.15.3
+joblib==1.5.3
+threadpoolctl==3.6.0

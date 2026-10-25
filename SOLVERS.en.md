@@ -6,7 +6,7 @@
 
 The published `runner/` contains general-purpose measurement tools using only the Python 3.10+ standard library. It includes no SAT solver or trained model. You can connect your own external reconstruction program. See the adapter guide in [日本語](runner/README.md) or [English](runner/README.en.md).
 
-The following describes the reconstruction engine and dependencies used by the public service and original program's experiments. That engine and its trained models are not distributed. The public runner's standard-library dependencies are separate from the original engine's Rust, ML, and video-related dependencies.
+The Rust/Python engine, UI/server and frozen measurement harness are published in [`solver/`](solver/README.en.md), with the vertical UI in `short/`. Weights are assets of the [experimental Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0). Standard-library runner dependencies are separate from the engine's Rust, ML and video dependencies.
 
 ## Original reconstruction workflow
 
@@ -27,26 +27,18 @@ The formal unbounded benchmark removes the overall trial deadline and final gene
 | [Kissat](https://github.com/arminbiere/kissat/tree/rel-4.0.3) | 4.0.3 | External SAT solver and parallel portfolio | [MIT LICENSE](https://github.com/arminbiere/kissat/blob/rel-4.0.3/LICENSE) checked at the specified tag |
 | [CaDiCaL Rust binding](https://github.com/mmaroti/cadical-rs) | cadical crate 0.1.16 | SAT calls from Rust | Crate's MIT declaration checked |
 | [CaDiCaL](https://github.com/arminbiere/cadical) | 1.9.5 bundled with that crate | Embedded SAT solver | Bundled VERSION and MIT license checked |
-| [PyTorch](https://github.com/pytorch/pytorch) | 2.2.2 for the four-environment comparison / 2.6.0 CPU for production-reference measurements | Inference with the custom trained model | BSD-style license and bundled third-party notices remain under review |
+| [PyTorch](https://github.com/pytorch/pytorch) | 2.2.2 for the four-environment comparison / 2.6.0 CPU for production-reference measurements | Inference with the custom trained model | BSD-3-Clause and upstream third-party notices; notices are supplied, wheel binaries are not bundled |
 
 Reconstruction search and constraint generation are custom Rust/Python implementations. The trained model ranks reverse candidates; it does not replace a reachability proof or uniquely identify the original game's history.
 
-The training/copy records associate the main `model.pt` with 38,504 mixed-data rows and `model_passes.pt` with the retained old model from 25,796 no-pass rows. The latter filename does not imply pass-only training. Original training files are absent; artifact-specific predictive accuracy and exact retraining reproduction remain unconfirmed. An explicit license and publication decision for the weights are also pending. The teachers restrict passes to none or a final 12-move window, and training treats unresolved labels as positives; these conditions must be distinguished from general reachability accuracy.
+The training/copy records associate the main `model.pt` with 38,504 mixed-data rows and `model_passes.pt` with the retained old model from 25,796 no-pass rows. The latter filename does not imply pass-only training. Original training files are absent; artifact-specific predictive accuracy and exact retraining reproduction remain unconfirmed. Weights are Release assets under CC BY 4.0, attribution wand125; see the [model card](models/MODEL_CARD.en.md). The teachers restrict passes to none or a final 12-move window, and training treats unresolved labels as positives; these conditions must be distinguished from general reachability accuracy.
 
-## Distribution terms and remaining checks
+## Distribution terms and external dependencies
 
-The public runner and the two synthetic midgame/endgame test banks are [MIT-licensed](BENCHMARK_LICENSE.md). They may be used, modified, and redistributed with other programs. This permission does not mean that licensing and dependency review for the original engine or models is complete.
+Original source is [MIT](LICENSE), and the two synthetic banks retain their existing [MIT scope](BENCHMARK_LICENSE.md). Weights/model cards and original article prose/figures are [CC BY 4.0](licenses/CC-BY-4.0.txt). Third-party software and cited material retain their respective terms. [LICENSE_SCOPE.md](LICENSE_SCOPE.md) distinguishes these grants.
 
-A 31-file Rust-only source candidate has notices packaged for nine locked dependencies. The same source passed a WSL/Rust 1.98.0 locked release build, all nine unit tests with Kissat 4.0.3, finite/unbounded SAT smoke tests, and independent replay of the records. MIT terms for the custom Rust code remain a proposal awaiting the owner's decision, so **the original engine has not been distributed**. Python/ML/video implementations, weights, original training data, and binaries are excluded from this candidate.
+[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md) supplies notices for nine Rust dependencies and the SAT solvers. [`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md) records Python versions, notices and requirements evidence. r-efi 6.0.0's MIT permission/copyright is retained from AUTHORS. Cargo.toml/lock, Rust and the primary inference modules retain measurement-source hashes. The release-only removal of bench_fix.py's broad pkill is documented.
 
-Remaining checks are separated by distribution scope:
+Build with Rust 1.98.0 and C++17; install Kissat 4.0.3 separately. The same Rust source passed a locked release build, all nine unit tests, finite/unbounded SAT smoke tests and independent replay. See the [engine guide](solver/README.en.md) and [model card](models/MODEL_CARD.en.md).
 
-- The owner's decision on Rust candidate provenance, attribution, proposed custom-code MIT terms, and publication.
-- Python and native-library dependencies and notices.
-- Distribution terms for training code and weights, with revalidation limits caused by missing original training data.
-- Additional dependencies of the local video version. Video features are not included in the simple public service.
-- Separate distribution terms for original custom code, text, and data outside the stated MIT scope.
-
-Listing a license such as MIT does not license the whole project on those terms. A [declared-license and notice-file inventory](licenses/rust-dependency-inventory.json) is published for nine locked Rust dependencies. Exact archive checksums and required notices have been checked. r-efi 6.0.0's MIT permission text and copyright attributions were found in `AUTHORS` and included in the source-only candidate, resolving the earlier missing-notice issue. This does not complete a project-wide audit covering Python/ML/video components or distributed binaries.
-
-See [code publication scope](CODE_PUBLICATION.en.md) for the stages and outstanding work.
+Compiled dependencies, Python wheels, WASM and container images are not bundled. Original training JSONL files are absent and are not distributed. Restricted teacher labels, unknown-as-positive training, unconfirmed artifact-specific holdout accuracy and incomplete retraining reproducibility remain scientific limits after source publication. Any later binary/video-library distribution needs a review of its actual bundled components. See [publication scope](CODE_PUBLICATION.en.md).

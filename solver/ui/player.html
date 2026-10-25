@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>棋譜プレイヤー</title>
+<link rel="stylesheet" href="common.css">
+<style>
+main.player { display: block; max-width: 1400px; }
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav"><a href="/">棋譜復元</a><a href="/player" class="cur">棋譜プレイヤー</a><a href="/video">動画制作</a></nav>
+  <h1>棋譜プレイヤー</h1>
+  <p>棋譜を 1 行に 1 つ貼り付けると盤面を並べて表示し、すべて同じ手数まで同時に再生します。パスは飛ばして、石を 1 個ずつ同じ間隔で置いていきます。</p>
+</header>
+<main class="player">
+  <section>
+    <textarea id="input" rows="4" spellcheck="false" placeholder="1 行に 1 棋譜。例: f5d6c3d3c4f4f6f3e6e7&#10;スペース区切り・大文字・手番号つき（1. F5 2. D6 …）も可"></textarea>
+    <div class="row" style="margin-top:8px">
+      <button class="primary" id="btnLoad">並べる</button>
+      <button id="btnAdd">追加</button>
+      <button id="btnClearAll">すべて消す</button>
+      <span class="muted" id="msg"></span>
+    </div>
+    <div class="errors" id="errors"></div>
+  </section>
+
+  <div class="player-bar" style="margin-top:14px">
+    <div class="controls">
+      <button id="pFirst" aria-label="最初">⏮</button><button id="pPrev" aria-label="1 手戻る">◀</button>
+      <input type="range" id="pSlider" min="0" max="0" value="0" aria-label="手数">
+      <button id="pNext" aria-label="1 手進む">▶</button><button id="pLast" aria-label="最後">⏭</button>
+      <button id="pPlay">再生</button>
+    </div>
+    <div class="row">
+      <span class="ply" id="pInfo">0 手目</span>
+      <select id="pSpeed" aria-label="再生速度">
+        <option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option>
+      </select>
+      <select id="pCols" aria-label="列数">
+        <option value="auto" selected>列: 自動</option><option value="1">1 列</option><option value="2">2 列</option>
+        <option value="3">3 列</option><option value="4">4 列</option><option value="6">6 列</option>
+      </select>
+      <label class="toggle"><input type="checkbox" id="pF5">f5 開始に揃える</label>
+      <label class="toggle"><input type="checkbox" id="pAnim">アニメーション</label>
+      <select class="mode" id="pMode" aria-label="返し方"><option value="all">一斉に返す</option><option value="wave">順番に返す</option></select>
+      <label class="toggle"><input type="checkbox" id="pSound">効果音</label>
+      <select id="pVoice" aria-label="音の種類"></select><button id="pTry" title="試聴" aria-label="試聴">♪</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<script src="common.js"></script>
+<script>
+"use strict";
+let games = [], k = 0, focus = 0, timer = null;
+const maxK = () => Math.max(0, ...games.map(g => g.view.last));
+
+// 棋譜テキスト（複数行）→ 盤面カード。読めない行は理由を出して飛ばす
+function addRecords(text) {
+  const errs = [];
+  text.split(/\n/).map(l => l.trim()).filter(Boolean).forEach((line, i) => {
+    const raw = parseRecord(line);
+    if (!raw.length) { errs.push(`${i + 1} 行目: 着手が読み取れない`); return; }
+    if (buildStates(raw).error) { errs.push(`${i + 1} 行目: ${buildStates(raw).error}`); return; }
+    const norm = normalizeF5(raw);
+    games.push({ raw: raw.filter(m => m !== "pass").join(""), f5: norm.moves.filter(m => m !== "pass").join(""), rawMoves: raw, f5Moves: norm.moves });
+  });
+  games.forEach(g => { g.states = buildStates(prefs.f5 ? g.f5Moves : g.rawMoves).states; });
+  errors.textContent = errs.join("\n");
+  build();
+}
+
+function build() {
+  grid.innerHTML = games.length ? "" : `<div class="empty-state" style="grid-column:1/-1">棋譜を貼り付けて「並べる」を押してください。</div>`;
+  games.forEach((g, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="cap"><span>#${i + 1}・<b class="kk"></b></span><span class="cnt"></span>
+      <button class="x" title="この盤面を消す" aria-label="#${i + 1} を消す">✕</button></div><div class="wrap"></div><div class="fin"></div>`;
+    grid.appendChild(card);
+    g.el = card;
+    g.view = new BoardView(card.querySelector(".wrap"), g.states);
+    card.onclick = e => {
+      if (e.target.closest(".x")) {
+        games.splice(i, 1); if (focus >= games.length) focus = 0; build(); return;
+      }
+      focus = i; markFocus();
+    };
+  });
+  if (focus >= games.length) focus = 0;
+  pSlider.max = maxK();
+  markFocus();
+  showAll(Math.min(k, maxK()), false);
+  syncUrl();
+}
+function markFocus() {
+  games.forEach((g, i) => g.el.classList.toggle("focus", i === focus));
+  saveStr("othello-retro-player-focus", String(focus));
+}
+
+// 全盤面を k 手目に（短い棋譜は最後で止まる）。効果音は選択中の盤面、それが進まなければ最初に進んだ盤面だけ
+function showAll(nk, sound = true) {
+  k = Math.max(0, Math.min(maxK(), nk));
+  const advanced = [];
+  games.forEach((g, i) => {
+    const before = g.view.k;
+    g.view.show(Math.min(k, g.view.last), false);
+    if (g.view.k === before + 1) advanced.push(i);
+  });
+  if (sound && advanced.length) {
+    const who = advanced.includes(focus) ? focus : advanced[0];
+    playStepSound(games[who].states[games[who].view.k]);
+  }
+  games.forEach(g => {
+    const st = g.states[g.view.k], { x, o } = counts(st.b);
+    g.el.querySelector(".kk").textContent = `${g.view.k} / ${g.view.last} 手`;
+    g.el.querySelector(".cnt").innerHTML = `<span class="dot X"></span>${x} <span class="dot O"></span>${o}`;
+    let fin = "";
+    if (g.view.k === g.view.last && g.view.last > 0) {
+      const over = !hasMove(st.b, "X") && !hasMove(st.b, "O");
+      const res = x === o ? "引き分け" : x > o ? "黒の勝ち" : "白の勝ち";
+      fin = over ? `終局 ${x}–${o}・${res}` : "棋譜の終わり";
+    }
+    g.el.querySelector(".fin").textContent = fin;
+  });
+  pSlider.value = k;
+  pInfo.textContent = `${k} / ${maxK()} 手目`;
+  saveStr("othello-retro-player-k", String(k));
+}
+
+function stop() { clearInterval(timer); timer = null; pPlay.textContent = "再生"; }
+function play() {
+  if (timer) return stop();
+  if (!games.length) return;
+  if (k >= maxK()) showAll(0, false);
+  pPlay.textContent = "停止";
+  timer = setInterval(() => (k >= maxK() ? stop() : showAll(k + 1)), 450 / +pSpeed.value);
+}
+pSpeed.onchange = () => { saveStr("othello-retro-speed", pSpeed.value); if (timer) { stop(); play(); } };
+{ const v = loadStr("othello-retro-speed"); if (v && [...pSpeed.options].some(o => o.value === v)) pSpeed.value = v; }
+
+// URL に棋譜を載せて共有できるようにする（?m=棋譜&m=棋譜…）
+// URL には変換で情報が失われない元の棋譜を載せる。保存は元の棋譜と f5 開始にそろえた棋譜の両方
+function syncUrl() {
+  const q = games.map(g => "m=" + g.raw).join("&");
+  history.replaceState(null, "", "/player" + (q ? "?" + q : ""));
+  saveStr("othello-retro-player", JSON.stringify(games.map(g => ({ raw: g.raw, f5: g.f5 }))));  // リロード・再訪で復元する
+}
+input.oninput = () => saveStr("othello-retro-player-input", input.value);
+
+btnLoad.onclick = () => { stop(); games = []; k = 0; focus = 0; addRecords(input.value); msg.textContent = `${games.length} 盤面`; };
+btnAdd.onclick = () => { addRecords(input.value); msg.textContent = `${games.length} 盤面`; };
+btnClearAll.onclick = () => { stop(); games = []; k = 0; errors.textContent = ""; msg.textContent = ""; build(); };
+pFirst.onclick = () => showAll(0); pLast.onclick = () => showAll(maxK());
+pPrev.onclick = () => showAll(k - 1); pNext.onclick = () => showAll(k + 1);
+pSlider.oninput = () => showAll(+pSlider.value);
+pPlay.onclick = play;
+pCols.onchange = () => {
+  grid.style.setProperty("--cols", pCols.value === "auto" ? "auto-fill" : pCols.value);
+  try { localStorage.setItem("othello-retro-cols", pCols.value); } catch (e) {}
+};
+pAnim.checked = prefs.anim; pAnim.onchange = () => setAnim(pAnim.checked);
+bindFlipMode(pMode);
+bindF5(pF5, () => { games.forEach(g => { g.states = buildStates(prefs.f5 ? g.f5Moves : g.rawMoves).states; }); build(); });
+bindVoice(pVoice, pTry);
+pSound.checked = prefs.sound; pSound.onchange = () => setSound(pSound.checked);
+document.addEventListener("keydown", e => {
+  if (e.target.closest("textarea, input, select")) return;
+  if (e.key === "ArrowLeft") showAll(k - 1);
+  else if (e.key === "ArrowRight") showAll(k + 1);
+  else if (e.key === "Home") showAll(0);
+  else if (e.key === "End") showAll(maxK());
+  else if (e.key === " ") { e.preventDefault(); play(); }
+  else return;
+});
+
+try { const c = localStorage.getItem("othello-retro-cols"); if (c) { pCols.value = c; pCols.onchange(); } } catch (e) {}
+// URL に棋譜があればそれを、無ければ前回並べていた棋譜を復元する
+let initial = new URLSearchParams(location.search).getAll("m");
+const fromUrl = initial.length > 0;
+if (!fromUrl) {
+  try { initial = JSON.parse(loadStr("othello-retro-player") || "[]").map(x => (typeof x === "string" ? x : x.raw)); } catch (e) { initial = []; }
+}
+input.value = fromUrl ? initial.join("\n") : (loadStr("othello-retro-player-input") ?? initial.join("\n"));
+if (initial.length) {
+  // 前回の再生位置と選択中の盤面も戻す（先に読んでおかないと、盤面を並べる処理で上書きされる）
+  const sk = +(loadStr("othello-retro-player-k") || 0), sf = +(loadStr("othello-retro-player-focus") || 0);
+  addRecords(initial.join("\n"));
+  focus = sf < games.length ? sf : 0; markFocus();
+  showAll(sk, false); msg.textContent = `${games.length} 盤面`;
+}
+else build();
+</script>
+</body>
+</html>

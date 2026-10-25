@@ -1,4 +1,4 @@
-# Othello Retro — Test cases, measurement tools, and results
+# Othello Retro — Source, weights, and benchmarks
 
 [日本語](README.md) | [English](README.en.md)
 
@@ -7,14 +7,20 @@ This experiment reconstructs one legal Othello move sequence from the standard o
 - [Experimental web app](https://othello-retro.logicpuzzle.app/) / [Created records](https://othello-retro.logicpuzzle.app/examples)
 - Interactive article: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
-This repository publishes test boards, reference records, measured results, solver information, and **measurement tools for connecting another program or environment to the same frozen banks**. The tools use only the Python 3.10+ standard library and run on Linux, macOS, or WSL. Connect your own external program through JSON input and output.
+The Rust/Python reconstruction, search, training and UI source is published in [`solver/`](solver/README.en.md); the vertical UI source is in [`short/`](short/README.md). Trained weights are assets of the [first experimental Release, v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0). Git tracks only model cards, license information and identifiers in `models/`, not `.pt` binaries.
 
-The original reconstruction engine, executables, and trained models are not distributed. This repository alone therefore cannot reproduce or run the original reconstruction program. The integration fixture only looks up reference records; it does not measure reconstruction performance.
+Download [source.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz), [models.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz) and [SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS), then follow the [build, SAT and auto instructions](solver/README.en.md). Put weights in `solver/ml/`. Compiled executables, third-party dependency binaries and original training files are not bundled. The original training files are absent, so exact retraining of the historical weights is not guaranteed.
+
+Test boards, reference records, measured results and **measurement tools for connecting another program or environment to the same frozen banks** are also published. The tools use the Python 3.10+ standard library on Linux/macOS/WSL. Their integration fixture only looks up reference records; it does not measure reconstruction performance.
+
+`SHA256SUMS` checks the two individual weights. [RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS) covers all other assets, including both source and model archives.
 
 ## Tools and documentation
 
 | Topic | 日本語 | English |
 |---|---|---|
+| Build, SAT, auto and training | [本体手順](solver/README.md) | [Engine guide](solver/README.en.md) |
+| Model provenance, download and terms | [モデルカード](models/MODEL_CARD.ja.md) | [Model card](models/MODEL_CARD.en.md) |
 | Connect, run, analyze, and export an external program's results | [runner利用手順](runner/README.md) | [Runner guide](runner/README.en.md) |
 | Validate generation, records, logs, summaries, and public bundles | [検証手順](runner/VALIDATION.md) | [Validation guide](runner/VALIDATION.en.md) |
 | Formal measurement progress and results | [測定結果](BENCHMARK_RESULTS.md) | [Results](BENCHMARK_RESULTS.en.md) |
@@ -44,8 +50,8 @@ Eight-case SHA-256: `292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1
 
 ## License and publication scope
 
-The new tools in `runner/` and the two synthetic midgame/endgame banks above may be used, modified, and redistributed under the [MIT license scope](BENCHMARK_LICENSE.md). See that document and [runner/LICENSE](runner/LICENSE) for the covered files and notice requirements. This permission does not license the article text, the undistributed reconstruction engine or models, or the entire project as a whole.
+Original source in `solver/`, `short/` and `runner/`, plus ordinary original project documentation, is [MIT](LICENSE). The two synthetic banks retain their existing [MIT scope](BENCHMARK_LICENSE.md). Weights/model cards and original article prose/figures are [CC BY 4.0](licenses/CC-BY-4.0.txt), with attribution **wand125** and changes indicated when modified. See [LICENSE_SCOPE.md](LICENSE_SCOPE.md) for the distinction between functional article code, prose and third-party material. External software and cited works retain their own terms.
 
 The experimental web app collects and stores newly created boards, move sequences, computation times, and related creation information, and publishes them as created records. Past usage jobs are not bulk-published.
 
-Usage logs, browser identifiers, credentials, and private infrastructure configuration are excluded from publication. Keep private runner output in `.runs/` and user configuration in `*.local.json`; use the runner's export tool to write a separate public directory. Distribution checks for the original reconstruction engine, models, and third-party dependencies remain in progress.
+Usage logs, browser identifiers, credentials, and private infrastructure configuration are excluded from publication. Keep private runner output in `.runs/` and user configuration in `*.local.json`; use the runner's export tool to write a separate public directory. Third-party implementations are obtained as dependencies; see the [publication scope](CODE_PUBLICATION.en.md) for the shipped files and notices.

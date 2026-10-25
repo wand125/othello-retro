@@ -1,0 +1,4 @@
+# Direct dependencies matching the completed four-environment CPU inference runs.
+# Tested with Python3.12.2; wheels/native backends differ by OS and architecture.
+numpy==1.26.4
+torch==2.2.2

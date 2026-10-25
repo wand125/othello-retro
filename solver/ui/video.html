@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>動画制作モード</title>
+<link rel="stylesheet" href="common.css">
+<style>
+main.video { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); max-width: 1300px; }
+@media (max-width: 860px) { main.video { grid-template-columns: minmax(0, 1fr); } }
+.settings { display: grid; gap: 14px; align-content: start; }
+.settings h3 { font-size: 13px; margin: 0 0 6px; color: var(--muted); font-weight: 600; }
+.field { display: grid; grid-template-columns: 7.5em minmax(0, 1fr) 4.5em; gap: 8px; align-items: center; font-size: 13px; }
+.field input[type=range] { width: 100%; accent-color: var(--accent); }
+.field output { font-variant-numeric: tabular-nums; color: var(--muted); text-align: right; }
+.field input[type=text] { font: inherit; font-size: 13px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); grid-column: 2 / 4; }
+/* 動画の画面（ステージ） */
+.stage-wrap { display: grid; place-items: center; min-height: 60vh; }
+.stage { position: relative; background: #101311; border-radius: 14px; overflow: hidden; display: grid; place-items: center;
+  width: min(100%, calc(80vh * var(--ar))); aspect-ratio: var(--ar); }
+.stage .wrap { width: min(86%, calc(86% / var(--ar))); }
+.stage .board-wrap { display: block; max-width: none; }
+.stage .cols, .stage .rows { display: none; }
+.stage .board { border-radius: 10px; }
+/* 動画では最後の手の印と返った石の輪を出さない（「手の印」で出せる） */
+.stage:not(.marks) .cell.last::after { display: none; }
+.stage:not(.marks) .cell.flipped .disc { outline: none; }
+.stage .caption { position: absolute; left: 6%; right: 6%; text-align: center; color: #f4f2ea; font-weight: 700;
+  font-size: clamp(16px, calc(var(--stage-w, 400px) * 0.055), 44px); text-shadow: 0 2px 10px rgba(0,0,0,.6);
+  opacity: 0; transition: opacity .35s; pointer-events: none; }
+.stage .caption.top { top: 7%; } .stage .caption.bottom { bottom: 8%; }
+.stage .caption.on { opacity: 1; }
+.timeline { text-align: center; color: var(--muted); font-size: 13px; margin-top: 10px; }
+.timeline b { color: var(--ink); font-variant-numeric: tabular-nums; }
+/* 収録モード: ステージだけを画面いっぱいに */
+body.rec header, body.rec .settings, body.rec .run-bar, body.rec .timeline { display: none !important; }
+body.rec { background: #000; }
+body.rec main.video { display: block; max-width: none; padding: 0; }
+body.rec .stage-wrap { min-height: 100vh; }
+body.rec .stage { width: min(100vw, calc(100vh * var(--ar))); border-radius: 0; }
+body.rec section { border: 0; background: none; padding: 0; }
+.rec-hint { position: fixed; top: 10px; right: 14px; color: #777; font-size: 12px; display: none; }
+body.rec .rec-hint { display: block; }
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav"><a href="/">棋譜復元</a><a href="/player">棋譜プレイヤー</a><a href="/video" class="cur">動画制作</a></nav>
+  <h1>動画制作モード</h1>
+  <p>棋譜を、音と動きを強調した演出で再生します。「音付きで保存」で効果音・字幕入りの動画を保存できます。</p>
+</header>
+<main class="video">
+  <section class="settings">
+    <div>
+      <h3>棋譜</h3>
+      <textarea id="input" rows="3" spellcheck="false" placeholder="例: f5d6c3d3c4f4f6f3e6e7…"></textarea>
+      <div class="row" style="margin-top:6px"><button id="btnLoad">読み込む</button>
+        <label class="toggle"><input type="checkbox" id="vF5">f5 開始に揃える</label><span class="muted" id="msg"></span></div>
+      <div class="errors" id="errors"></div>
+    </div>
+    <div>
+      <h3>音</h3>
+      <div class="row"><label class="toggle"><input type="checkbox" id="vSound">効果音</label>
+        <select id="vVoice" aria-label="音の種類"></select><button id="vTry" title="試聴">♪</button>
+        <select id="vMode" aria-label="返し方"><option value="wave">順番に返す</option><option value="all">一斉に返す</option></select></div>
+      <div class="field" style="margin-top:8px"><span>返す間隔</span><input type="range" id="gap" min="20" max="80" step="5"><output id="gapV"></output></div>
+      <div class="field"><span>左右の広がり</span><input type="range" id="pan" min="0" max="100" step="10"><output id="panV"></output></div>
+    </div>
+    <div>
+      <h3>テンポ</h3>
+      <div class="field"><span>1 手の間隔</span><input type="range" id="base" min="120" max="800" step="10"><output id="baseV"></output></div>
+      <div class="row"><label class="toggle"><input type="checkbox" id="tame">返す枚数に応じて溜める</label></div>
+      <div class="field"><span>1 枚ごとに</span><input type="range" id="perFlip" min="0" max="80" step="5"><output id="perFlipV"></output></div>
+      <div class="field"><span>1 手の上限</span><input type="range" id="maxStep" min="300" max="2000" step="50"><output id="maxStepV"></output></div>
+      <div class="field"><span>終盤スロー</span><input type="range" id="slowN" min="0" max="15" step="1"><output id="slowNV"></output></div>
+      <div class="field"><span>スローの倍率</span><input type="range" id="slowX" min="1" max="4" step="0.1"><output id="slowXV"></output></div>
+    </div>
+    <div>
+      <h3>画面と字幕</h3>
+      <div class="row"><select id="ar" aria-label="画面の比率"><option value="0.5625">縦 9:16（Shorts）</option><option value="1">正方形 1:1</option><option value="1.7778">横 16:9</option></select>
+        <label class="toggle"><input type="checkbox" id="vAnim">アニメーション</label>
+        <label class="toggle"><input type="checkbox" id="marks">手の印</label></div>
+      <div class="field" style="margin-top:8px"><span>最初の字幕</span><input type="text" id="introText"></div>
+      <div class="field"><span>最初の間</span><input type="range" id="introMs" min="0" max="4000" step="100"><output id="introMsV"></output></div>
+      <div class="field"><span>最後の字幕</span><input type="text" id="outroText"></div>
+      <div class="field"><span>最後の間</span><input type="range" id="outroMs" min="0" max="5000" step="100"><output id="outroMsV"></output></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="stage-wrap">
+      <div class="stage" id="stage">
+        <div class="wrap" id="boardWrap"></div>
+        <div class="caption top" id="capIntro"></div>
+        <div class="caption bottom" id="capOutro"></div>
+      </div>
+    </div>
+    <div class="controls run-bar">
+      <button id="vFirst" aria-label="最初">⏮</button>
+      <button class="primary" id="vPlay">▶ 再生</button>
+      <button id="vRec" title="ステージだけを全画面に（Esc で戻る）">収録モード</button>
+      <select id="vExportFormat" aria-label="保存する動画形式"></select>
+      <button id="vExport">音付きで保存</button>
+      <button id="vExportCancel" hidden>保存を中止</button>
+    </div>
+    <div class="muted" style="text-align:center" id="exportStatus" role="status" aria-live="polite"></div>
+    <div style="text-align:center"><a id="exportDownload" hidden>保存した動画をダウンロード</a></div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+</main>
+<div class="rec-hint">クリックで再生 ・ Esc で戻る</div>
+
+<script src="common.js"></script>
+<script>
+"use strict";
+// ---- 設定（すべてブラウザに保存） ----
+const DEFAULTS = { gap: 45, pan: 70, base: 260, tame: true, perFlip: 30, maxStep: 900, slowN: 5, slowX: 1.8,
+  ar: "0.5625", marks: false, introText: "音ありで見てください 🎧", introMs: 1500, outroText: "全部、普通のオセロです。", outroMs: 2000 };
+let cfg = { ...DEFAULTS };
+try { Object.assign(cfg, JSON.parse(loadStr("othello-retro-video") || "{}")); } catch (e) {}
+const saveCfg = () => saveStr("othello-retro-video", JSON.stringify(cfg));
+const UNITS = { gap: "ms", pan: "%", base: "ms", perFlip: "ms", maxStep: "ms", slowN: "手", slowX: "倍", introMs: "ms", outroMs: "ms" };
+for (const k of Object.keys(UNITS)) {
+  const el = document.getElementById(k), outEl = document.getElementById(k + "V");
+  el.value = cfg[k];
+  const upd = () => { cfg[k] = +el.value; outEl.textContent = `${el.value}${UNITS[k]}`; saveCfg(); applyCfg(); };
+  el.oninput = upd; outEl.textContent = `${el.value}${UNITS[k]}`;
+}
+for (const k of ["introText", "outroText"]) {
+  const el = document.getElementById(k); el.value = cfg[k];
+  el.oninput = () => { cfg[k] = el.value; saveCfg(); applyCfg(); };
+}
+tame.checked = cfg.tame; tame.onchange = () => { cfg.tame = tame.checked; saveCfg(); applyCfg(); };
+ar.value = cfg.ar; ar.onchange = () => { cfg.ar = ar.value; saveCfg(); applyCfg(); };
+marks.checked = cfg.marks; marks.onchange = () => { cfg.marks = marks.checked; saveCfg(); applyCfg(); };
+vSound.checked = prefs.sound; vSound.onchange = () => setSound(vSound.checked);
+vAnim.checked = prefs.anim; vAnim.onchange = () => setAnim(vAnim.checked);
+bindVoice(vVoice, vTry);
+// このページの返し方は既定で「順番に」（設定は他のページと共有しない）
+const savedMode = loadStr("othello-retro-video-mode");
+vMode.value = savedMode === "all" ? "all" : "wave";
+vMode.onchange = () => { saveStr("othello-retro-video-mode", vMode.value); applyCfg(); };
+
+function applyCfg() {
+  prefs.flipMode = vMode.value;
+  prefs.flipGapMs = cfg.gap;
+  stage.style.setProperty("--ar", cfg.ar);
+  stage.classList.toggle("marks", cfg.marks);
+  capIntro.textContent = cfg.introText;
+  capOutro.textContent = cfg.outroText;
+  stage.style.setProperty("--stage-w", stage.clientWidth + "px");
+  renderTimeline();
+}
+addEventListener("resize", () => stage.style.setProperty("--stage-w", stage.clientWidth + "px"));
+
+// ---- 棋譜 ----
+let states = null, raw = null, view = null;
+function load(text) {
+  const moves = parseRecord(text);
+  errors.textContent = "";
+  if (!moves.length) { errors.textContent = "着手が読み取れない"; return; }
+  const { error } = buildStates(moves);
+  if (error) { errors.textContent = error; return; }
+  raw = moves;
+  saveStr("othello-retro-video-record", moves.filter(m => m !== "pass").join(""));
+  rebuild();
+}
+function rebuild() {
+  if (!raw) return;
+  states = buildStates(prefs.f5 ? normalizeF5(raw).moves : raw).states;
+  view = new BoardView(boardWrap, states);
+  view.show(0, false);
+  msg.textContent = `${states.length - 1} 手`;
+  applyCfg();
+}
+btnLoad.onclick = () => load(input.value);
+bindF5(vF5, rebuild);
+
+// ---- テンポ: 1 手ごとの長さ（ミリ秒） ----
+function stepDurations() {
+  const n = states.length - 1;
+  return states.slice(1).map((st, i) => {
+    const flips = st.flipped.size;
+    const need = FLIP_DELAY + (prefs.flipMode === "wave" ? Math.max(0, flips - 1) * cfg.gap : 0) + 2 * FLIP_HALF;
+    let d = cfg.base;
+    if (cfg.tame) {
+      // 返す枚数に応じて伸ばす。順番に返すなら、最後の石が返り切るまでは待つ
+      d = Math.min(cfg.maxStep, Math.max(cfg.base + cfg.perFlip * Math.max(0, flips - 1), need));
+    }
+    if (prefs.anim) d = Math.max(d, need); // Never cut off scheduled flips before the next move.
+    if (i >= n - cfg.slowN) d *= cfg.slowX;  // 終盤スロー
+    return d;
+  });
+}
+function renderTimeline() {
+  if (!states) { timeline.innerHTML = "棋譜を読み込んでください。"; return; }
+  const d = stepDurations(), total = cfg.introMs + d.reduce((a, b) => a + b, 0) + cfg.outroMs;
+  const big = states.slice(1).map(s => s.flipped.size).reduce((a, b) => Math.max(a, b), 0);
+  timeline.innerHTML = `合計 <b>${(total / 1000).toFixed(1)} 秒</b>（${states.length - 1} 手・最大の返し ${big} 枚）`;
+}
+
+// ---- 再生 ----
+let token = 0, playing = false, playController = null;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+function playPause(ms, signal) {
+  return new Promise(resolve => {
+    const finish = () => { clearTimeout(timer); signal.removeEventListener("abort", finish); resolve(); };
+    const timer = setTimeout(finish, ms);
+    signal.addEventListener("abort", finish, { once: true });
+    if (signal.aborted) finish();
+  });
+}
+async function play() {
+  if (!states) return;
+  if (playing) stop();
+  const my = ++token; playing = true; vPlay.textContent = "■ 停止";
+  const controller = new AbortController(); playController = controller;
+  if (prefs.sound) audioCtx();
+  capOutro.classList.remove("on");
+  view.k = 0; view.show(0, false);
+  if (cfg.introText) capIntro.classList.add("on");
+  await playPause(cfg.introMs, controller.signal);
+  if (token !== my) return;
+  capIntro.classList.remove("on");
+  const d = stepDurations();
+  for (let k = 1; k < states.length; k++) {
+    if (token !== my) return;
+    view.show(k, false);
+    playStepSoundPanned(states[k], cfg.pan / 100);
+    await playPause(d[k - 1], controller.signal);
+  }
+  if (token !== my) return;
+  if (cfg.outroText) capOutro.classList.add("on");
+  await playPause(cfg.outroMs, controller.signal);
+  if (token === my) { playing = false; vPlay.textContent = "▶ 再生"; }
+}
+function stop() { token++; playController?.abort(); playing = false; vPlay.textContent = "▶ 再生"; }
+vPlay.onclick = () => (playing ? stop() : play());
+vFirst.onclick = () => { stop(); if (view) { view.k = 0; view.show(0, false); } capIntro.classList.remove("on"); capOutro.classList.remove("on"); };
+// 収録モード: ステージだけを表示。ステージのクリックで再生、Esc で戻る
+vRec.onclick = () => { document.body.classList.add("rec"); applyCfg(); };
+stage.onclick = () => { if (document.body.classList.contains("rec")) (playing ? stop() : play()); };
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && document.body.classList.contains("rec")) { document.body.classList.remove("rec"); applyCfg(); }
+  else if (e.key === " " && !e.target.closest("textarea, input, select") && !vExportCancel.hidden) { e.preventDefault(); }
+  else if (e.key === " " && !e.target.closest("textarea, input, select")) { e.preventDefault(); playing ? stop() : play(); }
+});
+
+// URL（?m=棋譜）か、前回の棋譜を読み込む
+const fromUrl = new URLSearchParams(location.search).get("m");
+input.value = fromUrl || loadStr("othello-retro-video-record") || "";
+applyCfg();
+if (input.value) load(input.value); else renderTimeline();
+</script>
+<script src="mediabunny.js"></script>
+<script src="video-export.js"></script>
+</body>
+</html>

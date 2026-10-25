@@ -1,42 +1,41 @@
-# コードの公開範囲と確認状況
+# コード・重み・論文の公開範囲
 
 [日本語](CODE_PUBLICATION.md) | [English](CODE_PUBLICATION.en.md)
 
-## 公開済みの測定ツール
+[最初の試験公開Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)としてソースと既存重みを公開しています。
 
-盤面・参照棋譜・測定資料・使用ソルバー情報に加え、`runner/` に新規の汎用測定ツールを公開しています。Python 3.10以降の標準ライブラリだけを使い、自分の外部プログラムをJSONで接続して、固定bank・予定表に沿う測定、独立再生検証、解析、公開用exportを実行できます。
+| 対象 | 配置・取得先 | 利用条件 |
+|---|---|---|
+| Rust CLI、Python探索・学習、UI・サーバー、凍結測定harness | [`solver/`](solver/README.md) | 自作コードMIT、第三者は個別通知 |
+| 縦長UI | [`short/`](short/README.md) | 自作コードMIT |
+| 汎用測定・独立検証・解析・export | [`runner/`](runner/README.md) | MIT |
+| 既存の途中・終局二つの合成bank | [`benchmarks/`](BENCHMARK_LICENSE.md) | 従来のMIT、内容・hash不変 |
+| `model.pt`・`model_passes.pt` | Release添付。Gitには含めない | CC BY 4.0、著作者wand125 |
+| モデルの説明・ライセンス・識別情報 | [`models/`](models/MODEL_CARD.ja.md) | CC BY 4.0 |
+| 自作論文本文・自作図・自作補足分析 | [論文](https://othello-retro.logicpuzzle.app/paper)・`paper-data/` | CC BY 4.0 |
 
-- 利用手順: [日本語](runner/README.md) / [English](runner/README.en.md)
-- 測定ツールと二つの合成bankの[MIT利用条件・対象範囲](BENCHMARK_LICENSE.md)
+正確な適用範囲は[LICENSE_SCOPE.md](LICENSE_SCOPE.md)、[MIT](LICENSE)、[CC BY 4.0本文](licenses/CC-BY-4.0.txt)を参照してください。機能コードと論文本文、第三者の引用・素材を一括して同じ許諾へ変更しません。
 
-測定ツールは復元器ではありません。付属fixtureは参照解の検索だけを行い、その速度を復元性能として扱えません。元のRust/Python復元器本体、学習コード、実行ファイル、学習済みモデルは未配布で、このリポジトリだけから元プログラムを再現・実行することはできません。測定ツールとbankのMIT許諾は、これら未配布物や論文本文への許諾を意味しません。
+## Releaseの添付ファイル
 
-## 元の復元器本体の公開候補
+- [source.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz): 配布ソース。実行バイナリや依存バイナリは含みません。
+- [models.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz): 既存の二つの重み、モデルカード、ライセンスと識別情報。
+- [model.pt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/model.pt)・[model_passes.pt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/model_passes.pt): 個別取得用。
+- [CC-BY-4.0.txt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/CC-BY-4.0.txt)・[SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS)。
 
-Rustの盤面操作・逆算・必要条件・SAT符号化・CLIに限定した、31ファイルのsource-only配布候補を準備しました。Cargo.toml/lockと9個のRustモジュールを保持し、ロック済み依存9件の通知文、外部ソルバー情報、使用例とファイルhashを整えています。Pythonの探索・学習・UI、モデル、原訓練データ、実行バイナリ、WASM、コンテナはこの候補に含みません。
+重みは`solver/ml/`へ置き、取得したファイルのhashを照合します。[ビルドと実行](solver/README.md)を参照してください。`solver/ml/bench_fix.py`では他のSATプロセスも止め得る広域pkillを除き、配布時の差分として記録しています。Cargo・Rust・主要推論ソースの凍結hashは保持しています。
 
-候補と同じソースで、WSL上のRust1.98.0によるlocked release build、Kissat4.0.3を用いる全9 unit tests、有限・無制限SATのsmoke試験が通り、棋譜も独立に再生検証しました。検証は公開承認とは別です。**復元器本体は引き続き未配布**で、所有者による来歴・表示範囲の確認と公開判断を待っています。
 
-Kissat4.0.3、CaDiCaL1.9.5、Rust binding cadical0.1.16はMITライセンスを確認しました。再配布する部分には、その版の著作権表示とライセンス文を保持します。元の独自RustコードにはMITを提案していますが、所有者の判断待ちです。提案を既存の許諾とは扱いません。公開済みの測定ツール・二つのbankのMIT許諾とは別です。
+`SHA256SUMS`は個別の二つの重み用です。モデル用archive内にも同じ一覧があります。[RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS)は全添付ファイル用です。[LICENSE-WEIGHTS.md](https://github.com/wand125/othello-retro/releases/download/v0.1.0/LICENSE-WEIGHTS.md)も同梱します。
 
-## 確認した範囲
+## 同梱・検証の範囲
 
-- [Rustロック依存9件の宣言・通知ファイル棚卸し](licenses/rust-dependency-inventory.json)。正確な版のarchive checksumと通知文を照合し、source-only候補へ必要な通知を梱包しました。r-efi6.0.0は `AUTHORS` 内にMIT許諾文と著作権表示があり、以前の通知不足は解消しています。宣言はMIT OR Apache-2.0 OR LGPL-2.1-or-laterで、候補ではMITを選択しています。対象条件付きの依存で、Apple向けの実際のビルド依存には含まれません。
-- [推論環境11パッケージのメタデータ棚卸し](licenses/python-inference-inventory.json)。これはCPUベンチマーク用環境で、Cloud RunのGoogle SDKや訓練・動画版の全配布依存の監査完了を意味しません。標準ライブラリだけの公開runnerが、これらの推論パッケージを必要とするわけでもありません。
-- PyTorch2.2.2の[公式ライセンス](https://github.com/pytorch/pytorch/blob/v2.2.2/LICENSE)を確認しています。バイナリを配布する場合には、NumPy等を含めた同梱ネイティブライブラリの通知文も別に確認します。
+Rustのロック依存9件と、CaDiCaL1.9.5・Kissat4.0.3の通知を[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md)へ整理しました。外部依存の実装・バイナリは取得側で用意します。`cadical0.1.16`はビルド時にCaDiCaLを取得crateからコンパイルし、Kissatは別プロセスです。r-efi6.0.0のMIT本文と著作権表示は`AUTHORS`から保持しています。
 
-## 未配布の部分に残る確認
+同一RustソースでRust1.98.0 locked release build、Kissat4.0.3付き全9単体テスト、有限・無制限SATのsmokeと棋譜の独立再生を確認しています。Python依存は推論用と学習比較用のrequirementsに分け、版の根拠と第三者通知を[`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md)へ記録しています。既存ベンチマークの条件・値・rawは変更していません。
 
-| 対象 | 状態 |
-|---|---|
-| Rust復元器のsource-only候補 | 31ファイル、依存通知とbuild・9 tests・smoke検証を準備済み。自作MIT提案と公開は所有者判断待ち |
-| Python探索・学習・UI | 上記Rust候補とは別範囲。未配布 |
-| 学習済み重み `.pt` | 学習・コピー記録と現物を照合済み。重み固有の明示ライセンスと公開判断待ち |
-| 原訓練データ | 元ファイル不在で配布不可。完全な再学習再現は未確認。MIT許諾済みの二つのテストbankとは別対象 |
-| コンパイル済み実行ファイル・WASM・配布コンテナ | 同梱依存の通知文を整備してから判断 |
-| 動画制作版 | 簡易公開版とは別範囲。Mediabunny等の追加依存を確認 |
-| 認証情報、秘密鍵、Cookie、利用ログ、私有インフラ設定 | 公開物へ含めない |
+## 同梱しないもの・再現性の限界
 
-モデルの記録上の対応は、主 `model.pt` が混合38,504行、旧モデルを退避した `model_passes.pt` がパスなし25,796行の学習です。ファイル名だけでパス専用学習と解釈できません。原訓練データの現物がなく、重み固有の評価精度・完全な再学習再現は未確認です。モデルカード全文、原ログ、証拠、checkpointはこの公開資料へ追加していません。
+原訓練JSONLは現物がなく、配布できません。公開bankは元訓練ファイルとは別です。記録に基づく来歴では主重みは混合38,504行、旧モデルを退避した`model_passes.pt`はパスなし25,796行で、名前はパス専用学習を意味しません。重み固有のholdout精度と完全な再学習再現は未確認です。詳細は[モデルカード](models/MODEL_CARD.ja.md)へ。
 
-ライセンス名の確認、通知文の梱包、独自コードの配布条件の決定は別の作業です。この文書は元プログラム全体の配布審査が完了したという表示ではありません。[使用ソルバー](SOLVERS.md)も参照してください。
+コンパイル済み実行ファイル、WASM、配布コンテナ、外部ソルバー・Python wheel・動画ライブラリのバイナリは含みません。それらを再配布する場合は実際の同梱物に応じた通知・条件の確認が別途必要です。認証情報、Cookie、利用ログ、私有インフラ設定、個人の動画・音声は公開物へ含めません。

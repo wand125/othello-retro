@@ -1,0 +1,133 @@
+{
+  "scope": "Nonvendored Rust/ML engine source distribution; nine locked registry crates plus two SAT solver notices; Python dependencies documented separately",
+  "dependencies": [
+    {
+      "component": "cadical",
+      "version": "0.1.16",
+      "declared_license": "MIT",
+      "selected_license": "MIT",
+      "repository": "https://github.com/mmaroti/cadical-rs/",
+      "crate_sha256": "a54f8130f9e6a40dd1ec66180c4e8be624257705740b7ce1502146c807c7778e",
+      "notice_file": "licenses/cadical-0.1.16/LICENSE",
+      "notice_sha256": "ae05dd3d1060a951438eada5734aa0551db11aa1c799ffd2105e96e73e2ccb74",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "CaDiCaL",
+      "version": "1.9.5",
+      "selected_license": "MIT",
+      "repository": "https://github.com/arminbiere/cadical/tree/rel-1.9.5",
+      "notice_file": "licenses/cadical-1.9.5/LICENSE",
+      "notice_sha256": "88d79ee9ae2982afc3272b5b697c226e23b0772420db2182ca49942253dd6b63",
+      "implementation_vendored": false,
+      "condition": "Bundled inside downloaded cadical0.1.16 crate at build time; source/build.rs uses C++17"
+    },
+    {
+      "component": "cc",
+      "version": "1.6.0",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "crate_sha256": "f74872d07caf508b30a21f6836e7d7016a2eaf7d9ff4f48deaa58cd8a0407630",
+      "notice_file": "licenses/cc-1.6.0/LICENSE-MIT",
+      "notice_sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "cfg-if",
+      "version": "1.0.5",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/rust-lang/cfg-if",
+      "crate_sha256": "4e7648175b45a9a48536d676f68d918270699102aa8dab5496df06904c914600",
+      "notice_file": "licenses/cfg-if-1.0.5/LICENSE-MIT",
+      "notice_sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "find-msvc-tools",
+      "version": "0.1.14",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/rust-lang/cc-rs",
+      "crate_sha256": "aedcfb3409746eddb02b9e19ebda1c3394f759a152e48ee875a0844d1b955484",
+      "notice_file": "licenses/find-msvc-tools-0.1.14/LICENSE-MIT",
+      "notice_sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "getrandom",
+      "version": "0.4.3",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/rust-random/getrandom",
+      "crate_sha256": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099",
+      "notice_file": "licenses/getrandom-0.4.3/LICENSE-MIT",
+      "notice_sha256": "523a42c25d245dde9c015f882cec7f4555aad883382a6cf19b4b7d9b2cd5419b",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "jobserver",
+      "version": "0.1.35",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/rust-lang/jobserver-rs",
+      "crate_sha256": "1c00acbd29eabad4a2392fa0e921c874934dbbf4194312ad20f04a0ed67a3cb3",
+      "notice_file": "licenses/jobserver-0.1.35/LICENSE-MIT",
+      "notice_sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "libc",
+      "version": "0.2.190",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/rust-lang/libc",
+      "crate_sha256": "ce5d3ddc6d3fa000eb1536d85e147bfe31aacaba692ed6a876f95cb7c855be78",
+      "notice_file": "licenses/libc-0.2.190/LICENSE-MIT",
+      "notice_sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "r-efi",
+      "version": "6.0.0",
+      "declared_license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+      "selected_license": "MIT",
+      "repository": "https://github.com/r-efi/r-efi",
+      "crate_sha256": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf",
+      "notice_file": "licenses/r-efi-6.0.0/AUTHORS",
+      "notice_sha256": "d027e91dbc9cdbb2f1190068e498bd6b61cff022b6a032b191021ba658d96111",
+      "implementation_vendored": false,
+      "condition": "Only target_os=uefi and getrandom_backend=efi_rng in getrandom0.4.3; not built for documented Linux/macOS targets"
+    },
+    {
+      "component": "shlex",
+      "version": "2.0.1",
+      "declared_license": "MIT OR Apache-2.0",
+      "selected_license": "MIT",
+      "repository": "https://github.com/comex/rust-shlex",
+      "crate_sha256": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba",
+      "notice_file": "licenses/shlex-2.0.1/LICENSE-MIT",
+      "notice_sha256": "4455bf75a91154108304cb283e0fea9948c14f13e20d60887cf2552449dea3b1",
+      "implementation_vendored": false,
+      "condition": "Cargo.lock transitive dependency"
+    },
+    {
+      "component": "Kissat",
+      "version": "4.0.3",
+      "selected_license": "MIT",
+      "repository": "https://github.com/arminbiere/kissat/tree/rel-4.0.3",
+      "notice_file": "licenses/kissat-4.0.3/LICENSE",
+      "notice_sha256": "a792a1aaeac78521493ccec1bad4fe379a79b101f479c943883d8934c9b06fc0",
+      "implementation_vendored": false,
+      "condition": "External CLI executable installed separately; no Kissat code or binary in payload"
+    }
+  ]
+}

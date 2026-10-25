@@ -1,0 +1,9 @@
+*
+!Dockerfile
+!.dockerignore
+!install_short.py
+!build.yaml
+!ui/
+!ui/short.html
+!ui/short.css
+!ui/short.js

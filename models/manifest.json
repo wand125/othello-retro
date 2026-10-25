@@ -1,0 +1,89 @@
+{
+  "schema": "othello-retro-model-assets-v1",
+  "creator": "wand125",
+  "project": "https://github.com/wand125/othello-retro",
+  "distribution": "GitHub Release assets; weights are not intended for Git commits",
+  "owner_distribution_permission": "explicitly approved",
+  "license": {
+    "spdx": "CC-BY-4.0",
+    "attribution": "wand125",
+    "canonical_url": "https://creativecommons.org/licenses/by/4.0/",
+    "legal_code_url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+    "local_legal_code": "CC-BY-4.0.txt",
+    "local_legal_code_sha256": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744",
+    "scope": [
+      "model.pt",
+      "model_passes.pt",
+      "README.md",
+      "README.en.md",
+      "MODEL_CARD.ja.md",
+      "MODEL_CARD.en.md"
+    ],
+    "custom_code_license": "MIT, separately scoped; third-party dependencies retain their own licenses"
+  },
+  "files": [
+    {
+      "file": "model.pt",
+      "sha256": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+      "bytes": 1257333,
+      "format": "PyTorch state_dict",
+      "architecture": "Net(False) in matching solver/ml/train.py (ml/train.py relative to implementation root solver/)",
+      "parameter_count": 307841,
+      "state_dict_tensors": 67,
+      "floating_dtype": "float32",
+      "record_supported_training": {
+        "data": "mixed no-pass and pass-aware rows",
+        "rows": 38504,
+        "epochs": 12,
+        "data_bytes_available": false,
+        "cryptographic_training_input_binding_established": false
+      },
+      "all_nine_batchnorm_update_counters": 7224
+    },
+    {
+      "file": "model_passes.pt",
+      "sha256": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+      "bytes": 1256602,
+      "format": "PyTorch state_dict",
+      "architecture": "Net(False) in matching solver/ml/train.py (ml/train.py relative to implementation root solver/)",
+      "parameter_count": 307841,
+      "state_dict_tensors": 67,
+      "floating_dtype": "float32",
+      "record_supported_training": {
+        "data": "retained old no-pass model",
+        "rows": 25796,
+        "epochs": 12,
+        "data_bytes_available": false,
+        "cryptographic_training_input_binding_established": false
+      },
+      "all_nine_batchnorm_update_counters": 4848
+    }
+  ],
+  "loading_checked": {
+    "python": "3.12",
+    "torch": "2.2.2",
+    "numpy": "1.26.4",
+    "device": "cpu",
+    "weights_only": true,
+    "strict_state_dict": true,
+    "source_implementation_root": "solver/",
+    "weight_paths_from_repository_root": [
+      "solver/ml/model.pt",
+      "solver/ml/model_passes.pt"
+    ]
+  },
+  "limitations": [
+    "Original training JSONL files and full run manifests are unavailable and not included.",
+    "Teacher negatives are restricted to no-pass or final-12-move-pass reachability, not general unreachability.",
+    "Training converted unknown labels to positives (unknown_as_pos=True).",
+    "The main weight is the mixed-data model; model_passes.pt is the retained no-pass model, despite its name.",
+    "Artifact-specific final holdout AUC/calibration and byte-exact retraining reproduction are not established.",
+    "Recovered records support custom synthetic training; missing original data prevents a complete no-mixing content audit."
+  ],
+  "excluded": [
+    "original training data",
+    "private execution logs and evidence",
+    "credentials",
+    "external libraries and solvers"
+  ]
+}

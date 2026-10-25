@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="オセロの盤面から、初期配置に始まる合法な棋譜を探して再生します。">
+  <title>オセロ棋譜復元</title>
+  <link rel="stylesheet" href="/public.css">
+  <script id="publicConfig" type="application/json">__PUBLIC_CONFIG__</script>
+  <script src="/public.js" defer></script>
+</head>
+<body data-library="__LIBRARY_VIEW__">
+  <header>
+    <nav><a href="/">棋譜を探す</a><a href="/examples">作成された棋譜</a><a href="/paper?lang=ja">論文</a></nav>
+    <h1>オセロ棋譜復元</h1>
+    <p id="intro">この盤面は、どんな手順でできる？ 盤面から合法な棋譜を1つ探します。</p>
+  </header>
+  <main>
+    <section id="inputSection" aria-labelledby="inputTitle">
+      <h2 id="inputTitle"><span class="step">1</span>盤面を入力</h2>
+      <p class="hint">マスを押すと、空 → 黒 → 白の順に切り替わります。</p>
+      <div class="board-wrap">
+        <div class="cols" id="editCols"></div><div class="rows" id="editRows"></div>
+        <div class="board" id="editBoard" aria-label="入力する盤面"></div>
+      </div>
+      <div class="toolbar" role="group" aria-label="置く石">
+        <button type="button" data-brush="cycle" aria-pressed="true">切替</button>
+        <button type="button" data-brush="X" aria-pressed="false"><span class="dot X"></span>黒</button>
+        <button type="button" data-brush="O" aria-pressed="false"><span class="dot O"></span>白</button>
+        <button type="button" data-brush="-" aria-pressed="false">空</button>
+      </div>
+      <div class="toolbar small-tools">
+        <button type="button" id="btnInit">初期配置</button>
+        <button type="button" id="btnClear">全消去</button>
+        <button type="button" id="btnExample">例を表示</button>
+      </div>
+      <div class="toolbar small-tools" role="group" aria-label="盤面を変換">
+        <button type="button" id="btnSwap">白黒反転</button>
+        <button type="button" id="btnRotate">90度回転</button>
+        <button type="button" id="btnFlipH">左右反転</button>
+        <button type="button" id="btnFlipV">上下反転</button>
+      </div>
+      <p class="stats" id="counts"></p>
+      <p class="check hint" id="check" role="status"></p>
+      <details>
+        <summary>テキストで盤面を入力</summary>
+        <label class="hint" for="boardText">黒 X・白 O・空 - の8行、または「黒hex,白hex」</label>
+        <textarea id="boardText" rows="8" spellcheck="false"></textarea>
+        <div class="row"><button type="button" id="btnImport">読み込む</button><span class="hint" id="importMsg" role="status"></span></div>
+      </details>
+      <p class="hint record-policy">試験公開のため、作成情報（盤面・棋譜・計算時間など）は取得・保存され、公開されます。成功した棋譜は「作成された棋譜」で確認できます。</p>
+      <div class="run">
+        <label for="timeSel">制限時間</label>
+        <select id="timeSel"><option value="30">30秒</option><option value="60" selected>1分</option><option value="120">2分</option><option value="300">5分</option></select>
+        <button type="button" class="primary" id="btnSolve">棋譜を探す</button>
+        <button type="button" id="btnCancel" hidden>中止</button>
+      </div>
+    </section>
+    <section id="resultSection" aria-labelledby="resultTitle">
+      <h2 id="resultTitle"><span class="step">2</span>結果</h2>
+      <div id="status" role="status"><p class="empty">盤面を入力して「棋譜を探す」を押してください。</p></div>
+      <p class="hint" id="elapsed"></p>
+      <div id="playback" hidden>
+        <div class="board-wrap">
+          <div class="cols" id="playCols"></div><div class="rows" id="playRows"></div>
+          <div class="board readonly" id="playBoard" aria-label="復元した棋譜の盤面"></div>
+        </div>
+        <div class="controls">
+          <button type="button" id="first">最初</button><button type="button" id="prev">戻る</button>
+          <button type="button" id="play">再生</button><button type="button" id="next">進む</button><button type="button" id="last">最後</button>
+        </div>
+        <input type="range" id="slider" min="0" max="0" value="0" aria-label="表示する手数">
+        <p class="ply hint" id="ply"></p>
+        <div class="row record-head"><label for="record">復元した棋譜</label><button type="button" id="copy">棋譜をコピー</button></div>
+        <textarea id="record" rows="3" readonly spellcheck="false"></textarea>
+        <p class="hint" id="copyStatus" role="status"></p>
+      </div>
+    </section>
+    <section id="examplesSection" hidden aria-label="作成された盤面と棋譜"></section>
+  </main>
+  <footer>終局盤面も入力できます。石が多い盤面は時間がかかり、制限内に見つからないこともあります。</footer>
+</body>
+</html>

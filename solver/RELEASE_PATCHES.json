@@ -1,0 +1,19 @@
+{
+  "scope": "release-stage-only changes; original private source/model/benchmark/service unchanged",
+  "patches": [
+    {
+      "file": "ml/bench_fix.py",
+      "reason": "Remove broad process-name pkill which could terminate unrelated Kissat jobs. Existing executor joins its bounded pending work; this research baseline can return later.",
+      "original_sha256": "ffb5dd5837f541733a76a6fc43f3032600d1b7faf05d1a56a7624b7665c9ea68",
+      "released_sha256": "d0081540e5fb8178588e8522440530cf7eedf96097b397f53330c05559b9fdc0",
+      "formal_benchmark_source": false
+    }
+  ],
+  "preserved": {
+    "Cargo.toml": "byte-identical; no package.license metadata added so frozen native/source hash remains matchable",
+    "Cargo.lock": "byte-identical",
+    "src/*.rs": "byte-identical",
+    "ml/search.py, ml/worker.py, ml/train.py": "byte-identical"
+  },
+  "source_authorization": "User explicitly authorized all source publication, appropriate licensing and weights as Release assets on2026-10-26."
+}

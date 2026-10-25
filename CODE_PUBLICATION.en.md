@@ -1,42 +1,40 @@
-# Code publication scope and remaining checks
+# Publication scope: code, weights and article
 
-[日本語](CODE_PUBLICATION.md) | [English](CODE_PUBLICATION.en.md)
+[日本語](CODE_PUBLICATION.md) | English
 
-## Published measurement tools
+Source and the existing weights are published in the [first experimental Release, v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0).
 
-Alongside boards, reference records, measurement data, and solver information, `runner/` now publishes new general-purpose measurement tools. They use only the Python 3.10+ standard library. Connect your own external program through JSON to run a frozen bank and schedule, independently replay records, analyze measurements, and export public results.
+| Material | Location | Terms |
+|---|---|---|
+| Rust CLI, Python search/training, UI/server and frozen benchmark harness | [`solver/`](solver/README.en.md) | Original code MIT; third-party notices retain their terms |
+| Vertical UI source | [`short/`](short/README.md) | Original code MIT |
+| General-purpose measurement, verification, analysis and export | [`runner/`](runner/README.en.md) | MIT |
+| Two fixed synthetic banks | [`benchmarks/`](BENCHMARK_LICENSE.md) | Existing MIT scope; bytes/hashes unchanged |
+| model.pt and model_passes.pt | Release assets, not Git binaries | CC BY 4.0, attribution wand125 |
+| Model cards, identifiers and license information | [`models/`](models/MODEL_CARD.en.md) | CC BY 4.0 |
+| Original article prose/figures and original supplementary analysis | [Article](https://othello-retro.logicpuzzle.app/paper?lang=en), `paper-data/` | CC BY 4.0 |
 
-- Usage: [日本語](runner/README.md) / [English](runner/README.en.md)
-- [MIT terms and scope for the tools and two synthetic banks](BENCHMARK_LICENSE.md)
+See [LICENSE_SCOPE.md](LICENSE_SCOPE.md), [MIT](LICENSE) and the [CC BY 4.0 text](licenses/CC-BY-4.0.txt). Functional code, article prose and third-party quotations/material are distinguished rather than relicensed together.
 
-The measurement tools are not a reconstruction engine. The fixture only looks up reference records, and its speed is not reconstruction performance. The original Rust/Python reconstruction engine, training code, executables, and trained models are not distributed. This repository alone cannot reproduce or run the original program. The MIT permission for the tools and banks does not license those undistributed components or the article text.
+## Release assets
 
-## Potential publication of the original engine
+- [source.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz): source distribution, without compiled executables or dependency binaries.
+- [models.tar.gz](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz): two existing weights, model cards, licenses and identifiers.
+- [model.pt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/model.pt) and [model_passes.pt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/model_passes.pt): individual downloads.
+- [CC-BY-4.0.txt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/CC-BY-4.0.txt) and [SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS).
 
-A 31-file source-only candidate has been prepared for the Rust board operations, reversal logic, necessary conditions, SAT encoding, and CLI. It preserves Cargo.toml/lock and nine Rust modules, with notices for nine locked dependencies, external-solver information, examples, and file hashes. Python search/training/UI code, models, original training data, executables, WASM, and containers are excluded.
+Check downloaded hashes and place weights in `solver/ml/`. Follow the [build and execution guide](solver/README.en.md). A documented release-only patch removes bench_fix.py's broad pkill, which could stop unrelated SAT processes. Frozen Cargo/Rust and primary inference-source hashes remain unchanged.
 
-Using the same source as the candidate, a WSL locked release build with Rust 1.98.0 passed, along with all nine unit tests using Kissat 4.0.3 and finite/unbounded SAT smoke tests. The resulting records were independently replayed. Validation is separate from release approval. **The original reconstruction engine remains undistributed**, pending the owner's review of provenance, attribution/scope, and publication.
+## Shipped notices and validation
 
-MIT licenses have been checked for Kissat 4.0.3, CaDiCaL 1.9.5, and the cadical 0.1.16 Rust binding. Redistributed components must retain the copyright and license notices for those versions. MIT terms are proposed for the original custom Rust code, pending the owner's decision. The proposal is not an existing grant. It is separate from the MIT permission already applied to the measurement tools and two banks.
+Notices for nine locked Rust crates, CaDiCaL 1.9.5 and Kissat 4.0.3 are in [`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md). Their implementations and binaries are not vendored. cadical 0.1.16 compiles its bundled CaDiCaL during the dependency build; Kissat runs as a separate process. r-efi 6.0.0's MIT permission and copyright are retained from AUTHORS.
 
-## Checks performed
+The same Rust source passed a Rust 1.98.0 locked release build, all nine tests with Kissat 4.0.3, finite/unbounded SAT smoke checks and independent replay. Inference and optional training-comparison requirements, version evidence and Python notices are documented in [`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md). Existing benchmark conditions, values and raw records are unchanged.
 
-- [Declared licenses and notice-file inventory for nine locked Rust dependencies](licenses/rust-dependency-inventory.json). Exact-version archive checksums and notices were checked, and required notices were packaged in the source-only candidate. r-efi 6.0.0 contains its MIT permission text and copyright attributions in `AUTHORS`, resolving the earlier missing-notice issue. It declares MIT OR Apache-2.0 OR LGPL-2.1-or-later; the candidate selects MIT. It is a conditional dependency and not an actual build dependency for the Apple targets.
-- [Metadata inventory for eleven inference-environment packages](licenses/python-inference-inventory.json). This covers the CPU benchmark environment, not a completed audit of the Cloud Run Google SDK or all training/video distribution dependencies. These inference packages are not required by the standard-library-only public runner.
-- The [official PyTorch 2.2.2 license](https://github.com/pytorch/pytorch/blob/v2.2.2/LICENSE) has been checked. Binary distribution would require separate checks of bundled native-library notices, including those accompanying NumPy and other packages.
+## Exclusions and reproducibility limits
 
-## Remaining checks for undistributed components
+The original training JSONL files are absent and are not distributed. The public banks are separate data. Recorded lineage associates the main weight with 38,504 mixed-data rows and the retained old model_passes.pt with 25,796 no-pass rows; its filename does not establish pass-only training. Artifact-specific holdout accuracy and exact retraining remain unconfirmed; see the [model card](models/MODEL_CARD.en.md).
 
-| Component | Status |
-|---|---|
-| Rust source-only candidate | 31 files; dependency notices, build, nine tests, and smoke validation prepared. Proposed custom-code MIT terms and publication await the owner's decision |
-| Python search/training/UI | Separate from the Rust candidate; undistributed |
-| Trained `.pt` weights | Training/copy records checked against artifacts. An explicit weight license and publication decision remain pending |
-| Original training data | Original files are absent and cannot currently be distributed. Exact retraining reproduction is unconfirmed; these are separate from the two MIT-licensed test banks |
-| Compiled executables, WASM, and distribution containers | Decision follows preparation of bundled dependency notices |
-| Video-production version | Separate from the simple public version; additional dependencies such as Mediabunny require review |
-| Credentials, private keys, cookies, usage logs, and private infrastructure configuration | Excluded from publication |
+Compiled executables, WASM, distribution containers, external solvers, Python wheels and video-library binaries are not included. Redistributing them would require checking the actual bundled components and their notices. Credentials, cookies, usage logs, private infrastructure and personal video/audio are excluded.
 
-The recorded lineage associates the main `model.pt` with 38,504 mixed-data rows and `model_passes.pt`, retained from the old model, with 25,796 no-pass rows. Its filename does not establish pass-only training. Original training files are absent; artifact-specific predictive accuracy and exact retraining reproduction remain unconfirmed. Full model cards, raw logs, evidence, and checkpoints have not been added to these public materials.
-
-Checking a license name, packaging notices, and deciding distribution terms for custom code are separate tasks. This document does not represent a completed distribution audit of the original program as a whole. See also [solver information](SOLVERS.en.md).
+`SHA256SUMS` checks the two individual weights and is also included in the models archive. [RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS) covers all other Release assets. [LICENSE-WEIGHTS.md](https://github.com/wand125/othello-retro/releases/download/v0.1.0/LICENSE-WEIGHTS.md) is also supplied.

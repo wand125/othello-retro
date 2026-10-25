@@ -1,0 +1,7 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '--build-arg', 'BASE_IMAGE=${_BASE_IMAGE}', '-t', '${_IMAGE}', '.']
+images: ['${_IMAGE}']
+timeout: 600s
+options:
+  logging: CLOUD_LOGGING_ONLY

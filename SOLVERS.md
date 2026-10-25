@@ -6,7 +6,7 @@
 
 公開済みの `runner/` はPython 3.10以降の標準ライブラリだけを使う汎用測定ツールで、SATソルバーや学習モデルを含みません。自分の外部復元プログラムを接続できます。接続仕様は [日本語](runner/README.md) / [English](runner/README.en.md) を参照してください。
 
-以下は、公開サービスと元プログラムの実験で使用している復元器・依存関係の説明です。これらの復元器本体や学習済みモデルは未配布です。公開runnerの標準ライブラリ依存と、元復元器のRust・ML・動画関連依存は別に扱います。
+復元器のRust/Pythonソース、UI・サーバーと凍結測定harnessは[`solver/`](solver/README.md)、縦長UIは`short/`に公開しています。学習済み重みは[試験公開Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)の添付ファイルです。公開runnerの標準ライブラリ依存と、復元器のRust・ML・動画関連依存を区別します。
 
 ## 元プログラムの復元の流れ
 
@@ -27,26 +27,18 @@
 | [Kissat](https://github.com/arminbiere/kissat/tree/rel-4.0.3) | 4.0.3 | 外部SATソルバー、並列ポートフォリオ | 当該タグの[MIT LICENSE](https://github.com/arminbiere/kissat/blob/rel-4.0.3/LICENSE)を確認 |
 | [CaDiCaL Rust binding](https://github.com/mmaroti/cadical-rs) | crate cadical 0.1.16 | RustからのSAT呼出し | crateのMIT表記を確認 |
 | [CaDiCaL](https://github.com/arminbiere/cadical) | 上記crate同梱1.9.5 | 組込みSATソルバー | 同梱VERSIONとMITライセンスを確認 |
-| [PyTorch](https://github.com/pytorch/pytorch) | 4環境比較2.2.2 / 本番参考2.6.0 CPU | 自前学習モデルの推論 | BSD系のライセンスと同梱第三者通知の確認を継続 |
+| [PyTorch](https://github.com/pytorch/pytorch) | 4環境比較2.2.2 / 本番参考2.6.0 CPU | 自前学習モデルの推論 | BSD-3-Clauseと上流第三者通知。ソース配布へ通知を添付し、wheel本体は同梱しない |
 
 復元探索本体と制約生成は独自のRust/Python実装です。学習モデルは逆向き候補の順位付けに使い、到達可能性の証明を代替しません。元の対局の歴史を一意に特定するモデルでもありません。
 
-学習・コピー記録の対応では、主 `model.pt` は混合38,504行、`model_passes.pt` はパスなし25,796行由来の旧モデルを退避したものです。後者の名前はパス専用の訓練を意味しません。原訓練データは現物不在で、重み固有の評価精度・完全な再学習再現は未確認です。重みへの明示ライセンスと公開判断も待機中です。教師にはパスなし／直前12手のみパス可という限定条件と、未解決を正例として学習する方針があり、一般到達可能性の精度とは区別します。
+学習・コピー記録の対応では、主 `model.pt` は混合38,504行、`model_passes.pt` はパスなし25,796行由来の旧モデルを退避したものです。後者の名前はパス専用の訓練を意味しません。原訓練データは現物不在で、重み固有の評価精度・完全な再学習再現は未確認です。重みはCC BY 4.0・著作者wand125としてReleaseへ配布し、詳細は[モデルカード](models/MODEL_CARD.ja.md)に記録しています。教師にはパスなし／直前12手のみパス可という限定条件と、未解決を正例として学習する方針があり、一般到達可能性の精度とは区別します。
 
-## 配布条件と残る確認
+## 配布条件と外部依存
 
-公開runnerと、途中・終局の二つの合成テストbankには[MIT許諾](BENCHMARK_LICENSE.md)を適用しています。別プログラムで利用・改変・再配布できます。この許諾は、元復元器やモデルのライセンス決定・依存監査が完了したという意味ではありません。
+自作ソースは[MIT](LICENSE)、既存二つの合成bankは従来の[MIT範囲](BENCHMARK_LICENSE.md)です。重み・モデルカード、自作論文本文・自作図には[CC BY 4.0](licenses/CC-BY-4.0.txt)を適用します。第三者のソルバー・ライブラリ・引用はそれぞれの条件を保持します。[LICENSE_SCOPE.md](LICENSE_SCOPE.md)へ対象を分けて明示しています。
 
-Rustのみの31ファイルのsource-only候補は、ロック済み依存9件の通知文を梱包済みです。候補と同一ソースのWSL/Rust1.98.0 locked release build、Kissat4.0.3による全9 unit tests、有限・無制限SAT smokeと棋譜の独立再生が通っています。自作RustコードのMITは提案段階で所有者判断待ちのため、**復元器本体はまだ配布していません**。この候補にPython/ML/動画実装、重み、原訓練データ、バイナリは含みません。
+[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md)にRust依存9件とソルバー通知を、[`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md)にPythonの版・通知・requirementsの根拠を記載しています。r-efi6.0.0のMIT本文と著作権表示はAUTHORSから保持しました。Cargo.toml/lockとRust・主要推論ソースは測定時のhashを保ちます。補助bench_fix.pyの広域pkill除去は配布差分として記録しています。
 
-残る配布範囲ごとに、次の確認を分けています。
+ビルドはRust1.98.0とC++17、Kissatは別途4.0.3を用意します。Rust同一ソースでlocked release build、全9単体テスト、有限・無制限SATと独立再生を確認済みです。実行手順は[本体README](solver/README.md)、重みの取得・来歴は[モデルカード](models/MODEL_CARD.ja.md)を参照してください。
 
-- Rust候補の来歴・著作権表示・自作MIT提案と公開の所有者判断。
-- Pythonとネイティブライブラリの全依存関係・通知文。
-- 学習コードと重みの配布条件。原訓練データの欠損による再検証限界。
-- ローカル動画版の追加依存関係。動画機能は公開サービスの簡易版に含めていません。
-- 元の独自実装・文章・MIT対象外データなど、それぞれの配布条件。
-
-MIT等の名称の記載だけでプロジェクト全体を同じ条件で再配布できるとは判断していません。Rustのロック依存9件について[宣言ライセンスと通知ファイルの一覧](licenses/rust-dependency-inventory.json)を公開しています。正確なarchive checksumと必要な通知を照合済みです。r-efi6.0.0のMIT許諾文・著作権表示は `AUTHORS` 内で確認し、source-only候補へ同梱しました。以前の通知不足は解消していますが、これをPython/ML/動画・配布バイナリを含むプロジェクト全体の監査完了とは扱いません。
-
-具体的な段階と残作業は[コード公開範囲](CODE_PUBLICATION.md)を参照してください。
+依存の実行バイナリ・Python wheel・WASM・コンテナは同梱しません。元訓練JSONLは現物がなく配布しません。teacherの限定条件、未知ラベルを正例にする学習処理、最終重みのholdout精度と完全再学習の未確認は、コード公開によって解消したとは扱いません。動画依存などを含むバイナリを別に配布する場合は、その実際の同梱物の通知確認が必要です。[公開範囲](CODE_PUBLICATION.md)を参照してください。

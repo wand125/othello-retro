@@ -1,0 +1,7 @@
+*
+!Dockerfile
+!install_short.py
+!ui/
+!ui/short.html
+!ui/short.css
+!ui/short.js

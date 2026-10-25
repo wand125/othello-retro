@@ -92,4 +92,4 @@ Both suites are complete in all four environments, with 100% common coverage sep
 
 The original reports use the recorded NumPy bootstrap RNG. The public standard-library analyzer identifies its own RNG, so finite-bootstrap endpoints may differ when reanalyzing these same raw records. Arithmetic means remain the same.
 
-Earlier finite-time, Torch 2.6, eight-case and invalid concurrency-gate runs are not included. These are measurement records; the original reconstruction solver and models are not distributed here.
+Earlier finite-time, Torch 2.6, eight-case and invalid concurrency-gate runs are not included. The corresponding reconstruction source and existing weights are available in [Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0); source and model manifests identify their relationship to these unchanged measurements.

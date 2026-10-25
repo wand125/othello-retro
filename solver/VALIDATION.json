@@ -1,0 +1,23 @@
+{
+  "scope": "Release-stage source validation only; no retraining or performance rerun",
+  "native_source_aggregate_sha256": "037720e71b2d8f64def7716176ce81d8c6fb9e08718ae9a6f1bffe860b972ce7",
+  "native_source_matches_previously_built_and_tested_snapshot": true,
+  "reused_validation": {
+    "rust": "1.98.0",
+    "kissat": "4.0.3",
+    "locked_release_build": "passed",
+    "unit_tests_passed": 9,
+    "finite_and_unbounded_SAT_smoke": "passed; accepted proof independently replayed",
+    "validation_date": "2026-10-26 JST"
+  },
+  "python_syntax_modules": 11,
+  "python_AST_parse": "passed",
+  "bench_fix_broad_process_name_kill_removed": true,
+  "frozen_inference_modules_byte_identical": [
+    "ml/train.py",
+    "ml/search.py",
+    "ml/worker.py"
+  ],
+  "new_training_execution": "not_run; historical exact retraining not claimed",
+  "weights_in_source_stage": false
+}

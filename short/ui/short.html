@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="オセロの盤面から棋譜を復元し、巻き戻して一手ずつ再生します。">
+  <title>Othello Retro — Short</title>
+  <link rel="stylesheet" href="/short/app.css?v=9">
+  <script id="short-config" type="application/json">__SHORT_CONFIG__</script>
+  <script src="/short/app.js?v=9" defer></script>
+</head>
+<body>
+  <main>
+    <div id="theater">
+    <article class="film" id="film" data-phase="editing" aria-label="オセロ逆算シミュレータ、9対16">
+      <div class="scene"><div class="board-wrap"><div class="columns" aria-hidden="true"></div><div class="rows" aria-hidden="true"></div><div class="board" id="board" role="group" aria-label="目標盤面。マスを押して配置を変更"></div></div><div id="solve-slot" class="solve-slot"><button class="primary" id="solve" type="button" aria-label="計算開始" title="計算開始"><span class="sr-only" id="solve-label">計算開始</span><svg class="rewind-icon" viewBox="0 0 32 32" aria-hidden="true"><path class="rewind-circle" d="M5.2 12a11.5 11.5 0 1 1 2.5 12.5M5 5v7h7"/><path class="rewind-marks" d="m16 12-7 4 7 4Zm7 0-7 4 7 4Z"/></svg><svg class="reset-icon" viewBox="0 0 32 32" aria-hidden="true" hidden><path d="M5.2 12a11.5 11.5 0 1 1 2.5 12.5M5 5v7h7"/></svg></button><button type="button" id="cancel" class="primary stop-button" aria-label="計算を中断" title="計算を中断" hidden><svg class="stop-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx=".6"/></svg></button><p id="input-error" class="input-error" role="status" aria-live="polite" hidden>巻き戻し不可能な盤面です</p></div></div>
+      <div class="sr-only" aria-hidden="true" hidden><span id="eyebrow"></span><h1 id="headline"></h1><span id="subtitle"></span><span id="black-count"></span><span id="white-count"></span><span id="position-label"></span><span id="move-badge"></span><span id="step-edit"></span><span id="step-rewind"></span><span id="step-replay"></span><span id="footer-label"></span></div>
+    </article>
+    </div>
+    <div class="panel" aria-label="操作">
+      <div class="action-area">
+        <div id="edit-controls"></div>
+        <div id="search-controls" hidden><div class="search-line"><span class="activity" aria-hidden="true"></span><span id="search-text" class="sr-only"></span><time id="elapsed">0秒</time></div><div class="search-track" aria-hidden="true"><span></span></div></div>
+        <div id="play-controls" hidden><div class="seek-line"><button type="button" id="play" class="icon-button seek-play" aria-label="再生" title="再生"><svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 10 7-10 7Z"/></svg></button><input id="seek" type="range" min="0" max="1" value="0" aria-label="表示する手数"><span id="ply">0 / 0</span><button type="button" id="voice-settings" class="icon-button voice-settings" aria-label="音色の設定" title="音色：木の石"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l10-2v13M9 9l10-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="16" cy="16" rx="3" ry="2"/></svg></button></div><div class="transport"><button type="button" id="reset-board" class="icon-button" aria-label="初期配置に戻す" title="初期配置に戻す"><svg class="initial-board-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="1" fill="#347a53" stroke="currentColor" stroke-width="1"/><path d="M12 3v18M3 12h18" opacity=".5"/><circle cx="7.5" cy="7.5" r="3.1" fill="#f4f4ef" stroke="#d9dfd5" stroke-width=".6"/><circle cx="16.5" cy="7.5" r="3.1" fill="#131b15" stroke="#080d09" stroke-width=".6"/><circle cx="7.5" cy="16.5" r="3.1" fill="#131b15" stroke="#080d09" stroke-width=".6"/><circle cx="16.5" cy="16.5" r="3.1" fill="#f4f4ef" stroke="#d9dfd5" stroke-width=".6"/></svg></button><button type="button" id="edit-board" class="icon-button" aria-label="盤面を編集" title="盤面を編集"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16-1 5 5-1L20 8l-4-4Zm10-10 4 4"/></svg></button><button type="button" id="restart" class="icon-button" aria-label="初期配置へ戻す" title="初期配置へ戻す"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14m12-13-9 6 9 6Z"/></svg></button><button type="button" id="prev" class="icon-button" aria-label="一手戻る" title="一手戻る"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-8 6 8 6"/></svg></button><button type="button" id="next" class="icon-button" aria-label="一手進む" title="一手進む"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 8 6-8 6"/></svg></button><button type="button" id="last" class="icon-button" aria-label="最終盤面へ" title="最終盤面へ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6l9 6-9 6Z"/></svg></button><button type="button" id="speed" class="text-button speed-button" aria-label="再生速度を切り替える">1×</button></div></div>
+      </div>
+      <button id="settings" type="button" class="icon-button" aria-label="設定" title="設定"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14M9 4v4m6 2v4m-7 2v4"/></svg></button>
+      <button id="sound" class="icon-button sound-button" type="button" aria-label="音を消す" aria-pressed="true" title="音を消す"><svg id="sound-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4ZM15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></button>
+
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p class="policy">試験公開・作成情報は保存／公開されます</p>
+  </main>
+  <dialog id="session-dialog" aria-labelledby="session-title"><form method="dialog"><div class="dialog-heading"><h2 id="session-title">再生する盤面</h2><button class="icon-button" aria-label="閉じて戻る" value="cancel">×</button></div></form><div id="session-choices" class="session-choices"><button type="button" id="new-session">新しく再生</button><button type="button" id="load-session">作成済みを読み込む</button></div><section id="session-library" hidden><h3>このブラウザ</h3><div id="local-records" class="record-list"></div><h3>作成された棋譜</h3><div id="public-records" class="record-list"></div><p id="library-status" role="status"></p><button type="button" id="more-records" class="library-more" hidden>続きを表示</button></section></dialog>
+  <dialog id="settings-dialog" aria-labelledby="settings-title"><form method="dialog"><div class="dialog-heading"><h2 id="settings-title">設定</h2><button class="icon-button" aria-label="閉じる" value="close">×</button></div></form><div class="sound-setting"><span>効果音</span><button id="sound-toggle" class="toggle-button" type="button" aria-label="効果音" aria-pressed="true">ON</button></div><div class="setting-group"><p id="voice-label">音色</p><div id="voice-options" class="toggle-group" role="group" aria-labelledby="voice-label"></div></div></dialog>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>オセロ棋譜復元</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+<header>
+  <nav class="nav"><a href="/" class="cur">棋譜復元</a><a href="/player">棋譜プレイヤー</a><a href="/video">動画制作</a></nav>
+  <h1>オセロ棋譜復元</h1>
+  <p>盤面を入力すると、初期配置からその盤面に至る棋譜を 1 つ探します（到達不能なら理由を表示）。</p>
+</header>
+<main>
+  <section>
+    <h2><span class="step">1</span>盤面を入力</h2>
+    <div class="board-wrap">
+      <div class="cols" id="editCols"></div>
+      <div class="rows" id="editRows"></div>
+      <div class="board" id="editBoard" aria-label="盤面エディタ"></div>
+    </div>
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="塗る石">
+        <button data-brush="cycle" class="on" title="クリックで 空→黒→白 と切り替え">循環</button>
+        <button data-brush="X"><span class="dot X"></span>黒</button>
+        <button data-brush="O"><span class="dot O"></span>白</button>
+        <button data-brush="-">空</button>
+        <button data-brush="lock" title="「近い到達可能な盤面を探す」で色を変えないマス（絵の大事な部分）をクリックで指定">🔒 保護</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button id="btnInit">初期配置</button>
+      <button id="btnClear">全消去</button>
+      <button id="btnSwap">白黒反転</button>
+      <button id="btnRotate" title="画面上で時計回りに 90 度回す">↻ 回転</button>
+      <button id="btnFlipH" title="左右を入れ替える">⇆ 左右反転</button>
+      <button id="btnFlipV" title="上下を入れ替える">⇅ 上下反転</button>
+    </div>
+    <div class="stats">
+      <span><span class="dot X"></span><b id="cntX">0</b></span>
+      <span><span class="dot O"></span><b id="cntO">0</b></span>
+      <span>空き <b id="cntE">0</b></span>
+      <span>手数 <b id="cntMoves">0</b></span>
+    </div>
+    <div class="checks" id="checks" aria-live="polite"></div>
+    <details>
+      <summary>テキストで入力・出力</summary>
+      <textarea id="text" rows="8" spellcheck="false" placeholder="8 行（1 行目が a1〜h1）。黒 X、白 O、空 -。&#10;64 文字の 1 行や「黒hex,白hex」も可"></textarea>
+      <div class="row"><button id="btnImport">テキストから読み込む</button><span class="muted" id="importMsg"></span></div>
+    </details>
+    <div class="run">
+      <label class="muted" for="timeSel">制限時間</label>
+      <select id="timeSel">
+        <option value="10">10 秒</option><option value="30">30 秒</option><option value="60" selected>60 秒</option>
+        <option value="120">2 分</option><option value="300">5 分</option><option value="900">15 分</option>
+      </select>
+      <button class="primary" id="btnSolve">棋譜を探す</button>
+      <button id="btnCancel" hidden>中止</button>
+    </div>
+    <div class="fixpanel" id="fixPanel" hidden>
+      <div class="opt-head">近い到達可能な盤面を探す</div>
+      <div class="muted">この盤面は作れません。なるべく少ない石の色を変えて、作れる盤面にします（🔒 保護したマスは変えません）。</div>
+      <div class="row">
+        <select id="fK" aria-label="変えてよい石の数"><option value="1">1 石まで</option><option value="2" selected>2 石まで</option><option value="3">3 石まで</option></select>
+        <select id="fN" aria-label="候補の数"><option value="1">1 通り</option><option value="3" selected>3 通り</option><option value="5">5 通り</option></select>
+        <select id="fTime" aria-label="時間"><option value="120">2 分</option><option value="300" selected>5 分</option><option value="900">15 分</option><option value="1800">30 分</option></select>
+        <button id="fRun">探す</button><button id="fCancel" hidden>中止</button>
+      </div>
+      <div class="muted" id="fStatus"></div>
+      <div class="fixes" id="fList"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="step">2</span>結果</h2>
+    <div id="result"><div class="empty-state">盤面を入力して「棋譜を探す」を押してください。<br>全マス埋まった盤面は数十秒〜数分かかることがあります。</div></div>
+  </section>
+</main>
+
+<script src="common.js"></script>
+<script>
+"use strict";
+let job = null, timer = null;
+
+// ---- 事前チェック（探索なしで分かる到達不能の判定。Rust 側の前処理と同じ内容） ----
+// 辺の石は辺方向にしか挟まれないので、各辺を 8 マスの 1 次元オセロとして独立に扱える。
+// どこに何色を置いてもよい緩和モデルで、空の辺から到達できない辺パターンは到達不能。
+const EDGES = [
+  { name: "1段目", sq: [0, 1, 2, 3, 4, 5, 6, 7] }, { name: "8段目", sq: [56, 57, 58, 59, 60, 61, 62, 63] },
+  { name: "a列", sq: [0, 8, 16, 24, 32, 40, 48, 56] }, { name: "h列", sq: [7, 15, 23, 31, 39, 47, 55, 63] }];
+const EDGE_OK = (() => {
+  const P3 = [1, 3, 9, 27, 81, 243, 729, 2187], N = 6561, seen = new Uint8Array(N), stack = [0];
+  seen[0] = 1;
+  while (stack.length) {
+    const st = stack.pop(), a = P3.map(p => Math.floor(st / p) % 3);
+    for (let i = 0; i < 8; i++) {
+      if (a[i]) continue;
+      for (const c of [1, 2]) {
+        const r = a.slice(); r[i] = c;
+        for (const d of [-1, 1]) {
+          let j = i + d;
+          while (j >= 0 && j < 8 && r[j] === 3 - c) j += d;
+          if (j >= 0 && j < 8 && r[j] === c) for (let k = i + d; k !== j; k += d) r[k] = c;
+        }
+        const t = r.reduce((acc, v, k) => acc + v * P3[k], 0);
+        if (!seen[t]) { seen[t] = 1; stack.push(t); }
+      }
+    }
+  }
+  return seen;
+})();
+const edgeIndex = (b, sqs) => sqs.reduce((acc, s, i) => acc + ({ "-": 0, X: 1, O: 2 })[b[s]] * 3 ** i, 0);
+const CENTER = [27, 28, 35, 36];
+function precheck(b) {
+  const items = [], bad = new Set();
+  const occ = b.map(v => v !== "-");
+  const missing = CENTER.filter(s => !occ[s]);
+  items.push({ ok: !missing.length, label: "中央 4 マス", why: missing.length ? `${missing.map(sqName).join(" ")} が空` : "" });
+  missing.forEach(s => bad.add(s));
+  // 置き順の閉包: 置くには、ある方向で隣とその先が既に埋まっている必要がある
+  const P = new Uint8Array(64); CENTER.forEach(s => P[s] = occ[s] ? 1 : 0);
+  for (let changed = true; changed;) {
+    changed = false;
+    for (let s = 0; s < 64; s++) {
+      if (!occ[s] || P[s]) continue;
+      const r = Math.floor(s / 8), c = s % 8;
+      if (DIRS.some(([dr, dc]) => {
+        const r1 = r + dr, c1 = c + dc, r2 = r + 2 * dr, c2 = c + 2 * dc;
+        return r2 >= 0 && r2 < 8 && c2 >= 0 && c2 < 8 && P[r1 * 8 + c1] && P[r2 * 8 + c2];
+      })) { P[s] = 1; changed = true; }
+    }
+  }
+  const orphan = [...Array(64).keys()].filter(s => occ[s] && !P[s]);
+  items.push({ ok: !orphan.length, label: "置き順（孤立した石なし）",
+    why: orphan.length ? `${orphan.slice(0, 6).map(sqName).join(" ")}${orphan.length > 6 ? " ほか" : ""} に置く手順がない` : "" });
+  orphan.forEach(s => bad.add(s));
+  for (const e of EDGES) {
+    const ok = !!EDGE_OK[edgeIndex(b, e.sq)];
+    items.push({ ok, label: `辺 ${e.name}`, why: ok ? "" : "この並びは作れない" });
+    if (!ok) e.sq.filter(s => occ[s]).forEach(s => bad.add(s));
+  }
+  return { ok: items.every(i => i.ok), items, bad };
+}
+function renderChecks(r) {
+  const el = document.getElementById("checks");
+  const ng = r.items.filter(i => !i.ok);
+  el.innerHTML = `<div class="head ${r.ok ? "ok" : "ng"}">${r.ok ? "事前チェック: 問題なし" : "事前チェック: 到達不能"}</div>
+    <ul>${r.items.map(i => `<li class="${i.ok ? "ok" : "ng"}" title="${esc(i.why)}">${esc(i.label)}</li>`).join("")}</ul>
+    ${ng.length ? `<div class="note">${ng.map(i => `${esc(i.label)}: ${esc(i.why)}`).join("<br>")}</div>`
+      : `<div class="note">探索なしで分かる矛盾はありません。</div>`}`;
+  editCells.forEach((cell, s) => cell.classList.toggle("bad", r.bad.has(s)));
+  btnSolve.disabled = !r.ok || job !== null;
+  btnSolve.title = r.ok ? "" : "事前チェックで到達不能と分かっているため探索しません";
+}
+
+// ---- エディタ ----
+// 編集中の盤面はリロードしても消えないようにブラウザに保存する
+const saved = loadStr("othello-retro-board");
+let board = saved && /^[XO-]{64}$/.test(saved) ? [...saved] : INIT.slice(), brush = "cycle", painting = null;
+const editCells = makeBoard(document.getElementById("editBoard"), document.getElementById("editCols"), document.getElementById("editRows"));
+function render() {
+  paint(editCells, board);
+  editCells.forEach((c, s) => c.classList.toggle("lock", locked.has(s) && board[s] !== "-"));
+  const x = board.filter(v => v === "X").length, o = board.filter(v => v === "O").length;
+  cntX.textContent = x; cntO.textContent = o; cntE.textContent = 64 - x - o; cntMoves.textContent = Math.max(0, x + o - 4);
+  text.value = [...Array(8)].map((_, r) => board.slice(r * 8, r * 8 + 8).join("")).join("\n");
+  renderChecks(precheck(board));
+  saveStr("othello-retro-board", board.join(""));
+  renderFixPanel();
+}
+const editEl = document.getElementById("editBoard");
+// 保護するマス（近い到達可能な盤面を探すとき色を変えない）。ブラウザに保存
+let locked = new Set((() => { try { return JSON.parse(loadStr("othello-retro-protect") || "[]"); } catch (e) { return []; } })());
+const saveLocked = () => saveStr("othello-retro-protect", JSON.stringify([...locked]));
+editEl.addEventListener("pointerdown", e => {
+  const cell = e.target.closest(".cell"); if (!cell) return;
+  const s = +cell.dataset.sq;
+  if (brush === "lock") {
+    painting = locked.has(s) ? "unlock" : "lock";
+    painting === "lock" ? locked.add(s) : locked.delete(s);
+    saveLocked(); render();
+  } else {
+    painting = brush === "cycle" ? { "-": "X", X: "O", O: "-" }[board[s]] : brush;
+    board[s] = painting; render();
+  }
+  editEl.setPointerCapture(e.pointerId);
+});
+editEl.addEventListener("pointermove", e => {
+  if (painting === null) return;
+  const cell = document.elementFromPoint(e.clientX, e.clientY)?.closest("#editBoard .cell"); if (!cell) return;
+  const s = +cell.dataset.sq;
+  if (painting === "lock" || painting === "unlock") {
+    if (locked.has(s) !== (painting === "lock")) { painting === "lock" ? locked.add(s) : locked.delete(s); saveLocked(); render(); }
+  } else if (board[s] !== painting) { board[s] = painting; render(); }
+});
+["pointerup", "pointercancel"].forEach(t => editEl.addEventListener(t, () => painting = null));
+function setBrush(v) {
+  brush = v; saveStr("othello-retro-brush", v);
+  document.querySelectorAll("[data-brush]").forEach(b => b.classList.toggle("on", b.dataset.brush === v));
+}
+document.querySelectorAll("[data-brush]").forEach(btn => btn.onclick = () => setBrush(btn.dataset.brush));
+{ const v = loadStr("othello-retro-brush"); if (["cycle", "X", "O", "-", "lock"].includes(v)) setBrush(v); }
+{ const d = document.querySelector("details"); d.open = loadStr("othello-retro-textopen") === "1"; d.ontoggle = () => saveStr("othello-retro-textopen", d.open ? "1" : "0"); }
+btnInit.onclick = () => { board = INIT.slice(); render(); };
+btnClear.onclick = () => { board = Array(64).fill("-"); render(); };
+btnSwap.onclick = () => { board = board.map(v => ({ X: "O", O: "X", "-": "-" })[v]); render(); };
+// 盤面の変換（画面の見た目どおり。行 r・列 c の新しい石 = 元の盤面のどこの石か）
+const transform = f => { const old = board.slice(); board = old.map((_, s) => old[f(Math.floor(s / 8), s % 8)]); render(); };
+btnRotate.onclick = () => transform((r, c) => (7 - c) * 8 + r);
+btnFlipH.onclick = () => transform((r, c) => r * 8 + (7 - c));
+btnFlipV.onclick = () => transform((r, c) => (7 - r) * 8 + c);
+btnImport.onclick = () => {
+  const t = text.value.trim();
+  let b = null;
+  const hex = t.match(/^(?:0x)?([0-9a-f]{1,16})\s*,\s*(?:0x)?([0-9a-f]{1,16})$/i);
+  if (hex) {
+    const B = BigInt("0x" + hex[1]), W = BigInt("0x" + hex[2]);
+    b = [...Array(64)].map((_, s) => (B >> BigInt(s)) & 1n ? "X" : (W >> BigInt(s)) & 1n ? "O" : "-");
+  } else {
+    const map = { X: "X", x: "X", B: "X", b: "X", "*": "X", "●": "X", O: "O", o: "O", W: "O", w: "O", "○": "O", "-": "-", ".": "-", "_": "-" };
+    const cs = [...t.replace(/\s+/g, "")];
+    const bad = cs.find(c => !(c in map));
+    if (bad) { importMsg.textContent = `不明な文字「${bad}」`; return; }
+    if (cs.length !== 64) { importMsg.textContent = `マス数が ${cs.length}（64 必要）`; return; }
+    b = cs.map(c => map[c]);
+  }
+  board = b; importMsg.textContent = "読み込みました"; render();
+};
+
+// ---- 探索 ----
+{ const t = loadStr("othello-retro-time"); if (t && [...timeSel.options].some(o => o.value === t)) timeSel.value = t; }
+timeSel.onchange = () => saveStr("othello-retro-time", timeSel.value);
+const resultEl = document.getElementById("result");
+// 探索中の状態（ID・対象の盤面・制限時間・開始時刻）を保存し、リロード後も結果を受け取れるようにする
+function showSearching(limit, t0, again) {
+  btnSolve.disabled = true; btnCancel.hidden = false;
+  resultEl.innerHTML = `<div class="status"><span class="spinner"></span><span class="title">探索中…</span>
+    <span class="muted" id="elapsed">0 秒</span><div class="muted">制限 ${limit} 秒。${again ? "ページを読み込み直しましたが、探索はサーバーで続いています。" : ""}石が多い盤面は学習モデルで候補を絞ってから SAT で解き、見つからなければ SAT だけで解き直します。</div></div>`;
+  clearInterval(timer);
+  timer = setInterval(() => { const e = document.getElementById("elapsed"); if (e) e.textContent = `${Math.floor((Date.now() - t0) / 1000)} 秒`; }, 250);
+}
+// ページを離れる途中（リロードなど）は通信が中断されるが、探索はサーバーで続いているので結果を確定しない
+let leaving = false;
+addEventListener("pagehide", () => { leaving = true; });
+function finishSearch(id, target, t0, res) {
+  if (leaving) return;
+  clearInterval(timer); btnCancel.hidden = true;
+  if (job !== id) return;
+  job = null; saveStr("othello-retro-job", "");
+  renderChecks(precheck(board)); showResult(res, target, (Date.now() - t0) / 1000); renderFixPanel();
+}
+// 探索が終わるまでサーバーに結果を問い合わせる（通信が切れたとき・リロード後の再接続用）
+async function pollResult(id) {
+  for (;;) {
+    let res;
+    try { res = await (await fetch(`/api/result?id=${encodeURIComponent(id)}`)).json(); } catch (e) { res = { status: "running" }; }
+    if (job !== id || leaving) return null;
+    if (res.status !== "running") {
+      return res.status === "lost" ? { status: "error", reason: "探索の結果を受け取れませんでした（サーバーが再起動された可能性があります）" } : res;
+    }
+    await new Promise(r => setTimeout(r, 1000));
+  }
+}
+btnSolve.onclick = async () => {
+  if (prefs.sound) audioCtx();
+  const target = board.slice(), limit = +timeSel.value, id = Math.random().toString(36).slice(2), t0 = Date.now();
+  job = id;
+  saveStr("othello-retro-job", JSON.stringify({ id, target: target.join(""), limit, t0 }));
+  showSearching(limit, t0, false);
+  let res = null;
+  try {
+    const r = await fetch("/api/solve", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, board: target.join(""), time: limit }) });
+    res = await r.json();
+    if (!r.ok) res = { status: "error", reason: res.error || `HTTP ${r.status}` };
+    else if (res.status === "queued") res = await pollResult(id);
+  } catch (e) {
+    res = await pollResult(id);  // 通信が切れても探索は続いているので、結果を問い合わせて待つ
+  }
+  if (res) finishSearch(id, target, t0, res);
+};
+// リロード前に始めた探索があれば、終わるまでサーバーに結果を問い合わせる
+async function resumeSearch() {
+  let j; try { j = JSON.parse(loadStr("othello-retro-job") || "null"); } catch (e) { j = null; }
+  if (!j || !j.id || !/^[XO-]{64}$/.test(j.target)) return false;
+  job = j.id; showSearching(j.limit, j.t0, true);
+  const res = await pollResult(j.id);
+  if (res) finishSearch(j.id, [...j.target], j.t0, res);
+  return true;
+}
+btnCancel.onclick = async () => {
+  if (!job) return;
+  await fetch("/api/cancel", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: job }) }).catch(() => {});
+};
+
+// ---- 近い到達可能な盤面を探す（othello-retro fix --mode nearest） ----
+let fixJob = null;
+let fixState = (() => { try { return JSON.parse(loadStr("othello-retro-fixes") || "null"); } catch (e) { return null; } })();
+// 色を変えれば直せる見込みのある到達不能（石の配置そのもの＝中央 4 マスや置き順の問題は色では直らない）
+function boardKnownUnreachable() {
+  const pc = precheck(board);
+  if (!pc.items[0].ok || !pc.items[1].ok) return false;
+  if (!pc.ok) return true;  // 辺の並びが作れない
+  try {
+    const r = JSON.parse(loadStr("othello-retro-result") || "null");
+    return !!(r && r.target === board.join("") && r.res && r.res.status === "unreachable");
+  } catch (e) { return false; }
+}
+function renderFixPanel() {
+  const show = boardKnownUnreachable() || !!fixJob || (fixState && fixState.board === board.join(""));
+  fixPanel.hidden = !show;
+  if (!show) return;
+  fRun.disabled = !!fixJob; fCancel.hidden = !fixJob;
+  const mine = fixState && fixState.board === board.join("") ? fixState : null;
+  if (!fixJob) fStatus.textContent = mine ? (mine.fixes.length ? `${mine.fixes.length} 通り見つかりました（${mine.fixes[0].changed.length} 石の変更）` : mine.status === "cancelled" ? "中止しました" : "指定の範囲では見つかりませんでした。変えてよい石の数や時間を増やしてください。") : "";
+  fList.innerHTML = mine ? mine.fixes.map((f, i) => {
+    const b = f.board.split(",").map(x => BigInt("0x" + x));
+    const arr = [...Array(64)].map((_, q) => (b[0] >> BigInt(q)) & 1n ? "X" : (b[1] >> BigInt(q)) & 1n ? "O" : "-");
+    const cells = arr.map((v, q) => `<div class="cell${f.changed.includes(sqName(q)) ? " chg" : ""}"><div class="disc${v === "-" ? "" : " " + v}"></div></div>`).join("");
+    const desc = f.changed.map(n => `${n} を${board[nameSq(n)] === "X" ? "黒→白" : "白→黒"}`).join("・") || "変更なし（そのまま作れます）";
+    return `<div class="fixitem"><div class="board mini readonly">${cells}</div><div><div>${desc}</div>
+      <button data-i="${i}">この盤面を使う</button></div></div>`;
+  }).join("") : "";
+}
+fList.onclick = e => {
+  const btn = e.target.closest("button[data-i]"); if (!btn || !fixState) return;
+  const f = fixState.fixes[+btn.dataset.i];
+  const b = f.board.split(",").map(x => BigInt("0x" + x));
+  board = [...Array(64)].map((_, q) => (b[0] >> BigInt(q)) & 1n ? "X" : (b[1] >> BigInt(q)) & 1n ? "O" : "-");
+  render();
+  // 見つかった棋譜をそのまま結果として表示（もう一度探す必要はない）
+  showResult({ status: "found", moves: f.moves, time: 0, method: "fix" }, board.slice(), 0);
+};
+fRun.onclick = async () => {
+  const id = Math.random().toString(36).slice(2), t0 = Date.now();
+  const req = { id, board: board.join(""), k: +fK.value, solutions: +fN.value, time: +fTime.value, protect: [...locked].filter(q => board[q] !== "-") };
+  saveStr("othello-retro-fixjob", JSON.stringify({ ...req, t0 }));
+  fixJob = id; renderFixPanel();
+  let out = null;
+  const poll = pollFix(id, t0);
+  try { out = await (await fetch("/api/fix", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(req) })).json(); } catch (e) { out = null; }
+  finishFix(id, req, out && out.status !== "queued" ? out : await poll);
+};
+fCancel.onclick = () => fixJob && fetch("/api/cancel", { method: "POST", body: JSON.stringify({ id: fixJob }) }).catch(() => {});
+async function pollFix(id, t0) {
+  for (;;) {
+    if (fixJob !== id || leaving) return null;
+    try {
+      const p = await (await fetch(`/api/progress?id=${encodeURIComponent(id)}`)).json();
+      fStatus.textContent = `探しています… ${Math.floor((Date.now() - t0) / 1000)} 秒` + (p.fixes ? `・${p.fixes} 通り見つかりました` : "");
+      const r = await (await fetch(`/api/result?id=${encodeURIComponent(id)}`)).json();
+      if (r.status !== "running" && !(r.status === "lost" && Date.now() - t0 < 15000)) return r.status === "lost" ? { status: "error", fixes: [] } : r;
+    } catch (e) {}
+    await new Promise(r => setTimeout(r, 1000));
+  }
+}
+function finishFix(id, req, out) {
+  if (!out || fixJob !== id || leaving) return;
+  fixJob = null; saveStr("othello-retro-fixjob", "");
+  fixState = { board: req.board, status: out.status, fixes: out.fixes || [] };
+  saveStr("othello-retro-fixes", JSON.stringify(fixState));
+  renderFixPanel();
+}
+async function resumeFix() {
+  let j; try { j = JSON.parse(loadStr("othello-retro-fixjob") || "null"); } catch (e) { j = null; }
+  if (!j || !j.id) return;
+  fixJob = j.id; renderFixPanel();
+  finishFix(j.id, j, await pollFix(j.id, j.t0));
+}
+
+// ---- 結果と再生 ----
+let view = null, playTimer = null;
+function showResult(res, target, secs, fresh = true) {
+  // 最後の結果はリロードで消えないよう保存する（棋譜は元のものと f5 開始にそろえたものの両方）
+  if (fresh) { opt = null; saveStr("othello-retro-opt", ""); }  // 新しい探索結果なら最適化の結果は捨てる
+  if (fresh) saveStr("othello-retro-result", JSON.stringify({ res, target: target.join(""), secs,
+    f5: res.status === "found" ? normalizeF5(res.moves).moves : null }));
+  const t = res.time != null ? res.time.toFixed(1) : secs.toFixed(1);
+  if (res.status === "unreachable") {
+    resultEl.innerHTML = `<div class="status unreachable"><div class="title">到達不能</div><div>${esc(res.reason || "")}</div><div class="muted">${t} 秒</div></div>`;
+    return;
+  }
+  if (res.status !== "found") {
+    const msg = { unknown: ["時間切れ", "制限時間を延ばすと見つかる可能性があります。到達可能か不能かは未判定です。"],
+      cancelled: ["中止しました", ""], error: ["エラー", esc(res.reason || "")] }[res.status] || ["不明な応答", esc(JSON.stringify(res))];
+    resultEl.innerHTML = `<div class="status ${res.status === "error" ? "unreachable" : "unknown"}"><div class="title">${msg[0]}</div><div class="muted">${msg[1]}</div><div class="muted">${t} 秒</div></div>`;
+    return;
+  }
+  // f5 開始にそろえる場合は、棋譜と一緒に盤面も同じ対称変換をかけて表示する
+  const sel = opt && opt.target === target.join("") && opt.sel >= 0 ? opt.solutions[opt.sel] : null;
+  let moves = sel ? sel.moves : res.moves, tgt = target, sym = "f5";
+  if (prefs.f5) { ({ moves, sym } = normalizeF5(moves)); tgt = transformBoard(target, sym); }
+  const { states, error } = buildStates(moves);
+  const fin = states[states.length - 1].b;
+  const match = !error && fin.every((v, i) => v === tgt[i]);
+  const placed = moves.filter(m => m !== "pass");
+  resultEl.innerHTML = `
+    <div class="status found"><div class="title">棋譜が見つかりました</div>
+      <div class="muted">${placed.length} 手・${t} 秒・方式: ${{ beam: "学習モデル＋SAT", fix: "修正の探索" }[res.method] || "SAT"}・最終盤面との一致: ${match ? "✓" : "✗"}</div></div>
+    ${sym !== "f5" ? `<div class="muted" style="margin-bottom:8px">f5 開始にそろえるため、盤面を${SYMS[sym].label}して表示しています。</div>` : ""}
+    <div class="row" style="justify-content:space-between"><span class="row"><span class="muted">棋譜</span>
+      <label class="toggle"><input type="checkbox" id="rF5">f5 開始に揃える</label></span>
+      <span class="row"><a class="muted" href="/player?m=${placed.join("")}" target="_blank" rel="noopener">プレイヤーで開く ↗</a>
+        <a class="muted" href="/video?m=${placed.join("")}" target="_blank" rel="noopener">動画モードで開く ↗</a><button id="btnCopy">コピー</button></span></div>
+    <div class="record" id="record">${placed.join("")}</div>
+    <div id="repWrap" style="margin-top:14px"></div>
+    <div class="controls">
+      <button id="rFirst" aria-label="最初">⏮</button><button id="rPrev" aria-label="1 手戻る">◀</button>
+      <input type="range" id="rSlider" min="0" max="${states.length - 1}" value="${states.length - 1}">
+      <button id="rNext" aria-label="1 手進む">▶</button><button id="rLast" aria-label="最後">⏭</button>
+      <button id="rPlay">再生</button>
+      <label class="toggle"><input type="checkbox" id="rAnim">アニメーション</label>
+      <select class="mode" id="rMode" aria-label="返し方"><option value="all">一斉に返す</option><option value="wave">順番に返す</option></select>
+      <label class="toggle"><input type="checkbox" id="rSound">効果音</label>
+      <select id="rVoice" aria-label="音の種類"></select><button id="rTry" title="試聴" aria-label="試聴">♪</button>
+    </div>
+    <div class="ply" id="rInfo"></div>
+    <div class="moves" id="rMoves">${states.slice(1).map((st, i) =>
+      `<button data-k="${i + 1}"><span class="n">${i + 1}.</span> <span class="dot ${st.mover}"></span>${st.move}</button>`).join("")}</div>`;
+  if (playTimer) { clearInterval(playTimer); playTimer = null; }
+  view = new BoardView(repWrap, states);
+  view.k = states.length - 1;
+  const show = k => {
+    view.show(k);
+    saveStr("othello-retro-result-k", String(view.k));
+    const st = states[view.k], { x, o } = counts(st.b);
+    rSlider.value = view.k;
+    rInfo.textContent = view.k === 0 ? "初期配置" :
+      `${view.k} 手目: ${st.mover === "X" ? "黒" : "白"} ${st.move}（黒 ${x} / 白 ${o}）`;
+    rMoves.querySelectorAll("button").forEach(btn => btn.classList.toggle("cur", +btn.dataset.k === view.k));
+  };
+  view.ui = show;
+  const stop = () => { clearInterval(playTimer); playTimer = null; rPlay.textContent = "再生"; };
+  rFirst.onclick = () => show(0); rLast.onclick = () => show(view.last);
+  rPrev.onclick = () => show(view.k - 1); rNext.onclick = () => show(view.k + 1);
+  rSlider.oninput = () => show(+rSlider.value);
+  rAnim.checked = prefs.anim; rAnim.onchange = () => setAnim(rAnim.checked);
+  bindFlipMode(rMode);
+  bindF5(rF5, () => showResult(res, target, secs, false));
+  bindVoice(rVoice, rTry);
+  rSound.checked = prefs.sound; rSound.onchange = () => setSound(rSound.checked);
+  rMoves.onclick = e => { const btn = e.target.closest("button"); if (btn) show(+btn.dataset.k); };
+  rPlay.onclick = () => {
+    if (playTimer) return stop();
+    if (view.k >= view.last) show(0);
+    rPlay.textContent = "停止";
+    playTimer = setInterval(() => (view.k >= view.last ? stop() : show(view.k + 1)), 450);
+  };
+  btnCopy.onclick = () => navigator.clipboard?.writeText(placed.join("")).then(() => { btnCopy.textContent = "コピーしました"; setTimeout(() => btnCopy.textContent = "コピー", 1200); });
+  paint(view.cells, fin, { last: states[view.last].last, flipped: states[view.last].flipped });
+  show(view.last);
+  renderOpt(res, target, secs);
+}
+
+// ---- 最適化・別解（othello-retro optimize） ----
+// 見つかった棋譜を起点に、返す枚数などを最大化した棋譜と、同じ値の別解を SAT で探す
+let opt = (() => { try { return JSON.parse(loadStr("othello-retro-opt") || "null"); } catch (e) { return null; } })();
+let optJob = null;
+const OBJ_LABEL = { "last:1": "最後の 1 手で返す枚数", "last:3": "最後の 3 手で返す枚数", "last:5": "最後の 5 手で返す枚数",
+  "last:10": "最後の 10 手で返す枚数", total: "全体で返す枚数", asmr: "ASMR（動画映え）" };
+const isAsmr = o => o && o.objective === "asmr";
+const fmtVal = (o, v) => (isAsmr(o) ? `${(v / 10).toFixed(1)} 点` : `${v} 枚`);
+// 1 手ごとの返し枚数の棒グラフ（緩急を見る。クリックでその手へ）
+function rhythmChart(states) {
+  const f = states.slice(1).map(st => st.flipped.size), n = f.length, mx = Math.max(1, ...f);
+  const W = 600, H = 70, bw = W / Math.max(1, n);
+  const bars = f.map((v, i) => {
+    const prev = f.slice(Math.max(0, i - 3), i), avg = prev.length ? prev.reduce((a, b) => a + b, 0) / prev.length : 1;
+    const accent = v >= 4 && v >= 2 * Math.max(1, avg);
+    const h = Math.max(2, (v / mx) * (H - 14));
+    return `<rect data-k="${i + 1}" x="${(i * bw + 0.5).toFixed(1)}" y="${(H - h).toFixed(1)}" width="${Math.max(1, bw - 1).toFixed(1)}" height="${h.toFixed(1)}"
+      class="${i === n - 1 ? "last" : accent ? "acc" : ""}"><title>${i + 1} 手目: ${v} 枚</title></rect>`;
+  }).join("");
+  return `<svg class="rhythm" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="1 手ごとの返し枚数">${bars}</svg>
+    <div class="muted rhythm-legend">1 手ごとの返し枚数（<span class="acc-dot"></span>アクセント・<span class="last-dot"></span>最後の手）</div>`;
+}
+function saveOpt() { saveStr("othello-retro-opt", opt ? JSON.stringify(opt) : ""); }
+function renderOpt(res, target, secs) {
+  const mine = opt && opt.target === target.join("") ? opt : null;
+  const box = document.createElement("div");
+  box.className = "opt";
+  const o = s => `<option value="${s[0]}"${(loadStr("othello-retro-opt-" + s[2]) || s[3]) === s[0] ? " selected" : ""}>${s[1]}</option>`;
+  box.innerHTML = `
+    <div class="opt-head">最適化・別解</div>
+    <div class="row">
+      <select id="oObj" aria-label="最大化するもの">${Object.entries(OBJ_LABEL).map(([k, v]) => o([k, v, "obj", "last:1"])).join("")}</select>
+      <select id="oN" aria-label="解の数">${[1, 3, 5, 10].map(n => o([String(n), `${n} 本`, "n", "5"])).join("")}</select>
+      <select id="oTime" aria-label="時間">${[30, 60, 120, 300, 600].map(n => o([String(n), `${n} 秒`, "time", "60"])).join("")}</select>
+      <button id="oRun">最適化する</button><button id="oCancel" hidden>中止</button>
+    </div>
+    <div class="muted" id="oStatus">${mine ? `${OBJ_LABEL[mine.objective]}: 初め ${fmtVal(mine, mine.initial)} → 最良 ${fmtVal(mine, mine.best)}${mine.proven ? "（これ以上は無いと証明済み）" : ""}` : "見つかった棋譜より「気持ちいい」棋譜（大返しが多い・終盤に大返しなど）や別解を探します。"}</div>
+    <div class="sols" id="oSols">${mine ? [{ label: "元の棋譜", i: -1 }, ...mine.solutions.map((x, i) => ({ label: `解 ${i + 1}: ${fmtVal(mine, x.value)}`, i }))]
+      .map(x => `<button data-i="${x.i}" class="${mine.sel === x.i ? "cur" : ""}">${x.label}</button>`).join("") : ""}</div>
+    ${mine && mine.sel >= 0 && mine.solutions[mine.sel].asmr ? (a => `<div class="muted">ASMR ${a.score.toFixed(1)} 点 ＝ 最後の手 ${a.climax} 枚・最後の 5 手 ${a.finale} 枚・アクセント ${a.accents} 回・長い一列 ${a.long} 回・3 方向以上 ${a.dirs} 回・合計 ${a.total} 枚・1 枚返しの連続 ${a.boring} 手</div>`)(mine.solutions[mine.sel].asmr) : ""}
+    ${view ? rhythmChart(view.states) : ""}`;
+  resultEl.appendChild(box);
+  ["obj", "n", "time"].forEach(k => { const el = box.querySelector("#o" + { obj: "Obj", n: "N", time: "Time" }[k]); el.onchange = () => saveStr("othello-retro-opt-" + k, el.value); });
+  box.querySelector("#oSols").onclick = e => {
+    const b = e.target.closest("button"); if (!b || !mine) return;
+    mine.sel = +b.dataset.i; saveOpt(); showResult(res, target, secs, false);
+  };
+  box.querySelector("#oRun").onclick = () => startOptimize(res, target, secs);
+  const chart = box.querySelector(".rhythm");
+  if (chart) chart.onclick = e => { const r = e.target.closest("rect"); if (r && view) view.ui(+r.dataset.k); };
+  box.querySelector("#oCancel").onclick = () => optJob && fetch("/api/cancel", { method: "POST", body: JSON.stringify({ id: optJob }) }).catch(() => {});
+  if (optJob) setOptRunning(true);
+}
+function setOptRunning(on) {
+  const run = document.getElementById("oRun"), cancel = document.getElementById("oCancel");
+  if (run) run.disabled = on;
+  if (cancel) cancel.hidden = !on;
+}
+async function startOptimize(res, target, secs) {
+  const id = Math.random().toString(36).slice(2), t0 = Date.now();
+  const req = { id, board: target.join(""), moves: res.moves.filter(m => m !== "pass"), objective: oObj.value, solutions: +oN.value, time: +oTime.value };
+  saveStr("othello-retro-optjob", JSON.stringify({ ...req, t0 }));
+  optJob = id; setOptRunning(true);
+  let out = null;
+  const poll = pollOptimize(id, req, t0);
+  try {
+    const r = await fetch("/api/optimize", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(req) });
+    out = await r.json();
+  } catch (e) { out = null; }  // 通信が切れた（リロードなど）なら結果の問い合わせで待つ
+  finishOptimize(id, req, out && out.status !== "queued" ? out : await poll);
+}
+// 途中経過を表示しながら、終わるまでサーバーに結果を問い合わせる（リロード後の再接続にも使う）
+async function pollOptimize(id, req, t0) {
+  for (;;) {
+    if (optJob !== id || leaving) return null;
+    try {
+      const p = await (await fetch(`/api/progress?id=${encodeURIComponent(id)}`)).json();
+      const st = document.getElementById("oStatus");
+      if (st) st.textContent = `最適化中… ${Math.floor((Date.now() - t0) / 1000)} 秒` +
+        (p.value != null ? `・現在の最良 ${p.value} 枚${p.alternatives ? `・別解 ${p.alternatives} 本` : ""}` : "");
+      const r = await (await fetch(`/api/result?id=${encodeURIComponent(id)}`)).json();
+      if (r.status !== "running" && !(r.status === "lost" && Date.now() - t0 < 15000)) return r.status === "lost" ? { status: "error", reason: "最適化の結果を受け取れませんでした" } : r;
+    } catch (e) {}
+    await new Promise(r => setTimeout(r, 1000));
+  }
+}
+function finishOptimize(id, req, out) {
+  if (!out || optJob !== id || leaving) return;
+  optJob = null; saveStr("othello-retro-optjob", "");
+  if (out.status === "optimized") {
+    opt = { target: req.board, objective: req.objective, initial: out.initial, best: out.best, proven: out.proven_optimal,
+      solutions: out.solutions, sel: 0 };
+    saveOpt();
+  }
+  const r = JSON.parse(loadStr("othello-retro-result") || "null");
+  if (r) showResult(r.res, [...r.target], r.secs || 0, false);
+  setOptRunning(false);
+  if (out.status !== "optimized") {
+    const st = document.getElementById("oStatus");
+    if (st) st.textContent = out.status === "cancelled" ? "中止しました" : `エラー: ${out.reason || ""}`;
+  }
+}
+async function resumeOptimize() {
+  let j; try { j = JSON.parse(loadStr("othello-retro-optjob") || "null"); } catch (e) { j = null; }
+  if (!j || !j.id) return;
+  optJob = j.id; setOptRunning(true);
+  finishOptimize(j.id, j, await pollOptimize(j.id, j, j.t0));
+}
+// 前回の状態を復元: 探索中ならその続き、そうでなければ前回の結果と再生位置
+resumeSearch().then(resumed => {
+  if (resumed) return;
+  try {
+    const r = JSON.parse(loadStr("othello-retro-result") || "null");
+    if (!r || !r.res || !/^[XO-]{64}$/.test(r.target)) return;
+    const k = loadStr("othello-retro-result-k");
+    showResult(r.res, [...r.target], r.secs || 0, false);
+    if (view && k !== null) view.ui(+k);
+  } catch (e) {}
+  resumeOptimize();
+  resumeFix();
+});
+document.addEventListener("keydown", e => {
+  if (!view || e.target.closest("textarea, input, select")) return;
+  if (e.key === "ArrowLeft") view.ui(view.k - 1);
+  if (e.key === "ArrowRight") view.ui(view.k + 1);
+});
+render();
+</script>
+</body>
+</html>

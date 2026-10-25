@@ -1,0 +1,14 @@
+{
+  "included_in_source_archive": false,
+  "installation": "Place separate Release weight files at solver/ml/model.pt and solver/ml/model_passes.pt",
+  "files": {
+    "model.pt": {
+      "sha256": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+      "size_bytes": 1257333
+    },
+    "model_passes.pt": {
+      "sha256": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+      "size_bytes": 1256602
+    }
+  }
+}
