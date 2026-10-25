@@ -4,6 +4,25 @@
 
 These are completed, independently replayed suites from the frozen [benchmark design](MEASUREMENT_DESIGN.en.md). Midgames and terminal boards are reported separately. Each board is measured three times in each slot. All recorded successful games match the full target board.
 
+## Four environments: 400 midgames
+
+All four environments completed 2,400 trials each (9,600 total). Every record passed independent legality and target checks. Common complete-case coverage is 400/400 (100%).
+
+| 環境 / Environment | SAT平均 / mean (s) | auto平均 / mean (s) | auto/SAT | 95%CI |
+|---|---:|---:|---:|---|
+| [WSL](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.62050 | 0.59461 | 0.9583 | [0.8586, 1.0594] |
+| [M4 Pro](benchmarks/m4-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.56193 | 2.45550 | 1.5721 | [1.3799, 1.7940] |
+| [M1](benchmarks/m1-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.95663 | 1.16378 | 1.2165 | [1.0403, 1.3998] |
+| [Intel i9](benchmarks/intel-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.27192 | 1.45680 | 1.1454 | [1.0064, 1.2987] |
+
+Intervals compare auto and SAT within each environment. Auto has a larger mean on M4, M1 and Intel, with individual intervals above one. All four miss the 5% relative-CI-radius target. Individual intervals are not adjusted for multiple comparisons.
+
+Differences include OS, native numerical backends, scheduling and background load. M4 had a logged between-trial diagnostic pause, separate from search time. Distinguish whole-program duration from corresponding per-case search costs. Actual model use in the 44-disc stratum and direct SAT on the other 320 cases also require separate analysis.
+
+The [paired four-environment report](benchmarks/four-environment-midgame-comparison-20261025.json) is reproducible with the public standard-library analyzer. The table retains the original NumPy intervals; finite-bootstrap endpoints can vary slightly with the RNG, while means agree. Each linked dataset contains all records, controls, load and hashes.
+
+[Independent reports reproducing the original confidence intervals](benchmarks/validation/) are also available.
+
 ## WSL: 400 midgames
 
 Both SAT and auto completed **1200/1200** trials with legal matching game records. There are **400 independent cases**; repeats do not triple that sample size.
@@ -48,7 +67,7 @@ This 20-case suite is auxiliary and does not guarantee the same precision as the
 
 ## Remaining measurements and interpretation
 
-WSL has completed all 2,520 planned trials. M4, M1 and Intel measurements continue. Completed suites will be added without pooling partial runs into completed results. The tables above compare SAT and auto within WSL. Hardware comparisons require at least 90% common completed-case coverage across all four requested environments.
+The midgame suite is complete in all four environments. WSL also finished the terminal suite; M4, M1 and Intel terminal measurements continue. Terminal comparisons require at least 90% common completed-case coverage within that suite.
 
 The original reports use the recorded NumPy bootstrap RNG. The public standard-library analyzer identifies its own RNG, so finite-bootstrap endpoints may differ when reanalyzing these same raw records. Arithmetic means remain the same.
 

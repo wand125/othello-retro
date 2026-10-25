@@ -1,0 +1,20 @@
+{
+  "exported_at": "2026-10-25T14:13:11.892658+00:00",
+  "status": "complete",
+  "split": "main",
+  "dataset_role": "formal_main",
+  "completed_formal_dataset": true,
+  "cross_environment_comparison_ready": false,
+  "cross_environment_readiness_note": "Not assessed by a single-environment export. Four-environment coverage/completeness and comparability are evaluated separately; do not infer a machine ranking from this flag.",
+  "completed_trials": 2400,
+  "planned_trials": 2400,
+  "complete_data_only": true,
+  "comparison_note": "Incomplete snapshots are progress data and must not be ranked or pooled with completed benchmark sets.",
+  "files_sha256": {
+    "metadata.json": "e4da5bbaddfea761e5f9f554e89280b35bb6852eb8ef14ff7590a8bb50e803ac",
+    "runs.jsonl": "dac772be9cb5e91ab70b46b8485dbf085080e771bccc6587a0e6416a7caafe33",
+    "verification.json": "dee63cb9b8ead7f4b4cd618e2a6c0e1ae5a8b0c6846e7eb27c8526f341729f4c",
+    "preparation.jsonl": "7f0081ea5ec265f9e12d462b85d95db6c5e185300670116d9d11d423f3d42b13",
+    "summary.json": "995b4efd68c31cbd463345c796860de59ac7aecea093abd61b95f817dc9fd9a6"
+  }
+}

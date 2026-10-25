@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "status": "match",
+  "numerically_matches": true,
+  "checked_numeric_fields": 74,
+  "mismatches": [],
+  "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+  "protocol_sha256": "82801e6491b8abf9f06979878b79726571488752b5ba2d751e0cfe4f3edc1202",
+  "runs_sha256": "188e45db8d6a412451113f131c3efbd7901cceab5d7ff535796956bf91868090",
+  "summary_sha256": "6ecdfbe64ad7b9528b2d081f1b885c24b6152f145ab6067ee944d11dedd1fd74",
+  "split": "main",
+  "independent_cases": 400,
+  "verified_trials": 2400,
+  "fixture": false,
+  "numpy_version": "1.26.4",
+  "recorded_numpy_version": "1.26.4",
+  "reference_numpy_version": "1.26.4",
+  "reference_version_matches": true,
+  "verification_scope": "Reference-version PCG64 numerical reproduction within stated floating-point tolerance.",
+  "rng": "numpy.random.default_rng / PCG64",
+  "bootstrap_seed": 730253,
+  "bootstrap_replicates": 3000,
+  "stratum_iteration_order": [
+    "12",
+    "20",
+    "28",
+    "36",
+    "44"
+  ],
+  "case_iteration_order": "bank case order within each stratum",
+  "bootstrap_order": "each stratum in order; then independent stratified overall draws in the same order",
+  "bootstrap_unit": "paired independent case; all repeats averaged within the case, never resampled as independent cases",
+  "interval": "95% percentile, NumPy linear quantile",
+  "tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-10,
+    "rule": "abs(recorded-recalculated) <= absolute + relative*abs(recalculated); integer counts exact"
+  },
+  "recalculated": {
+    "counts": {
+      "sat": {
+        "completed_found": 1200,
+        "independent_cases": 400,
+        "mean_seconds": 0.6204960183971949,
+        "median_seconds": 0.02888651448301971,
+        "p95_seconds": 2.853049395617563,
+        "all_repeats_success_case_wilson95": [
+          0.9904877056657034,
+          0.9999999999999999
+        ]
+      },
+      "auto": {
+        "completed_found": 1200,
+        "independent_cases": 400,
+        "mean_seconds": 0.5946091304345948,
+        "median_seconds": 0.029434885480441153,
+        "p95_seconds": 3.3983112937712576,
+        "all_repeats_success_case_wilson95": [
+          0.9904877056657034,
+          0.9999999999999999
+        ]
+      }
+    },
+    "estimates": {
+      "12": {
+        "sat_mean_seconds": 0.004206079712700253,
+        "auto_mean_seconds": 0.004178548953980985,
+        "auto_div_sat": 0.9934545323437075,
+        "ratio_ci95": [
+          0.9650092881817645,
+          1.0209895330838799
+        ],
+        "ratio_ci_relative_radius": 0.028632658300764377,
+        "auto_minus_sat_seconds": -2.7530758719267537e-05,
+        "difference_ci95": [
+          -0.00015117421652879252,
+          8.634789435746233e-05
+        ],
+        "independent_cases": 80
+      },
+      "20": {
+        "sat_mean_seconds": 0.0044186890193183585,
+        "auto_mean_seconds": 0.004449779399631855,
+        "auto_div_sat": 1.0070361096192944,
+        "ratio_ci95": [
+          0.983024247252189,
+          1.0352942579950024
+        ],
+        "ratio_ci_relative_radius": 0.02806071014314564,
+        "auto_minus_sat_seconds": 3.1090380313496084e-05,
+        "difference_ci95": [
+          -7.616312663837287e-05,
+          0.00015470228258588362
+        ],
+        "independent_cases": 80
+      },
+      "28": {
+        "sat_mean_seconds": 0.10811922643867247,
+        "auto_mean_seconds": 0.10509181839103506,
+        "auto_div_sat": 0.9719993552732767,
+        "ratio_ci95": [
+          0.8885124851482451,
+          1.0424468561789666
+        ],
+        "ratio_ci_relative_radius": 0.08589189866443829,
+        "auto_minus_sat_seconds": -0.003027408047637417,
+        "difference_ci95": [
+          -0.012969358295231383,
+          0.0047972089201357366
+        ],
+        "independent_cases": 80
+      },
+      "36": {
+        "sat_mean_seconds": 0.7585709354141726,
+        "auto_mean_seconds": 0.8312421230497418,
+        "auto_div_sat": 1.0958001213108586,
+        "ratio_ci95": [
+          0.9535930934558788,
+          1.2629837677499434
+        ],
+        "ratio_ci_relative_radius": 0.15256764731791614,
+        "auto_minus_sat_seconds": 0.07267118763556912,
+        "difference_ci95": [
+          -0.03339014991928707,
+          0.21152777109600737
+        ],
+        "independent_cases": 80
+      },
+      "44": {
+        "sat_mean_seconds": 2.2271651614011105,
+        "auto_mean_seconds": 2.0280833823785835,
+        "auto_div_sat": 0.9106120271308102,
+        "ratio_ci95": [
+          0.7879727752426957,
+          1.0455571740744751
+        ],
+        "ratio_ci_relative_radius": 0.14819170285819197,
+        "auto_minus_sat_seconds": -0.199081779022527,
+        "difference_ci95": [
+          -0.4901226471765755,
+          0.09411810263435932
+        ],
+        "independent_cases": 80
+      },
+      "fixed_stratum_overall": {
+        "sat_mean_seconds": 0.6204960183971949,
+        "auto_mean_seconds": 0.5946091304345947,
+        "auto_div_sat": 0.9582803318714781,
+        "ratio_ci95": [
+          0.8585851907209462,
+          1.0593922623110736
+        ],
+        "ratio_ci_relative_radius": 0.10551393686869115,
+        "auto_minus_sat_seconds": -0.02588688796260019,
+        "difference_ci95": [
+          -0.09025708657205998,
+          0.03543676694887843
+        ],
+        "independent_cases": 400
+      }
+    }
+  },
+  "note": "Reproducing a descriptive CI does not establish population precision, environment comparability, or solver correctness beyond independently replayed witnesses."
+}
