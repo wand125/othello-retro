@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "status": "match",
+  "numerically_matches": true,
+  "checked_numeric_fields": 54,
+  "mismatches": [],
+  "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+  "protocol_sha256": "0ac7b0f3523e4f528e99aa5b4c2771fe8ad3b7c8d5399bfab7af97a2f949e36a",
+  "runs_sha256": "8a6dc3d11d0a98d4ef9dcacf43fe8fa262e9ed25ca411128c999dc18707cd172",
+  "summary_sha256": "f31d1b59441356547db503e1a1eb7e9e695ddaf3da701f9a8ea4da6935fdc138",
+  "split": "main",
+  "independent_cases": 20,
+  "verified_trials": 120,
+  "fixture": false,
+  "numpy_version": "1.26.4",
+  "recorded_numpy_version": "1.26.4",
+  "reference_numpy_version": "1.26.4",
+  "reference_version_matches": true,
+  "verification_scope": "Reference-version PCG64 numerical reproduction within stated floating-point tolerance.",
+  "rng": "numpy.random.default_rng / PCG64",
+  "bootstrap_seed": 730253,
+  "bootstrap_replicates": 3000,
+  "stratum_iteration_order": [
+    "full-reference-no-pass",
+    "full-reference-with-pass",
+    "early-terminal"
+  ],
+  "case_iteration_order": "bank case order within each stratum",
+  "bootstrap_order": "each stratum in order; then independent stratified overall draws in the same order",
+  "bootstrap_unit": "paired independent case; all repeats averaged within the case, never resampled as independent cases",
+  "interval": "95% percentile, NumPy linear quantile",
+  "tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-10,
+    "rule": "abs(recorded-recalculated) <= absolute + relative*abs(recalculated); integer counts exact"
+  },
+  "recalculated": {
+    "counts": {
+      "sat": {
+        "completed_found": 60,
+        "independent_cases": 20,
+        "mean_seconds": 11.509157763173183,
+        "median_seconds": 11.700423000147566,
+        "p95_seconds": 25.768265526415778,
+        "all_repeats_success_case_wilson95": [
+          0.8388748419471806,
+          1.0
+        ]
+      },
+      "auto": {
+        "completed_found": 60,
+        "independent_cases": 20,
+        "mean_seconds": 31.21701779650369,
+        "median_seconds": 34.63933566655032,
+        "p95_seconds": 70.16662023749667,
+        "all_repeats_success_case_wilson95": [
+          0.8388748419471806,
+          1.0
+        ]
+      }
+    },
+    "estimates": {
+      "full-reference-no-pass": {
+        "sat_mean_seconds": 13.015073865142075,
+        "auto_mean_seconds": 45.00471833729673,
+        "auto_div_sat": 3.4578918877926363,
+        "ratio_ci95": [
+          2.8355920851508176,
+          4.528704584675932
+        ],
+        "ratio_ci_relative_radius": 0.30967211573721426,
+        "auto_minus_sat_seconds": 31.989644472154655,
+        "difference_ci95": [
+          26.730811982238222,
+          38.246840739910965
+        ],
+        "independent_cases": 7
+      },
+      "full-reference-with-pass": {
+        "sat_mean_seconds": 11.018500176524478,
+        "auto_mean_seconds": 31.20842434516886,
+        "auto_div_sat": 2.832365915976489,
+        "ratio_ci95": [
+          1.4247093904869945,
+          4.673415322708072
+        ],
+        "ratio_ci_relative_radius": 0.6500040818690833,
+        "auto_minus_sat_seconds": 20.18992416864438,
+        "difference_ci95": [
+          4.180433583626566,
+          36.136827797565196
+        ],
+        "independent_cases": 7
+      },
+      "early-terminal": {
+        "sat_mean_seconds": 10.324689495299632,
+        "auto_mean_seconds": 15.141392858802442,
+        "auto_div_sat": 1.4665228301243964,
+        "ratio_ci95": [
+          1.027143265000434,
+          2.161884673822496
+        ],
+        "ratio_ci_relative_radius": 0.47415684871344027,
+        "auto_minus_sat_seconds": 4.8167033635028105,
+        "difference_ci95": [
+          0.2893831109783296,
+          10.150875298875485
+        ],
+        "independent_cases": 6
+      },
+      "fixed_stratum_overall": {
+        "sat_mean_seconds": 11.509157763173183,
+        "auto_mean_seconds": 31.217017796503686,
+        "auto_div_sat": 2.71236335784634,
+        "ratio_ci95": [
+          2.1779101158967924,
+          3.4251227527863732
+        ],
+        "ratio_ci_relative_radius": 0.26278167815464654,
+        "auto_minus_sat_seconds": 19.707860033330505,
+        "difference_ci95": [
+          13.71597467211793,
+          26.21014982157872
+        ],
+        "independent_cases": 20
+      }
+    }
+  },
+  "note": "Reproducing a descriptive CI does not establish population precision, environment comparability, or solver correctness beyond independently replayed witnesses."
+}

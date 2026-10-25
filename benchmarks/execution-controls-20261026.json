@@ -1,0 +1,98 @@
+{
+  "created_at": "2026-10-25T15:41:45.261060+00:00",
+  "scope": "All completed formal CPU222 unbounded midgame and terminal suites",
+  "planned_nice": 19,
+  "nice_values_identical_across_environments": false,
+  "observation_scope": "metadata.nice is the runner-reported priority at setup; it is not a per-trial child-priority measurement or proof of equivalent scheduler semantics across OSes.",
+  "interpretation": "M1 and Intel recorded20, a deviation from intended19. Preserve the measured runs and disclose this; do not call the four environments exactly priority-matched or infer isolated hardware effects.",
+  "suites": [
+    {
+      "environment": "WSL",
+      "suite": "midgame",
+      "metadata": "benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 19,
+      "matches_intended_nice": true,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "WSL",
+      "suite": "endgame",
+      "metadata": "benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 19,
+      "matches_intended_nice": true,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "M4 Pro",
+      "suite": "midgame",
+      "metadata": "benchmarks/m4-cpu222-unbounded-midgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 19,
+      "matches_intended_nice": true,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "M4 Pro",
+      "suite": "endgame",
+      "metadata": "benchmarks/m4-cpu222-unbounded-endgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 19,
+      "matches_intended_nice": true,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "M1",
+      "suite": "midgame",
+      "metadata": "benchmarks/m1-cpu222-unbounded-midgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 20,
+      "matches_intended_nice": false,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "M1",
+      "suite": "endgame",
+      "metadata": "benchmarks/m1-cpu222-unbounded-endgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 20,
+      "matches_intended_nice": false,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "Intel i9",
+      "suite": "midgame",
+      "metadata": "benchmarks/intel-cpu222-unbounded-midgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 20,
+      "matches_intended_nice": false,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "record_changed_to_match_plan": false
+    },
+    {
+      "environment": "Intel i9",
+      "suite": "endgame",
+      "metadata": "benchmarks/intel-cpu222-unbounded-endgame-main-20261025/metadata.json",
+      "observed_metadata_nice": 20,
+      "matches_intended_nice": false,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "record_changed_to_match_plan": false
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+{
+  "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+  "split": "main",
+  "sources": {
+    "WSL": {
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "complete": true,
+      "fixture": false,
+      "rows_sha256": "356127b75a182cc28d97488c2d3639a2a85d44c262268c3262a5df1d3d941bbd",
+      "methods": [
+        "auto",
+        "sat"
+      ]
+    },
+    "M4": {
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "complete": true,
+      "fixture": false,
+      "rows_sha256": "198e766b5057ec60ca4c0ae61dc8b760ac5b2e465137f4eada38561eeb90d49c",
+      "methods": [
+        "auto",
+        "sat"
+      ]
+    },
+    "M1": {
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "complete": true,
+      "fixture": false,
+      "rows_sha256": "8a6dc3d11d0a98d4ef9dcacf43fe8fa262e9ed25ca411128c999dc18707cd172",
+      "methods": [
+        "auto",
+        "sat"
+      ]
+    },
+    "Intel": {
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "complete": true,
+      "fixture": false,
+      "rows_sha256": "1b295160ad8c8a5975d2de51ec18ab070f90fb8cf0a6a7fb90989b7e755c06b5",
+      "methods": [
+        "auto",
+        "sat"
+      ]
+    }
+  },
+  "planned_independent_cases": 20,
+  "common_complete_cases": 20,
+  "common_case_ids": [
+    "endgame-early-terminal-s202610255400242",
+    "endgame-early-terminal-s202610255401016",
+    "endgame-early-terminal-s202610255405665",
+    "endgame-early-terminal-s202610255405805",
+    "endgame-early-terminal-s202610255406852",
+    "endgame-early-terminal-s202610255407633",
+    "endgame-full-reference-no-pass-s202610255200001",
+    "endgame-full-reference-no-pass-s202610255200006",
+    "endgame-full-reference-no-pass-s202610255200028",
+    "endgame-full-reference-no-pass-s202610255200034",
+    "endgame-full-reference-no-pass-s202610255200038",
+    "endgame-full-reference-no-pass-s202610255200076",
+    "endgame-full-reference-no-pass-s202610255200107",
+    "endgame-full-reference-with-pass-s202610255300009",
+    "endgame-full-reference-with-pass-s202610255300026",
+    "endgame-full-reference-with-pass-s202610255300034",
+    "endgame-full-reference-with-pass-s202610255300080",
+    "endgame-full-reference-with-pass-s202610255300152",
+    "endgame-full-reference-with-pass-s202610255300171",
+    "endgame-full-reference-with-pass-s202610255300185"
+  ],
+  "common_coverage": 1.0,
+  "all_planned_completed": true,
+  "conditional_on_completed_subset": false,
+  "performance_claims_allowed": true,
+  "cross_run_comparison_ready": true,
+  "required_run_labels": [
+    "WSL",
+    "M4",
+    "M1",
+    "Intel"
+  ],
+  "required_run_labels_present": true,
+  "comparison_scope": "Same validated input bank; timing profiles and declared controls must also be checked. No CPU-only causal claim.",
+  "cost": "case mean of effective_wall_seconds over all planned repeats; fixed original stratum weights",
+  "bootstrap": {
+    "replicates": 3000,
+    "seed": 730253,
+    "rng": "Python random.Random (MT19937)",
+    "unit": "independent case; all variants and all repeats remain paired within stratum",
+    "interval": "95% percentile, linear quantiles"
+  },
+  "variants": {
+    "WSL/auto": {
+      "label": "auto",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 9.148904258501716,
+      "independent_common_cases": 20
+    },
+    "WSL/sat": {
+      "label": "sat",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 9.204599049392465,
+      "independent_common_cases": 20
+    },
+    "M4/auto": {
+      "label": "auto",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 43.69341040416523,
+      "independent_common_cases": 20
+    },
+    "M4/sat": {
+      "label": "sat",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 16.74105313893427,
+      "independent_common_cases": 20
+    },
+    "M1/auto": {
+      "label": "auto",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 31.217017796503686,
+      "independent_common_cases": 20
+    },
+    "M1/sat": {
+      "label": "sat",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 11.509157763173182,
+      "independent_common_cases": 20
+    },
+    "Intel/auto": {
+      "label": "auto",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 32.699169110304986,
+      "independent_common_cases": 20
+    },
+    "Intel/sat": {
+      "label": "sat",
+      "timing_profile": "legacy-resident-model-final-sat",
+      "mean_seconds": 17.632372533141947,
+      "independent_common_cases": 20
+    }
+  },
+  "comparisons": [
+    {
+      "numerator": "WSL/sat",
+      "denominator": "WSL/auto",
+      "cross_run": false,
+      "comparison_ready": true,
+      "mean_ratio": 1.0060875914007947,
+      "ratio_ci95": [
+        0.7956400333602662,
+        1.26716203009018
+      ],
+      "relative_ci_radius": 0.25949474073712253,
+      "ci_includes_one": true,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M4/auto",
+      "denominator": "WSL/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 4.775808027891719,
+      "ratio_ci95": [
+        4.150833893388757,
+        5.353904624713411
+      ],
+      "relative_ci_radius": 0.13086249088174856,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M4/sat",
+      "denominator": "WSL/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.8298424233019455,
+      "ratio_ci95": [
+        1.4691805832205285,
+        2.249802521156009
+      ],
+      "relative_ci_radius": 0.2295061544677965,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/auto",
+      "denominator": "WSL/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 3.412104544376988,
+      "ratio_ci95": [
+        3.1076936211885244,
+        3.701494879941605
+      ],
+      "relative_ci_radius": 0.08921500476593566,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/sat",
+      "denominator": "WSL/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.257982096870035,
+      "ratio_ci95": [
+        1.0106584851004592,
+        1.5301322236333903
+      ],
+      "relative_ci_radius": 0.21633863267250592,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/auto",
+      "denominator": "WSL/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 3.5741076949099053,
+      "ratio_ci95": [
+        3.1456964276625192,
+        4.249531514184442
+      ],
+      "relative_ci_radius": 0.18897690750517868,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "WSL/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.927266045740601,
+      "ratio_ci95": [
+        1.5225780572890282,
+        2.432786147471824
+      ],
+      "relative_ci_radius": 0.2622990753396292,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M4/auto",
+      "denominator": "WSL/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 4.74691077467944,
+      "ratio_ci95": [
+        3.519294383696225,
+        6.281595271070768
+      ],
+      "relative_ci_radius": 0.3233017364846014,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M4/sat",
+      "denominator": "WSL/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.8187704916966738,
+      "ratio_ci95": [
+        1.3456764836376722,
+        2.4191634978454117
+      ],
+      "relative_ci_radius": 0.3301092737592472,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/auto",
+      "denominator": "WSL/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 3.3914587293798655,
+      "ratio_ci95": [
+        2.610236591089361,
+        4.348055032556097
+      ],
+      "relative_ci_radius": 0.2820604287144449,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/sat",
+      "denominator": "WSL/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.2503703530609327,
+      "ratio_ci95": [
+        0.9777341854285497,
+        1.5677864033825857
+      ],
+      "relative_ci_radius": 0.2538576266980514,
+      "ci_includes_one": true,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/auto",
+      "denominator": "WSL/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 3.5524816382374897,
+      "ratio_ci95": [
+        2.683650002871142,
+        4.736040608497196
+      ],
+      "relative_ci_radius": 0.33316399373338096,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "WSL/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.9156046274830127,
+      "ratio_ci95": [
+        1.6151586380203127,
+        2.324987936770404
+      ],
+      "relative_ci_radius": 0.21370970993387917,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M4/sat",
+      "denominator": "M4/auto",
+      "cross_run": false,
+      "comparison_ready": true,
+      "mean_ratio": 0.3831482364063385,
+      "ratio_ci95": [
+        0.3095692944384207,
+        0.48224987418509063
+      ],
+      "relative_ci_radius": 0.2586509041729017,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/auto",
+      "denominator": "M4/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 0.7144559673357018,
+      "ratio_ci95": [
+        0.6615112119009725,
+        0.7786297539447663
+      ],
+      "relative_ci_radius": 0.08982189182123676,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/sat",
+      "denominator": "M4/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 0.26340717414166487,
+      "ratio_ci95": [
+        0.21423325651166156,
+        0.3293545935697333
+      ],
+      "relative_ci_radius": 0.25036303450338365,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/auto",
+      "denominator": "M4/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 0.7483775884701328,
+      "ratio_ci95": [
+        0.6425757876526808,
+        0.9457212388383539
+      ],
+      "relative_ci_radius": 0.2636952968776629,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "M4/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 0.4035476372762397,
+      "ratio_ci95": [
+        0.29988705661912785,
+        0.5465751306050852
+      ],
+      "relative_ci_radius": 0.35442530228702385,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/auto",
+      "denominator": "M4/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.8646985668961895,
+      "ratio_ci95": [
+        1.4766904925283522,
+        2.3309065823311497
+      ],
+      "relative_ci_radius": 0.25001789764389015,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/sat",
+      "denominator": "M4/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 0.687481108127338,
+      "ratio_ci95": [
+        0.609236663864211,
+        0.7728984826431036
+      ],
+      "relative_ci_radius": 0.12424686803167287,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/auto",
+      "denominator": "M4/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.9532325020973325,
+      "ratio_ci95": [
+        1.502057528888296,
+        2.567979309404802
+      ],
+      "relative_ci_radius": 0.3147330420968163,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "M4/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.0532415366471035,
+      "ratio_ci95": [
+        0.8326542043825012,
+        1.3811534335175424
+      ],
+      "relative_ci_radius": 0.3113358953866517,
+      "ci_includes_one": true,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "M1/sat",
+      "denominator": "M1/auto",
+      "cross_run": false,
+      "comparison_ready": true,
+      "mean_ratio": 0.36868216682960053,
+      "ratio_ci95": [
+        0.296808196335882,
+        0.4618399754830623
+      ],
+      "relative_ci_radius": 0.25267782668891053,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/auto",
+      "denominator": "M1/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.0474789527770747,
+      "ratio_ci95": [
+        0.937779705526993,
+        1.2885646252756002
+      ],
+      "relative_ci_radius": 0.23015801115560322,
+      "ci_includes_one": true,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "M1/auto",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 0.5648320620529222,
+      "ratio_ci95": [
+        0.4311257085022831,
+        0.7513543397403462
+      ],
+      "relative_ci_radius": 0.33022607995993614,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/auto",
+      "denominator": "M1/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 2.8411435296277947,
+      "ratio_ci95": [
+        2.2009402322902063,
+        3.7090715931474474
+      ],
+      "relative_ci_radius": 0.30548546895600026,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "M1/sat",
+      "cross_run": true,
+      "comparison_ready": true,
+      "mean_ratio": 1.5320297884491365,
+      "ratio_ci95": [
+        1.2403972123074112,
+        1.963600975663432
+      ],
+      "relative_ci_radius": 0.28169895289775804,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    },
+    {
+      "numerator": "Intel/sat",
+      "denominator": "Intel/auto",
+      "cross_run": false,
+      "comparison_ready": true,
+      "mean_ratio": 0.5392299869657908,
+      "ratio_ci95": [
+        0.4261114278787791,
+        0.6942067847650126
+      ],
+      "relative_ci_radius": 0.2874038935988433,
+      "ci_includes_one": false,
+      "ratio_ci_target_met": false,
+      "precision_established": false,
+      "timing_profiles_match": true
+    }
+  ],
+  "skipped_comparisons": [],
+  "strata": {
+    "full-reference-no-pass": {
+      "planned": 7,
+      "complete_common": 7
+    },
+    "full-reference-with-pass": {
+      "planned": 7,
+      "complete_common": 7
+    },
+    "early-terminal": {
+      "planned": 6,
+      "complete_common": 6
+    }
+  },
+  "analysis_status": "descriptive completed-case analysis",
+  "mixed_timing_profiles": false,
+  "note": "90% coverage is not a precision guarantee or permission to stop early. N20 is auxiliary. The full frozen schedule remains the completion goal."
+}

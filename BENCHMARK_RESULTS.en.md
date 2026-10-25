@@ -2,7 +2,7 @@
 
 [日本語](BENCHMARK_RESULTS.md) | English
 
-These are completed, independently replayed suites from the frozen [benchmark design](MEASUREMENT_DESIGN.en.md). Midgames and terminal boards are reported separately. Each board is measured three times in each slot. All recorded successful games match the full target board.
+Updated 2026-10-26. All four environments completed the entire schedule: 10,080 verified trials in total. These are completed, independently replayed suites from the frozen [benchmark design](MEASUREMENT_DESIGN.en.md). Midgames and terminal boards are reported separately. Each board is measured three times in each slot. All recorded successful games match the full target board.
 
 ## Four environments: 400 midgames
 
@@ -22,6 +22,27 @@ Differences include OS, native numerical backends, scheduling and background loa
 The [paired four-environment report](benchmarks/four-environment-midgame-comparison-20261025.json) is reproducible with the public standard-library analyzer. The table retains the original NumPy intervals; finite-bootstrap endpoints can vary slightly with the RNG, while means agree. Each linked dataset contains all records, controls, load and hashes.
 
 [Independent reports reproducing the original confidence intervals](benchmarks/validation/) are also available.
+
+## Four environments: 20 terminal boards
+
+All four environments completed 120 trials each (480 total), with every game independently replayed against its full target. Common complete-case coverage is 20/20 (100%). The independent N remains 20, not 60 per slot. This suite is analyzed separately from the 400 midgames.
+
+| Environment | SAT mean (s) | auto mean (s) | auto/SAT | 95%CI |
+|---|---:|---:|---:|---|
+| [WSL](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) | 9.20460 | 9.14890 | 0.9939 | [0.7963, 1.2605] |
+| [M4 Pro](benchmarks/m4-cpu222-unbounded-endgame-main-20261025/summary.json) | 16.74105 | 43.69341 | 2.6100 | [2.0733, 3.2491] |
+| [M1](benchmarks/m1-cpu222-unbounded-endgame-main-20261025/summary.json) | 11.50916 | 31.21702 | 2.7124 | [2.1779, 3.4251] |
+| [Intel i9](benchmarks/intel-cpu222-unbounded-endgame-main-20261025/summary.json) | 17.63237 | 32.69917 | 1.8545 | [1.4588, 2.3634] |
+
+These are within-environment auto/SAT ratios and the original individual NumPy 95% intervals. Intervals are above one for M4, M1 and Intel and include one for WSL. All four miss the 5% relative-radius target. This fixed 20-case auxiliary suite does not establish general terminal-position performance or simultaneous multiple-comparison coverage. A pass in a reference game does not prove that every valid reconstruction requires a pass.
+
+The [paired four-environment report](benchmarks/four-environment-endgame-comparison-20261025.json) and [independent reproduction of every original CI](benchmarks/validation/) are available. Every linked environment folder also contains all records, metadata, verification and a manifest.
+
+## Recorded control deviations
+
+The intended nice value was 19. Metadata for both suites records **19 for M4/WSL and 20 for M1/Intel**. The [execution-controls audit](benchmarks/execution-controls-20261026.json) lists all eight datasets. Observations were preserved rather than rewritten to match the plan. These are runner setup observations, not per-child priority measurements or proof of equivalent scheduler behavior across operating systems.
+
+Within-environment SAT/auto results describe that recorded configuration. Cross-environment differences combine the priority deviation, OS, numerical backend, CPU allocation and background activity. M4 also recorded high background load. These results do not isolate CPU speed or model-only effects. 100% common coverage establishes matched inputs, not identical execution controls or a precision guarantee.
 
 ## WSL: 400 midgames
 
@@ -65,9 +86,9 @@ This 20-case suite is auxiliary and does not guarantee the same precision as the
 
 [Every trial and reconstructed record](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/runs.jsonl) · [Summary and intervals](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) · [Environment](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/metadata.json) · [Independent verification](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/verification.json) · [Hashes](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/manifest.json)
 
-## Remaining measurements and interpretation
+## Completion and interpretation
 
-The midgame suite is complete in all four environments. WSL also finished the terminal suite; M4, M1 and Intel terminal measurements continue. Terminal comparisons require at least 90% common completed-case coverage within that suite.
+Both suites are complete in all four environments, with 100% common coverage separately for 400 midgames and 20 terminal boards. No unfinished trial was assigned a finite timeout cost. These are descriptive comparisons of the recorded configurations, including the disclosed priority deviation.
 
 The original reports use the recorded NumPy bootstrap RNG. The public standard-library analyzer identifies its own RNG, so finite-bootstrap endpoints may differ when reanalyzing these same raw records. Arithmetic means remain the same.
 

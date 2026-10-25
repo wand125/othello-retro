@@ -1,0 +1,23 @@
+{
+  "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+  "protocol_sha256": "0ac7b0f3523e4f528e99aa5b4c2771fe8ad3b7c8d5399bfab7af97a2f949e36a",
+  "cases_sha256": "eb8a3306b0ef984694384e56c1c78fbba0980706ed4b3143be8e988b4b8fbddd",
+  "schedule_sha256": "74a9525bb588951ec075fabd491fb4564f5347b341b23cfd4a2d3754077b8208",
+  "completed_prefix_trials": 120,
+  "planned_trials": 120,
+  "independent_input_cases": 20,
+  "computed_records_independently_replayed": 120,
+  "reference_records_independently_replayed": 20,
+  "trial_order_and_uniqueness": "passed",
+  "strict_legal_replay_and_target": "passed",
+  "finite_cutoff_mix_check": "passed",
+  "trailing_incomplete_line_omitted": false,
+  "source_metadata_count_at_snapshot": 120,
+  "snapshot_is_complete": true,
+  "privacy": "absolute local paths, gate namespace and private process/control data omitted; implementation/models/stderr not exported",
+  "private_source_sha256": {
+    "metadata.json": "166cb7bea809b67f01743aa3d60744f778704eec696781313910582556d0f684",
+    "runs.jsonl_completed_prefix": "8a6803dea8201faebf3508cb3098274f1fd56f9c940344ab4ca54f270ca67744",
+    "summary.json": "21b84601b7c930a51fd30e03a44eeefae27d407c261354c9b331a3f6f985cda9"
+  }
+}

@@ -91,3 +91,9 @@ Dataset SHA-256 values:
 | Terminal | `9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409` |
 
 Cases, references, schedules, verified records, timing, controls and hashes are public. The reusable measurement runner is published separately from the original reconstruction program and model. See [runner documentation](runner/README.en.md), [license scope](BENCHMARK_LICENSE.md) and [publication scope](CODE_PUBLICATION.en.md).
+
+## Completed runs and deviations (2026-10-26)
+
+All four environments completed both frozen suites: 2,400 midgame trials and 120 terminal trials per environment, 10,080 trials in total. Every proof was independently replayed. Common complete-case coverage is 400/400 and 20/20 respectively; the suites are not pooled.
+
+The intended nice value was 19; metadata records 19 on M4/WSL and 20 on M1/Intel for both suites. The measurements retain this deviation rather than claiming exact priority matching. OS priority semantics and all child-process priorities were not established as equivalent. See the [execution-controls audit](benchmarks/execution-controls-20261026.json) and [results](BENCHMARK_RESULTS.en.md). Complete coverage does not guarantee matched controls or 5% CI precision.

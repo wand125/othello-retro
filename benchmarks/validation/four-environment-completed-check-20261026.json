@@ -1,0 +1,376 @@
+{
+  "banks": {
+    "status": "passed",
+    "banks": [
+      {
+        "status": "passed",
+        "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+        "splits": {
+          "pilot": {
+            "cases": 10,
+            "trials": 20,
+            "slots": [
+              "auto",
+              "sat"
+            ],
+            "repeats": 1,
+            "first_method_balance": "passed",
+            "balance_counts": {
+              "repeat1:36": {
+                "auto": 1,
+                "sat": 1
+              },
+              "repeat1:20": {
+                "auto": 1,
+                "sat": 1
+              },
+              "repeat1:28": {
+                "sat": 1,
+                "auto": 1
+              },
+              "repeat1:12": {
+                "auto": 1,
+                "sat": 1
+              },
+              "repeat1:44": {
+                "sat": 1,
+                "auto": 1
+              }
+            }
+          },
+          "main": {
+            "cases": 400,
+            "trials": 2400,
+            "slots": [
+              "auto",
+              "sat"
+            ],
+            "repeats": 3,
+            "first_method_balance": "passed",
+            "balance_counts": {
+              "repeat1:44": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat1:28": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat1:36": {
+                "auto": 40,
+                "sat": 40
+              },
+              "repeat1:12": {
+                "auto": 40,
+                "sat": 40
+              },
+              "repeat1:20": {
+                "auto": 40,
+                "sat": 40
+              },
+              "repeat2:36": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat2:12": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat2:20": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat2:44": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat2:28": {
+                "auto": 40,
+                "sat": 40
+              },
+              "repeat3:44": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat3:20": {
+                "auto": 40,
+                "sat": 40
+              },
+              "repeat3:12": {
+                "sat": 40,
+                "auto": 40
+              },
+              "repeat3:28": {
+                "auto": 40,
+                "sat": 40
+              },
+              "repeat3:36": {
+                "sat": 40,
+                "auto": 40
+              }
+            }
+          }
+        },
+        "independent_seed_count": 410,
+        "duplicate_board_groups": 0,
+        "duplicate_reference_groups": 0,
+        "duplicate_board_policy": "reported; independent seeds can produce the same position",
+        "checks": [
+          "protocol_cases_schedule_reference_hashes",
+          "legal_reference_replay",
+          "terminal_and_stones",
+          "unique_case_ids_and_game_seeds",
+          "complete_case_slot_repeat_product",
+          "declared_first_method_balance"
+        ]
+      },
+      {
+        "status": "passed",
+        "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+        "splits": {
+          "main": {
+            "cases": 20,
+            "trials": 120,
+            "slots": [
+              "sat",
+              "auto"
+            ],
+            "repeats": 3,
+            "first_method_balance": "passed",
+            "balance_counts": {
+              "repeat1:full-reference-with-pass": {
+                "auto": 4,
+                "sat": 3
+              },
+              "repeat1:early-terminal": {
+                "auto": 3,
+                "sat": 3
+              },
+              "repeat1:full-reference-no-pass": {
+                "auto": 3,
+                "sat": 4
+              },
+              "repeat2:early-terminal": {
+                "sat": 3,
+                "auto": 3
+              },
+              "repeat2:full-reference-with-pass": {
+                "sat": 4,
+                "auto": 3
+              },
+              "repeat2:full-reference-no-pass": {
+                "sat": 3,
+                "auto": 4
+              },
+              "repeat3:full-reference-no-pass": {
+                "sat": 4,
+                "auto": 3
+              },
+              "repeat3:early-terminal": {
+                "sat": 3,
+                "auto": 3
+              },
+              "repeat3:full-reference-with-pass": {
+                "auto": 4,
+                "sat": 3
+              }
+            }
+          }
+        },
+        "independent_seed_count": 20,
+        "duplicate_board_groups": 0,
+        "duplicate_reference_groups": 0,
+        "duplicate_board_policy": "reported; independent seeds can produce the same position",
+        "checks": [
+          "protocol_cases_schedule_reference_hashes",
+          "legal_reference_replay",
+          "terminal_and_stones",
+          "unique_case_ids_and_game_seeds",
+          "complete_case_slot_repeat_product",
+          "declared_first_method_balance"
+        ]
+      }
+    ],
+    "cross_bank_overlap": [
+      {
+        "banks": [
+          1,
+          2
+        ],
+        "overlapping_distinct_values": {
+          "seed": 0,
+          "id": 0,
+          "board": 0,
+          "reference": 0
+        }
+      }
+    ],
+    "required_disjoint_fields": [
+      "seed"
+    ]
+  },
+  "runs": {},
+  "published": {
+    "WSL-mid": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "manifest_files_verified": 5,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "M4-mid": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "manifest_files_verified": 6,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "M1-mid": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "manifest_files_verified": 5,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "Intel-mid": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "manifest_files_verified": 5,
+      "completed_trials": 2400,
+      "planned_trials": 2400,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "WSL-end": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "manifest_files_verified": 5,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "M4-end": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "manifest_files_verified": 5,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "M1-end": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "manifest_files_verified": 5,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    },
+    "Intel-end": {
+      "status": "passed",
+      "state": "complete",
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "manifest_files_verified": 5,
+      "completed_trials": 120,
+      "planned_trials": 120,
+      "summary": {
+        "schema": "original_numpy_study",
+        "arithmetic": "passed",
+        "ci": "not_checked_here; use check_numpy_ci.py for NumPy PCG bootstrap and Wilson intervals"
+      },
+      "checks": [
+        "manifest_hashes",
+        "no_untracked_files_or_symlinks",
+        "no_private_fields_or_local_paths",
+        "independent_replay_and_order",
+        "completion_and_fixture_claims"
+      ]
+    }
+  },
+  "status": "passed"
+}
