@@ -16,6 +16,12 @@ Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/REA
 
 `SHA256SUMS`は個別の二つの重み用です。ソース・モデル用archiveを含む全添付ファイルには[RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS)を使います。
 
+## native軽量autoの更新
+
+[32盤面・各3反復の診断](AUTO_DIAGNOSIS.md)では、終局20盤面の軽量／従来auto平均時間比は0.6930（95% CI0.5646–0.8511）、44石中盤12盤面は0.9273（0.7990–1.0760）でした。新規学習はなく、native逆算修正・推論・候補幅・終局routingを組み合わせた別実験です。元の400／20盤面・4環境結果は不変です。WSL nativeへ適用済みで、本番Torch2.6の機能smokeは測定Torch2.2.2の速度比較と分けています。独立したブラウザSAT版にはautoを導入しません。
+
+現在の`solver/`はこの更新を含みます。従来policyのflagだけではnative修正を戻せません。元の凍結測定の再現にはv0.1.0のソース／記録または更新前commit`32e472e`を使い、固定bankのhashを書き換えません。[現在の検証](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json)と[旧検証記録](solver/history/v0.1.0/README.md)を区別しています。
+
 ## 測定ツールと資料
 
 | 内容 | 日本語 | English |

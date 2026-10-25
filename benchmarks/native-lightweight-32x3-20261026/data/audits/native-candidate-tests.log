@@ -1,0 +1,19 @@
+   Compiling othello-retro v0.1.0 (<project>)
+    Finished `release` profile [optimized] target(s) in 6.29s
+     Running unittests src/main.rs (target-auto-candidate/release/deps/othello_retro-a64d9b00fcdfa61a)
+
+running 11 tests
+test edge::tests::corner_never_flips ... ok
+test edge::tests::sandwiched_forces_flip ... ok
+test find::tests::incomplete_terminal_preserves_a_known_passfree_predecessor ... ok
+test find::tests::terminal_fix_keeps_the_no_pass_mover_and_nonterminal_policy ... ok
+test sat::tests::opposite_pairs ... ok
+test sat::tests::sat_solves_and_rejects ... ok
+test sat::tests::unbounded_sentinel_survives_elapsed_time ... ok
+test solver::tests::initial_position_is_empty_record ... ok
+test solver::tests::rejects_isolated_disc ... ok
+test solver::tests::rejects_swapped_center ... ok
+test solver::tests::solves_random_reachable_positions ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+

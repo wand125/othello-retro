@@ -16,6 +16,12 @@ Test boards, reference records, measured results and **measurement tools for con
 
 `SHA256SUMS` checks the two individual weights. [RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS) covers all other assets, including both source and model archives.
 
+## Native lightweight-auto update
+
+The separate [32-case, three-repeat diagnosis](AUTO_DIAGNOSIS.en.md) reports a lightweight/old-auto mean ratio of 0.6930 (95% CI 0.5646–0.8511) on 20 terminal cases and 0.9273 (0.7990–1.0760) on 12 midgame cases with 44 discs. It combines native undo, inference, candidate-width and terminal-routing changes without retraining. The original 400/20-case four-environment results are unchanged. Native WSL has adopted the update; its Torch 2.6 functional smoke is separate from the Torch 2.2.2 timing comparison. The independent browser SAT edition does not use auto.
+
+Current `solver/` contains these changes. Selecting the old policy flag does not revert the native fix. To reproduce the original frozen engine, use v0.1.0 source/records or pre-update commit `32e472e`, without rewriting bank hashes. Distinguish [current validation](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json) from the [historical records](solver/history/v0.1.0/README.md).
+
 ## Tools and documentation
 
 | Topic | 日本語 | English |

@@ -77,3 +77,11 @@ browser-wasm/solver/build.log
 browser-wasm/validation/prototype*
 browser-wasm/validation/general-only-prototype-note.json
 !.github/workflows/browser-pages.yml
+
+# Reviewed native diagnostic snapshots; source/model hash records only.
+!benchmarks/native-lightweight-32x3-20261026/sources/**/*.py
+!benchmarks/native-lightweight-32x3-20261026/sources/**/*.rs
+!benchmarks/native-lightweight-32x3-20261026/sources/**/Cargo.toml
+!benchmarks/native-lightweight-32x3-20261026/sources/**/Cargo.lock
+!solver/history/v0.1.0/SOURCE_SHA256SUMS
+!benchmarks/native-lightweight-32x3-20261026/data/audits/native-candidate-*.log

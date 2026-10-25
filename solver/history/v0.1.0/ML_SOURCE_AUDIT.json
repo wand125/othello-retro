@@ -1,0 +1,96 @@
+{
+  "files": [
+    "ml/bench_fix.py",
+    "ml/eval_pipeline.py",
+    "ml/fix_beam.py",
+    "ml/label.py",
+    "ml/label_spine.py",
+    "ml/search.py",
+    "ml/single_free.py",
+    "ml/train.py",
+    "ml/train_final.py",
+    "ml/unsat_core.py",
+    "ml/worker.py"
+  ],
+  "imports": {
+    "ml/bench_fix.py": [
+      "concurrent",
+      "json",
+      "unsat_core"
+    ],
+    "ml/eval_pipeline.py": [
+      "json",
+      "search",
+      "torch",
+      "train",
+      "worker"
+    ],
+    "ml/fix_beam.py": [
+      "json",
+      "search",
+      "torch",
+      "train",
+      "worker"
+    ],
+    "ml/label.py": [
+      "json",
+      "multiprocessing"
+    ],
+    "ml/label_spine.py": [
+      "json",
+      "multiprocessing"
+    ],
+    "ml/search.py": [
+      "json",
+      "numpy",
+      "torch",
+      "train"
+    ],
+    "ml/single_free.py": [
+      "concurrent",
+      "json",
+      "unsat_core"
+    ],
+    "ml/train.py": [
+      "json",
+      "numpy",
+      "sklearn",
+      "torch"
+    ],
+    "ml/train_final.py": [
+      "numpy",
+      "sys",
+      "torch",
+      "train"
+    ],
+    "ml/unsat_core.py": [
+      "json"
+    ],
+    "ml/worker.py": [
+      "json",
+      "search",
+      "torch",
+      "train"
+    ]
+  },
+  "scope": "All eleven original ml/*.py; AST-parsed, imports and embedded data/credential/private-path markers read; no external copied-code attribution found",
+  "excluded": [
+    "*.pt",
+    "training/raw *.jsonl and other data",
+    "__pycache__",
+    "venvs",
+    "logs",
+    "private absolute paths or infrastructure",
+    "third-party implementation"
+  ],
+  "modified_files": [
+    {
+      "file": "ml/bench_fix.py",
+      "reason": "Remove broad process-name pkill which could terminate unrelated Kissat jobs. Existing executor joins its bounded pending work; this research baseline can return later.",
+      "original_sha256": "ffb5dd5837f541733a76a6fc43f3032600d1b7faf05d1a56a7624b7665c9ea68",
+      "released_sha256": "d0081540e5fb8178588e8522440530cf7eedf96097b397f53330c05559b9fdc0",
+      "formal_benchmark_source": false
+    }
+  ],
+  "provenance_limit": "Copyright holder authorized this project source. Pattern/import review alone is not a proof of independent authorship or training-data provenance."
+}

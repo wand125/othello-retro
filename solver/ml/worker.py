@@ -26,6 +26,9 @@ WITH_PASSES = dict(width=64, nsym=4, refine=0, passes=True)
 
 def handle(net, undo, req, net_passes=None, progress=None):
     """net_passes: パス対応ビームに使うモデル（無ければ net）"""
+    if os.environ.get("RETRO_AUTO_POLICY", "baseline") == "lightweight":
+        from lightweight import handle as lightweight_handle
+        return lightweight_handle(net, undo, req, net_passes, progress)
     t0, limit = time.monotonic(), float(req.get("time", 60))
     target = to_hex(req["board"])
     left = lambda: limit - (time.monotonic() - t0)

@@ -1,0 +1,31 @@
+{
+  "reason": "Owner changed primary scope to SAT-only browser WASM; lightweight adoption experiment stopped",
+  "effective_signal": "SIGTERM to controller explicit KeyboardInterrupt handler, finally cleans owned groups",
+  "at": "2026-10-25T19:08:28.989414+00:00",
+  "progress_at_signal": {
+    "case": "endgame-full-reference-with-pass-s202610255300034",
+    "suite": "endgame",
+    "repeat": 1,
+    "variant": "lightweight",
+    "stage": "pass_check",
+    "message": "短いSAT探索で手順を確認しています",
+    "device": "cpu"
+  },
+  "completed_durable_rows_before_signal": 38,
+  "seconds_since_last_durable_row_write": 0.9047057628631592,
+  "unfinished_trial_elapsed_precision": "Exact in-trial monotonic timer is not persisted; interval since last row includes replay/loop overhead and is not a benchmark result",
+  "unknown_or_timeout_counted_as_failure": false,
+  "launcher_pid_note": "Original detached shell PID had exited; first signal reached its launch shell, not the Python controller. Actual controller identified from exact argv and signalled explicitly.",
+  "effective_controller_signal_at": "2026-10-25T19:08:59.122511+00:00",
+  "progress_at_actual_controller_signal": {
+    "completed": 42,
+    "planned": 288,
+    "case": "endgame-full-reference-no-pass-s202610255200076",
+    "suite": "endgame",
+    "repeat": 1,
+    "variant": "sat",
+    "seconds": 4.852755693951622,
+    "stage": "final_exact_sat"
+  },
+  "seconds_since_last_durable_row_write_at_actual_signal": 8.22967004776001
+}

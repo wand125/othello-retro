@@ -14,6 +14,10 @@ The Rust/Python engine, UI/server and frozen measurement harness are published i
 
 Original-code MIT and the Kissat, Rust standard-library and Emscripten/runtime binary notices remain separate. [Fixture terms](browser-wasm/tests/LICENSE.md) distinguish MIT bank-derived cases from two CC BY 4.0 article-derived cases. The original four-environment native measurements are not browser performance measurements; mobile performance is unmeasured.
 
+## Current native lightweight auto
+
+Current `solver/` offers an opt-in single-stage width 16 / nsym 1 / refine 0 policy and CPU Conv–BN fusion/channels-last. Incomplete terminals route directly to general SAT; witnesses are strictly replayed. WSL has adopted it. The [32-case diagnosis](AUTO_DIAGNOSIS.en.md) is separate from the original 400/20 suites and uses unchanged checkpoints without retraining. `RETRO_AUTO_POLICY=baseline RETRO_INFERENCE_OPT=baseline` selects the old Python policy but does not revert the native undo fix. Reproduce the old frozen source from v0.1.0/commit `32e472e`, without changing banks. Current validation has 11 native plus 17 Python tests; the old nine-native-test record is historical.
+
 ## Original reconstruction workflow
 
 1. Check necessary conditions such as stone count and occupancy of the four opening center squares.
@@ -43,8 +47,8 @@ The training/copy records associate the main `model.pt` with 38,504 mixed-data r
 
 Original source is [MIT](LICENSE), and the two synthetic banks retain their existing [MIT scope](BENCHMARK_LICENSE.md). Weights/model cards and original article prose/figures are [CC BY 4.0](licenses/CC-BY-4.0.txt). Third-party software and cited material retain their respective terms. [LICENSE_SCOPE.md](LICENSE_SCOPE.md) distinguishes these grants.
 
-[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md) supplies notices for nine Rust dependencies and the SAT solvers. [`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md) records Python versions, notices and requirements evidence. r-efi 6.0.0's MIT permission/copyright is retained from AUTHORS. Cargo.toml/lock, Rust and the primary inference modules retain measurement-source hashes. The release-only removal of bench_fix.py's broad pkill is documented.
+[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md) supplies notices for nine Rust dependencies and the SAT solvers. [`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md) records Python versions, notices and requirements evidence. r-efi 6.0.0's MIT permission/copyright is retained from AUTHORS. Cargo.toml/lock remain unchanged. Historical records preserve the original Rust/inference measurement hashes; current lightweight source has separate hashes. The release-only removal of bench_fix.py's broad pkill is documented.
 
-Build with Rust 1.98.0 and C++17; install Kissat 4.0.3 separately. The same Rust source passed a locked release build, all nine unit tests, finite/unbounded SAT smoke tests and independent replay. See the [engine guide](solver/README.en.md) and [model card](models/MODEL_CARD.en.md).
+Build with Rust 1.98.0 and C++17; install Kissat 4.0.3 separately. The historical v0.1.0 source passed a locked release build, nine unit tests and finite/unbounded SAT smoke checks. Current changes have separate 11-native/17-Python validation. See the [engine guide](solver/README.en.md) and [model card](models/MODEL_CARD.en.md).
 
 The native v0.1.0 source distribution excludes compiled dependencies, Python wheels, WASM and container images. The separate browser edition includes the compiled WASM and applicable notices described above. Original training JSONL files are absent and are not distributed. Restricted teacher labels, unknown-as-positive training, unconfirmed artifact-specific holdout accuracy and incomplete retraining reproducibility remain scientific limits after source publication. Any later binary/video-library distribution needs a review of its actual bundled components. See [publication scope](CODE_PUBLICATION.en.md).

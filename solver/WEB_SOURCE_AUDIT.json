@@ -52,9 +52,10 @@
       "source": "ui/server.py",
       "path": "solver/ui/server.py",
       "source_sha256": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
-      "staged_sha256": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
-      "byte_identical": true,
-      "license": "MIT"
+      "staged_sha256": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+      "byte_identical": false,
+      "license": "MIT",
+      "v0_1_0_staged_sha256": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729"
     },
     {
       "source": "ui/public.html",
@@ -295,6 +296,12 @@
       "staged_sha256": "1e6edd9f20daa7c0a5b1cbe9edd555754ef4f8ab09cd904eb9fa09d0cacc16b0",
       "byte_identical": false,
       "license": "MIT"
+    },
+    {
+      "source": "ui/auto_policy.py",
+      "path": "solver/ui/auto_policy.py",
+      "staged_sha256": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+      "license": "MIT"
     }
   ],
   "stage_only_patches": [
@@ -318,10 +325,17 @@
     "recordings/videos/screenshots and arbitrary downloads",
     "third-party reference manuscripts and private review logs"
   ],
-  "frozen_ui_server_preserved": true,
-  "original_source_edits": [],
+  "frozen_ui_server_preserved": false,
+  "original_source_edits": [
+    {
+      "path": "solver/ui/server.py",
+      "change": "Skip model cold startup for planned incomplete-terminal exact route.",
+      "validation": "NATIVE_LIGHTWEIGHT_VALIDATION.json"
+    }
+  ],
   "integration_notes": [
     "Web license files use lowercase solver/licenses/ to avoid case-insensitive filesystem collisions.",
     "License grants and attribution finalized; no article prose or functional UI was rewritten."
-  ]
+  ],
+  "historical_record": "history/v0.1.0/WEB_SOURCE_AUDIT.json"
 }

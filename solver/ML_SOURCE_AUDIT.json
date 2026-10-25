@@ -3,8 +3,10 @@
     "ml/bench_fix.py",
     "ml/eval_pipeline.py",
     "ml/fix_beam.py",
+    "ml/inference_opt.py",
     "ml/label.py",
     "ml/label_spine.py",
+    "ml/lightweight.py",
     "ml/search.py",
     "ml/single_free.py",
     "ml/train.py",
@@ -16,45 +18,91 @@
     "ml/bench_fix.py": [
       "concurrent",
       "json",
+      "os",
+      "random",
+      "resource",
+      "subprocess",
+      "sys",
+      "time",
       "unsat_core"
     ],
     "ml/eval_pipeline.py": [
       "json",
+      "os",
       "search",
+      "statistics",
+      "subprocess",
+      "sys",
+      "time",
       "torch",
       "train",
       "worker"
     ],
     "ml/fix_beam.py": [
       "json",
+      "os",
+      "random",
       "search",
+      "subprocess",
+      "sys",
+      "time",
       "torch",
       "train",
       "worker"
     ],
+    "ml/inference_opt.py": [
+      "copy",
+      "torch"
+    ],
     "ml/label.py": [
       "json",
-      "multiprocessing"
+      "multiprocessing",
+      "subprocess",
+      "sys"
     ],
     "ml/label_spine.py": [
       "json",
-      "multiprocessing"
+      "multiprocessing",
+      "os",
+      "random",
+      "subprocess",
+      "sys",
+      "tempfile"
+    ],
+    "ml/lightweight.py": [
+      "auto_policy",
+      "pathlib",
+      "records",
+      "search",
+      "sys",
+      "time"
     ],
     "ml/search.py": [
+      "inference_opt",
       "json",
       "numpy",
+      "os",
+      "subprocess",
+      "sys",
+      "time",
       "torch",
       "train"
     ],
     "ml/single_free.py": [
       "concurrent",
       "json",
+      "os",
+      "sys",
+      "time",
       "unsat_core"
     ],
     "ml/train.py": [
       "json",
+      "math",
       "numpy",
+      "random",
       "sklearn",
+      "sys",
       "torch"
     ],
     "ml/train_final.py": [
@@ -64,16 +112,25 @@
       "train"
     ],
     "ml/unsat_core.py": [
-      "json"
+      "json",
+      "os",
+      "subprocess",
+      "sys",
+      "tempfile",
+      "time"
     ],
     "ml/worker.py": [
       "json",
+      "lightweight",
+      "os",
       "search",
+      "sys",
+      "time",
       "torch",
       "train"
     ]
   },
-  "scope": "All eleven original ml/*.py; AST-parsed, imports and embedded data/credential/private-path markers read; no external copied-code attribution found",
+  "scope": "Current 13 original ml/*.py; AST/import review and public-source path/credential scan. Existing v0.1.0 bench_fix safety patch is preserved.",
   "excluded": [
     "*.pt",
     "training/raw *.jsonl and other data",
@@ -92,5 +149,29 @@
       "formal_benchmark_source": false
     }
   ],
-  "provenance_limit": "Copyright holder authorized this project source. Pattern/import review alone is not a proof of independent authorship or training-data provenance."
+  "provenance_limit": "Copyright holder authorized this project source. Pattern/import review alone is not a proof of independent authorship or training-data provenance.",
+  "historical_audit": "history/v0.1.0/ML_SOURCE_AUDIT.json",
+  "current_source_sha256": {
+    "ml/bench_fix.py": "d0081540e5fb8178588e8522440530cf7eedf96097b397f53330c05559b9fdc0",
+    "ml/eval_pipeline.py": "9d616502221638d2bfe4bad09c2058fef388e8f40781a22c235a39b752e77f0f",
+    "ml/fix_beam.py": "f6211c86e31cf64de8fc9881c4bf0a92a8df699fc15fbf2438521da29479c814",
+    "ml/inference_opt.py": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+    "ml/label.py": "a357cfd3409da85727f22c5adb31d13ff1b1ef6a3f337e00dd7505951a22d1ce",
+    "ml/label_spine.py": "71a5b62a6181014e360a12592b0db15316af42f31a4586ea530eaba8d4337b2a",
+    "ml/lightweight.py": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+    "ml/search.py": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+    "ml/single_free.py": "03cc0003f0b02d9e0a2c89b5de08ff3693323482f872f7f1f997be17d4c8d745",
+    "ml/train.py": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+    "ml/train_final.py": "dd0f3378d12e9ed6cc0c298ac9db73fab5caaadab1f11cb7eac06559c3870755",
+    "ml/unsat_core.py": "2599e12eb61fc8b9d77be7d888f0184210f2de251b1ea84db0618b09d29e4760",
+    "ml/worker.py": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517"
+  },
+  "current_additions": [
+    "ml/inference_opt.py",
+    "ml/lightweight.py"
+  ],
+  "current_updates": [
+    "ml/search.py",
+    "ml/worker.py"
+  ]
 }

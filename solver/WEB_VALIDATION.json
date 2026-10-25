@@ -40,5 +40,10 @@
     "license_notice_retained": true,
     "third_party_files_added_to_stage": false
   },
-  "build_examples_verify_implementation_unchanged": true
+  "build_examples_verify_implementation_unchanged": true,
+  "historical_record": true,
+  "scope": "Historical native v0.1.0 validation; counts/hashes below describe that release, not current lightweight source.",
+  "historical_original_sha256": "7f3b2471b731db82c0c7d55a5f4e28986b6485d640033c81707ec1a6453a9127",
+  "historical_original_file": "history/v0.1.0/WEB_VALIDATION.json",
+  "current_validation": "NATIVE_LIGHTWEIGHT_VALIDATION.json"
 }

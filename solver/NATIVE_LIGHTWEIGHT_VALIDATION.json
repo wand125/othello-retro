@@ -1,0 +1,62 @@
+{
+  "scope": "Current native lightweight source and diagnostic validation; original v0.1.0 validation is archived separately.",
+  "native_source_sha256": {
+    "Cargo.toml": "ca7d730cce888862a2288613567d275e4b8f07efb73e376266e0129cc3a68dc3",
+    "Cargo.lock": "71471657ea7cd17f4c79f1cfbc8c792c22d28e9e2b7c1887fb9066e16b206cda",
+    "src/board.rs": "a79695526e6e588f9c0e838fc8e3b56b79fb22ae4df5caa64c6ba6d9d0f7ff37",
+    "src/edge.rs": "360916fd040e3d2dae730034ad191d02644dde00aa85ee4bf2cbe4048c9523d1",
+    "src/find.rs": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+    "src/fix.rs": "d9b966b80627cf917a62867713ad9ffe59211faa02647f6de0285b228dd4d1a8",
+    "src/main.rs": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+    "src/optimize.rs": "81685fe824bdb45e26d1d7317a82f9939a6b5e1dbd57d2af80afadcb3097b7dc",
+    "src/retro.rs": "ee2b12fde6df0d2ae2bdd8d119de92f56771639f8dcd4774d1a355c5090ae339",
+    "src/sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+    "src/solver.rs": "2f9decdd1e06735f3a11d829a30b72a18775d1e1d4180882e9a901bc6fb22aff"
+  },
+  "native_source_aggregate_sha256": "40c55c50b474420f459f0281d36d20885b62784a169dae31eaef24303074b490",
+  "native": {
+    "rust_toolchain": "1.98.0",
+    "kissat": "4.0.3",
+    "locked_release_build": "passed on WSL; retained build log",
+    "unit_tests_passed": 11,
+    "unit_tests_failed": 0,
+    "evidence_build": "../benchmarks/native-lightweight-32x3-20261026/data/audits/native-candidate-build.log",
+    "evidence_tests": "../benchmarks/native-lightweight-32x3-20261026/data/audits/native-candidate-tests.log",
+    "evidence_sha256": {
+      "native-candidate-tests.log": "072e4728ab58033653e132ffba031ce7474d4940f63ce9c7c50a2b86807ec8f3",
+      "native-candidate-build.log": "dac37593ce27b8a3fcaaca2889360d40d971a776651db61ddceb9feccb851ea3"
+    }
+  },
+  "python": {
+    "lightweight_tests": 8,
+    "analyzer_tests": 9,
+    "total_passed": 17,
+    "scope": "Rule/mocked/statistical tests, not extra model inference or a performance rerun.",
+    "public_source_rerun_passed": 17
+  },
+  "diagnostic": {
+    "trials": 288,
+    "independent_cases": 32,
+    "all_strict_replays_passed": true,
+    "schedule_unique_and_complete": true,
+    "source_snapshot_hashes_verified": 19,
+    "paired_stratified_bootstrap_replicates": 5000,
+    "ratio_CIs_independently_crosschecked": 6,
+    "public_analyzer_reexecution": "passed; identical analysis JSON",
+    "dataset_manifest": "../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json",
+    "public_analysis_sha256": "d80d856780b1b451d8b644c667cb4a2dc2c779beddf3bedd7417984e55cf7954"
+  },
+  "production": {
+    "status": "applied",
+    "torch": "2.6.0 CPU",
+    "numpy": "2.2.6",
+    "timing_claim": "Functional smoke only; not the CPU222 comparison.",
+    "evidence": "../benchmarks/native-lightweight-32x3-20261026/data/analysis/production-functional-summary.json"
+  },
+  "historical_validation": "history/v0.1.0/VALIDATION.json",
+  "frozen_benchmark_data_changed": false,
+  "Cargo_changed": false,
+  "checkpoint_files_changed": false,
+  "default_policy": "baseline; explicit lightweight/fused_channels_last opt-in. Current native undo fix remains in either policy.",
+  "native_source_matches_compiled_tested_project": true
+}

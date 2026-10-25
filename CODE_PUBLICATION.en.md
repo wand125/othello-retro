@@ -24,13 +24,17 @@ See [LICENSE_SCOPE.md](LICENSE_SCOPE.md), [MIT](LICENSE) and the [CC BY 4.0 text
 - [model.pt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/model.pt) and [model_passes.pt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/model_passes.pt): individual downloads.
 - [CC-BY-4.0.txt](https://github.com/wand125/othello-retro/releases/download/v0.1.0/CC-BY-4.0.txt) and [SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS).
 
-Check downloaded hashes and place weights in `solver/ml/`. Follow the [build and execution guide](solver/README.en.md). A documented release-only patch removes bench_fix.py's broad pkill, which could stop unrelated SAT processes. Frozen Cargo/Rust and primary inference-source hashes remain unchanged.
+Check downloaded hashes and place weights in `solver/ml/`. Follow the [build and execution guide](solver/README.en.md). A documented release-only patch removes bench_fix.py's broad pkill, which could stop unrelated SAT processes. The v0.1.0 frozen source hashes remain in historical records. Current `solver/` contains the subsequent lightweight update and has its own hashes.
 
 ## Shipped notices and validation
 
 For native v0.1.0, notices for nine locked Rust crates, CaDiCaL 1.9.5 and Kissat 4.0.3 are in [`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md). Their implementations and binaries are not vendored in that native source distribution. cadical 0.1.16 compiles its bundled CaDiCaL during the dependency build; Kissat runs as a separate process. r-efi 6.0.0's MIT permission and copyright are retained from AUTHORS.
 
-The same Rust source passed a Rust 1.98.0 locked release build, all nine tests with Kissat 4.0.3, finite/unbounded SAT smoke checks and independent replay. Inference and optional training-comparison requirements, version evidence and Python notices are documented in [`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md). Existing benchmark conditions, values and raw records are unchanged.
+The historical v0.1.0 Rust source passed a Rust 1.98.0 locked release build, all nine tests with Kissat 4.0.3, finite/unbounded SAT smoke checks and independent replay. Inference and optional training-comparison requirements, version evidence and Python notices are documented in [`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md). Existing benchmark conditions, values and raw records are unchanged.
+
+## Subsequent native lightweight source
+
+Current `solver/` adds opt-in lightweight search/inference, incomplete-terminal undo correction, diagnosis/resume, analysis and tests. See [AUTO_DIAGNOSIS.en.md](AUTO_DIAGNOSIS.en.md) and the [new data](benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json). Current validation covers 11 native and 17 Python tests plus independent replay of 288 records. The original nine-test v0.1.0 [historical record](solver/history/v0.1.0/README.md) retains its numbers and is distinct from [current validation](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json). Checkpoints, Cargo, original banks/raw/results tables and manuscript are unchanged. This does not replace the existing v0.1.0 source asset.
 
 ## Separate browser SAT distribution
 

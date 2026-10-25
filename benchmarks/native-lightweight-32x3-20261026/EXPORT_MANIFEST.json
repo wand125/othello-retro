@@ -1,0 +1,438 @@
+{
+  "schema": "native-lightweight-publication-v1",
+  "status": "exported-and-independently-validated",
+  "provenance": [
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/metadata.json",
+      "source_sha256": "0f0cbd08f82c93fef8de9c16b13129d0352c05059044a39d7ce060758d323f4f",
+      "public_relative": "data/run/metadata.json",
+      "public_sha256": "0f0cbd08f82c93fef8de9c16b13129d0352c05059044a39d7ce060758d323f4f",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/runs.jsonl",
+      "source_sha256": "cb4bfb464cd93bf89568d62f50f092309106bd9afb8a1b40de67153430b838cf",
+      "public_relative": "data/run/runs.jsonl",
+      "public_sha256": "cb4bfb464cd93bf89568d62f50f092309106bd9afb8a1b40de67153430b838cf",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/summary.json",
+      "source_sha256": "cdf98fa3e98e81acded488fa98781000bc73a6fcfb8d60a573c728f11af150ad",
+      "public_relative": "data/run/summary.json",
+      "public_sha256": "cdf98fa3e98e81acded488fa98781000bc73a6fcfb8d60a573c728f11af150ad",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/attempt-history/before-resume-002.json",
+      "source_sha256": "ab05b9839085569943434a7cb9f2c1fbc0e5c75440919855ea42fb234da762e5",
+      "public_relative": "data/run/attempt-history/before-resume-002.json",
+      "public_sha256": "ab05b9839085569943434a7cb9f2c1fbc0e5c75440919855ea42fb234da762e5",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/interruption-audit.json",
+      "source_sha256": "218af8b1cbc3c4488fdaa2d8c5be502d1b52168c65119b4620ca0ef65c198c6b",
+      "public_relative": "data/audits/interruption-audit.json",
+      "public_sha256": "c5ef947d65c1618ad6a8a6d314cf0a792724e709a67f8659ace3b9c38a8ed35a",
+      "byte_identical": false,
+      "removed_top_level_keys": [
+        "controller_pid",
+        "actual_controller_pid"
+      ]
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/completion-audit.json",
+      "source_sha256": "39c8726aa92954c866990e9f17fbcfa8c3d4aa362246483fd686303d3ddb9763",
+      "public_relative": "data/audits/completion-audit.json",
+      "public_sha256": "990644045b79d918b8d2c671b286bb5819583421582bf65e8821a127cd27fcb8",
+      "byte_identical": false,
+      "removed_top_level_keys": [
+        "production_service",
+        "production_affinity"
+      ]
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/cleanup-audit.json",
+      "source_sha256": "39a65b54c3393229163cb7f099ab7782f226a8b2a4a7ecb4bcf63ce428164a19",
+      "public_relative": "data/audits/cleanup-audit.json",
+      "public_sha256": "3eda6c3ff1de8ebdc02c8eff3ffddcd7a76a17b24105b4d11a8b367bba6f06f6",
+      "byte_identical": false,
+      "removed_top_level_keys": [
+        "production_service",
+        "production_affinity"
+      ]
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/resume-validation.json",
+      "source_sha256": "901277dd2a747e47a1b3f0b7c6c0e3199fb5c78ca2c1eff12626cafe06464891",
+      "public_relative": "data/audits/resume-validation.json",
+      "public_sha256": "f1881e5f3a2ee8d0fc33d923b4051fa8452e17a7b46d4c2dfed88deb5fec1b06",
+      "byte_identical": false,
+      "removed_top_level_keys": [
+        "production_affinity"
+      ]
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-launch-conditions.json",
+      "source_sha256": "71b4e20ba5862400b3ba40a9caf92ca4bb67b5798ada4dec9aa6b1bd93d9637e",
+      "public_relative": "data/audits/launch-conditions.json",
+      "public_sha256": "71b4e20ba5862400b3ba40a9caf92ca4bb67b5798ada4dec9aa6b1bd93d9637e",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-expected-sha256.json",
+      "source_sha256": "98ec06f506c07452ad1d51bf4fbcd8b898334956a5dc2f57714ddbd83e71036d",
+      "public_relative": "data/audits/initial-expected-sha256.json",
+      "public_sha256": "98ec06f506c07452ad1d51bf4fbcd8b898334956a5dc2f57714ddbd83e71036d",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/Cargo.toml",
+      "source_sha256": "ca7d730cce888862a2288613567d275e4b8f07efb73e376266e0129cc3a68dc3",
+      "public_relative": "sources/measured-attempt-001/Cargo.toml",
+      "public_sha256": "ca7d730cce888862a2288613567d275e4b8f07efb73e376266e0129cc3a68dc3",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/Cargo.lock",
+      "source_sha256": "71471657ea7cd17f4c79f1cfbc8c792c22d28e9e2b7c1887fb9066e16b206cda",
+      "public_relative": "sources/measured-attempt-001/Cargo.lock",
+      "public_sha256": "71471657ea7cd17f4c79f1cfbc8c792c22d28e9e2b7c1887fb9066e16b206cda",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/src/main.rs",
+      "source_sha256": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+      "public_relative": "sources/measured-attempt-001/src/main.rs",
+      "public_sha256": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/src/find.rs",
+      "source_sha256": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+      "public_relative": "sources/measured-attempt-001/src/find.rs",
+      "public_sha256": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/src/sat.rs",
+      "source_sha256": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+      "public_relative": "sources/measured-attempt-001/src/sat.rs",
+      "public_sha256": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ui/auto_policy.py",
+      "source_sha256": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+      "public_relative": "sources/measured-attempt-001/ui/auto_policy.py",
+      "public_sha256": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ui/server.py",
+      "source_sha256": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+      "public_relative": "sources/measured-attempt-001/ui/server.py",
+      "public_sha256": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ml/train.py",
+      "source_sha256": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+      "public_relative": "sources/measured-attempt-001/ml/train.py",
+      "public_sha256": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ml/search.py",
+      "source_sha256": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+      "public_relative": "sources/measured-attempt-001/ml/search.py",
+      "public_sha256": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ml/inference_opt.py",
+      "source_sha256": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+      "public_relative": "sources/measured-attempt-001/ml/inference_opt.py",
+      "public_sha256": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ml/worker.py",
+      "source_sha256": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+      "public_relative": "sources/measured-attempt-001/ml/worker.py",
+      "public_sha256": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/ml/lightweight.py",
+      "source_sha256": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+      "public_relative": "sources/measured-attempt-001/ml/lightweight.py",
+      "public_sha256": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/benchmarks/unbounded_engine.py",
+      "source_sha256": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+      "public_relative": "sources/measured-attempt-001/benchmarks/unbounded_engine.py",
+      "public_sha256": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/benchmarks/auto_diagnostic.py",
+      "source_sha256": "d8e1ce056bfd2a94dac72a95bedcd55f8d088e0b8495d5364d4df93d4ec0c5bf",
+      "public_relative": "sources/measured-attempt-001/benchmarks/auto_diagnostic.py",
+      "public_sha256": "d8e1ce056bfd2a94dac72a95bedcd55f8d088e0b8495d5364d4df93d4ec0c5bf",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/benchmarks/kissat_gate.py",
+      "source_sha256": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+      "public_relative": "sources/measured-attempt-001/benchmarks/kissat_gate.py",
+      "public_sha256": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3-source/SHA256.json",
+      "source_sha256": "b829ea5fb9786af5943362b17f6fd089ae2e8c7869b252f1c70f9157fe3cadb4",
+      "public_relative": "data/audits/measured-snapshot-hashes.json",
+      "public_sha256": "b829ea5fb9786af5943362b17f6fd089ae2e8c7869b252f1c70f9157fe3cadb4",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/lightweight-32x3/attempt-history/runner-attempt-002.py",
+      "source_sha256": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+      "public_relative": "sources/attempt-002/benchmarks/auto_diagnostic.py",
+      "public_sha256": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analyze_auto_diagnostic.py",
+      "source_sha256": "99d686bce30e24e1fdae16dbe50fffb999307b27f961a51a1f55862366ec2fb3",
+      "public_relative": "sources/tooling/benchmarks/analyze_auto_diagnostic.py",
+      "public_sha256": "99d686bce30e24e1fdae16dbe50fffb999307b27f961a51a1f55862366ec2fb3",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/test_analyze_auto_diagnostic.py",
+      "source_sha256": "99696d37bf8f02c1cc85f080ce0d4d802b5acad0cba333b576ff7f975a53ab9a",
+      "public_relative": "sources/tooling/benchmarks/test_analyze_auto_diagnostic.py",
+      "public_sha256": "99696d37bf8f02c1cc85f080ce0d4d802b5acad0cba333b576ff7f975a53ab9a",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/test_lightweight.py",
+      "source_sha256": "0bf98eea657ee934d54e86bb73c4dec75017ea45249677398a1e47dd4649f810",
+      "public_relative": "sources/tooling/benchmarks/test_lightweight.py",
+      "public_sha256": "0bf98eea657ee934d54e86bb73c4dec75017ea45249677398a1e47dd4649f810",
+      "byte_identical": true,
+      "removed_top_level_keys": []
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/candidate-build.log",
+      "source_sha256": "239c41aa07981694a959b30b9c091c44fd939e692e4b6b8f7f2d767fcd3cf82b",
+      "public_relative": "data/audits/native-candidate-build.log",
+      "public_sha256": "dac37593ce27b8a3fcaaca2889360d40d971a776651db61ddceb9feccb851ea3",
+      "byte_identical": false,
+      "text_substitutions": [
+        {
+          "original": "private project absolute path",
+          "replacement": "<project>",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "source_project_relative": "benchmarks/analysis/auto-20261026/candidate-test.log",
+      "source_sha256": "2e5bfd8c910509dcd6d35600b4f94154d5f04b797a73b8d4c85ad13b41e3da00",
+      "public_relative": "data/audits/native-candidate-tests.log",
+      "public_sha256": "072e4728ab58033653e132ffba031ce7474d4940f63ce9c7c50a2b86807ec8f3",
+      "byte_identical": false,
+      "text_substitutions": [
+        {
+          "original": "private project absolute path",
+          "replacement": "<project>",
+          "occurrences": 1
+        }
+      ]
+    }
+  ],
+  "source_bytes_are_not_redacted": true,
+  "excluded_payloads": [
+    "Both model .pt files; hashes only, existing Release download applies",
+    "Baseline/candidate native binaries; hashes only",
+    "Private launch shell scripts and logs",
+    "Final progress.json (redundant transient state)"
+  ],
+  "metadata_sanitization": "Only listed top-level audit fields removed; original/public hashes and removed key names are explicit. Main metadata/runs/summary and saved pre-resume metadata are byte-identical.",
+  "data_files_sha256": {
+    "README.md": "135289cff8cd163e15c4ec901f9e1804fa117bd1cb811a04a420ea1fe1ac9a36",
+    "data/analysis/analysis.json": "d80d856780b1b451d8b644c667cb4a2dc2c779beddf3bedd7417984e55cf7954",
+    "data/analysis/historical-wsl-guided-hit-context.json": "331039b6e8662f799731a1a138d75861b10dc3fefb128f85264973da3d1b79f0",
+    "data/analysis/independent-audit.json": "351077e6dd5e52f1110e07bab1df68f53c78d1648a962ab7bcd89cf4d22b4a2e",
+    "data/analysis/production-functional-summary.json": "1d9ccb5cb0e948671bff51a8e050c10b3b07a305b9535737e467813b95fe789f",
+    "data/analysis/public-payload-check.json": "73400c85b138bf3b87917769bd24f3ecd8030c3afc33924ce4f9e4aa22cd4cdc",
+    "data/audits/cleanup-audit.json": "3eda6c3ff1de8ebdc02c8eff3ffddcd7a76a17b24105b4d11a8b367bba6f06f6",
+    "data/audits/completion-audit.json": "990644045b79d918b8d2c671b286bb5819583421582bf65e8821a127cd27fcb8",
+    "data/audits/initial-expected-sha256.json": "98ec06f506c07452ad1d51bf4fbcd8b898334956a5dc2f57714ddbd83e71036d",
+    "data/audits/interruption-audit.json": "c5ef947d65c1618ad6a8a6d314cf0a792724e709a67f8659ace3b9c38a8ed35a",
+    "data/audits/launch-conditions.json": "71b4e20ba5862400b3ba40a9caf92ca4bb67b5798ada4dec9aa6b1bd93d9637e",
+    "data/audits/measured-snapshot-hashes.json": "b829ea5fb9786af5943362b17f6fd089ae2e8c7869b252f1c70f9157fe3cadb4",
+    "data/audits/native-candidate-build.log": "dac37593ce27b8a3fcaaca2889360d40d971a776651db61ddceb9feccb851ea3",
+    "data/audits/native-candidate-tests.log": "072e4728ab58033653e132ffba031ce7474d4940f63ce9c7c50a2b86807ec8f3",
+    "data/audits/resume-validation.json": "f1881e5f3a2ee8d0fc33d923b4051fa8452e17a7b46d4c2dfed88deb5fec1b06",
+    "data/run/attempt-history/before-resume-002.json": "ab05b9839085569943434a7cb9f2c1fbc0e5c75440919855ea42fb234da762e5",
+    "data/run/metadata.json": "0f0cbd08f82c93fef8de9c16b13129d0352c05059044a39d7ce060758d323f4f",
+    "data/run/runs.jsonl": "cb4bfb464cd93bf89568d62f50f092309106bd9afb8a1b40de67153430b838cf",
+    "data/run/summary.json": "cdf98fa3e98e81acded488fa98781000bc73a6fcfb8d60a573c728f11af150ad",
+    "sources/attempt-002/benchmarks/auto_diagnostic.py": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+    "sources/measured-attempt-001/Cargo.lock": "71471657ea7cd17f4c79f1cfbc8c792c22d28e9e2b7c1887fb9066e16b206cda",
+    "sources/measured-attempt-001/Cargo.toml": "ca7d730cce888862a2288613567d275e4b8f07efb73e376266e0129cc3a68dc3",
+    "sources/measured-attempt-001/benchmarks/auto_diagnostic.py": "d8e1ce056bfd2a94dac72a95bedcd55f8d088e0b8495d5364d4df93d4ec0c5bf",
+    "sources/measured-attempt-001/benchmarks/kissat_gate.py": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+    "sources/measured-attempt-001/benchmarks/unbounded_engine.py": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+    "sources/measured-attempt-001/ml/inference_opt.py": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+    "sources/measured-attempt-001/ml/lightweight.py": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+    "sources/measured-attempt-001/ml/search.py": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+    "sources/measured-attempt-001/ml/train.py": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+    "sources/measured-attempt-001/ml/worker.py": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+    "sources/measured-attempt-001/src/find.rs": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+    "sources/measured-attempt-001/src/main.rs": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+    "sources/measured-attempt-001/src/sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+    "sources/measured-attempt-001/ui/auto_policy.py": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+    "sources/measured-attempt-001/ui/server.py": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+    "sources/tooling/benchmarks/analyze_auto_diagnostic.py": "99d686bce30e24e1fdae16dbe50fffb999307b27f961a51a1f55862366ec2fb3",
+    "sources/tooling/benchmarks/test_analyze_auto_diagnostic.py": "99696d37bf8f02c1cc85f080ce0d4d802b5acad0cba333b576ff7f975a53ab9a",
+    "sources/tooling/benchmarks/test_lightweight.py": "0bf98eea657ee934d54e86bb73c4dec75017ea45249677398a1e47dd4649f810"
+  },
+  "derived_artifacts": [
+    {
+      "public_relative": "data/analysis/production-functional-summary.json",
+      "method": "Allowlisted fields from rollout evidence; not a redacted raw audit. Source hashes retained.",
+      "source_evidence_sha256": {
+        "README.ja.md": "9077621f1aaa8d7e37c110b7c4e87f956a75eec9a16201074a88810f81a3114a",
+        "rollout-audit.json": "2f3ae55c568d44fca8f55bf65b957816959e927e1820440b5235aa84dedb5f20",
+        "final-check.json": "7c3f699c1a6256b784b33a9aedeae3f4c8ef1ee35a1fac14e84fc9a6a674951a",
+        "stage-smoke.json": "7e15984b4cc1539ea7f5fe02980b2f700345d9215b565de8a13f60372ef4037e",
+        "installed-runner-smoke.json": "e2fa358f8d01532cc7e2dd38f83b4b452d3039786f970e31c592768bea56bcd7",
+        "stage-manifest.json": "eba5a479733f2759a83b81e6e4ad8ba447497d278f695cc894fa0ff8460a1832",
+        "regression-test.log": "4dace479bdda611941d786c8c99ed49453ff8890a0837e677b669b9a7e7ef650"
+      }
+    }
+  ],
+  "published_source_updates": [
+    {
+      "source_project_relative": "ml/search.py",
+      "source_sha256": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+      "public_sha256": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/ml/search.py"
+    },
+    {
+      "source_project_relative": "ml/worker.py",
+      "source_sha256": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+      "public_sha256": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/ml/worker.py"
+    },
+    {
+      "source_project_relative": "ml/inference_opt.py",
+      "source_sha256": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+      "public_sha256": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/ml/inference_opt.py"
+    },
+    {
+      "source_project_relative": "ml/lightweight.py",
+      "source_sha256": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+      "public_sha256": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/ml/lightweight.py"
+    },
+    {
+      "source_project_relative": "ui/server.py",
+      "source_sha256": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+      "public_sha256": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/ui/server.py"
+    },
+    {
+      "source_project_relative": "ui/auto_policy.py",
+      "source_sha256": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+      "public_sha256": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/ui/auto_policy.py"
+    },
+    {
+      "source_project_relative": "src/find.rs",
+      "source_sha256": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+      "public_sha256": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/src/find.rs"
+    },
+    {
+      "source_project_relative": "benchmarks/auto_diagnostic.py",
+      "source_sha256": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+      "public_sha256": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/benchmarks/auto_diagnostic.py"
+    },
+    {
+      "source_project_relative": "benchmarks/analyze_auto_diagnostic.py",
+      "source_sha256": "99d686bce30e24e1fdae16dbe50fffb999307b27f961a51a1f55862366ec2fb3",
+      "public_sha256": "99d686bce30e24e1fdae16dbe50fffb999307b27f961a51a1f55862366ec2fb3",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/benchmarks/analyze_auto_diagnostic.py"
+    },
+    {
+      "source_project_relative": "benchmarks/test_analyze_auto_diagnostic.py",
+      "source_sha256": "99696d37bf8f02c1cc85f080ce0d4d802b5acad0cba333b576ff7f975a53ab9a",
+      "public_sha256": "99696d37bf8f02c1cc85f080ce0d4d802b5acad0cba333b576ff7f975a53ab9a",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/benchmarks/test_analyze_auto_diagnostic.py"
+    },
+    {
+      "source_project_relative": "benchmarks/test_lightweight.py",
+      "source_sha256": "0bf98eea657ee934d54e86bb73c4dec75017ea45249677398a1e47dd4649f810",
+      "public_sha256": "0bf98eea657ee934d54e86bb73c4dec75017ea45249677398a1e47dd4649f810",
+      "byte_identical": true,
+      "removed_top_level_keys": [],
+      "published_repo_relative": "solver/benchmarks/test_lightweight.py"
+    }
+  ]
+}

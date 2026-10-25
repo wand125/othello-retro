@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "strictly_replayed_trials": 288,
+  "independent_cases": 32,
+  "variant_count": 3,
+  "repeats": 3,
+  "analysis_matches_received": true,
+  "means_independently_checked_with_decimal": true,
+  "ratio_ci_independently_crosschecked": [
+    "endgame:baseline/sat",
+    "endgame:lightweight/sat",
+    "endgame:lightweight/baseline",
+    "midgame:baseline/sat",
+    "midgame:lightweight/sat",
+    "midgame:lightweight/baseline"
+  ],
+  "snapshot_file_hashes_verified": 19,
+  "actual_launch_snapshot_hashes_match": true,
+  "source_hashes_unchanged_except_resume_driver": true,
+  "resume_prefix_replayed": 42,
+  "resume_corruptions_rejected": [
+    "duplicate prefix",
+    "illegal witness",
+    "changed source",
+    "wrong prefix count",
+    "changed schedule"
+  ],
+  "same_actual_cnn_case_repeat_set": true,
+  "actual_cnn_trials_per_guided_variant": 45,
+  "lightweight_guided_hits": 39,
+  "lightweight_candidate_misses": 6,
+  "planned_exact_route_trials": 18,
+  "runtime_accounting": {
+    "completed_trial_seconds": 1814.591218067333,
+    "program_wall_seconds": 1827.720847346005,
+    "program_minus_completed_trial_seconds": 13.129629278671928,
+    "model_preparation_seconds": 0.6000645670574158,
+    "calendar_span_seconds": 3628.747476,
+    "interpretation": "Residual includes preparation, verification, serialization, cleanup and interrupted work. Exact unfinished-trial time is unavailable; do not assign residual or last-row boundary interval to a completed case."
+  },
+  "limitations": [
+    "No new inference, SAT run or training was performed by this audit.",
+    "Exact cloud/records.py runtime helper hash is not in this diagnostic metadata; every witness was independently replayed by this analyzer.",
+    "Real Kissat hash/version is launch-record evidence, not locally rehashed here. Baseline/candidate snapshot binaries and both weight files were locally rehashed but are excluded from the export.",
+    "Native binary hashes differ between baseline and lightweight; inference, search policy, routing and native changes are combined."
+  ],
+  "unique_game_seeds": 32,
+  "duplicate_board_positions": 0,
+  "guided_exception_rows": 0,
+  "rejected_guided_witness_rows": 0,
+  "related_unit_tests": {
+    "lightweight": 8,
+    "analyzer": 9,
+    "passed": 17,
+    "scope": "Mock/rule/statistics tests only; no extra inference or SAT trial."
+  },
+  "source_patch_algorithm_files_match_measured_sha256": [
+    "ui/server.py",
+    "ui/auto_policy.py",
+    "ml/worker.py",
+    "ml/lightweight.py",
+    "ml/inference_opt.py",
+    "ml/search.py",
+    "benchmarks/auto_diagnostic.py",
+    "src/find.rs"
+  ]
+}

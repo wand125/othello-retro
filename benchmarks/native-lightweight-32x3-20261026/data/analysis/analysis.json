@@ -1,0 +1,2858 @@
+{
+  "schema": "auto-diagnostic-analysis-v1",
+  "status": "complete",
+  "independent_cases": 32,
+  "planned_trials": 288,
+  "verified_trials": 288,
+  "repeat_count": 3,
+  "variants": [
+    "sat",
+    "baseline",
+    "lightweight"
+  ],
+  "groups": {
+    "midgame:sat": {
+      "trials": 36,
+      "independent_cases": 12,
+      "mean_trial_seconds": 2.5872948743959165,
+      "stages": {
+        "final_exact_sat": 36
+      },
+      "cnn_trials": 0,
+      "guided_hits": 0,
+      "fallbacks": 0,
+      "planned_exact_routes": 0,
+      "unplanned_fallbacks": 0,
+      "model_misses_after_cnn": 0,
+      "unplanned_fallbacks_after_cnn": 0,
+      "guided_miss_reasons": {},
+      "route_categories": {
+        "standalone_exact_sat": 36
+      },
+      "rejected_guided_proofs": 0,
+      "guided_exceptions": {},
+      "planned_order_slot_counts": {
+        "0": 12,
+        "2": 12,
+        "1": 12
+      },
+      "timer_totals_seconds": {
+        "cnn_forward": 0,
+        "score_pipeline": 0,
+        "planes": 0,
+        "undo": 0,
+        "guided_wall": 0.0,
+        "final_sat_wall": 93.14256437856238,
+        "beams_inclusive": 0
+      },
+      "sat_chunks_by_stage": {},
+      "guided_hit_rate_given_cnn": null,
+      "probe_hits": 0,
+      "route_costs": {
+        "standalone_exact_sat": {
+          "trials": 36,
+          "independent_cases": 12,
+          "mean_wall_seconds": 2.5872948743959165,
+          "total_wall_seconds": 93.14261547825299
+        }
+      },
+      "timer_calls": {
+        "cnn_forward": 0,
+        "score_pipeline": 0,
+        "planes": 0,
+        "undo": 0
+      },
+      "cnn_eligible_trials": null,
+      "actual_cnn_fraction": null,
+      "actual_cnn_fraction_given_eligible": null,
+      "eligible_definition": "Guided variant trial excluding the declared incomplete-terminal exact route. Actual CNN can still be skipped after a probe hit or empty candidates."
+    },
+    "midgame:baseline": {
+      "trials": 36,
+      "independent_cases": 12,
+      "mean_trial_seconds": 1.7011869213246327,
+      "stages": {
+        "direct": 27,
+        "fast": 9
+      },
+      "cnn_trials": 9,
+      "guided_hits": 9,
+      "fallbacks": 0,
+      "planned_exact_routes": 0,
+      "unplanned_fallbacks": 0,
+      "model_misses_after_cnn": 0,
+      "unplanned_fallbacks_after_cnn": 0,
+      "guided_miss_reasons": {},
+      "route_categories": {
+        "probe_hit_without_cnn": 27,
+        "guided_fast": 9
+      },
+      "rejected_guided_proofs": 0,
+      "guided_exceptions": {},
+      "planned_order_slot_counts": {
+        "1": 12,
+        "0": 12,
+        "2": 12
+      },
+      "timer_totals_seconds": {
+        "cnn_forward": 9.024182720459066,
+        "score_pipeline": 9.208910499815829,
+        "planes": 0.14317815273534507,
+        "undo": 0.04656224709469825,
+        "guided_wall": 61.242729167686775,
+        "final_sat_wall": 0,
+        "beams_inclusive": 9.47268594976049
+      },
+      "sat_chunks_by_stage": {
+        "pass_check": {
+          "calls": 36,
+          "found_chunks": 27,
+          "candidate_entries": 36,
+          "wall_seconds": 47.78069162671454,
+          "found_chunk_fraction": 0.75
+        },
+        "candidate_sat": {
+          "calls": 9,
+          "found_chunks": 9,
+          "candidate_entries": 54,
+          "wall_seconds": 3.9782914149109274,
+          "found_chunk_fraction": 1.0
+        }
+      },
+      "guided_hit_rate_given_cnn": 1.0,
+      "probe_hits": 27,
+      "route_costs": {
+        "guided_fast": {
+          "trials": 9,
+          "independent_cases": 3,
+          "mean_wall_seconds": 3.5234758087770186,
+          "total_wall_seconds": 31.711282278993167
+        },
+        "probe_hit_without_cnn": {
+          "trials": 27,
+          "independent_cases": 9,
+          "mean_wall_seconds": 1.0937572921738374,
+          "total_wall_seconds": 29.53144688869361
+        }
+      },
+      "timer_calls": {
+        "cnn_forward": 609,
+        "score_pipeline": 180,
+        "planes": 180,
+        "undo": 90
+      },
+      "cnn_eligible_trials": 36,
+      "actual_cnn_fraction": 0.25,
+      "actual_cnn_fraction_given_eligible": 0.25,
+      "eligible_definition": "Guided variant trial excluding the declared incomplete-terminal exact route. Actual CNN can still be skipped after a probe hit or empty candidates."
+    },
+    "midgame:lightweight": {
+      "trials": 36,
+      "independent_cases": 12,
+      "mean_trial_seconds": 1.5775782666589495,
+      "stages": {
+        "direct": 27,
+        "fast": 9
+      },
+      "cnn_trials": 9,
+      "guided_hits": 9,
+      "fallbacks": 0,
+      "planned_exact_routes": 0,
+      "unplanned_fallbacks": 0,
+      "model_misses_after_cnn": 0,
+      "unplanned_fallbacks_after_cnn": 0,
+      "guided_miss_reasons": {},
+      "route_categories": {
+        "probe_hit_without_cnn": 27,
+        "guided_fast": 9
+      },
+      "rejected_guided_proofs": 0,
+      "guided_exceptions": {},
+      "planned_order_slot_counts": {
+        "2": 12,
+        "1": 12,
+        "0": 12
+      },
+      "timer_totals_seconds": {
+        "cnn_forward": 2.281794421840459,
+        "score_pipeline": 2.349560802220367,
+        "planes": 0.05285172921139747,
+        "undo": 0.03530064655933529,
+        "guided_wall": 56.792817599722184,
+        "final_sat_wall": 0,
+        "beams_inclusive": 2.5147499430458993
+      },
+      "sat_chunks_by_stage": {
+        "pass_check": {
+          "calls": 36,
+          "found_chunks": 27,
+          "candidate_entries": 36,
+          "wall_seconds": 47.92272693710402,
+          "found_chunk_fraction": 0.75
+        },
+        "candidate_sat": {
+          "calls": 9,
+          "found_chunks": 9,
+          "candidate_entries": 54,
+          "wall_seconds": 6.33306009718217,
+          "found_chunk_fraction": 1.0
+        }
+      },
+      "guided_hit_rate_given_cnn": 1.0,
+      "probe_hits": 27,
+      "route_costs": {
+        "guided_fast": {
+          "trials": 9,
+          "independent_cases": 3,
+          "mean_wall_seconds": 3.0116734504441007,
+          "total_wall_seconds": 27.105061053996906
+        },
+        "probe_hit_without_cnn": {
+          "trials": 27,
+          "independent_cases": 9,
+          "mean_wall_seconds": 1.0995465387305658,
+          "total_wall_seconds": 29.68775654572528
+        }
+      },
+      "timer_calls": {
+        "cnn_forward": 168,
+        "score_pipeline": 90,
+        "planes": 90,
+        "undo": 90
+      },
+      "cnn_eligible_trials": 36,
+      "actual_cnn_fraction": 0.25,
+      "actual_cnn_fraction_given_eligible": 0.25,
+      "eligible_definition": "Guided variant trial excluding the declared incomplete-terminal exact route. Actual CNN can still be skipped after a probe hit or empty candidates."
+    },
+    "endgame:sat": {
+      "trials": 60,
+      "independent_cases": 20,
+      "mean_trial_seconds": 9.950186855889235,
+      "stages": {
+        "final_exact_sat": 60
+      },
+      "cnn_trials": 0,
+      "guided_hits": 0,
+      "fallbacks": 0,
+      "planned_exact_routes": 0,
+      "unplanned_fallbacks": 0,
+      "model_misses_after_cnn": 0,
+      "unplanned_fallbacks_after_cnn": 0,
+      "guided_miss_reasons": {},
+      "route_categories": {
+        "standalone_exact_sat": 60
+      },
+      "rejected_guided_proofs": 0,
+      "guided_exceptions": {},
+      "planned_order_slot_counts": {
+        "0": 20,
+        "2": 20,
+        "1": 20
+      },
+      "timer_totals_seconds": {
+        "cnn_forward": 0,
+        "score_pipeline": 0,
+        "planes": 0,
+        "undo": 0,
+        "guided_wall": 0.0,
+        "final_sat_wall": 597.0110975683201,
+        "beams_inclusive": 0
+      },
+      "sat_chunks_by_stage": {},
+      "guided_hit_rate_given_cnn": null,
+      "probe_hits": 0,
+      "route_costs": {
+        "standalone_exact_sat": {
+          "trials": 60,
+          "independent_cases": 20,
+          "mean_wall_seconds": 9.950186855889235,
+          "total_wall_seconds": 597.0112113533542
+        }
+      },
+      "timer_calls": {
+        "cnn_forward": 0,
+        "score_pipeline": 0,
+        "planes": 0,
+        "undo": 0
+      },
+      "cnn_eligible_trials": null,
+      "actual_cnn_fraction": null,
+      "actual_cnn_fraction_given_eligible": null,
+      "eligible_definition": "Guided variant trial excluding the declared incomplete-terminal exact route. Actual CNN can still be skipped after a probe hit or empty candidates."
+    },
+    "endgame:baseline": {
+      "trials": 60,
+      "independent_cases": 20,
+      "mean_trial_seconds": 9.907569842667241,
+      "stages": {
+        "direct": 6,
+        "fast": 36,
+        "final_exact_sat": 18
+      },
+      "cnn_trials": 36,
+      "guided_hits": 36,
+      "fallbacks": 18,
+      "planned_exact_routes": 0,
+      "unplanned_fallbacks": 18,
+      "model_misses_after_cnn": 0,
+      "unplanned_fallbacks_after_cnn": 0,
+      "guided_miss_reasons": {
+        "finite guided candidate stages exhausted": 18
+      },
+      "route_categories": {
+        "probe_hit_without_cnn": 6,
+        "guided_fast": 36,
+        "guided_miss_without_cnn_then_exact": 18
+      },
+      "rejected_guided_proofs": 0,
+      "guided_exceptions": {},
+      "planned_order_slot_counts": {
+        "1": 20,
+        "0": 20,
+        "2": 20
+      },
+      "timer_totals_seconds": {
+        "cnn_forward": 294.25106539181434,
+        "score_pipeline": 301.5683593264548,
+        "planes": 6.6821537965442985,
+        "undo": 0.91843080020044,
+        "guided_wall": 438.26229207322467,
+        "final_sat_wall": 156.19188308587763,
+        "beams_inclusive": 307.04415347927716
+      },
+      "sat_chunks_by_stage": {
+        "pass_check": {
+          "calls": 60,
+          "found_chunks": 6,
+          "candidate_entries": 60,
+          "wall_seconds": 116.71551302121952,
+          "found_chunk_fraction": 0.1
+        },
+        "candidate_sat": {
+          "calls": 36,
+          "found_chunks": 36,
+          "candidate_entries": 216,
+          "wall_seconds": 14.440804237616248,
+          "found_chunk_fraction": 1.0
+        }
+      },
+      "guided_hit_rate_given_cnn": 1.0,
+      "probe_hits": 6,
+      "route_costs": {
+        "guided_fast": {
+          "trials": 36,
+          "independent_cases": 12,
+          "mean_wall_seconds": 10.974774779079276,
+          "total_wall_seconds": 395.0918920468539
+        },
+        "guided_miss_without_cnn_then_exact": {
+          "trials": 18,
+          "independent_cases": 6,
+          "mean_wall_seconds": 10.726492387895835,
+          "total_wall_seconds": 193.07686298212502
+        },
+        "probe_hit_without_cnn": {
+          "trials": 6,
+          "independent_cases": 2,
+          "mean_wall_seconds": 1.047572588509259,
+          "total_wall_seconds": 6.285435531055555
+        }
+      },
+      "timer_calls": {
+        "cnn_forward": 17439,
+        "score_pipeline": 2160,
+        "planes": 2160,
+        "undo": 1116
+      },
+      "cnn_eligible_trials": 60,
+      "actual_cnn_fraction": 0.6,
+      "actual_cnn_fraction_given_eligible": 0.6,
+      "eligible_definition": "Guided variant trial excluding the declared incomplete-terminal exact route. Actual CNN can still be skipped after a probe hit or empty candidates."
+    },
+    "endgame:lightweight": {
+      "trials": 60,
+      "independent_cases": 20,
+      "mean_trial_seconds": 6.865794231804709,
+      "stages": {
+        "direct": 6,
+        "fast": 30,
+        "final_exact_sat": 24
+      },
+      "cnn_trials": 36,
+      "guided_hits": 30,
+      "fallbacks": 24,
+      "planned_exact_routes": 18,
+      "unplanned_fallbacks": 6,
+      "model_misses_after_cnn": 6,
+      "unplanned_fallbacks_after_cnn": 6,
+      "guided_miss_reasons": {
+        "incomplete_terminal_exact_route": 18,
+        "lightweight_candidates_exhausted": 6
+      },
+      "route_categories": {
+        "probe_hit_without_cnn": 6,
+        "guided_fast": 30,
+        "planned_exact_route": 18,
+        "model_miss_after_cnn_then_exact": 6
+      },
+      "rejected_guided_proofs": 0,
+      "guided_exceptions": {},
+      "planned_order_slot_counts": {
+        "2": 20,
+        "1": 20,
+        "0": 20
+      },
+      "timer_totals_seconds": {
+        "cnn_forward": 101.66951318457723,
+        "score_pipeline": 104.76978200685699,
+        "planes": 2.83994397893548,
+        "undo": 0.6181507079163566,
+        "guided_wall": 206.38316503411625,
+        "final_sat_wall": 205.56447288638446,
+        "beams_inclusive": 107.94007927982602
+      },
+      "sat_chunks_by_stage": {
+        "pass_check": {
+          "calls": 42,
+          "found_chunks": 6,
+          "candidate_entries": 42,
+          "wall_seconds": 79.87143746821675,
+          "found_chunk_fraction": 0.14285714285714285
+        },
+        "candidate_sat": {
+          "calls": 48,
+          "found_chunks": 30,
+          "candidate_entries": 276,
+          "wall_seconds": 18.526307788444683,
+          "found_chunk_fraction": 0.625
+        }
+      },
+      "guided_hit_rate_given_cnn": 0.8333333333333334,
+      "probe_hits": 6,
+      "route_costs": {
+        "guided_fast": {
+          "trials": 30,
+          "independent_cases": 10,
+          "mean_wall_seconds": 5.418659966194537,
+          "total_wall_seconds": 162.5597989858361
+        },
+        "model_miss_after_cnn_then_exact": {
+          "trials": 6,
+          "independent_cases": 2,
+          "mean_wall_seconds": 13.475239418020161,
+          "total_wall_seconds": 80.85143650812097
+        },
+        "planned_exact_route": {
+          "trials": 18,
+          "independent_cases": 6,
+          "mean_wall_seconds": 9.01447457679832,
+          "total_wall_seconds": 162.26054238236975
+        },
+        "probe_hit_without_cnn": {
+          "trials": 6,
+          "independent_cases": 2,
+          "mean_wall_seconds": 1.045979338659284,
+          "total_wall_seconds": 6.275876031955704
+        }
+      },
+      "timer_calls": {
+        "cnn_forward": 6999,
+        "score_pipeline": 1080,
+        "planes": 1080,
+        "undo": 1080
+      },
+      "cnn_eligible_trials": 42,
+      "actual_cnn_fraction": 0.6,
+      "actual_cnn_fraction_given_eligible": 0.8571428571428571,
+      "eligible_definition": "Guided variant trial excluding the declared incomplete-terminal exact route. Actual CNN can still be skipped after a probe hit or empty candidates."
+    }
+  },
+  "case_summaries": [
+    {
+      "case": "main-n44-s202610250400022",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.2954352910164744,
+            "2": 1.2980621890164912,
+            "3": 1.309254352003336
+          },
+          "mean_seconds": 1.3009172773454338,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.9395466609857976,
+            "2": 0.9412310029147193,
+            "3": 1.0215045229997486
+          },
+          "mean_seconds": 0.9674273956334218,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.9413599330000579,
+            "2": 0.9422559180529788,
+            "3": 1.0499839519616216
+          },
+          "mean_seconds": 0.9778666010048861,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400028",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.711690286058001,
+            "2": 4.743749154964462,
+            "3": 1.2015949139604345
+          },
+          "mean_seconds": 3.552344784994299,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.8586250679800287,
+            "2": 0.90800058003515,
+            "3": 0.8569186009699479
+          },
+          "mean_seconds": 0.8745147496617088,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.9536475900094956,
+            "2": 0.8787633110769093,
+            "3": 0.8724256580462679
+          },
+          "mean_seconds": 0.9016121863775576,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400031",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 6.69940767402295,
+            "2": 6.314311900991015,
+            "3": 6.7521627029636875
+          },
+          "mean_seconds": 6.588627425992551,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 3.2316834579687566,
+            "2": 3.161923005944118,
+            "3": 3.104116926086135
+          },
+          "mean_seconds": 3.1659077966663367,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 3.791083786985837,
+            "2": 3.791839530924335,
+            "3": 3.7398988800123334
+          },
+          "mean_seconds": 3.7742740659741685,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400034",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 2.1361678240355104,
+            "2": 1.4410590040497482,
+            "3": 1.434169517015107
+          },
+          "mean_seconds": 1.6704654483667885,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.7082965400768444,
+            "2": 1.7039936759974808,
+            "3": 1.7503345099976286
+          },
+          "mean_seconds": 1.7208749086906512,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.7077489809598774,
+            "2": 1.7148598430212587,
+            "3": 1.7442717180820182
+          },
+          "mean_seconds": 1.7222935140210514,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400065",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.8774835879448801,
+            "2": 1.8916173470206559,
+            "3": 0.9620034119579941
+          },
+          "mean_seconds": 1.24370144897451,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.5359343979507685,
+            "2": 0.5564221210079268,
+            "3": 0.5391082089627162
+          },
+          "mean_seconds": 0.5438215759738038,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.5343195130117238,
+            "2": 0.5604327149922028,
+            "3": 0.5474953469820321
+          },
+          "mean_seconds": 0.5474158583286529,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400005",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 2.695444994024001,
+            "2": 4.191679995972663,
+            "3": 4.226665580063127
+          },
+          "mean_seconds": 3.704596856686597,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.564889944973402,
+            "2": 3.701996815041639,
+            "3": 3.837583952001296
+          },
+          "mean_seconds": 4.0348235706721125,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 2.7254155710106716,
+            "2": 2.553026358014904,
+            "3": 2.5507556200027466
+          },
+          "mean_seconds": 2.609732516342774,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400073",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.5558863129699603,
+            "2": 0.5458441789960489,
+            "3": 0.5538232389371842
+          },
+          "mean_seconds": 0.5518512436343977,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.22788621403742582,
+            "2": 0.21252540894784033,
+            "3": 0.2120878689456731
+          },
+          "mean_seconds": 0.21749983064364642,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.21610764495562762,
+            "2": 0.2144315829500556,
+            "3": 0.22556948091369122
+          },
+          "mean_seconds": 0.21870290293979147,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400046",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.6744785730261356,
+            "2": 1.2289047590456903,
+            "3": 0.6862229319522157
+          },
+          "mean_seconds": 0.8632020880080139,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.8780615829164162,
+            "2": 0.8738467840012163,
+            "3": 0.8832619850290939
+          },
+          "mean_seconds": 0.8783901173155755,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.8684503569966182,
+            "2": 0.9248567239847034,
+            "3": 0.8949623949592933
+          },
+          "mean_seconds": 0.8960898253135383,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400052",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 8.475604336010292,
+            "2": 1.8112789900042117,
+            "3": 1.8109476669924334
+          },
+          "mean_seconds": 4.032610331002313,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.5744536489946768,
+            "2": 1.4116580699337646,
+            "3": 1.4209770070156083
+          },
+          "mean_seconds": 1.4690295753146831,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.4000054229982197,
+            "2": 1.4155766119947657,
+            "3": 1.5104170480044559
+          },
+          "mean_seconds": 1.4419996943324804,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400029",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.5891012059291825,
+            "2": 4.730228377040476,
+            "3": 1.991219585062936
+          },
+          "mean_seconds": 3.7701830560108647,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.7911868130322546,
+            "2": 1.6058942490490153,
+            "3": 1.5711264309938997
+          },
+          "mean_seconds": 1.6560691643583898,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.6111441549146548,
+            "2": 1.5925223650410771,
+            "3": 1.6299366790335625
+          },
+          "mean_seconds": 1.611201066329765,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400059",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 3.7601623290684074,
+            "2": 3.7439269510796294,
+            "3": 3.7746869899565354
+          },
+          "mean_seconds": 3.7595920900348574,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 3.5453663170337677,
+            "2": 3.2178307119756937,
+            "3": 3.3458911479683593
+          },
+          "mean_seconds": 3.369696058992607,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 2.6982584700454026,
+            "2": 2.637346068979241,
+            "3": 2.6174367680214345
+          },
+          "mean_seconds": 2.6510137690153592,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "main-n44-s202610250400041",
+      "suite": "midgame",
+      "stratum": null,
+      "stones": 44,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.00931471202056855,
+            "2": 0.009548064088448882,
+            "3": 0.009476548992097378
+          },
+          "mean_seconds": 0.009446441700371603,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.5215958039043471,
+            "2": 1.5330116800032556,
+            "3": 1.4939574520103633
+          },
+          "mean_seconds": 1.5161883119726554,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.554922146955505,
+            "2": 1.6424781458918005,
+            "3": 1.5388113069348037
+          },
+          "mean_seconds": 1.5787371999273698,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300034",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.830077399034053,
+            "2": 1.8607086190022528,
+            "3": 17.830962850013748
+          },
+          "mean_seconds": 7.173916289350018,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.2684142549987882,
+            "2": 1.4062440450070426,
+            "3": 1.3404518259922042
+          },
+          "mean_seconds": 1.338370041999345,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.3078815849730745,
+            "2": 1.3347803159849718,
+            "3": 1.3323156610131264
+          },
+          "mean_seconds": 1.3249925206570576,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200076",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.852755693951622,
+            "2": 12.93054106098134,
+            "3": 12.489238425041549
+          },
+          "mean_seconds": 10.090845059991503,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 11.125887072063051,
+            "2": 10.528771684970707,
+            "3": 10.30695536499843
+          },
+          "mean_seconds": 10.653871374010729,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.477984658093192,
+            "2": 5.18836480891332,
+            "3": 5.186109698959626
+          },
+          "mean_seconds": 5.284153055322046,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-early-terminal-s202610255407633",
+      "suite": "endgame",
+      "stratum": "early-terminal",
+      "stones": 63,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 10.059158526011743,
+            "2": 3.3718616729602218,
+            "3": 3.3556132779922336
+          },
+          "mean_seconds": 5.595544492321399,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 11.75513945100829,
+            "2": 11.967684327973984,
+            "3": 5.52644672698807
+          },
+          "mean_seconds": 9.749756835323447,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 3.372727510984987,
+            "2": 3.282435911009088,
+            "3": 9.916247805929743
+          },
+          "mean_seconds": 5.523803742641273,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 3,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300080",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 12.815064702997915,
+            "2": 13.372308111051098,
+            "3": 12.709232988068834
+          },
+          "mean_seconds": 12.965535267372616,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 9.242486878996715,
+            "2": 6.726306590018794,
+            "3": 6.719003963982686
+          },
+          "mean_seconds": 7.562599144332732,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.546784171019681,
+            "2": 4.498207492986694,
+            "3": 4.43447577895131
+          },
+          "mean_seconds": 4.493155814319228,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200006",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.267569174990058,
+            "2": 4.518463834072463,
+            "3": 4.492916724993847
+          },
+          "mean_seconds": 4.426316578018789,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 11.237422217032872,
+            "2": 10.223569643916562,
+            "3": 9.931088284938596
+          },
+          "mean_seconds": 10.46402671529601,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.628666577045806,
+            "2": 5.53981266298797,
+            "3": 5.498371337074786
+          },
+          "mean_seconds": 5.555616859036188,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300026",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.449968656990677,
+            "2": 4.521587967989035,
+            "3": 4.516217352938838
+          },
+          "mean_seconds": 4.4959246593061835,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 10.219846281921491,
+            "2": 10.348749106982723,
+            "3": 10.195289209950715
+          },
+          "mean_seconds": 10.25462819961831,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 10.093601910048164,
+            "2": 10.133210566011257,
+            "3": 10.920451581012458
+          },
+          "mean_seconds": 10.382421352357293,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300009",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 13.086311503080651,
+            "2": 13.293308982043527,
+            "3": 9.829327124054544
+          },
+          "mean_seconds": 12.069649203059575,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 16.67819544894155,
+            "2": 16.56152260606177,
+            "3": 16.424495222978294
+          },
+          "mean_seconds": 16.554737759327207,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.188087334972806,
+            "2": 5.069757556077093,
+            "3": 5.256457107025199
+          },
+          "mean_seconds": 5.171433999358366,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300152",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.450101135065779,
+            "2": 4.517246789997444,
+            "3": 4.3943130190018564
+          },
+          "mean_seconds": 4.453886981355026,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 9.543649661936797,
+            "2": 9.105266206082888,
+            "3": 9.643020572024398
+          },
+          "mean_seconds": 9.430645480014695,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.776181663037278,
+            "2": 4.3602667229715735,
+            "3": 4.814970638952218
+          },
+          "mean_seconds": 4.650473008320357,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-early-terminal-s202610255401016",
+      "suite": "endgame",
+      "stratum": "early-terminal",
+      "stones": 63,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.6398533610627055,
+            "2": 5.489653735072352,
+            "3": 5.529092889977619
+          },
+          "mean_seconds": 5.552866662037559,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 7.603402190026827,
+            "2": 7.728550749015994,
+            "3": 7.654472928028554
+          },
+          "mean_seconds": 7.662141955690458,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.718669124064036,
+            "2": 5.469545749016106,
+            "3": 8.84698017500341
+          },
+          "mean_seconds": 6.678398349361184,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 3,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-early-terminal-s202610255406852",
+      "suite": "endgame",
+      "stratum": "early-terminal",
+      "stones": 62,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 19.67897305591032,
+            "2": 4.496254522004165,
+            "3": 4.602774354047142
+          },
+          "mean_seconds": 9.592667310653875,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 6.872099617961794,
+            "2": 6.584019557922147,
+            "3": 21.686843482078984
+          },
+          "mean_seconds": 11.714320885987641,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.755252895993181,
+            "2": 19.84389874606859,
+            "3": 4.395818782970309
+          },
+          "mean_seconds": 9.66499014167736,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 3,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 26.476922460016795,
+            "2": 18.7333106379956,
+            "3": 18.4709277569782
+          },
+          "mean_seconds": 21.2270536183302,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 16.307191767031327,
+            "2": 16.299180240021087,
+            "3": 16.161586191039532
+          },
+          "mean_seconds": 16.255986066030648,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 8.204013436916284,
+            "2": 7.282831368967891,
+            "3": 7.487004720955156
+          },
+          "mean_seconds": 7.657949842279777,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-early-terminal-s202610255400242",
+      "suite": "endgame",
+      "stratum": "early-terminal",
+      "stones": 63,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 14.317574765067548,
+            "2": 10.06925581896212,
+            "3": 10.139088175958022
+          },
+          "mean_seconds": 11.508639586662563,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 15.311164198094048,
+            "2": 11.732495839009061,
+            "3": 12.638172817998566
+          },
+          "mean_seconds": 13.227277618367225,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 13.752853585989214,
+            "2": 9.568797469022684,
+            "3": 9.483679993078113
+          },
+          "mean_seconds": 10.935110349363336,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 3,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-early-terminal-s202610255405805",
+      "suite": "endgame",
+      "stratum": "early-terminal",
+      "stones": 63,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.922025432926603,
+            "2": 4.482440056046471,
+            "3": 4.779532358050346
+          },
+          "mean_seconds": 5.061332615674473,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 24.385366784990765,
+            "2": 6.879683206905611,
+            "3": 6.584338623099029
+          },
+          "mean_seconds": 12.616462871665135,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.601190107990988,
+            "2": 21.81873511604499,
+            "3": 22.009489400079474
+          },
+          "mean_seconds": 16.143138208038483,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 3,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300171",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 1.2399197190534323,
+            "2": 18.571486374014057,
+            "3": 18.96997916896362
+          },
+          "mean_seconds": 12.927128420677036,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.7815357459476218,
+            "2": 0.748168250080198,
+            "3": 0.7406214090296999
+          },
+          "mean_seconds": 0.7567751350191733,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 0.7811616460094228,
+            "2": 0.7507220220286399,
+            "3": 0.7690148019464687
+          },
+          "mean_seconds": 0.7669661566615105,
+          "stages_by_repeat": {
+            "1": "direct",
+            "2": "direct",
+            "3": "direct"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200034",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 8.680545345065184,
+            "2": 8.814783627982251,
+            "3": 8.651764451991767
+          },
+          "mean_seconds": 8.7156978083464,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 11.555954565992579,
+            "2": 11.816530939075164,
+            "3": 11.59871117095463
+          },
+          "mean_seconds": 11.657065558674125,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 6.071055019972846,
+            "2": 5.414825464016758,
+            "3": 5.700148058938794
+          },
+          "mean_seconds": 5.728676180976133,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200001",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 50.12611261301208,
+            "2": 4.261580707971007,
+            "3": 4.0091391309397295
+          },
+          "mean_seconds": 19.465610817307606,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 8.069589158985764,
+            "2": 8.296768823987804,
+            "3": 8.014196412987076
+          },
+          "mean_seconds": 8.126851465320215,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.419510541018099,
+            "2": 5.601870289072394,
+            "3": 6.143985565053299
+          },
+          "mean_seconds": 5.721788798381264,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300185",
+      "suite": "endgame",
+      "stratum": "full-reference-with-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 13.682196024921723,
+            "2": 13.316991487052292,
+            "3": 17.707008090917952
+          },
+          "mean_seconds": 14.902065200963989,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 9.821375895990059,
+            "2": 9.695091889007017,
+            "3": 9.580714041017927
+          },
+          "mean_seconds": 9.699060608671667,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 5.608172955922782,
+            "2": 6.050650030956604,
+            "3": 5.854634982999414
+          },
+          "mean_seconds": 5.837819323292933,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200038",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 9.596071248059161,
+            "2": 9.528652771026827,
+            "3": 8.947540928027593
+          },
+          "mean_seconds": 9.35742164903786,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 9.774527802015655,
+            "2": 9.877827810007147,
+            "3": 10.018385889939964
+          },
+          "mean_seconds": 9.890247167320922,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 4.060175738995895,
+            "2": 4.15820713492576,
+            "3": 4.038215468055569
+          },
+          "mean_seconds": 4.085532780659075,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-early-terminal-s202610255405665",
+      "suite": "endgame",
+      "stratum": "early-terminal",
+      "stones": 63,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 2.734613338019699,
+            "2": 2.651300259050913,
+            "3": 9.818115166970529
+          },
+          "mean_seconds": 5.068009588013713,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 11.801639112061821,
+            "2": 11.555195161956362,
+            "3": 4.810148207005113
+          },
+          "mean_seconds": 9.388994160341099,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 2.8111644570017233,
+            "2": 2.7694468370173126,
+            "3": 9.843608715105802
+          },
+          "mean_seconds": 5.141406669708279,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 3,
+          "unplanned_fallbacks": 0
+        }
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200028",
+      "suite": "endgame",
+      "stratum": "full-reference-no-pass",
+      "stones": 64,
+      "variants": {
+        "sat": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 23.460405532969162,
+            "2": 9.804004994919524,
+            "3": 9.796465400024317
+          },
+          "mean_seconds": 14.353625309304334,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 0,
+          "guided_hits": 0,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "baseline": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 11.068175561027601,
+            "2": 11.312586518004537,
+            "3": 11.061971351969987
+          },
+          "mean_seconds": 11.147577810334042,
+          "stages_by_repeat": {
+            "1": "fast",
+            "2": "fast",
+            "3": "fast"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 3,
+          "fallbacks": 0,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 0
+        },
+        "lightweight": {
+          "trials": 3,
+          "complete": true,
+          "wall_seconds_by_repeat": {
+            "1": 16.771947225905024,
+            "2": 16.460002748062834,
+            "3": 16.47222247708123
+          },
+          "mean_seconds": 16.56805748368303,
+          "stages_by_repeat": {
+            "1": "final_exact_sat",
+            "2": "final_exact_sat",
+            "3": "final_exact_sat"
+          },
+          "cnn_trials": 3,
+          "guided_hits": 0,
+          "fallbacks": 3,
+          "planned_exact_routes": 0,
+          "unplanned_fallbacks": 3
+        }
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "suite": "endgame",
+      "numerator": "baseline",
+      "denominator": "sat",
+      "independent_cases": 20,
+      "selected_cases": 20,
+      "complete_all_variant_case_coverage": 1.0,
+      "all_selected_cases_complete": true,
+      "numerator_mean_seconds": 9.907569842667241,
+      "denominator_mean_seconds": 9.950186855889235,
+      "ratio": 0.995716963526492,
+      "difference_seconds": -0.04261701322199407,
+      "cases_numerator_faster": 7,
+      "ratio_ci95": [
+        0.7958521285685377,
+        1.2533742735720528
+      ],
+      "difference_seconds_ci95": [
+        -2.292078209327203,
+        2.1113124025549035
+      ],
+      "bootstrap_replicates": 5000,
+      "seed": 1148701851,
+      "resampling_unit": "independent case; all repeats and variants kept together; within stratum",
+      "interpretation": "combined pipeline difference; inspect variant native/inference mapping",
+      "native_binary_hashes_match": true,
+      "ranking_observation": {
+        "same_sat_candidate_sequences_trials": 0,
+        "paired_trials": 60,
+        "scope": "Only submitted SAT candidate lists; beam-internal full rankings, score health and all pruned candidates are unobserved."
+      }
+    },
+    {
+      "suite": "endgame",
+      "numerator": "lightweight",
+      "denominator": "sat",
+      "independent_cases": 20,
+      "selected_cases": 20,
+      "complete_all_variant_case_coverage": 1.0,
+      "all_selected_cases_complete": true,
+      "numerator_mean_seconds": 6.865794231804709,
+      "denominator_mean_seconds": 9.950186855889235,
+      "ratio": 0.6900166128780827,
+      "difference_seconds": -3.0843926240845265,
+      "cases_numerator_faster": 12,
+      "ratio_ci95": [
+        0.5251573318493843,
+        0.9245042998858299
+      ],
+      "difference_seconds_ci95": [
+        -5.352960608507855,
+        -0.6610744477226421
+      ],
+      "bootstrap_replicates": 5000,
+      "seed": 2309120502,
+      "resampling_unit": "independent case; all repeats and variants kept together; within stratum",
+      "interpretation": "native correction + inference optimization + narrower guided policy/exact routing; composite effect",
+      "native_binary_hashes_match": false,
+      "ranking_observation": {
+        "same_sat_candidate_sequences_trials": 18,
+        "paired_trials": 60,
+        "scope": "Only submitted SAT candidate lists; beam-internal full rankings, score health and all pruned candidates are unobserved."
+      }
+    },
+    {
+      "suite": "endgame",
+      "numerator": "lightweight",
+      "denominator": "baseline",
+      "independent_cases": 20,
+      "selected_cases": 20,
+      "complete_all_variant_case_coverage": 1.0,
+      "all_selected_cases_complete": true,
+      "numerator_mean_seconds": 6.865794231804709,
+      "denominator_mean_seconds": 9.907569842667241,
+      "ratio": 0.6929846915877357,
+      "difference_seconds": -3.0417756108625325,
+      "cases_numerator_faster": 16,
+      "ratio_ci95": [
+        0.5646318150665386,
+        0.8511439335244464
+      ],
+      "difference_seconds_ci95": [
+        -4.614313900134099,
+        -1.394754225061724
+      ],
+      "bootstrap_replicates": 5000,
+      "seed": 1400469812,
+      "resampling_unit": "independent case; all repeats and variants kept together; within stratum",
+      "interpretation": "native correction + inference optimization + narrower guided policy/exact routing; composite effect",
+      "native_binary_hashes_match": false,
+      "ranking_observation": {
+        "same_sat_candidate_sequences_trials": 6,
+        "paired_trials": 60,
+        "scope": "Only submitted SAT candidate lists; beam-internal full rankings, score health and all pruned candidates are unobserved."
+      }
+    },
+    {
+      "suite": "midgame",
+      "numerator": "baseline",
+      "denominator": "sat",
+      "independent_cases": 12,
+      "selected_cases": 12,
+      "complete_all_variant_case_coverage": 1.0,
+      "all_selected_cases_complete": true,
+      "numerator_mean_seconds": 1.7011869213246327,
+      "denominator_mean_seconds": 2.5872948743959165,
+      "ratio": 0.6575156694197166,
+      "difference_seconds": -0.8861079530712839,
+      "cases_numerator_faster": 8,
+      "ratio_ci95": [
+        0.4758051329610205,
+        0.9422126984964262
+      ],
+      "difference_seconds_ci95": [
+        -1.696731349279354,
+        -0.10647570611326972
+      ],
+      "bootstrap_replicates": 5000,
+      "seed": 127309832,
+      "resampling_unit": "independent case; all repeats and variants kept together; within stratum",
+      "interpretation": "combined pipeline difference; inspect variant native/inference mapping",
+      "native_binary_hashes_match": true,
+      "ranking_observation": {
+        "same_sat_candidate_sequences_trials": 0,
+        "paired_trials": 36,
+        "scope": "Only submitted SAT candidate lists; beam-internal full rankings, score health and all pruned candidates are unobserved."
+      }
+    },
+    {
+      "suite": "midgame",
+      "numerator": "lightweight",
+      "denominator": "sat",
+      "independent_cases": 12,
+      "selected_cases": 12,
+      "complete_all_variant_case_coverage": 1.0,
+      "all_selected_cases_complete": true,
+      "numerator_mean_seconds": 1.5775782666589495,
+      "denominator_mean_seconds": 2.5872948743959165,
+      "ratio": 0.6097404212680951,
+      "difference_seconds": -1.009716607736967,
+      "cases_numerator_faster": 9,
+      "ratio_ci95": [
+        0.46768285449879,
+        0.842990159646492
+      ],
+      "difference_seconds_ci95": [
+        -1.7308083530033604,
+        -0.2679331727059133
+      ],
+      "bootstrap_replicates": 5000,
+      "seed": 3344679330,
+      "resampling_unit": "independent case; all repeats and variants kept together; within stratum",
+      "interpretation": "native correction + inference optimization + narrower guided policy/exact routing; composite effect",
+      "native_binary_hashes_match": false,
+      "ranking_observation": {
+        "same_sat_candidate_sequences_trials": 0,
+        "paired_trials": 36,
+        "scope": "Only submitted SAT candidate lists; beam-internal full rankings, score health and all pruned candidates are unobserved."
+      }
+    },
+    {
+      "suite": "midgame",
+      "numerator": "lightweight",
+      "denominator": "baseline",
+      "independent_cases": 12,
+      "selected_cases": 12,
+      "complete_all_variant_case_coverage": 1.0,
+      "all_selected_cases_complete": true,
+      "numerator_mean_seconds": 1.5775782666589495,
+      "denominator_mean_seconds": 1.7011869213246327,
+      "ratio": 0.9273397572505231,
+      "difference_seconds": -0.12360865466568316,
+      "cases_numerator_faster": 4,
+      "ratio_ci95": [
+        0.7989723556564657,
+        1.076028193972235
+      ],
+      "difference_seconds_ci95": [
+        -0.4164180115473251,
+        0.10998805051171459
+      ],
+      "bootstrap_replicates": 5000,
+      "seed": 4209481447,
+      "resampling_unit": "independent case; all repeats and variants kept together; within stratum",
+      "interpretation": "native correction + inference optimization + narrower guided policy/exact routing; composite effect",
+      "native_binary_hashes_match": false,
+      "ranking_observation": {
+        "same_sat_candidate_sequences_trials": 27,
+        "paired_trials": 36,
+        "scope": "Only submitted SAT candidate lists; beam-internal full rankings, score health and all pruned candidates are unobserved."
+      }
+    }
+  ],
+  "limitations": [
+    "Exploratory selected cases; not a replacement for the frozen 400/20 benchmark. No precision threshold.",
+    "Conditional guided-hit rate is not candidate precision/recall or ranker accuracy; no ground-truth candidate labels exist.",
+    "Time is uncensored accepted-proof receipt wall; final independent replay is excluded. Missing trials are never assigned a finite cost.",
+    "score_pipeline includes planes and cnn_forward; beams include score and undo. Nested timers must not be added.",
+    "SAT call seconds include whole chunk wall/CNF/queue. requested_per_solver_limit_seconds (legacy budget_seconds) is not a chunk deadline.",
+    "Fusion/FP32 rounding can change rankings and search paths. Equal final boards or forward counts do not prove identical paths.",
+    "Per-case three-repeat means are independent-case summaries; repetitions do not increase independent sample size.",
+    "The declared incomplete-terminal exact route bypasses CNN by design; it is excluded from model-eligible and model-miss denominators. Mechanical final-SAT fallback counts also include this planned route.",
+    "Stage/reason metrics cannot distinguish all silent default scores or hidden internal failures. Typed guided exceptions are only observed where logged."
+  ],
+  "input_hashes": {
+    "metadata.json": "0f0cbd08f82c93fef8de9c16b13129d0352c05059044a39d7ce060758d323f4f",
+    "runs.jsonl": "cb4bfb464cd93bf89568d62f50f092309106bd9afb8a1b40de67153430b838cf"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "native-lightweight-production-functional-summary-v1",
+  "status": "applied",
+  "finished_at": "2026-10-25T20:16:07.918859+00:00",
+  "evidence_scope": "Allowlisted summary of recorded functional checks, not a randomized speed comparison or a new benchmark.",
+  "packages": {
+    "torch": "2.6.0 CPU",
+    "numpy": "2.2.6",
+    "evidence": "rollout README runtime report"
+  },
+  "flags": {
+    "RETRO_AUTO_POLICY": "lightweight",
+    "RETRO_INFERENCE_OPT": "fused_channels_last"
+  },
+  "candidate_native_sha256": "a7f3f22a113b244f3d01d181fe6c50504a3f52ab4082ee83b20ff6b482ba0ffd",
+  "weights_sha256": {
+    "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+    "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d"
+  },
+  "health_ok": true,
+  "source_and_untouched_hashes_match": true,
+  "database_counts_unchanged": true,
+  "resource_properties_unchanged": true,
+  "original_service_unit_unchanged": true,
+  "stage_functional_smokes": [
+    {
+      "case": "main-n44-s202610250400031",
+      "status": "found",
+      "strict_replay": true,
+      "method": "beam",
+      "wall_seconds": 3.3789144860347733
+    },
+    {
+      "case": "endgame-early-terminal-s202610255407633",
+      "status": "found",
+      "strict_replay": true,
+      "method": "sat",
+      "wall_seconds": 3.672586258035153
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200076",
+      "status": "found",
+      "strict_replay": true,
+      "method": "beam",
+      "wall_seconds": 5.747874799068086
+    }
+  ],
+  "recorded_model_worker_smoke": {
+    "status": "found",
+    "strict_replay": true,
+    "actual_cnn_scoring_observed": true,
+    "stages": [
+      "beam_fast",
+      "candidate_sat",
+      "pass_check"
+    ],
+    "stage": "fast"
+  },
+  "installed_runner_functional_smoke": {
+    "status": "passed",
+    "case": "main-n44-s202610250400031",
+    "safe_inference_mode": "lightweight/fused_channels_last",
+    "strict_replay": true,
+    "method": "beam",
+    "wall_seconds": 3.1872721649706364,
+    "public_api_called": false,
+    "database_written": false
+  },
+  "owned_smoke_children_remaining": 0,
+  "source_evidence_sha256": {
+    "README.ja.md": "9077621f1aaa8d7e37c110b7c4e87f956a75eec9a16201074a88810f81a3114a",
+    "rollout-audit.json": "2f3ae55c568d44fca8f55bf65b957816959e927e1820440b5235aa84dedb5f20",
+    "final-check.json": "7c3f699c1a6256b784b33a9aedeae3f4c8ef1ee35a1fac14e84fc9a6a674951a",
+    "stage-smoke.json": "7e15984b4cc1539ea7f5fe02980b2f700345d9215b565de8a13f60372ef4037e",
+    "installed-runner-smoke.json": "e2fa358f8d01532cc7e2dd38f83b4b452d3039786f970e31c592768bea56bcd7",
+    "stage-manifest.json": "eba5a479733f2759a83b81e6e4ad8ba447497d278f695cc894fa0ff8460a1832",
+    "regression-test.log": "4dace479bdda611941d786c8c99ed49453ff8890a0837e677b669b9a7e7ef650"
+  },
+  "excluded": "Service unit/drop-in, backup paths, UID, interpreter/private paths, process IDs, credentials, operational database counts and private logs are not copied."
+}

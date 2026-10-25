@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "selected_text_files_scanned": 46,
+  "rules": [
+    "private_absolute_path",
+    "windows_absolute_path",
+    "private_key",
+    "credential_value"
+  ],
+  "findings": [],
+  "model_and_native_binary_payloads_absent": true,
+  "scope": "Allowlisted publication payload only. Private launch logs/backups/configuration were excluded, not blindly redacted."
+}

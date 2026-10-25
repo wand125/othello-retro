@@ -1,0 +1,80 @@
+{
+  "midgame:sat": {
+    "trials": 36,
+    "independent_cases": 12,
+    "mean_seconds": 2.5872948743959165,
+    "median_seconds": 1.8111133284983225,
+    "stages": {
+      "final_exact_sat": 36
+    },
+    "cnn_used": 0,
+    "guided_hits": 0,
+    "fallbacks": 0
+  },
+  "midgame:baseline": {
+    "trials": 36,
+    "independent_cases": 12,
+    "mean_seconds": 1.7011869213246327,
+    "median_seconds": 1.5077766279573552,
+    "stages": {
+      "direct": 27,
+      "fast": 9
+    },
+    "cnn_used": 9,
+    "guided_hits": 9,
+    "fallbacks": 0
+  },
+  "midgame:lightweight": {
+    "trials": 36,
+    "independent_cases": 12,
+    "mean_seconds": 1.5775782666589495,
+    "median_seconds": 1.5246141774696298,
+    "stages": {
+      "direct": 27,
+      "fast": 9
+    },
+    "cnn_used": 9,
+    "guided_hits": 9,
+    "fallbacks": 0
+  },
+  "endgame:sat": {
+    "trials": 60,
+    "independent_cases": 20,
+    "mean_seconds": 9.950186855889235,
+    "median_seconds": 8.881162278004922,
+    "stages": {
+      "final_exact_sat": 60
+    },
+    "cnn_used": 0,
+    "guided_hits": 0,
+    "fallbacks": 0
+  },
+  "endgame:baseline": {
+    "trials": 60,
+    "independent_cases": 20,
+    "mean_seconds": 9.907569842667241,
+    "median_seconds": 9.97473708743928,
+    "stages": {
+      "direct": 6,
+      "fast": 36,
+      "final_exact_sat": 18
+    },
+    "cnn_used": 36,
+    "guided_hits": 36,
+    "fallbacks": 18
+  },
+  "endgame:lightweight": {
+    "trials": 60,
+    "independent_cases": 20,
+    "mean_seconds": 6.865794231804709,
+    "median_seconds": 5.473765203554649,
+    "stages": {
+      "direct": 6,
+      "fast": 30,
+      "final_exact_sat": 24
+    },
+    "cnn_used": 36,
+    "guided_hits": 30,
+    "fallbacks": 24
+  }
+}

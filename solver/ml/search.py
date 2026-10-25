@@ -83,7 +83,13 @@ TSYMS = [lambda x: x, lambda x: x.transpose(2, 3), lambda x: x.transpose(2, 3).f
 
 def prepare(net):
     """推論用の設定（半精度など）を適用したモデルを返す"""
-    return net.half() if HALF else net
+    if HALF:
+        return net.half()
+    variant = os.environ.get("RETRO_INFERENCE_OPT", "baseline")
+    if DEV == "cpu" and variant != "baseline":
+        from inference_opt import optimize
+        return optimize(net, variant)
+    return net
 
 
 class SearchBudgetExpired(TimeoutError):

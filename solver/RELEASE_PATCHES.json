@@ -1,5 +1,5 @@
 {
-  "scope": "release-stage-only changes; original private source/model/benchmark/service unchanged",
+  "scope": "v0.1.0 release-only safety patch plus subsequent native lightweight source changes; old benchmark payloads and checkpoints remain unchanged.",
   "patches": [
     {
       "file": "ml/bench_fix.py",
@@ -7,13 +7,94 @@
       "original_sha256": "ffb5dd5837f541733a76a6fc43f3032600d1b7faf05d1a56a7624b7665c9ea68",
       "released_sha256": "d0081540e5fb8178588e8522440530cf7eedf96097b397f53330c05559b9fdc0",
       "formal_benchmark_source": false
+    },
+    {
+      "file": "src/find.rs",
+      "reason": "Preserve legal terminal undo candidates when empty squares remain; retain no-pass mover parity; add two regression tests.",
+      "v0_1_0_sha256": "d1cdcca2290f650c74acb427b3888d478e497b6b1d5590f2c821c93070d72d47",
+      "current_sha256": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "ml/search.py",
+      "reason": "Opt-in CPU eval inference preparation; baseline default remains.",
+      "v0_1_0_sha256": "7dde92020cd83964cec7f8fed8788822a298ffbdd32614fb0f69093406cb6470",
+      "current_sha256": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "ml/worker.py",
+      "reason": "Opt-in lightweight dispatch; baseline default remains.",
+      "v0_1_0_sha256": "2cbaf49eaf316cfa863d48c5c8df8653d0bdfdf6864442abdce960106455d9d6",
+      "current_sha256": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "ml/inference_opt.py",
+      "reason": "New cloned eval Conv-BN folding/channels-last helpers; checkpoint bytes are not overwritten.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "ml/lightweight.py",
+      "reason": "New narrower guided policy, planned terminal exact routing and strict witness verification.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "ui/auto_policy.py",
+      "reason": "New pure-rule incomplete-terminal predicate.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "ui/server.py",
+      "reason": "Skip model cold startup for planned incomplete-terminal exact route.",
+      "v0_1_0_sha256": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+      "current_sha256": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "benchmarks/auto_diagnostic.py",
+      "reason": "New three-variant diagnostic and strict durable-prefix resume.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "benchmarks/analyze_auto_diagnostic.py",
+      "reason": "Independent replay, paired case-cluster bootstrap and route accounting.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "99d686bce30e24e1fdae16dbe50fffb999307b27f961a51a1f55862366ec2fb3",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "benchmarks/test_lightweight.py",
+      "reason": "Eight rule/mocked safety tests.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "0bf98eea657ee934d54e86bb73c4dec75017ea45249677398a1e47dd4649f810",
+      "formal_400_20_source": false
+    },
+    {
+      "file": "benchmarks/test_analyze_auto_diagnostic.py",
+      "reason": "Nine integrity/statistical tests.",
+      "v0_1_0_sha256": null,
+      "current_sha256": "99696d37bf8f02c1cc85f080ce0d4d802b5acad0cba333b576ff7f975a53ab9a",
+      "formal_400_20_source": false
     }
   ],
   "preserved": {
-    "Cargo.toml": "byte-identical; no package.license metadata added so frozen native/source hash remains matchable",
+    "Cargo.toml": "byte-identical",
     "Cargo.lock": "byte-identical",
-    "src/*.rs": "byte-identical",
-    "ml/search.py, ml/worker.py, ml/train.py": "byte-identical"
+    "ml/bench_fix.py": "existing public safe patch retained byte-identically",
+    "original_400_20_banks_and_raw": "byte-identical",
+    "model_checkpoints": "unchanged; distributed separately",
+    "historical_v0_1_0_records": "exact original bytes in history/v0.1.0/"
   },
-  "source_authorization": "User explicitly authorized all source publication, appropriate licensing and weights as Release assets on2026-10-26."
+  "source_authorization": "User explicitly authorized all source publication, appropriate licensing and weights as Release assets on2026-10-26.",
+  "historical_release_record": "history/v0.1.0/RELEASE_PATCHES.json",
+  "current_native_fix": "Not reverted by baseline Python policy/inference flags."
 }

@@ -14,6 +14,10 @@
 
 自作コードMITと、Kissat・Rust標準ライブラリ・Emscripten等のバイナリ通知は別に保持します。受入れfixtureのbank由来MITと論文由来2件のCC BY 4.0は[fixture条件](browser-wasm/tests/LICENSE.md)へ明示しています。元の4環境native測定をブラウザの性能値とは扱わず、モバイル性能は未測定です。
 
+## 現在のnative軽量auto
+
+現在の`solver/`は候補幅16・対称数1・refine0の単段policyとCPU Conv–BN融合／channels-lastをopt-inで選べます。未満盤終局は一般SATへ直行し、返却witnessを厳密再生します。WSLでは適用済みです。[32盤面診断](AUTO_DIAGNOSIS.md)は元400／20例とは別集計で、同じcheckpointを使い、新規学習は行いません。`RETRO_AUTO_POLICY=baseline RETRO_INFERENCE_OPT=baseline`は従来のPython policyを選びますが、native逆算修正は戻しません。元の測定sourceはv0.1.0／commit`32e472e`で再現し、凍結bankは変更しません。ビルド検証は現在11native＋17Pythonテスト、旧9nativeは歴史記録です。
+
 ## 元プログラムの復元の流れ
 
 1. 石数、初期配置の中央4マスなどの必要条件を調べる。
@@ -43,8 +47,8 @@
 
 自作ソースは[MIT](LICENSE)、既存二つの合成bankは従来の[MIT範囲](BENCHMARK_LICENSE.md)です。重み・モデルカード、自作論文本文・自作図には[CC BY 4.0](licenses/CC-BY-4.0.txt)を適用します。第三者のソルバー・ライブラリ・引用はそれぞれの条件を保持します。[LICENSE_SCOPE.md](LICENSE_SCOPE.md)へ対象を分けて明示しています。
 
-[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md)にRust依存9件とソルバー通知を、[`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md)にPythonの版・通知・requirementsの根拠を記載しています。r-efi6.0.0のMIT本文と著作権表示はAUTHORSから保持しました。Cargo.toml/lockとRust・主要推論ソースは測定時のhashを保ちます。補助bench_fix.pyの広域pkill除去は配布差分として記録しています。
+[`solver/THIRD_PARTY_NOTICES.md`](solver/THIRD_PARTY_NOTICES.md)にRust依存9件とソルバー通知を、[`solver/PYTHON_DEPENDENCIES.md`](solver/PYTHON_DEPENDENCIES.md)にPythonの版・通知・requirementsの根拠を記載しています。r-efi6.0.0のMIT本文と著作権表示はAUTHORSから保持しました。Cargo.toml/lockは不変です。旧測定のRust・主要推論source hashは歴史記録へ保持し、現在の軽量版sourceとは区別します。補助bench_fix.pyの広域pkill除去は配布差分として記録しています。
 
-ビルドはRust1.98.0とC++17、Kissatは別途4.0.3を用意します。Rust同一ソースでlocked release build、全9単体テスト、有限・無制限SATと独立再生を確認済みです。実行手順は[本体README](solver/README.md)、重みの取得・来歴は[モデルカード](models/MODEL_CARD.ja.md)を参照してください。
+ビルドはRust1.98.0とC++17、Kissatは別途4.0.3を用意します。v0.1.0はlocked release build・9単体テスト・有限／無制限SATを確認した歴史記録です。現在の変更には別の11native＋17Python検証を記録しています。実行手順は[本体README](solver/README.md)、重みの取得・来歴は[モデルカード](models/MODEL_CARD.ja.md)を参照してください。
 
 native版Release v0.1.0のソース配布には依存の実行バイナリ・Python wheel・WASM・コンテナを同梱しません。別のブラウザ版には上記のcompiled WASMと対応通知を含めます。元訓練JSONLは現物がなく配布しません。teacherの限定条件、未知ラベルを正例にする学習処理、最終重みのholdout精度と完全再学習の未確認は、コード公開によって解消したとは扱いません。動画依存などを含むバイナリを別に配布する場合は、その実際の同梱物の通知確認が必要です。[公開範囲](CODE_PUBLICATION.md)を参照してください。

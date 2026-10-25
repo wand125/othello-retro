@@ -1,0 +1,327 @@
+{
+  "files": [
+    {
+      "source": "ui/common.js",
+      "path": "solver/ui/common.js",
+      "source_sha256": "7ba61f88e628a033ecc26a251d7555e92cc4120658afc035dc120dd132668265",
+      "staged_sha256": "7ba61f88e628a033ecc26a251d7555e92cc4120658afc035dc120dd132668265",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/common.css",
+      "path": "solver/ui/common.css",
+      "source_sha256": "c685b019c59686c3515ff50551d1fed116402b0761768d74f8549b8821b0e9ac",
+      "staged_sha256": "c685b019c59686c3515ff50551d1fed116402b0761768d74f8549b8821b0e9ac",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/index.html",
+      "path": "solver/ui/index.html",
+      "source_sha256": "8cdb334cbdd791dfd16da1db177c6c36d2f7eb46c89fc6c76c43f391e63f148e",
+      "staged_sha256": "8cdb334cbdd791dfd16da1db177c6c36d2f7eb46c89fc6c76c43f391e63f148e",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/player.html",
+      "path": "solver/ui/player.html",
+      "source_sha256": "359f26610b495b7f718fede2c971232859fb4565d1f8515118d7b1a7de4484a3",
+      "staged_sha256": "359f26610b495b7f718fede2c971232859fb4565d1f8515118d7b1a7de4484a3",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/video.html",
+      "path": "solver/ui/video.html",
+      "source_sha256": "1921ab1383643cb253f2219bb015b3f8dc06ca199272f05c13523dd5a650efb4",
+      "staged_sha256": "1921ab1383643cb253f2219bb015b3f8dc06ca199272f05c13523dd5a650efb4",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/video-export.js",
+      "path": "solver/ui/video-export.js",
+      "source_sha256": "c89e9b29643f30d0b3bde77aec0dd74c402720b0403adb028d422a39fa50c76a",
+      "staged_sha256": "c89e9b29643f30d0b3bde77aec0dd74c402720b0403adb028d422a39fa50c76a",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/server.py",
+      "path": "solver/ui/server.py",
+      "source_sha256": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+      "staged_sha256": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/public.html",
+      "path": "solver/ui/public.html",
+      "source_sha256": "e6ec1755d878e4913b7d0bd8c219c10aac5c4998fce833303ed48b129a869e10",
+      "staged_sha256": "e6ec1755d878e4913b7d0bd8c219c10aac5c4998fce833303ed48b129a869e10",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/public.js",
+      "path": "solver/ui/public.js",
+      "source_sha256": "9d5445918e828821779120e3d3b5ee766866c7b3a0b3c374398db89f6a6073e2",
+      "staged_sha256": "9d5445918e828821779120e3d3b5ee766866c7b3a0b3c374398db89f6a6073e2",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/public.css",
+      "path": "solver/ui/public.css",
+      "source_sha256": "c4911047cfb88408edde8ce4408e9696ef01318b14b87f98c1fd074f0077ae75",
+      "staged_sha256": "c4911047cfb88408edde8ce4408e9696ef01318b14b87f98c1fd074f0077ae75",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/paper.js",
+      "path": "solver/ui/paper.js",
+      "source_sha256": "b85f4e89a9a59f4c60f0603143e41bf82a53c59b7de7667c39cbacd221ceba37",
+      "staged_sha256": "b85f4e89a9a59f4c60f0603143e41bf82a53c59b7de7667c39cbacd221ceba37",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/paper.css",
+      "path": "solver/ui/paper.css",
+      "source_sha256": "bdc6455025dc40004947be9aac8fe17c46f7dce06178d3b7d0088d96cbacb424",
+      "staged_sha256": "bdc6455025dc40004947be9aac8fe17c46f7dce06178d3b7d0088d96cbacb424",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/MEDIABUNNY-VERSION.txt",
+      "path": "solver/ui/MEDIABUNNY-VERSION.txt",
+      "source_sha256": "d7b68752c88b1ed8c3b5d39d968b3edec001af44edb614ed2ea790acc46ffeb3",
+      "staged_sha256": "d7b68752c88b1ed8c3b5d39d968b3edec001af44edb614ed2ea790acc46ffeb3",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/public-examples.json",
+      "path": "solver/ui/public-examples.json",
+      "source_sha256": "15d2c4d783798129d6e926a7b86bdc83961acd14d3048251c8a5687a2574cb45",
+      "staged_sha256": "15d2c4d783798129d6e926a7b86bdc83961acd14d3048251c8a5687a2574cb45",
+      "byte_identical": true,
+      "license": "data-license-at-repository-level"
+    },
+    {
+      "source": "ui/paper-data.json",
+      "path": "solver/ui/paper-data.json",
+      "source_sha256": "f6906dc8809ed23bb0a666ee019d9bea34fd684a1cc4a3ffe702a9fc674e7b16",
+      "staged_sha256": "f6906dc8809ed23bb0a666ee019d9bea34fd684a1cc4a3ffe702a9fc674e7b16",
+      "byte_identical": true,
+      "license": "data-license-at-repository-level"
+    },
+    {
+      "source": "ui/paper.html",
+      "path": "solver/ui/paper.html",
+      "source_sha256": "035ff595f08e7ce49b390bb6e29d81814a3e085a4e29070363b0f4e7bf13a3b9",
+      "staged_sha256": "035ff595f08e7ce49b390bb6e29d81814a3e085a4e29070363b0f4e7bf13a3b9",
+      "byte_identical": true,
+      "license": "CC-BY-4.0 for original prose/figures; MIT for functional markup"
+    },
+    {
+      "source": "cloud/app.py",
+      "path": "solver/cloud/app.py",
+      "source_sha256": "23f70ad1aaf25b9db685305302b45dfe67938f29c54a97850a874ade6b23d2c6",
+      "staged_sha256": "f0ec7c20960c21820d16fde1a6898601f097dd59f9af35793e3a60b8d4307237",
+      "byte_identical": false,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/records.py",
+      "path": "solver/cloud/records.py",
+      "source_sha256": "9f7ac0659afdb24eec3190cd632984a30d0edee509ed2eb713171dc39aae0c7b",
+      "staged_sha256": "9f7ac0659afdb24eec3190cd632984a30d0edee509ed2eb713171dc39aae0c7b",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/requirements.txt",
+      "path": "solver/cloud/requirements.txt",
+      "source_sha256": "801a6a88bee83ae130d6b51a1568ab26fda05a1e7b7c11166130683f8b5920a9",
+      "staged_sha256": "801a6a88bee83ae130d6b51a1568ab26fda05a1e7b7c11166130683f8b5920a9",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/benchmark_single.py",
+      "path": "solver/cloud/benchmark_single.py",
+      "source_sha256": "09ee182dfee215dd2e68d0349859af534e4d3226949f9eba1e74fc3035ad13f9",
+      "staged_sha256": "09ee182dfee215dd2e68d0349859af534e4d3226949f9eba1e74fc3035ad13f9",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/endgame_check.py",
+      "path": "solver/cloud/endgame_check.py",
+      "source_sha256": "7f9ff53667fad33d3c8d62bf7011c71c1a1289720fb6357452de4dd8642373d9",
+      "staged_sha256": "7f9ff53667fad33d3c8d62bf7011c71c1a1289720fb6357452de4dd8642373d9",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/build_paper.py",
+      "path": "solver/cloud/build_paper.py",
+      "source_sha256": "bb22a66fd610e7943f5cc60d2fb2725cb8cf3f17b91c739d0b46f71f812ebfb0",
+      "staged_sha256": "bb22a66fd610e7943f5cc60d2fb2725cb8cf3f17b91c739d0b46f71f812ebfb0",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/test_app.py",
+      "path": "solver/cloud/test_app.py",
+      "source_sha256": "dc410df918ee9275528b2a4c3916f42c27b1556e81cd65c26dc855bd5de5e1ba",
+      "staged_sha256": "dc410df918ee9275528b2a4c3916f42c27b1556e81cd65c26dc855bd5de5e1ba",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/test_records.py",
+      "path": "solver/cloud/test_records.py",
+      "source_sha256": "4ae39d767cde0dd4a3e8e9bad49a3744fabca72ca8633b3327a49845009dfd89",
+      "staged_sha256": "4ae39d767cde0dd4a3e8e9bad49a3744fabca72ca8633b3327a49845009dfd89",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/test_proxy.py",
+      "path": "solver/cloud/test_proxy.py",
+      "source_sha256": "d2709217eded5a41825a3d18a50489d6e194b2d5ba625afb34decbbff109416d",
+      "staged_sha256": "d2709217eded5a41825a3d18a50489d6e194b2d5ba625afb34decbbff109416d",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/ui/short.html",
+      "path": "short/ui/short.html",
+      "source_sha256": "8812c8b09ea4c41a10afa1983981a7afde6b0588547d20c1b948d1c239db74f3",
+      "staged_sha256": "8812c8b09ea4c41a10afa1983981a7afde6b0588547d20c1b948d1c239db74f3",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/ui/short.css",
+      "path": "short/ui/short.css",
+      "source_sha256": "48f03e42e7d6529e77c41f2e716e93e9bb2025c8b2e556ad44c1b2355bdd7a0b",
+      "staged_sha256": "48f03e42e7d6529e77c41f2e716e93e9bb2025c8b2e556ad44c1b2355bdd7a0b",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/ui/short.js",
+      "path": "short/ui/short.js",
+      "source_sha256": "cfa59343e3b6654663f01866533971acb48444d571d72d3603b5d51bc733de0c",
+      "staged_sha256": "cfa59343e3b6654663f01866533971acb48444d571d72d3603b5d51bc733de0c",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/preview.py",
+      "path": "short/preview.py",
+      "source_sha256": "d765231433700a33bb216d19e170bfd71a6cd43b6da7a1dc55a98c727639935d",
+      "staged_sha256": "be221b2542db5d139a60b26434d4e3842bfb900330e65b30338b370e4f818f94",
+      "byte_identical": false,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/install_short.py",
+      "path": "short/install_short.py",
+      "source_sha256": "8281b228daa4968e8698b23c1f87812cc966e9b68d82dd33b35e7a9ee57ede12",
+      "staged_sha256": "8281b228daa4968e8698b23c1f87812cc966e9b68d82dd33b35e7a9ee57ede12",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/Dockerfile",
+      "path": "short/Dockerfile",
+      "source_sha256": "69276e3ec2dbf1edd8c93c626df09ef4e3f14cf9c6985fabf70e8dc197277b16",
+      "staged_sha256": "69276e3ec2dbf1edd8c93c626df09ef4e3f14cf9c6985fabf70e8dc197277b16",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/build.yaml",
+      "path": "short/build.yaml",
+      "source_sha256": "526003e918d5492336025a37747bb22dcc990315530b76e5644a218979ab99b2",
+      "staged_sha256": "526003e918d5492336025a37747bb22dcc990315530b76e5644a218979ab99b2",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/.dockerignore",
+      "path": "short/.dockerignore",
+      "source_sha256": "5b4314390dde2ce6e23f906a26ea3e46df0bc5671c1a5e04ba1678e5329df5fb",
+      "staged_sha256": "5b4314390dde2ce6e23f906a26ea3e46df0bc5671c1a5e04ba1678e5329df5fb",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "../othello-retro-short/.gcloudignore",
+      "path": "short/.gcloudignore",
+      "source_sha256": "352af70ef0dbde785c926e238d8af9b0244ee1b3c4c9c0a9b160946cbc10b817",
+      "staged_sha256": "352af70ef0dbde785c926e238d8af9b0244ee1b3c4c9c0a9b160946cbc10b817",
+      "byte_identical": true,
+      "license": "MIT"
+    },
+    {
+      "source": "ui/MEDIABUNNY-LICENSE.txt",
+      "path": "solver/licenses/MPL-2.0-mediabunny.txt",
+      "source_sha256": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "staged_sha256": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "byte_identical": true,
+      "license": "MPL-2.0"
+    },
+    {
+      "source": "../othello-retro-public-data/LICENSE",
+      "path": "solver/licenses/MIT-web.txt",
+      "source_sha256": "e3fcb9b10ed39392306374e5d9ade40d12101eedd13477da5254482b40d04a3f",
+      "staged_sha256": "0d596ac66b81ef6212bd808dc8c8ffe2a83f172d735ac0648dbbf8d95ff35a98",
+      "byte_identical": false,
+      "license": "MIT"
+    },
+    {
+      "source": "cloud/build_examples.py",
+      "path": "solver/cloud/build_examples.py",
+      "source_sha256": "d532b2bdbf2a21b290ea5008a62b4de56929076beab17f084d28d3efdaf09fa6",
+      "staged_sha256": "1e6edd9f20daa7c0a5b1cbe9edd555754ef4f8ab09cd904eb9fa09d0cacc16b0",
+      "byte_identical": false,
+      "license": "MIT"
+    }
+  ],
+  "stage_only_patches": [
+    {
+      "path": "solver/cloud/app.py",
+      "change": "Remove personal production project default; GOOGLE_CLOUD_PROJECT must be configured for deployment. No environment values or credentials are included."
+    },
+    {
+      "path": "short/preview.py",
+      "change": "Use the release solver/ui relative examples path; remove automatic requests to the original live service; explicit --backend opt-in with origin validation."
+    },
+    {
+      "path": "solver/cloud/build_examples.py",
+      "change": "Keep verify() unchanged; replace implicit private video/export/old measurement reads in main() with a required --input public record file. No private source artifacts are included."
+    }
+  ],
+  "excluded": [
+    "ui/mediabunny.js third-party bundle",
+    "Original build_examples.py main() implicit video/export/measurement inputs; stage CLI uses explicit input instead",
+    "deployment state, service accounts, .env, credentials, usage logs, task queues, Firestore data",
+    "recordings/videos/screenshots and arbitrary downloads",
+    "third-party reference manuscripts and private review logs"
+  ],
+  "frozen_ui_server_preserved": true,
+  "original_source_edits": [],
+  "integration_notes": [
+    "Web license files use lowercase solver/licenses/ to avoid case-insensitive filesystem collisions.",
+    "License grants and attribution finalized; no article prose or functional UI was rewritten."
+  ]
+}

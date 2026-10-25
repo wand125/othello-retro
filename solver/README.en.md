@@ -3,8 +3,7 @@
 [日本語](README.md) | English
 
 The original Rust SAT CLI and Python CNN-guided search/training code are MIT
-licensed (Copyright 2026 wand125 and contributors). Cargo/Rust and the three
-primary inference modules retain the formal-measurement source bytes.
+licensed (Copyright 2026 wand125 and contributors). Cargo remains unchanged; current source adds the terminal-undo correction and opt-in lightweight auto. It differs from the original formal-measurement source. See the [later diagnosis](../AUTO_DIAGNOSIS.en.md) and [historical records](history/v0.1.0/README.md).
 Dependencies keep their own terms: see THIRD_PARTY_NOTICES.md and
 PYTHON_DEPENDENCIES.md. No third-party implementation or binary is vendored.
 
@@ -24,9 +23,9 @@ nice -n 19 cargo +1.98.0 test --release --locked -j2 -- --test-threads=1
 ```
 
 Skip toolchain installation if 1.98.0 already exists; it does not change the
-default toolchain. All 9 unit tests passed with real Kissat 4.0.3. Without Kissat,
+default toolchain. Current 11 unit tests passed with real Kissat 4.0.3; the nine-test v0.1.0 record remains historical. Without Kissat,
 the integration test prints a skip message, which is not SAT execution proof.
-`--jobs1` does not mean one CPU: the solver portfolio can start multiple jobs.
+`--jobs 1` does not mean one CPU: the solver portfolio can start multiple jobs.
 Use the separate benchmark two-slot gate when reproducing that configuration.
 
 ## SAT
@@ -58,6 +57,21 @@ Inference consumes learned weights, not the original training JSONL. The
 Torch 2.2.2 / NumPy 1.26.4 pins match formal CPU inference, not a recovered historical
 training environment. Optional comparison dependencies have explicitly stated
 local version evidence rather than a claim of exact retraining reproducibility.
+
+## Two opt-in auto configurations
+
+These flags select Python search/inference policy. Even `baseline` keeps the current Rust undo correction. Build v0.1.0/commit `32e472e` in a separate checkout for the old native source.
+
+```sh
+# Old policy/inference, using the currently corrected native
+OTHELLO_DEVICE=cpu RETRO_HALF=0 RETRO_AUTO_POLICY=baseline RETRO_INFERENCE_OPT=baseline OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 python ml/worker.py ml/model.pt
+# Lightweight policy and fused CPU inference
+OTHELLO_DEVICE=cpu RETRO_HALF=0 RETRO_AUTO_POLICY=lightweight RETRO_INFERENCE_OPT=fused_channels_last OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 python ml/worker.py ml/model.pt
+```
+
+An incomplete terminal returns `miss` reason `incomplete_terminal_exact_route`: planned general-SAT routing. The worker alone does not run final exact SAT; the caller must do so. `ui/server.py` checks this route before cold-starting the model. Checkpoints are unchanged; there is no retraining. CPU inference optimization is not an unconditional GPU setting.
+
+Run the 17 related Python tests with `python -m unittest benchmarks/test_lightweight.py benchmarks/test_analyze_auto_diagnostic.py`. [NATIVE_LIGHTWEIGHT_VALIDATION.json](NATIVE_LIGHTWEIGHT_VALIDATION.json) records evidence/hashes; see [benchmarks/README.md](benchmarks/README.md) for the separate three-variant experiment and resume semantics.
 
 ## Auto / guided search
 
@@ -114,6 +128,6 @@ different schema from the spine-feature rows used above.
   its own bounded tasks now finish/join without stopping unrelated solvers.
   RELEASE_PATCHES.json records that one release-only change.
 
-The private originals, weights and running service were not modified.
+The original 400/20 measurement data and checkpoints remain unchanged. The later source update and WSL production adoption are documented separately.
 ENGINE_SOURCE_MANIFEST.json records the original/released source hashes and
 scope; model/data/UI/infra distribution are separate from this source pack.

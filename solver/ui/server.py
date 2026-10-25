@@ -4,6 +4,7 @@ usage: python3 ui/server.py [--host 127.0.0.1] [--port 8765]
 ブラウザで http://HOST:PORT/ を開く。ソルバーは ../target/release/othello-retro（要 cargo build --release）。
 """
 import glob, json, os, select, signal, subprocess, sys, tempfile, threading, time
+from auto_policy import incomplete_terminal
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -312,7 +313,8 @@ class Handler(BaseHTTPRequestHandler):
         placed = 60 - board.count("-")
         # 石が多い盤面は、先に学習モデルで候補を絞って SAT（速いが見つからないこともある）。
         # ワーカーが使用中なら飛ばして SAT に直行する
-        if placed >= BEAM_MIN_MOVES and os.path.exists(MODEL) and WORKER.lock.acquire(blocking=False):
+        direct_exact = os.environ.get("RETRO_AUTO_POLICY", "baseline") == "lightweight" and incomplete_terminal(board)
+        if placed >= BEAM_MIN_MOVES and not direct_exact and os.path.exists(MODEL) and WORKER.lock.acquire(blocking=False):
             try:
                 WORKER.cancelled = False
                 with LOCK:

@@ -1,0 +1,21 @@
+{
+  "Cargo.toml": "ca7d730cce888862a2288613567d275e4b8f07efb73e376266e0129cc3a68dc3",
+  "Cargo.lock": "71471657ea7cd17f4c79f1cfbc8c792c22d28e9e2b7c1887fb9066e16b206cda",
+  "src/main.rs": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+  "src/find.rs": "5bd322cfad33c4b4d39a56714096bd377c77b018d2d7d33c215531ba4748a902",
+  "src/sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+  "ui/auto_policy.py": "0f24c5d396281baeb60b517f111e55c69c9a070b1a9513fb075d76211d0c341e",
+  "ui/server.py": "b39d469ab8defb83529a683b20225fb1e9e0e61fb16f999c2c775624e8a865bd",
+  "bin/baseline": "0a8eec3aa70d3e83195cf8c6f40de4ff675766ebfdde2647781c8728dad13576",
+  "bin/candidate": "a7f3f22a113b244f3d01d181fe6c50504a3f52ab4082ee83b20ff6b482ba0ffd",
+  "ml/train.py": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+  "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+  "ml/search.py": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+  "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+  "ml/inference_opt.py": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc",
+  "ml/worker.py": "75235565b4f3a89778e4197c8fb1d14c233a0cb629191a1508dc82705473e517",
+  "ml/lightweight.py": "2f34e9e7a298929969b945bb8cc874ea9c46e58bc154d15373f056fb02b14a4f",
+  "benchmarks/unbounded_engine.py": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+  "benchmarks/auto_diagnostic.py": "d8e1ce056bfd2a94dac72a95bedcd55f8d088e0b8495d5364d4df93d4ec0c5bf",
+  "benchmarks/kissat_gate.py": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8"
+}

@@ -3,7 +3,7 @@
 [日本語](README.md) | [English](README.en.md)
 
 Rustによる一般SAT復元と、学習したCNNで候補を絞るPython探索・学習コードです。
-元のCargo／Rustソースと、主要推論3ファイルは正式測定時の内容と一致します。
+Cargoは不変ですが、現在版はnative終局逆算修正と軽量autoのopt-inを含み、元の正式測定sourceとは異なります。[後続診断](../AUTO_DIAGNOSIS.md)と[歴史記録](history/v0.1.0/README.md)を参照してください。
 自作コードは[MIT](LICENSE)、第三者依存は[個別の通知](THIRD_PARTY_NOTICES.md)と
 [Python依存情報](PYTHON_DEPENDENCIES.md)を参照してください。
 
@@ -22,8 +22,7 @@ kissat --version
 nice -n 19 cargo +1.98.0 test --release --locked -j2 -- --test-threads=1
 ```
 
-既存の1.98.0があればtoolchain installは不要です。9単体テストはKissat4.0.3付きで
-確認済みです。Kissatが無い場合、SAT統合テストはskipメッセージを出すため、
+既存の1.98.0があればtoolchain installは不要です。現在の11単体テストはKissat4.0.3付きで確認済みです。旧v0.1.0の9テストは歴史記録へ保持しています。Kissatが無い場合、SAT統合テストはskipメッセージを出すため、
 その状態をSAT実行成功とは数えません。ソルバーのportfolioは複数プロセスを
 起動し得るので`--jobs1`は1CPU保証ではありません。配布の元benchmarksで使う
 同時2本ゲート等は、その測定手順に従って別途適用してください。
@@ -54,6 +53,21 @@ python -m pip install -r requirements-inference.txt
 のSHA-256とサイズを照合してください。推論は重みを使い、学習元JSONLを読みません。
 Torch2.2.2／NumPy1.26.4は正式CPU試験の版です。これは過去の訓練環境の完全な復元
 を意味しません。CPU／FP32を明示する例は次のとおりです。
+
+## autoの二つのopt-in設定
+
+次のflagはPythonの探索・推論policyを選びます。`baseline`でも現在のRust逆算修正は有効です。元nativeを再現する場合はv0.1.0／commit`32e472e`を別checkoutでビルドしてください。
+
+```sh
+# 従来policy・従来推論（現在の修正nativeを使用）
+OTHELLO_DEVICE=cpu RETRO_HALF=0 RETRO_AUTO_POLICY=baseline RETRO_INFERENCE_OPT=baseline OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 python ml/worker.py ml/model.pt
+# 軽量policy＋CPU融合推論
+OTHELLO_DEVICE=cpu RETRO_HALF=0 RETRO_AUTO_POLICY=lightweight RETRO_INFERENCE_OPT=fused_channels_last OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 MKL_NUM_THREADS=2 python ml/worker.py ml/model.pt
+```
+
+未満盤終局の`miss`理由`incomplete_terminal_exact_route`は予定した一般SAT直行です。worker単独は最後の一般SATを実行しないため、呼出側でSATへ渡してください。`ui/server.py`はこの経路をmodelの冷起動より前に判断します。checkpointは同じで、新規学習は行いません。CPU以外へ融合opt-inを無条件に適用しないでください。
+
+関連Python17テストは`python -m unittest benchmarks/test_lightweight.py benchmarks/test_analyze_auto_diagnostic.py`です。実行証拠とsource hashは[NATIVE_LIGHTWEIGHT_VALIDATION.json](NATIVE_LIGHTWEIGHT_VALIDATION.json)、3方式の測定・再開手順は[benchmarks/README.md](benchmarks/README.md)にあります。
 
 ## auto／学習探索
 
@@ -103,5 +117,5 @@ python ml/train_final.py labels.jsonl --out my-model.pt --epochs 25
   `bench_fix.py`の広域pkillだけは配布版から除き、他のSATプロセスを止めないようにしました。
   変更は[RELEASE_PATCHES.json](RELEASE_PATCHES.json)へ記録しています。
 
-元ソース・モデル・本番サービスは、この配布準備では変更していません。
+元400／20盤面の測定データとcheckpointは変更していません。現在のsource更新とWSL本番への適用は後続診断・rollout要約へ記録しています。
 各ソースhashと除外範囲は[ENGINE_SOURCE_MANIFEST.json](ENGINE_SOURCE_MANIFEST.json)に記録します。

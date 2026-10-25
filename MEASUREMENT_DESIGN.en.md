@@ -6,6 +6,10 @@ The fixed benchmark has two separate suites. Each environment runs both program 
 
 The earlier WSL-only plan with 8-second midgame and 60-second terminal cutoffs is superseded. Unfinished work is not assigned a finite failure cost or PAR2 score.
 
+## Later source and separate experiment
+
+The design below is the original frozen 400/20-case four-environment study. Current `solver/` includes subsequent native/lightweight changes and differs from its source hashes. Reproduce the original source from v0.1.0 or pre-update commit `32e472e` and historical manifests; never change bank hashes to bypass preflight. The [later 32-case diagnosis](AUTO_DIAGNOSIS.en.md) has a separate schedule and analysis. Its interrupted trial lacks an exact timer, so excess program wall is retained separately rather than imputed into a case's `effective_wall_seconds`. That exception does not retroactively modify the design below. Browser SAT and production Torch 2.6 functional smoke are separate conditions too.
+
 ## Fixed inputs and schedule
 
 | Item | Midgames | Terminal boards |

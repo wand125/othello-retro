@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "at": "2026-10-25T19:39:00.380151+00:00",
+  "checks": [
+    "42 genuine rows strict replay accepted; actual WSL algorithm/weights/native unchanged",
+    "duplicate-prefix rejected",
+    "tampered-moves rejected",
+    "algorithm-change rejected",
+    "count-mismatch rejected",
+    "changed-schedule rejected"
+  ],
+  "resumed_schedule_index": 42,
+  "old_runner_sha256": "d8e1ce056bfd2a94dac72a95bedcd55f8d088e0b8495d5364d4df93d4ec0c5bf",
+  "new_runner_sha256": "23608764ee5ec292ad7ed67a28cff5c78c15b7e12809839a184b65c541d82792",
+  "available_memory_kib": 38782620,
+  "load_average": [
+    2.10498046875,
+    2.40966796875,
+    2.5546875
+  ],
+  "launch_affinity": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "nice": 19
+}

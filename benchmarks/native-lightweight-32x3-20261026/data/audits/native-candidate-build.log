@@ -1,0 +1,8 @@
+   Compiling libc v0.2.190
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling jobserver v0.1.35
+   Compiling cc v1.6.0
+   Compiling cadical v0.1.16
+   Compiling othello-retro v0.1.0 (<project>)
+    Finished `release` profile [optimized] target(s) in 30.27s

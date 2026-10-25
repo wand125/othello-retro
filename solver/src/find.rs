@@ -21,7 +21,13 @@ pub fn passfree_undos(b: u64, w: u64) -> Vec<(u64, u64)> {
         return vec![];
     }
     let mover = ((n - 1) % 2) as u8;
-    let nxt = if n == 60 { retro::ANY } else { (n % 2) as u8 };
+    // A terminal target has no next player, even when empty squares remain.
+    // Only relax that terminal marker: retain the no-pass last-mover parity below.
+    let nxt = if n == 60 || (legal_moves(b, w) == 0 && legal_moves(w, b) == 0) {
+        retro::ANY
+    } else {
+        (n % 2) as u8
+    };
     retro::undos_plain(b, w, nxt).into_iter().filter(|k| k.3 == mover).map(|k| (k.1, k.2)).collect()
 }
 
@@ -180,5 +186,91 @@ pub fn frontier(target: (u64, u64), width: usize, stop_n: u32, salt: u64) -> Vec
         cand.sort_unstable_by(|a, b| b.0.cmp(&a.0));
         cand.truncate(width);
         levels.push(cand.into_iter().map(|(_, q, pi)| (q, pi)).collect());
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    // Frozen terminal-bank cases, selected independently of solver results.
+    // endgame-early-terminal-s202610255401016 has 59 placements and no passes.
+    const NO_PASS_RECORD: &str = "d3 c5 f6 e3 c4 b3 d6 e6 f4 c3 c6 g6 b4 d7 c7 a4 d2 b6 b7 b5 b2 g3 e7 a2 g4 b1 g5 c8 g2 c2 b8 g7 a3 f5 d1 g1 h8 g8 d8 a5 a1 f8 c1 f7 h4 h3 a6 e8 h7 f3 f2 h5 h1 h6 f1 a7 a8 e2 h2";
+    const NO_PASS_TARGET: &str = "XXXX-XXXXXXXOXXXXXXOOOXXXXOXOOOXXOOXOOOXXOXOOOOXXXOOOOOXXXXXOOOX";
+    // endgame-early-terminal-s202610255406852 has one forced pass before h5.
+    const PASS_RECORD: &str = "e6 f6 c4 c5 b6 f3 g6 b5 b4 a5 a6 f7 e8 e3 a4 h6 d6 d7 f5 g8 e2 g7 g4 a7 d3 d2 c8 e7 c1 c7 f8 g5 c2 g2 g3 h3 h1 b3 a2 f2 h8 f4 h7 c6 h4 e1 d1 c3 b2 g1 d8 a3 h2 a1 b1 f1 b7 pass h5";
+    const PASS_TARGET: &str = "OXXXOOOXOXXOOXXXOXOOOXXXOXOXXXXXOXOXXXXXOXXXOXXXOXXXXXXX--XXXXXX";
+
+    fn replay_record(record: &str) -> (Vec<(u64, u64)>, Vec<u8>, usize) {
+        let mut states = vec![(INIT_BLACK, INIT_WHITE)];
+        let mut movers = Vec::new();
+        let (mut side, mut passes) = (0u8, 0usize);
+        for token in record.split_whitespace() {
+            let (b, w) = *states.last().unwrap();
+            let (p, o) = if side == 0 { (b, w) } else { (w, b) };
+            if token == "pass" {
+                assert_eq!(legal_moves(p, o), 0, "pass while a placement exists");
+                assert_ne!(legal_moves(o, p), 0, "pass after termination");
+                passes += 1;
+                side ^= 1;
+                continue;
+            }
+            let bytes = token.as_bytes();
+            assert_eq!(bytes.len(), 2);
+            let square = u32::from(bytes[0] - b'a') + 8 * u32::from(bytes[1] - b'1');
+            assert_ne!(legal_moves(p, o) & (1 << square), 0, "illegal {token}");
+            states.push(play(b, w, side, square));
+            movers.push(side);
+            side ^= 1;
+        }
+        (states, movers, passes)
+    }
+
+    #[test]
+    fn incomplete_terminal_preserves_a_known_passfree_predecessor() {
+        let (states, movers, passes) = replay_record(NO_PASS_RECORD);
+        assert_eq!(passes, 0);
+        let target = *states.last().unwrap();
+        assert_eq!(target, parse(NO_PASS_TARGET).unwrap());
+        assert_eq!((target.0 | target.1).count_ones(), 63);
+        assert_eq!(legal_moves(target.0, target.1), 0);
+        assert_eq!(legal_moves(target.1, target.0), 0);
+        let n = (target.0 | target.1).count_ones() - 4;
+        let mover = ((n - 1) % 2) as u8;
+        assert_eq!(*movers.last().unwrap(), mover);
+        let previous = states[states.len() - 2];
+        let candidates = passfree_undos(target.0, target.1);
+        assert!(candidates.contains(&previous), "lost the legal no-pass reference prefix");
+        // Every returned candidate must still be one legal placement of the
+        // no-pass parity mover away from this exact target, not an arbitrary color.
+        for (b, w) in candidates {
+            let removed = (target.0 | target.1) & !(b | w);
+            assert_eq!(removed.count_ones(), 1);
+            assert_eq!((b | w).count_ones() + 1, 63);
+            let square = removed.trailing_zeros();
+            let (p, o) = if mover == 0 { (b, w) } else { (w, b) };
+            assert_ne!(legal_moves(p, o) & removed, 0);
+            assert_eq!(play(b, w, mover, square), target);
+        }
+    }
+
+    #[test]
+    fn terminal_fix_keeps_the_no_pass_mover_and_nonterminal_policy() {
+        let (states, movers, passes) = replay_record(PASS_RECORD);
+        assert_eq!(passes, 1);
+        let target = *states.last().unwrap();
+        assert_eq!(target, parse(PASS_TARGET).unwrap());
+        assert_eq!((target.0 | target.1).count_ones(), 62);
+        assert_eq!(legal_moves(target.0, target.1) | legal_moves(target.1, target.0), 0);
+        let mover = (((target.0 | target.1).count_ones() - 5) % 2) as u8;
+        assert_ne!(*movers.last().unwrap(), mover);
+        let before_final = states[states.len() - 2];
+        assert!(!passfree_undos(target.0, target.1).contains(&before_final),
+                "terminal handling must not admit the opposite-parity last mover");
+        // Immediately before the explicit pass White has no move but Black does.
+        // This change must not broaden the existing no-pass nonterminal policy.
+        assert_eq!(legal_moves(before_final.1, before_final.0), 0);
+        assert_ne!(legal_moves(before_final.0, before_final.1), 0);
+        assert!(passfree_undos(before_final.0, before_final.1).is_empty());
     }
 }

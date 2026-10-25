@@ -1,0 +1,50 @@
+[
+  {
+    "environment": "WSL",
+    "suite": "midgame",
+    "independent_cases": 400,
+    "eligible_auto_trials": 240,
+    "cnn_forward_completed": 5322,
+    "candidate_sat_batches_recorded": 84,
+    "guided_successful_batches_observed": 75,
+    "rates": {
+      "initial_probe_hit_given_eligible": 0.6875,
+      "actual_cnn_trial_given_eligible": 0.3125,
+      "actual_cnn_trial_given_all_auto": 0.0625,
+      "guided_hit_given_actual_cnn": 1.0,
+      "guided_hit_given_eligible": 0.3125,
+      "pre_final_exact_pipeline_hit_given_eligible": 1.0,
+      "final_exact_fallback_given_eligible": 0.0,
+      "verified_success_given_all_auto": 1.0
+    },
+    "sources": {
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+      "runs_sha256": "188e45db8d6a412451113f131c3efbd7901cceab5d7ff535796956bf91868090",
+      "summary_sha256": "6ecdfbe64ad7b9528b2d081f1b885c24b6152f145ab6067ee944d11dedd1fd74"
+    }
+  },
+  {
+    "environment": "WSL",
+    "suite": "endgame",
+    "independent_cases": 20,
+    "eligible_auto_trials": 60,
+    "cnn_forward_completed": 17439,
+    "candidate_sat_batches_recorded": 36,
+    "guided_successful_batches_observed": 36,
+    "rates": {
+      "initial_probe_hit_given_eligible": 0.1,
+      "actual_cnn_trial_given_eligible": 0.6,
+      "actual_cnn_trial_given_all_auto": 0.6,
+      "guided_hit_given_actual_cnn": 1.0,
+      "guided_hit_given_eligible": 0.6,
+      "pre_final_exact_pipeline_hit_given_eligible": 0.7,
+      "final_exact_fallback_given_eligible": 0.3,
+      "verified_success_given_all_auto": 1.0
+    },
+    "sources": {
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+      "runs_sha256": "356127b75a182cc28d97488c2d3639a2a85d44c262268c3262a5df1d3d941bbd",
+      "summary_sha256": "f1cfe63a4db93897fbde91e417c066ebbc2be25df59188a989bab788c0a8e95f"
+    }
+  }
+]
