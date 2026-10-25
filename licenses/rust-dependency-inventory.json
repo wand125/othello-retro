@@ -1,6 +1,6 @@
 {
-  "scope": "Cargo.lock dependency inventory; implementation withheld",
-  "date": "2026-10-25",
+  "scope": "Nine Cargo.lock registry dependencies; notice inventory updated for a prepared source-only candidate. Original implementation remains withheld.",
+  "date": "2026-10-26",
   "dependencies": [
     {
       "name": "cadical",
@@ -128,10 +128,17 @@
       "name": "r-efi",
       "version": "6.0.0",
       "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf",
-      "verification": "exact crates.io manifest checked; package archive contains no separate license text",
+      "verification": "Exact checksum-identified crates.io archive checked. AUTHORS contains the MIT permission notice and copyright attributions; it is included verbatim in the prepared source-only candidate. The earlier missing-notice issue is resolved.",
       "declared_license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
       "repository": "https://github.com/r-efi/r-efi",
-      "notice_files": []
+      "notice_files": [
+        {
+          "name": "AUTHORS",
+          "sha256": "d027e91dbc9cdbb2f1190068e498bd6b61cff022b6a032b191021ba658d96111",
+          "content": "MIT permission text and copyright attributions; also includes alternative-license notices"
+        }
+      ],
+      "selected_license_for_candidate": "MIT"
     },
     {
       "name": "shlex",
@@ -151,5 +158,21 @@
       ],
       "verification": "declared license and available top-level notice files inventoried; not a complete distribution audit"
     }
-  ]
+  ],
+  "source_only_candidate_review": {
+    "payload_files": 31,
+    "locked_registry_dependencies": 9,
+    "notices_packaged": true,
+    "validation": {
+      "platform": "WSL Linux",
+      "rust": "1.98.0",
+      "kissat": "4.0.3",
+      "locked_release_build": "passed",
+      "unit_tests_passed": 9,
+      "finite_and_unbounded_sat_smoke": "passed; witnesses independently replayed",
+      "candidate_source_matches_tested_source": true
+    },
+    "publication_status": "Private source-only candidate; proposed MIT terms for original code await copyright-holder decision. No reconstruction source release has occurred.",
+    "scope_limit": "No model weights, original training data, Python/ML/video implementation, compiled binaries, WASM or container is included in this candidate."
+  }
 }

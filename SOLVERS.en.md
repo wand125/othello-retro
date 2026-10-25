@@ -31,18 +31,22 @@ The formal unbounded benchmark removes the overall trial deadline and final gene
 
 Reconstruction search and constraint generation are custom Rust/Python implementations. The trained model ranks reverse candidates; it does not replace a reachability proof or uniquely identify the original game's history.
 
+The training/copy records associate the main `model.pt` with 38,504 mixed-data rows and `model_passes.pt` with the retained old model from 25,796 no-pass rows. The latter filename does not imply pass-only training. Original training files are absent; artifact-specific predictive accuracy and exact retraining reproduction remain unconfirmed. An explicit license and publication decision for the weights are also pending. The teachers restrict passes to none or a final 12-move window, and training treats unresolved labels as positives; these conditions must be distinguished from general reachability accuracy.
+
 ## Distribution terms and remaining checks
 
 The public runner and the two synthetic midgame/endgame test banks are [MIT-licensed](BENCHMARK_LICENSE.md). They may be used, modified, and redistributed with other programs. This permission does not mean that licensing and dependency review for the original engine or models is complete.
 
-Checks remaining before distribution of the original engine include:
+A 31-file Rust-only source candidate has notices packaged for nine locked dependencies. The same source passed a WSL/Rust 1.98.0 locked release build, all nine unit tests with Kissat 4.0.3, finite/unbounded SAT smoke tests, and independent replay of the records. MIT terms for the custom Rust code remain a proposal awaiting the owner's decision, so **the original engine has not been distributed**. Python/ML/video implementations, weights, original training data, and binaries are excluded from this candidate.
 
-- All transitive Rust dependencies and required distribution notices.
+Remaining checks are separated by distribution scope:
+
+- The owner's decision on Rust candidate provenance, attribution, proposed custom-code MIT terms, and publication.
 - Python and native-library dependencies and notices.
-- Training code, training-data provenance, and trained-weight distribution terms.
+- Distribution terms for training code and weights, with revalidation limits caused by missing original training data.
 - Additional dependencies of the local video version. Video features are not included in the simple public service.
 - Separate distribution terms for original custom code, text, and data outside the stated MIT scope.
 
-Listing a license such as MIT does not license the whole project on those terms. A [declared-license and notice-file inventory](licenses/rust-dependency-inventory.json) is published for nine locked Rust dependencies. Eight were checked against local packages, and r-efi's declaration was checked against the exact-version crates.io archive. Packaging a separate r-efi notice text remains incomplete. This is not a completed audit of an entire distribution.
+Listing a license such as MIT does not license the whole project on those terms. A [declared-license and notice-file inventory](licenses/rust-dependency-inventory.json) is published for nine locked Rust dependencies. Exact archive checksums and required notices have been checked. r-efi 6.0.0's MIT permission text and copyright attributions were found in `AUTHORS` and included in the source-only candidate, resolving the earlier missing-notice issue. This does not complete a project-wide audit covering Python/ML/video components or distributed binaries.
 
 See [code publication scope](CODE_PUBLICATION.en.md) for the stages and outstanding work.
