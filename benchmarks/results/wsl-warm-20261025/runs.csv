@@ -1,9 +1,0 @@
-case,title,method,repeat,status,wall_seconds,verified,within_budget,correct,largest_process_peak_rss_mib,model_preload_seconds,public_url
-game-23ef861ba8ab,途中の盤面（24石）,auto,1,found,0.009269,True,True,True,23.76,0,https://othello-retro.logicpuzzle.app/examples/game-23ef861ba8ab
-game-ab1283e52d76,途中の盤面（44石）,auto,1,found,0.386901,True,True,True,278.84,0.594409,https://othello-retro.logicpuzzle.app/examples/game-ab1283e52d76
-game-d85ca28d0454,終局盤面（64石）,auto,1,found,11.405643,True,True,True,359.58,0.599683,https://othello-retro.logicpuzzle.app/examples/game-d85ca28d0454
-game-3e12889bd851,終局盤面（64石）,auto,1,found,9.140916,True,True,True,347.89,0.593744,https://othello-retro.logicpuzzle.app/examples/game-3e12889bd851
-game-0076b1cef372,終局盤面（64石）,auto,1,found,10.747385,True,True,True,362.48,0.653377,https://othello-retro.logicpuzzle.app/examples/game-0076b1cef372
-game-2c8b678b7c02,終局盤面（62石・パス1回）,auto,1,found,7.363671,True,True,True,278.89,0.608303,https://othello-retro.logicpuzzle.app/examples/game-2c8b678b7c02
-game-ba2452f6e3fa,終局盤面（64石）,auto,1,found,17.575971,True,True,True,516.1,0.632945,https://othello-retro.logicpuzzle.app/examples/game-ba2452f6e3fa
-missing-center,中央の1石が空の到達不能盤面,auto,1,unreachable,0.002128,False,True,True,23.76,0,
