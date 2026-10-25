@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T14:55:20.534243+00:00",
+  "updated_at": "2026-10-25T15:08:35.896537+00:00",
   "article_urls": [
     "https://othello-retro.logicpuzzle.app/paper?lang=ja",
     "https://othello-retro.logicpuzzle.app/paper?lang=en"
@@ -10,9 +10,9 @@
     "deep-reverse-chain.json": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b"
   },
   "manuscript_asset_hashes": {
-    "ui/paper.html": "634870945db43c6a32810767f317809b9a8f158e562939e5e21efcdc2276c602",
+    "ui/paper.html": "3dcf445a636c0b5f93f97b6fa5f4750800b1f3ef0caaeae6fd0811af50079bd1",
     "ui/paper.js": "b85f4e89a9a59f4c60f0603143e41bf82a53c59b7de7667c39cbacd221ceba37",
-    "ui/paper.css": "b591fd2bd72a18e0eb632041c2b2c6a35c219041d09927c3e7f144203be142bd",
+    "ui/paper.css": "bdc6455025dc40004947be9aac8fe17c46f7dce06178d3b7d0088d96cbacb424",
     "ui/paper-data.json": "f6906dc8809ed23bb0a666ee019d9bea34fd684a1cc4a3ffe702a9fc674e7b16"
   },
   "verification": {
