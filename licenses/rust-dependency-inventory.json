@@ -128,7 +128,10 @@
       "name": "r-efi",
       "version": "6.0.0",
       "checksum": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf",
-      "verification": "source not present locally"
+      "verification": "exact crates.io manifest checked; package archive contains no separate license text",
+      "declared_license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+      "repository": "https://github.com/r-efi/r-efi",
+      "notice_files": []
     },
     {
       "name": "shlex",

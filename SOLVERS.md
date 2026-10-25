@@ -17,7 +17,7 @@
 | [Kissat](https://github.com/arminbiere/kissat/tree/rel-4.0.3) | 4.0.3 | 外部SATソルバー、並列ポートフォリオ | 当該タグの[MIT LICENSE](https://github.com/arminbiere/kissat/blob/rel-4.0.3/LICENSE)を確認 |
 | [CaDiCaL Rust binding](https://github.com/mmaroti/cadical-rs) | crate cadical 0.1.16 | RustからのSAT呼出し | crateのMIT表記を確認 |
 | [CaDiCaL](https://github.com/arminbiere/cadical) | 上記crate同梱 1.9.5 | 組込みSATソルバー | 同梱VERSIONとMITライセンスを確認 |
-| [PyTorch](https://github.com/pytorch/pytorch) | Mac測定2.12.1 / Cloud Run2.6.0 CPU | 自前学習モデルの推論 | BSD系および同梱第三者通知の精査中 |
+| [PyTorch](https://github.com/pytorch/pytorch) | 4構成比較2.2.2 / 本番参考2.6.0 CPU | 自前学習モデルの推論 | BSD系および同梱第三者通知の精査中 |
 
 復元探索本体と制約生成は独自のRust/Python実装。学習モデルは逆向き候補の順位付けに使うもので、到達可能性の証明を代替しない。既存棋譜から元の歴史を一意に特定するモデルではない。
 
@@ -31,4 +31,6 @@
 
 MIT等の名称を記載しただけで、本プロジェクトのすべてを同じ条件で再配布できると判断したものではない。現時点のGitHub公開はデータと測定記録に限定する。
 
-Rustのロックされた依存関係9件について、[宣言ライセンスと通知ファイルの一覧](licenses/rust-dependency-inventory.json)を追加しています。8件は手元のパッケージを照合し、対象外プラットフォーム用のr-efiは手元にソースがないため未照合です。配布物全体の監査完了を示すものではありません。
+Rustのロックされた依存関係9件について、[宣言ライセンスと通知ファイルの一覧](licenses/rust-dependency-inventory.json)を追加しています。8件は手元のパッケージを照合し、r-efiは正確な版のcrates.ioアーカイブで宣言を確認しました。r-efiの独立した通知本文の梱包は未完了です。配布物全体の監査完了を示すものではありません。
+
+具体的な段階と残作業は[コード公開範囲](CODE_PUBLICATION.md)を参照してください。
