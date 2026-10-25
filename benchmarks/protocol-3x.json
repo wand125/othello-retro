@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-25",
+  "cases_sha256": "292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1a8d64",
+  "budget_seconds": 60,
+  "repeat": 3,
+  "cpu_inference": "CPU FP32",
+  "torch": "2.6.0",
+  "numpy": "2.2.6",
+  "torch_and_blas_threads": 2,
+  "cold": "fresh model worker per trial, loading inside timer",
+  "warm": "fresh model worker preloaded before timer, loading time separately retained",
+  "os_caches": "not reset",
+  "trial_order": "repeat outer, fixed case order, alternate sat/auto order based on case + repeat index",
+  "cpu_allocations_differ": true,
+  "complete_datasets": [
+    "wsl-cpu3-20261025"
+  ],
+  "common_file_hashes": {
+    "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+    "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+    "ml/worker.py": "2cbaf49eaf316cfa863d48c5c8df8653d0bdfdf6864442abdce960106455d9d6",
+    "ml/search.py": "7dde92020cd83964cec7f8fed8788822a298ffbdd32614fb0f69093406cb6470",
+    "ui/server.py": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+    "benchmarks/run.py": "210bcb6775d89b4b2050f012508770945e837f3753dc41c8d50bcdf13d65667f"
+  }
+}
