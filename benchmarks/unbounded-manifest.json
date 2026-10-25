@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-25T12:32:40.881251+00:00",
+  "freeze": "TRUE-UNBOUNDED-FINAL: no global trial deadline; final real solver argv omits --time; internal probes2s/candidates20s are algorithm policy only",
+  "files": {
+    "src/main.rs": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+    "src/sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+    "benchmarks/benchmark_unbounded.py": "dbc702ecc5ee1287ab6848f2a05420f94975565d8e4ce56fc0443dba816eb36e",
+    "benchmarks/unbounded_engine.py": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+    "benchmarks/study_engine.py": "199ccecef43ab26cd5a1b8da8912138cd557c5b2ff0c58f708c59b695a849a6a",
+    "benchmarks/kissat_gate.py": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+    "benchmarks/check_unbounded.py": "ac057f5adeb832f51c7fd0d8384934c4d48bafa3a21639a3bac8c64b4c39d151",
+    "benchmarks/check_unbounded_resume.py": "2b990bd7637deccf71da759c2374e5bd1a5c6e431600c047b82e9fc2ed372bb7",
+    "benchmarks/study-midgame-cpu222-unbounded-v1.json": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+    "benchmarks/study-endgame-cpu222-unbounded-v1.json": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409"
+  },
+  "endgame_metadata_correction": {
+    "at": "2026-10-25T12:38:01.352167+00:00",
+    "supersedes_bank_sha256": "c8b3fa61afb4d00fdcf1952ae30e55d17d4d2cd9af078df4cc2215cc16f5259f",
+    "scope": "WSL guest affinity metadata only; cases/schedule/engine/native unchanged"
+  }
+}
