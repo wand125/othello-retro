@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-10-25T10:11:19.198571+00:00",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "machine": "x86_64",
+  "python": "3.12.13",
+  "logical_cpus": 24,
+  "torch_version": "2.6.0+cpu",
+  "time_limit_seconds": 60,
+  "repeat": 1,
+  "model_start": "cold",
+  "cases_sha256": "292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1a8d64",
+  "hashes": {
+    "target/release/othello-retro": "69d7c166c13e351d1879f694235051987b31708a290c9f6eaf017b94e11a4dee",
+    "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+    "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+    "ml/worker.py": "2cbaf49eaf316cfa863d48c5c8df8653d0bdfdf6864442abdce960106455d9d6",
+    "ml/search.py": "8f9dca33a8323084c112ef19c76fe5a9fae7c182292c1ef2dc59341abc0d6621",
+    "ui/server.py": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+    "benchmarks/run.py": "468218df843205426b4fb77f5c5b223ba6a6848708f06ac7cbe837aa29baf2c7"
+  },
+  "note": "Sequential local processes. Cold means a fresh model worker; OS caches are not reset. No public API or browser calls."
+}

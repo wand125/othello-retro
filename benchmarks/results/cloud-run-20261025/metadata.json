@@ -1,0 +1,14 @@
+{
+  "started_at": "2026-10-25T10:11:29.764490+00:00",
+  "environment": "Cloud Run asia-northeast1 4 vCPU / 4 GiB",
+  "method": "auto",
+  "time_limit_seconds": 60,
+  "repeat": 1,
+  "torch_version": "2.6.0+cpu",
+  "model_start": "uncontrolled service reuse",
+  "cases_sha256": "292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1a8d64",
+  "image": "sha256:4b3d1ac41cb146f745f6dbe004aacb88b56f3b14f6392dd6c816012b5daa8ed7",
+  "invocation": "local CLI -> administrator-created Cloud Tasks -> private production worker",
+  "quota": "benchmark jobs do not consume public daily counters; persistent usage logs retained",
+  "timing_note": "server seconds from production solver; dispatch-to-observation wall includes queue, worker start, REST polling up to 1s and network. Model process reuse may make runs warm. No pure hardware comparison."
+}
