@@ -331,5 +331,82 @@
     "solver_output_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
     "wall_seconds": 4.8086392499972135
   },
-  "scope": "One surviving legal reverse chain, not a complete frontier or an algorithmic depth lower bound. Only root board-only UNSAT will be claimed; descendants are unreachable for their specified chain next side only."
+  "scope": "One surviving legal reverse chain, not a complete frontier or an algorithmic depth lower bound. Only root board-only UNSAT will be claimed; descendants are unreachable for their specified chain next side only.",
+  "prefix_from_reachable_target": {
+    "nodes": [
+      {
+        "board": "XXXXXXOOXXXOXXOOXXOXOOOOXOXXXXOOXOXXXXOOXXOXXOOOXOXXXXXOOXXXXXXX",
+        "next_player": null,
+        "stones": 64,
+        "placements": 60,
+        "raw_index": 0,
+        "prefix_reverse_depth": 0,
+        "board_unreachable": false,
+        "state_unreachable_given_chain_next_side": false
+      },
+      {
+        "board": "XXXXXXOOXXXOXXOOXXOXOOO-XOXXXXOXXOXXXXOOXXOXXOOOXOXXXXXOOXXXXXXX",
+        "next_player": "O",
+        "stones": 63,
+        "placements": 59,
+        "raw_index": 1,
+        "prefix_reverse_depth": 1,
+        "board_unreachable": null,
+        "state_unreachable_given_chain_next_side": null,
+        "reachability_note": "Intermediate prefix state has not been individually reverified in the current analysis."
+      },
+      {
+        "board": "XXXXXXOOXXXOXXOOXXOXOOO-XOXOXXOXXOXOXXOOXOOOXOOOXOOOXXXOOXO-OXXX",
+        "next_player": "X",
+        "stones": 62,
+        "placements": 58,
+        "raw_index": 2,
+        "prefix_reverse_depth": 2,
+        "board_unreachable": null,
+        "state_unreachable_given_chain_next_side": null,
+        "reachability_note": "Intermediate prefix state has not been individually reverified in the current analysis."
+      },
+      {
+        "board": "XXXXXXOOXXXOXXOOXXOXOOO-XOXOXXOXXXXOXXOOXXXOXOOOX-OOXXXOOXO-OXXX",
+        "next_player": "O",
+        "stones": 61,
+        "placements": 57,
+        "raw_index": 3,
+        "prefix_reverse_depth": 3,
+        "board_unreachable": true,
+        "state_unreachable_given_chain_next_side": true
+      }
+    ],
+    "edges": [
+      {
+        "move": "h3",
+        "mover": "O",
+        "forced_pass_after_move": false,
+        "independent_forward_edge_verified": true,
+        "earlier_raw_index": 1,
+        "later_raw_index": 0
+      },
+      {
+        "move": "d8",
+        "mover": "X",
+        "forced_pass_after_move": false,
+        "independent_forward_edge_verified": true,
+        "earlier_raw_index": 2,
+        "later_raw_index": 1
+      },
+      {
+        "move": "b7",
+        "mover": "O",
+        "forced_pass_after_move": false,
+        "independent_forward_edge_verified": true,
+        "earlier_raw_index": 3,
+        "later_raw_index": 2
+      }
+    ],
+    "reverse_edge_count": 3,
+    "starts_at_independently_replayed_full_target": true,
+    "ends_at_verified_general_unsat_root": true,
+    "all_edges_independently_forward_verified": true,
+    "scope": "A locally legal reverse prefix from a reachable terminal board can enter the verified unreachable root. Intermediate prefix nodes1/2 are not newly labelled reachable."
+  }
 }
