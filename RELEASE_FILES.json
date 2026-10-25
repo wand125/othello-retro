@@ -5,8 +5,8 @@
   "files_sha256": {
     ".gitignore": "80bef532fd553c2385f6deed6215f4a86c758c578566753eab2679bace70cdea",
     "BENCHMARK_LICENSE.md": "d9fa1f54e6f8ca2414d2afeba67bb530a3a12b69e6cabf9605e2e654431dd278",
-    "BENCHMARK_RESULTS.en.md": "d581ca2ddfb3e4a95865eb4504d3a075d54d3ce71cf0d319f52cc9968b69813a",
-    "BENCHMARK_RESULTS.md": "62a78c389baa60cafb7582337e916c69412b1a6186ec487bffbd9f9a58b29b27",
+    "BENCHMARK_RESULTS.en.md": "70b05b3364b072c5f76f135ba0bfd13a08ca1c16331d8e99e647a97c53716a54",
+    "BENCHMARK_RESULTS.md": "09f4ffdc063f1d4fe3d3d6d2bd34082a9bae1dce52b706ec4582eda27f7a7307",
     "CODE_PUBLICATION.en.md": "abaf6ea6cb9bc9a183ec6952ea7635f918a22586605e64c07f8e39606e7fb5cd",
     "CODE_PUBLICATION.md": "d4d7e5cd7d03a0c2c456dfcb6b779c13984b92ad75f4e3d48de15dde7c084663",
     "COMPARISON_3X.md": "b8884d1d10682290a660294d50135a66c7e68a0e41f0cc82e35f33c3e5f07b4f",
@@ -89,6 +89,7 @@
     "benchmarks/study-midgame-cpu222-unbounded-v1.json": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
     "benchmarks/study-midgame-cpu222-v1.json": "05a6ac948de811591970e65e1d93ae2d97b8aa39ed115f330a4b1ceeb3a2247d",
     "benchmarks/study-midgame-v1.json": "34caef88fdd439f363ad66d8c3f96486d16b2204c8981839ae09e8bfa52788b8",
+    "benchmarks/terminal-time-distribution-20261026.json": "91288be0149a9e298fe706fecc65d345fca9e43797f10eb8d73a560784cf8fa1",
     "benchmarks/unbounded-manifest.json": "57943ac8fcfd6648a23726720f65fe3fe9fd56b66d7132cedeb13d8719b2b83f",
     "benchmarks/validation/four-environment-completed-check-20261026.json": "71bf1185d70d57743f64ccff8e12417a4746897dc2113a206d85dad7419a20d6",
     "benchmarks/validation/intel-endgame-ci.json": "1582fa83ad463a840df0c41aa9fca8e2ce528742571bea5d39e94304d031981c",

@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "suite": "terminal20",
+  "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+  "timing_field": "effective_wall_seconds",
+  "units": "seconds",
+  "definition": "For each environment and method, average all three planned repeats of each case; compute minimum, median and maximum over the resulting 20 independent-case means. The median averages the 10th and 11th sorted case means.",
+  "independent_cases_per_variant": 20,
+  "planned_repeats_per_case": 3,
+  "individual_trial_distribution_note": "Optional 60-trial descriptive distribution is separate from the 20-case-mean distribution and does not increase independent N.",
+  "variants": [
+    {
+      "environment": "WSL",
+      "method": "sat",
+      "runs": "benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "356127b75a182cc28d97488c2d3639a2a85d44c262268c3262a5df1d3d941bbd",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 1.2960226659973462,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300171"
+        ],
+        "median_seconds": 9.023577526638594,
+        "median_case_ids": [
+          "endgame-full-reference-no-pass-s202610255200034",
+          "endgame-full-reference-no-pass-s202610255200038"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 18.918120668968186,
+        "max_case_ids": [
+          "endgame-full-reference-no-pass-s202610255200001"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 14.58274186468528,
+        "endgame-full-reference-no-pass-s202610255200107": 11.059385294676758,
+        "endgame-full-reference-no-pass-s202610255200006": 4.6832433202847215,
+        "endgame-full-reference-no-pass-s202610255200034": 8.926454958622344,
+        "endgame-full-reference-no-pass-s202610255200001": 18.918120668968186,
+        "endgame-full-reference-no-pass-s202610255200076": 7.34363810364933,
+        "endgame-full-reference-no-pass-s202610255200038": 9.120700094654845,
+        "endgame-full-reference-with-pass-s202610255300152": 7.342108757661966,
+        "endgame-full-reference-with-pass-s202610255300009": 11.048770899302326,
+        "endgame-full-reference-with-pass-s202610255300026": 4.417804803970891,
+        "endgame-full-reference-with-pass-s202610255300171": 1.2960226659973462,
+        "endgame-full-reference-with-pass-s202610255300034": 1.866640172006252,
+        "endgame-full-reference-with-pass-s202610255300080": 13.35341714171227,
+        "endgame-full-reference-with-pass-s202610255300185": 15.195709892665036,
+        "endgame-early-terminal-s202610255406852": 14.507065781974234,
+        "endgame-early-terminal-s202610255400242": 10.105120173616646,
+        "endgame-early-terminal-s202610255407633": 3.4159174530068412,
+        "endgame-early-terminal-s202610255405805": 16.298778831687134,
+        "endgame-early-terminal-s202610255405665": 2.8454637470034263,
+        "endgame-early-terminal-s202610255401016": 7.7648763617035
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 1.2368062109453604,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 2,
+            "trial_index": 62
+          }
+        ],
+        "median_seconds": 8.749556958500762,
+        "max_seconds": 48.63847100397106,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-no-pass-s202610255200001",
+            "repeat": 1,
+            "trial_index": 16
+          }
+        ]
+      }
+    },
+    {
+      "environment": "WSL",
+      "method": "auto",
+      "runs": "benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "356127b75a182cc28d97488c2d3639a2a85d44c262268c3262a5df1d3d941bbd",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 0.7529562576673925,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300171"
+        ],
+        "median_seconds": 9.593322164514877,
+        "median_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300185",
+          "endgame-full-reference-no-pass-s202610255200038"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 16.430975981017884,
+        "max_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300009"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 10.926916111299457,
+        "endgame-full-reference-no-pass-s202610255200107": 16.14220532103597,
+        "endgame-full-reference-no-pass-s202610255200006": 10.036801055655815,
+        "endgame-full-reference-no-pass-s202610255200034": 12.182386221674582,
+        "endgame-full-reference-no-pass-s202610255200001": 8.147427300689742,
+        "endgame-full-reference-no-pass-s202610255200076": 10.183019629330374,
+        "endgame-full-reference-no-pass-s202610255200038": 9.676818052694822,
+        "endgame-full-reference-with-pass-s202610255300152": 9.258312579321986,
+        "endgame-full-reference-with-pass-s202610255300009": 16.430975981017884,
+        "endgame-full-reference-with-pass-s202610255300026": 10.338982968979204,
+        "endgame-full-reference-with-pass-s202610255300171": 0.7529562576673925,
+        "endgame-full-reference-with-pass-s202610255300034": 1.3737741213214274,
+        "endgame-full-reference-with-pass-s202610255300080": 7.3361751273429645,
+        "endgame-full-reference-with-pass-s202610255300185": 9.509826276334934,
+        "endgame-early-terminal-s202610255406852": 11.669387228980971,
+        "endgame-early-terminal-s202610255400242": 12.103660702006891,
+        "endgame-early-terminal-s202610255407633": 5.435323375975713,
+        "endgame-early-terminal-s202610255405805": 6.772438584710471,
+        "endgame-early-terminal-s202610255405665": 7.0593274283455685,
+        "endgame-early-terminal-s202610255401016": 7.64137084564815
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 0.6910312679829076,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 1,
+            "trial_index": 21
+          }
+        ],
+        "median_seconds": 9.51308304804843,
+        "max_seconds": 21.686941915075295,
+        "max_trials": [
+          {
+            "case": "endgame-early-terminal-s202610255406852",
+            "repeat": 1,
+            "trial_index": 13
+          }
+        ]
+      }
+    },
+    {
+      "environment": "M4 Pro",
+      "method": "sat",
+      "runs": "benchmarks/m4-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "198e766b5057ec60ca4c0ae61dc8b760ac5b2e465137f4eada38561eeb90d49c",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 2.728808472689707,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300034"
+        ],
+        "median_seconds": 16.021141764164593,
+        "median_case_ids": [
+          "endgame-early-terminal-s202610255400242",
+          "endgame-full-reference-no-pass-s202610255200076"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 33.395042972348165,
+        "max_case_ids": [
+          "endgame-full-reference-no-pass-s202610255200107"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 24.619913847340893,
+        "endgame-full-reference-no-pass-s202610255200107": 33.395042972348165,
+        "endgame-full-reference-no-pass-s202610255200006": 7.978930361316695,
+        "endgame-full-reference-no-pass-s202610255200034": 29.7854332223457,
+        "endgame-full-reference-no-pass-s202610255200001": 6.221501555701252,
+        "endgame-full-reference-no-pass-s202610255200076": 16.601453861318685,
+        "endgame-full-reference-no-pass-s202610255200038": 23.113395180320367,
+        "endgame-full-reference-with-pass-s202610255300152": 11.15778324966474,
+        "endgame-full-reference-with-pass-s202610255300009": 25.486516611010302,
+        "endgame-full-reference-with-pass-s202610255300026": 7.844302652675348,
+        "endgame-full-reference-with-pass-s202610255300171": 20.818272499678034,
+        "endgame-full-reference-with-pass-s202610255300034": 2.728808472689707,
+        "endgame-full-reference-with-pass-s202610255300080": 21.204452610982116,
+        "endgame-full-reference-with-pass-s202610255300185": 29.336167569660272,
+        "endgame-early-terminal-s202610255406852": 7.714677777995045,
+        "endgame-early-terminal-s202610255400242": 15.4408296670105,
+        "endgame-early-terminal-s202610255407633": 18.543559666664805,
+        "endgame-early-terminal-s202610255405805": 10.7174981526526,
+        "endgame-early-terminal-s202610255405665": 10.969075819322219,
+        "endgame-early-terminal-s202610255401016": 11.143447027987955
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 1.5222966659930535,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 3,
+            "trial_index": 105
+          }
+        ],
+        "median_seconds": 14.363529938011197,
+        "max_seconds": 47.22340700001223,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-no-pass-s202610255200107",
+            "repeat": 3,
+            "trial_index": 116
+          }
+        ]
+      }
+    },
+    {
+      "environment": "M4 Pro",
+      "method": "auto",
+      "runs": "benchmarks/m4-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "198e766b5057ec60ca4c0ae61dc8b760ac5b2e465137f4eada38561eeb90d49c",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 1.0741403470165096,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300171"
+        ],
+        "median_seconds": 46.50879819448649,
+        "median_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300152",
+          "endgame-full-reference-with-pass-s202610255300080"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 114.10425400033516,
+        "max_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300009"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 60.6068289023436,
+        "endgame-full-reference-no-pass-s202610255200107": 107.98532772233011,
+        "endgame-full-reference-no-pass-s202610255200006": 54.45532980569018,
+        "endgame-full-reference-no-pass-s202610255200034": 69.97548538865522,
+        "endgame-full-reference-no-pass-s202610255200001": 37.43690940301167,
+        "endgame-full-reference-no-pass-s202610255200076": 51.3644155136814,
+        "endgame-full-reference-no-pass-s202610255200038": 76.349395792,
+        "endgame-full-reference-with-pass-s202610255300152": 45.420852333307266,
+        "endgame-full-reference-with-pass-s202610255300009": 114.10425400033516,
+        "endgame-full-reference-with-pass-s202610255300026": 62.98413986134498,
+        "endgame-full-reference-with-pass-s202610255300171": 1.0741403470165096,
+        "endgame-full-reference-with-pass-s202610255300034": 2.01190012464455,
+        "endgame-full-reference-with-pass-s202610255300080": 47.59674405566572,
+        "endgame-full-reference-with-pass-s202610255300185": 59.494650458334945,
+        "endgame-early-terminal-s202610255406852": 9.8548986390039,
+        "endgame-early-terminal-s202610255400242": 18.773025263644133,
+        "endgame-early-terminal-s202610255407633": 10.267739903007168,
+        "endgame-early-terminal-s202610255405805": 24.240135055656236,
+        "endgame-early-terminal-s202610255405665": 7.111736471978172,
+        "endgame-early-terminal-s202610255401016": 12.760299041653829
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 1.0587159999995492,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 3,
+            "trial_index": 104
+          }
+        ],
+        "median_seconds": 46.01867420846247,
+        "max_seconds": 158.86437391705113,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300009",
+            "repeat": 3,
+            "trial_index": 86
+          }
+        ]
+      }
+    },
+    {
+      "environment": "M1",
+      "method": "sat",
+      "runs": "benchmarks/m1-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "8a6dc3d11d0a98d4ef9dcacf43fe8fa262e9ed25ca411128c999dc18707cd172",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 2.2834709443462393,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300034"
+        ],
+        "median_seconds": 11.028222083346918,
+        "median_case_ids": [
+          "endgame-early-terminal-s202610255405665",
+          "endgame-early-terminal-s202610255401016"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 20.838651624973863,
+        "max_case_ids": [
+          "endgame-full-reference-no-pass-s202610255200107"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 20.17377393025284,
+        "endgame-full-reference-no-pass-s202610255200107": 20.838651624973863,
+        "endgame-full-reference-no-pass-s202610255200006": 7.120130986440927,
+        "endgame-full-reference-no-pass-s202610255200034": 16.7136409166269,
+        "endgame-full-reference-no-pass-s202610255200001": 5.753615569478522,
+        "endgame-full-reference-no-pass-s202610255200076": 6.190990889134507,
+        "endgame-full-reference-no-pass-s202610255200038": 14.314713139086962,
+        "endgame-full-reference-with-pass-s202610255300152": 6.0715940419274075,
+        "endgame-full-reference-with-pass-s202610255300009": 14.898494861243913,
+        "endgame-full-reference-with-pass-s202610255300026": 6.4720314165266855,
+        "endgame-full-reference-with-pass-s202610255300171": 9.36365180555731,
+        "endgame-full-reference-with-pass-s202610255300034": 2.2834709443462393,
+        "endgame-full-reference-with-pass-s202610255300080": 18.037932902419318,
+        "endgame-full-reference-with-pass-s202610255300185": 20.002325263650466,
+        "endgame-early-terminal-s202610255406852": 6.013813930253188,
+        "endgame-early-terminal-s202610255400242": 12.974722541558245,
+        "endgame-early-terminal-s202610255407633": 7.041124333472301,
+        "endgame-early-terminal-s202610255405805": 13.862031999820223,
+        "endgame-early-terminal-s202610255405665": 10.191997485856215,
+        "endgame-early-terminal-s202610255401016": 11.864446680837622
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 1.4524815417826176,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 1,
+            "trial_index": 20
+          }
+        ],
+        "median_seconds": 11.700423000147566,
+        "max_seconds": 31.72713308315724,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-no-pass-s202610255200028",
+            "repeat": 2,
+            "trial_index": 46
+          }
+        ]
+      }
+    },
+    {
+      "environment": "M1",
+      "method": "auto",
+      "runs": "benchmarks/m1-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "8a6dc3d11d0a98d4ef9dcacf43fe8fa262e9ed25ca411128c999dc18707cd172",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 0.9342155970322589,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300171"
+        ],
+        "median_seconds": 33.226639069616795,
+        "median_case_ids": [
+          "endgame-full-reference-no-pass-s202610255200001",
+          "endgame-full-reference-with-pass-s202610255300152"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 73.01727802772075,
+        "max_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300009"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 46.64931209757924,
+        "endgame-full-reference-no-pass-s202610255200107": 68.55721066643794,
+        "endgame-full-reference-no-pass-s202610255200006": 40.02378898595149,
+        "endgame-full-reference-no-pass-s202610255200034": 49.80420734686777,
+        "endgame-full-reference-no-pass-s202610255200001": 28.539379416809727,
+        "endgame-full-reference-no-pass-s202610255200076": 41.983210667036474,
+        "endgame-full-reference-no-pass-s202610255200038": 39.47591918039446,
+        "endgame-full-reference-with-pass-s202610255300152": 37.91389872242386,
+        "endgame-full-reference-with-pass-s202610255300009": 73.01727802772075,
+        "endgame-full-reference-with-pass-s202610255300026": 41.64314747260263,
+        "endgame-full-reference-with-pass-s202610255300171": 0.9342155970322589,
+        "endgame-full-reference-with-pass-s202610255300034": 1.6332234161285062,
+        "endgame-full-reference-with-pass-s202610255300080": 24.63822530520459,
+        "endgame-full-reference-with-pass-s202610255300185": 38.67898187506944,
+        "endgame-early-terminal-s202610255406852": 22.305712847349543,
+        "endgame-early-terminal-s202610255400242": 15.427355916704983,
+        "endgame-early-terminal-s202610255407633": 6.699453513914098,
+        "endgame-early-terminal-s202610255405805": 23.780624486195546,
+        "endgame-early-terminal-s202610255405665": 8.830436430716267,
+        "endgame-early-terminal-s202610255401016": 13.80477395793423
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 0.9215633748099208,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 3,
+            "trial_index": 104
+          }
+        ],
+        "median_seconds": 34.63933566655032,
+        "max_seconds": 74.17572666704655,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300009",
+            "repeat": 1,
+            "trial_index": 39
+          }
+        ]
+      }
+    },
+    {
+      "environment": "Intel i9",
+      "method": "sat",
+      "runs": "benchmarks/intel-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "1b295160ad8c8a5975d2de51ec18ab070f90fb8cf0a6a7fb90989b7e755c06b5",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 5.2594903542970615,
+        "min_case_ids": [
+          "endgame-early-terminal-s202610255405665"
+        ],
+        "median_seconds": 18.290907960850745,
+        "median_case_ids": [
+          "endgame-early-terminal-s202610255400242",
+          "endgame-early-terminal-s202610255405805"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 33.89008385594934,
+        "max_case_ids": [
+          "endgame-full-reference-no-pass-s202610255200001"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 25.593033764821786,
+        "endgame-full-reference-no-pass-s202610255200107": 13.375232805187503,
+        "endgame-full-reference-no-pass-s202610255200006": 8.685794910726448,
+        "endgame-full-reference-no-pass-s202610255200034": 28.200255661271513,
+        "endgame-full-reference-no-pass-s202610255200001": 33.89008385594934,
+        "endgame-full-reference-no-pass-s202610255200076": 13.682243767815331,
+        "endgame-full-reference-no-pass-s202610255200038": 21.443238321381312,
+        "endgame-full-reference-with-pass-s202610255300152": 21.902728229761124,
+        "endgame-full-reference-with-pass-s202610255300009": 21.57923326299836,
+        "endgame-full-reference-with-pass-s202610255300026": 8.66647496415923,
+        "endgame-full-reference-with-pass-s202610255300171": 12.824475427468618,
+        "endgame-full-reference-with-pass-s202610255300034": 22.62062371553232,
+        "endgame-full-reference-with-pass-s202610255300080": 23.500695567267638,
+        "endgame-full-reference-with-pass-s202610255300185": 24.27839293827613,
+        "endgame-early-terminal-s202610255406852": 8.330153752118349,
+        "endgame-early-terminal-s202610255400242": 18.071058846389253,
+        "endgame-early-terminal-s202610255407633": 10.03499685258915,
+        "endgame-early-terminal-s202610255405805": 18.510757075312238,
+        "endgame-early-terminal-s202610255405665": 5.2594903542970615,
+        "endgame-early-terminal-s202610255401016": 12.198486589516202
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 2.370957720093429,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 1,
+            "trial_index": 20
+          }
+        ],
+        "median_seconds": 16.49502401566133,
+        "max_seconds": 85.98723715823144,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-no-pass-s202610255200001",
+            "repeat": 3,
+            "trial_index": 89
+          }
+        ]
+      }
+    },
+    {
+      "environment": "Intel i9",
+      "method": "auto",
+      "runs": "benchmarks/intel-cpu222-unbounded-endgame-main-20261025/runs.jsonl",
+      "runs_sha256": "1b295160ad8c8a5975d2de51ec18ab070f90fb8cf0a6a7fb90989b7e755c06b5",
+      "independent_cases": 20,
+      "completed_trials": 60,
+      "case_mean_distribution": {
+        "min_seconds": 1.6946990018089612,
+        "min_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300171"
+        ],
+        "median_seconds": 34.71044093742967,
+        "median_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300152",
+          "endgame-full-reference-with-pass-s202610255300185"
+        ],
+        "median_rule": "mean of the 10th and 11th ordered case means",
+        "max_seconds": 66.10106698175271,
+        "max_case_ids": [
+          "endgame-full-reference-with-pass-s202610255300009"
+        ]
+      },
+      "case_means_seconds": {
+        "endgame-full-reference-no-pass-s202610255200028": 42.03529189589123,
+        "endgame-full-reference-no-pass-s202610255200107": 64.27739522792399,
+        "endgame-full-reference-no-pass-s202610255200006": 36.83935814816505,
+        "endgame-full-reference-no-pass-s202610255200034": 44.50997119396925,
+        "endgame-full-reference-no-pass-s202610255200001": 27.651197425400216,
+        "endgame-full-reference-no-pass-s202610255200076": 38.761438908055425,
+        "endgame-full-reference-no-pass-s202610255200038": 36.7527284125487,
+        "endgame-full-reference-with-pass-s202610255300152": 34.25274661897371,
+        "endgame-full-reference-with-pass-s202610255300009": 66.10106698175271,
+        "endgame-full-reference-with-pass-s202610255300026": 38.433299427852035,
+        "endgame-full-reference-with-pass-s202610255300171": 1.6946990018089612,
+        "endgame-full-reference-with-pass-s202610255300034": 56.52278077788651,
+        "endgame-full-reference-with-pass-s202610255300080": 23.81139008421451,
+        "endgame-full-reference-with-pass-s202610255300185": 35.16813525588562,
+        "endgame-early-terminal-s202610255406852": 28.324593547731638,
+        "endgame-early-terminal-s202610255400242": 20.16394371322046,
+        "endgame-early-terminal-s202610255407633": 12.18418404677262,
+        "endgame-early-terminal-s202610255405805": 20.647328023488324,
+        "endgame-early-terminal-s202610255405665": 11.48839694665124,
+        "endgame-early-terminal-s202610255401016": 14.363436567907533
+      },
+      "individual_trial_distribution": {
+        "count": 60,
+        "min_seconds": 1.6594657273963094,
+        "min_trials": [
+          {
+            "case": "endgame-full-reference-with-pass-s202610255300171",
+            "repeat": 1,
+            "trial_index": 21
+          }
+        ],
+        "median_seconds": 35.897823767736554,
+        "max_seconds": 66.94490022584796,
+        "max_trials": [
+          {
+            "case": "endgame-full-reference-no-pass-s202610255200107",
+            "repeat": 3,
+            "trial_index": 117
+          }
+        ]
+      }
+    }
+  ]
+}

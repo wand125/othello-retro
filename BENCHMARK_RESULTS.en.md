@@ -2,11 +2,11 @@
 
 [日本語](BENCHMARK_RESULTS.md) | English
 
-Updated 2026-10-26. All four environments completed the entire schedule: 10,080 verified trials in total. These are completed, independently replayed suites from the frozen [benchmark design](MEASUREMENT_DESIGN.en.md). Midgames and terminal boards are reported separately. Each board is measured three times in each slot. All recorded successful games match the full target board.
+Updated 2026-10-26. All four environments completed the frozen schedule: 10,080 trials. Every record passed independent legal replay and full 64-cell target matching. Midgame and terminal suites are analyzed separately; each board has three repeats per slot. See the [design](MEASUREMENT_DESIGN.en.md) and each run's manifest.
 
 ## Four environments: 400 midgames
 
-All four environments completed 2,400 trials each (9,600 total). Every record passed independent legality and target checks. Common complete-case coverage is 400/400 (100%).
+Each environment completed 2,400 trials, 9,600 total. Common complete-case coverage is 400/400 (100%). Three repeats do not turn 400 independent cases into 1,200.
 
 | 環境 / Environment | SAT平均 / mean (s) | auto平均 / mean (s) | auto/SAT | 95%CI |
 |---|---:|---:|---:|---|
@@ -15,47 +15,12 @@ All four environments completed 2,400 trials each (9,600 total). Every record pa
 | [M1](benchmarks/m1-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.95663 | 1.16378 | 1.2165 | [1.0403, 1.3998] |
 | [Intel i9](benchmarks/intel-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.27192 | 1.45680 | 1.1454 | [1.0064, 1.2987] |
 
-Intervals compare auto and SAT within each environment. Auto has a larger mean on M4, M1 and Intel, with individual intervals above one. All four miss the 5% relative-CI-radius target. Individual intervals are not adjusted for multiple comparisons.
+Intervals compare auto/SAT within each environment. Auto has a larger mean on M4, M1 and Intel, with intervals above one. All four miss the 5% relative-CI-radius target. Individual intervals are not adjusted for multiple comparisons. Valid proofs for every case and precise speed-difference estimates are separate outcomes.
 
-Differences include OS, native numerical backends, scheduling and background load. M4 had a logged between-trial diagnostic pause, separate from search time. Distinguish whole-program duration from corresponding per-case search costs. Actual model use in the 44-disc stratum and direct SAT on the other 320 cases also require separate analysis.
+[Paired four-environment report](benchmarks/four-environment-midgame-comparison-20261025.json). Auto starts directly with SAT on the 320 cases below 44 discs; eligible 44-disc cases may also finish in the initial SAT probe. The overall mean does not isolate model-only benefit.
 
-The [paired four-environment report](benchmarks/four-environment-midgame-comparison-20261025.json) is reproducible with the public standard-library analyzer. The table retains the original NumPy intervals; finite-bootstrap endpoints can vary slightly with the RNG, while means agree. Each linked dataset contains all records, controls, load and hashes.
-
-[Independent reports reproducing the original confidence intervals](benchmarks/validation/) are also available.
-
-## Four environments: 20 terminal boards
-
-All four environments completed 120 trials each (480 total), with every game independently replayed against its full target. Common complete-case coverage is 20/20 (100%). The independent N remains 20, not 60 per slot. This suite is analyzed separately from the 400 midgames.
-
-| Environment | SAT mean (s) | auto mean (s) | auto/SAT | 95%CI |
-|---|---:|---:|---:|---|
-| [WSL](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) | 9.20460 | 9.14890 | 0.9939 | [0.7963, 1.2605] |
-| [M4 Pro](benchmarks/m4-cpu222-unbounded-endgame-main-20261025/summary.json) | 16.74105 | 43.69341 | 2.6100 | [2.0733, 3.2491] |
-| [M1](benchmarks/m1-cpu222-unbounded-endgame-main-20261025/summary.json) | 11.50916 | 31.21702 | 2.7124 | [2.1779, 3.4251] |
-| [Intel i9](benchmarks/intel-cpu222-unbounded-endgame-main-20261025/summary.json) | 17.63237 | 32.69917 | 1.8545 | [1.4588, 2.3634] |
-
-These are within-environment auto/SAT ratios and the original individual NumPy 95% intervals. Intervals are above one for M4, M1 and Intel and include one for WSL. All four miss the 5% relative-radius target. This fixed 20-case auxiliary suite does not establish general terminal-position performance or simultaneous multiple-comparison coverage. A pass in a reference game does not prove that every valid reconstruction requires a pass.
-
-The [paired four-environment report](benchmarks/four-environment-endgame-comparison-20261025.json) and [independent reproduction of every original CI](benchmarks/validation/) are available. Every linked environment folder also contains all records, metadata, verification and a manifest.
-
-## Recorded control deviations
-
-The intended nice value was 19. Metadata for both suites records **19 for M4/WSL and 20 for M1/Intel**. The [execution-controls audit](benchmarks/execution-controls-20261026.json) lists all eight datasets. Observations were preserved rather than rewritten to match the plan. These are runner setup observations, not per-child priority measurements or proof of equivalent scheduler behavior across operating systems.
-
-Within-environment SAT/auto results describe that recorded configuration. Cross-environment differences combine the priority deviation, OS, numerical backend, CPU allocation and background activity. M4 also recorded high background load. These results do not isolate CPU speed or model-only effects. 100% common coverage establishes matched inputs, not identical execution controls or a precision guarantee.
-
-## WSL: 400 midgames
-
-Both SAT and auto completed **1200/1200** trials with legal matching game records. There are **400 independent cases**; repeats do not triple that sample size.
-
-| Slot | Verified trials | Mean search wall time |
-|---|---:|---:|
-| SAT | 1200/1200 | 0.62050 s |
-| auto | 1200/1200 | 0.59461 s |
-
-The auto/SAT ratio of arithmetic means is **0.95828**, with paired stratified case-cluster bootstrap 95%CI **[0.85859, 1.05939]**. The interval includes one, so this experiment does not establish a speed advantage. Its relative CI radius is 10.55%, missing the 5% target. Correctly reconstructing every record and precisely estimating a speed difference are separate outcomes.
-
-Whole-program duration, including setup and analysis: 1479.71 seconds.
+<details>
+<summary>WSL breakdown by occupied squares</summary>
 
 | Occupied squares | SAT mean (s) | auto mean (s) | auto/SAT | 95%CI |
 |---|---:|---:|---:|---|
@@ -65,31 +30,46 @@ Whole-program duration, including setup and analysis: 1479.71 seconds.
 | 36 | 0.75857 | 0.83124 | 1.0958 | [0.9536, 1.2630] |
 | 44 | 2.22717 | 2.02808 | 0.9106 | [0.7880, 1.0456] |
 
-Overall stratum weights are 20% each. Individual 95% intervals are not simultaneous coverage. Auto starts directly with SAT on the 320 cases below 44 discs. The overall mean is not a stand-alone estimate of CNN benefit.
+Each stratum has 80 independent cases and a fixed 20% weight. Individual 95% intervals are not simultaneous coverage. The [original summary JSON](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json) retains all overall and stratum statistics.
 
-[Every trial and reconstructed record](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/runs.jsonl) · [Summary and intervals](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json) · [Environment](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/metadata.json) · [Independent verification](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/verification.json) · [Hashes](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/manifest.json)
+</details>
 
-## WSL: 20 terminal boards
+## Four environments: 20 terminal boards
 
-Both SAT and auto completed **60/60** trials with legal matching game records. There are **20 independent cases**; repeats do not triple that sample size.
+Each environment completed 120 trials, 480 total. Common complete-case coverage is 20/20 (100%). Independent N remains 20, not 60 per slot. This auxiliary suite is separate from the 400 midgames.
 
-| Slot | Verified trials | Mean search wall time |
-|---|---:|---:|
-| SAT | 60/60 | 9.20460 s |
-| auto | 60/60 | 9.14890 s |
+| Environment | SAT mean (s) | auto mean (s) | auto/SAT | 95%CI |
+|---|---:|---:|---:|---|
+| [WSL](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) | 9.20460 | 9.14890 | 0.9939 | [0.7963, 1.2605] |
+| [M4 Pro](benchmarks/m4-cpu222-unbounded-endgame-main-20261025/summary.json) | 16.74105 | 43.69341 | 2.6100 | [2.0733, 3.2491] |
+| [M1](benchmarks/m1-cpu222-unbounded-endgame-main-20261025/summary.json) | 11.50916 | 31.21702 | 2.7124 | [2.1779, 3.4251] |
+| [Intel i9](benchmarks/intel-cpu222-unbounded-endgame-main-20261025/summary.json) | 17.63237 | 32.69917 | 1.8545 | [1.4588, 2.3634] |
 
-The auto/SAT ratio of arithmetic means is **0.99395**, with paired stratified case-cluster bootstrap 95%CI **[0.79626, 1.26047]**. The interval includes one, so this experiment does not establish a speed advantage. Its relative CI radius is 26.81%, missing the 5% target. Correctly reconstructing every record and precisely estimating a speed difference are separate outcomes.
+### Terminal minimum, median and maximum
 
-Whole-program duration, including setup and analysis: 1103.95 seconds.
+First **average effective_wall_seconds across the three repeats of each case/slot; then take the minimum, median and maximum across those 20 case means**. The median averages the 10th and 11th sorted case means. These are not extrema of the 60 individual trials. Effective time retains interrupted attempt work.
 
-This 20-case suite is auxiliary and does not guarantee the same precision as the 400 midgame cases.
+| Environment | Slot | Minimum (s) | Median (s) | Maximum (s) |
+|---|---|---:|---:|---:|
+| WSL | SAT | 1.296 | 9.024 | 18.918 |
+| WSL | auto | 0.753 | 9.593 | 16.431 |
+| M4 Pro | SAT | 2.729 | 16.021 | 33.395 |
+| M4 Pro | auto | 1.074 | 46.509 | 114.104 |
+| M1 | SAT | 2.283 | 11.028 | 20.839 |
+| M1 | auto | 0.934 | 33.227 | 73.017 |
+| Intel i9 | SAT | 5.259 | 18.291 | 33.890 |
+| Intel i9 | auto | 1.695 | 34.710 | 66.101 |
 
-[Every trial and reconstructed record](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/runs.jsonl) · [Summary and intervals](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) · [Environment](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/metadata.json) · [Independent verification](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/verification.json) · [Hashes](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/manifest.json)
+The [distribution JSON](benchmarks/terminal-time-distribution-20261026.json) retains the calculation rule, every case mean, extremal case IDs, the two median case IDs, separate 60-trial distributions and raw hashes. The table rounds seconds to three decimal places.
 
-## Completion and interpretation
+Terminal individual 95% intervals are above one for M4, M1 and Intel and include one for WSL. All four miss the 5% relative-radius target. This fixed 20-case auxiliary suite does not establish general terminal-position performance or simultaneous multiple-comparison coverage. A pass in a reference game does not prove that every valid reconstruction needs a pass.
 
-Both suites are complete in all four environments, with 100% common coverage separately for 400 midgames and 20 terminal boards. No unfinished trial was assigned a finite timeout cost. These are descriptive comparisons of the recorded configurations, including the disclosed priority deviation.
+[Paired four-environment report](benchmarks/four-environment-endgame-comparison-20261025.json). Every linked environment folder contains all records, controls, verification and its manifest. The mean tables retain the original NumPy intervals, with [independent CI reproduction reports](benchmarks/validation/). The public standard-library analyzer uses another RNG, so finite-bootstrap endpoints may differ slightly while arithmetic means agree.
 
-The original reports use the recorded NumPy bootstrap RNG. The public standard-library analyzer identifies its own RNG, so finite-bootstrap endpoints may differ when reanalyzing these same raw records. Arithmetic means remain the same.
+## Recorded control deviations and interpretation
 
-Earlier finite-time, Torch 2.6, eight-case and invalid concurrency-gate runs are not included. The corresponding reconstruction source and existing weights are available in [Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0); source and model manifests identify their relationship to these unchanged measurements.
+The intended nice value was 19; metadata in both suites records **19 for M4/WSL and 20 for M1/Intel**. The [eight-dataset audit](benchmarks/execution-controls-20261026.json) preserves observations rather than rewriting them to the plan. These are runner setup observations, not per-child priority measurements or proof of equivalent scheduler behavior across OSes.
+
+Cross-environment differences combine priority, OS, numerical backend, CPU allocation and background activity. M4 recorded high load and a between-trial diagnostic pause, separate from search time. Whole-program duration and case search costs are different clocks. These results do not isolate CPU speed. 100% common coverage is not a matched-controls or precision guarantee.
+
+Earlier finite-time, Torch 2.6, eight-case and invalid-gate runs are not pooled into these results. No unfinished trial receives a finite failure cost. The corresponding source and existing weights are available in [Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0).
