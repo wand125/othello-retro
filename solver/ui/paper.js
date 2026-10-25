@@ -2,7 +2,7 @@
 (() => {
   const $ = id => document.getElementById(id);
   const dirs = [-1, 0, 1].flatMap(r => [-1, 0, 1].map(c => [r,c])).filter(([r,c]) => r || c);
-  let data, example, frames=[], step=0, timer=null, reverseIndex=0, candidateIndex=0, revealed=false, verdictKey='found', loadError=null;
+  let data, example, frames=[], step=0, timer=null, reverseIndex=0, candidateIndex=0, revealed=false, deepChainIndex=0, verdictKey='found', loadError=null;
   let lang=new URLSearchParams(location.search).get('lang');
   if(!['ja','en'].includes(lang)){try{lang=localStorage.getItem('othello-paper-language');}catch(_){}if(!['ja','en'].includes(lang))lang='en';}
   const tr=(ja,en)=>lang==='ja'?ja:en;
@@ -67,6 +67,13 @@
     const n=d.exhaustive_states.toLocaleString(lang==='ja'?'ja-JP':'en-US'),r=d.candidates.filter(x=>x.reachable).length;
     $('candidate-proof').textContent=tr((c.reachable?'到達可能。この候補は初期配置から作れます。':'到達不能。この候補へは初期配置から進めません。')+` ${d.depth-1}着手後の全${n}盤面を列挙して照合しました。逆算候補${d.candidates.length}件のうち、初期配置につながるのは${r}件です。`,(c.reachable?'Reachable: this candidate can be constructed from the initial position.':'Unreachable: the initial position cannot lead to this candidate.')+` All ${n} boards after ${d.depth-1} placements were enumerated and compared. ${r} of the ${d.candidates.length} retained reverse candidates connect to the initial position.`);
   }
+  function drawDeepChain(){
+    const chain=data.deep_reverse_chain,n=chain.nodes[deepChainIndex];board($('deep-chain-board'),n.board);
+    const head=tr(`逆算 ${deepChainIndex} / 11 · ${n.stones}石 · 次は${color(n.next_player)}`,`Reverse ${deepChainIndex} / 11 · ${n.stones} discs · ${color(n.next_player)} to move`);
+    const edge=deepChainIndex>0?chain.edges[deepChainIndex-1]:null;
+    $('deep-chain-readout').textContent=head+(edge?tr(`。${color(edge.mover)}が ${edge.move} に置くと、スライダーで一つ左の局面へ進みます。`,`; ${color(edge.mover)} at ${edge.move} moves forward to the position one slider step to the left.`):tr('。一般形CNFのUNSAT記録がある起点です。','; the root with a recorded general-CNF UNSAT result.'));
+    $('deep-chain-step').value=deepChainIndex;
+  }
   function drawPass(){
     const s=data.passes[Number($('pass-select').value)],white=[...s.middle].flatMap((_,i)=>flips(s.middle,i,'O').length?[i]:[]);
     if(JSON.stringify(white)!==JSON.stringify(s.opponent_legal))throw Error(tr('パス図の合法手データ不一致','Legal-move mismatch in the pass figure'));
@@ -105,11 +112,12 @@
     for(const el of attrNodes)el.setAttribute('aria-label',el.getAttribute('data-'+lang+'-aria-label'));
     document.querySelectorAll('[data-language]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.language===lang)));
     theme();verdict(verdictKey);
-    if(data){updateExampleLabels();renderRecord();drawReplay();drawReverse();drawPass();drawNecessary();}
+    if(data){updateExampleLabels();renderRecord();drawReplay();drawReverse();drawPass();drawNecessary();drawDeepChain();}
     if(loadError)$('load-error').textContent=tr('図のデータを読み込めませんでした。本文と証明は閲覧できます。 ','Figure data could not be loaded. The text and proofs remain readable. ')+loadError;
     if(writeURL){try{localStorage.setItem('othello-paper-language',lang);}catch(_){}const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);}
   }
   document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>applyLanguage(b.dataset.language,true)));
+  $('deep-chain-step').addEventListener('input',()=>{deepChainIndex=Number($('deep-chain-step').value);if(data)drawDeepChain();});
   $('theme').addEventListener('click',()=>{dark=!dark;theme();try{localStorage.setItem('othello-paper-theme',dark?'dark':'light');}catch(_){}});
   for(const id of['pass-select','compressed-time','pass-guard','target-only-pass'])$(id).addEventListener('change',()=>{if(data)drawPass();});
   $('first').addEventListener('click',()=>{stop();step=0;drawReplay();});$('last').addEventListener('click',()=>{stop();step=frames.length-1;drawReplay();});$('prev').addEventListener('click',()=>{stop();step=Math.max(0,step-1);drawReplay();});$('next').addEventListener('click',()=>{stop();step=Math.min(frames.length-1,step+1);drawReplay();});$('ply').addEventListener('input',()=>{stop();step=Number($('ply').value);drawReplay();});
@@ -121,6 +129,6 @@
   const liveControls=[...document.querySelectorAll('figure button,figure select,figure input')];liveControls.forEach(el=>el.disabled=true);applyLanguage(lang);
   fetch('/paper-data.json').then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(d=>{
     data=d;for(const e of data.examples){if(replay(e.moves).at(-1).board.join('')!==e.board)throw Error(tr('棋譜検証エラー','Record verification failed'));}
-    const options=data.examples.map((_,i)=>{const o=document.createElement('option');o.value=i;return o;});$('example-select').replaceChildren(...options);$('example-select').value='2';updateExampleLabels();liveControls.forEach(el=>el.disabled=false);chooseExample(2);drawReverse();drawPass();drawNecessary();document.documentElement.dataset.paperReady='true';
+    const options=data.examples.map((_,i)=>{const o=document.createElement('option');o.value=i;return o;});$('example-select').replaceChildren(...options);$('example-select').value='2';updateExampleLabels();liveControls.forEach(el=>el.disabled=false);chooseExample(2);drawReverse();drawPass();drawNecessary();drawDeepChain();document.documentElement.dataset.paperReady='true';
   }).catch(error=>{loadError=error.message;$('load-error').hidden=false;applyLanguage(lang);console.error(error);});
 })();

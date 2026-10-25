@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "adversarial_rejections": [
+    "illegal_coordinate",
+    "wrong_mover",
+    "false_forced_pass",
+    "wrong_following_side",
+    "descendant_board_only_overclaim",
+    "restricted_encoding_mislabeled_general",
+    "unverified_drat_marked_checked",
+    "unverified_prefix_marked_reachable",
+    "voluntary_initial_pass"
+  ],
+  "initial_goal_includes_exact_board_and_black_next": true,
+  "separate_forced_pass_example": {
+    "placements": 58,
+    "forced_passes": 1,
+    "terminal": true
+  },
+  "solver_or_search_execution": false
+}

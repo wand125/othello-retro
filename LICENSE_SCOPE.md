@@ -4,7 +4,7 @@ Copyright (c) 2026 wand125 and contributors.
 
 | Material / 対象 | Terms / 条件 |
 |---|---|
-| Original source in `solver/`, `short/`, `runner/` and original project documentation (except model documentation and article content below) | [MIT](LICENSE), except the article text and third-party material below |
+| Original source in `solver/`, `short/`, `runner/`, and the verification scripts in `paper-data/` and original project documentation (except model documentation and article content below) | [MIT](LICENSE), except the article text and third-party material below |
 | Original generated case/record/measurement data in `benchmarks/` and `records/`, including the two fixed synthetic benchmark banks | Existing [MIT scope](BENCHMARK_LICENSE.md); frozen bytes and hashes are unchanged |
 | `model.pt` and `model_passes.pt` distributed in Release v0.1.0; accompanying original model cards and README documents | [CC BY 4.0](licenses/CC-BY-4.0.txt), attribution **wand125**, source https://github.com/wand125/othello-retro/releases/tag/v0.1.0 |
 | Original article prose and original figures in `solver/ui/paper.html`, and original supplementary analysis in `paper-data/` | [CC BY 4.0](licenses/CC-BY-4.0.txt), attribution **wand125**, source https://othello-retro.logicpuzzle.app/paper |

@@ -1,0 +1,156 @@
+{
+  "status": "passed",
+  "input_sha256": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b",
+  "reverse_edges_independently_forward_replayed": 11,
+  "nodes": 12,
+  "disc_counts": [
+    61,
+    60,
+    59,
+    58,
+    57,
+    56,
+    55,
+    54,
+    53,
+    52,
+    51,
+    50
+  ],
+  "cheap_conditions_per_node": [
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    },
+    {
+      "central_four_occupied": true,
+      "two_colors_and_at_least_four": true,
+      "color_free_occupancy_closure": true,
+      "never_flippable_initial_disc_colors": true,
+      "four_disc_goal_includes_initial_black_turn": true,
+      "declared_next_player_can_move_or_terminal": true
+    }
+  ],
+  "all_12_nodes_pass_listed_necessary_conditions": true,
+  "full_target_reference": {
+    "placements": 60,
+    "forced_passes": 0,
+    "terminal": true
+  },
+  "prefix_edges_independently_forward_replayed": 3,
+  "suffix_from_50_disc_state_to_61_disc_root": [
+    "c1",
+    "a5",
+    "g8",
+    "h5",
+    "a7",
+    "d2",
+    "b1",
+    "h1",
+    "e1",
+    "c3",
+    "a6"
+  ],
+  "forced_passes_on_11_edges": 0,
+  "root_recorded_solver_result": "general-pass board-only UNSAT, Kissat4.0.3 exit20",
+  "existing_artifact_checks": {
+    "cnf_hash_and_header": "passed",
+    "solver_output_hash_and_unsat_line": "passed"
+  },
+  "new_solver_or_search_execution": false,
+  "drat_generated": false,
+  "drat_checked": false,
+  "allowed_claim": "One locally legal11-edge reverse chain passes the listed necessary filters. Conditional on the recorded general root UNSAT, descendants are unreachable only with the specified chain next side.",
+  "not_established": [
+    "UNSAT recomputation or independently verified proof trace",
+    "board-only unreachability of downstream boards with a different next side",
+    "all-frontier survival to depth11",
+    "minimum contradiction depth11 or any algorithmic lower bound",
+    "a new exact label for the63/62-disc prefix states",
+    "a population frequency or typical-case depth claim"
+  ]
+}

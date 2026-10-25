@@ -61,3 +61,7 @@ solver/ml/*.jsonl
 solver/ui/mediabunny.js
 vendor/
 !solver/licenses/**/COPYING
+
+!paper-data/*.py
+!paper-data/deep-root-general.cnf.gz
+!paper-data/deep-root-general-solver.log

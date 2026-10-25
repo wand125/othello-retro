@@ -1,24 +1,70 @@
 {
-  "updated_at": "2026-10-25T15:55:19.042513+00:00",
+  "schema_version": 2,
+  "updated_at": "2026-10-25T18:24:52.168303+00:00",
   "article_urls": [
     "https://othello-retro.logicpuzzle.app/paper?lang=ja",
     "https://othello-retro.logicpuzzle.app/paper?lang=en"
   ],
-  "policy": "Supplementary evidence for the article. Explanations are in the article; implementation, models and private logs are not included.",
+  "policy": "Article supplementary evidence and independently executable verification scripts. Scripts are MIT; original supplementary analysis follows LICENSE_SCOPE.md. Original article explanations remain in the manuscript. No models or private usage logs are in this directory.",
   "files_sha256": {
-    "article-data.json": "f6906dc8809ed23bb0a666ee019d9bea34fd684a1cc4a3ffe702a9fc674e7b16",
-    "deep-reverse-chain.json": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b"
+    "README.en.md": "2561cb1a19b7835c2b647d054bc8e1604f94e0b0b8054225d7a3e2ae32bc5942",
+    "README.md": "1974e1fe9c0df6a50bbbee0ed7108e46a6c243f49d8d2713bb6f503102897409",
+    "adversarial-check-report.json": "47e66ec5fa1223d0ea9accaf276821c20ea570d67588e95afe1b77fc3f1fb3ef",
+    "article-data.json": "a95bebefb9bd96abb8c28dcfae3f65aa62c43c3577ed6e38748d928d6b411e0d",
+    "check_deep_reverse_chain.py": "2d7f3282091e682443a8f0b95e7d78530a7c7f11232ce6a40900ec0af785b9ae",
+    "deep-reverse-chain-report.json": "15ff08962657197d27dabf028843e5f0f53a3c57ee4eaf986eab04e20d801d94",
+    "deep-reverse-chain.json": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b",
+    "deep-root-general-solver.log": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "deep-root-general.cnf.gz": "6c4a2506c56de28fb2e1fcb6af82488104102a39656b3f06fcceb3fa41d35802",
+    "forced-pass-reference.json": "b156dce02cdd24862887cb70631c155330e4a7631ba0690019af72f684bd3243",
+    "test_deep_reverse_chain.py": "d29a3d43f89b81653abdac43d983b58bd13df7ca365015d5805fd743a0352fcd"
   },
   "manuscript_asset_hashes": {
-    "ui/paper.html": "035ff595f08e7ce49b390bb6e29d81814a3e085a4e29070363b0f4e7bf13a3b9",
-    "ui/paper.js": "b85f4e89a9a59f4c60f0603143e41bf82a53c59b7de7667c39cbacd221ceba37",
+    "ui/paper.html": "af275a52205f51be5f84a91ea031ffda16bcfbb12e948282fd7f3ead6b91c7a0",
+    "ui/paper.js": "40fcfc21d67b40b8b234155b1c178f29365c5ab1fe76e53264d5cf947f6d58dd",
     "ui/paper.css": "bdc6455025dc40004947be9aac8fe17c46f7dce06178d3b7d0088d96cbacb424",
-    "ui/paper-data.json": "f6906dc8809ed23bb0a666ee019d9bea34fd684a1cc4a3ffe702a9fc674e7b16"
+    "ui/paper-data.json": "a95bebefb9bd96abb8c28dcfae3f65aa62c43c3577ed6e38748d928d6b411e0d"
   },
+  "manuscript_asset_names_relative_to": "solver/ in the source release; assets served by /paper",
+  "article_data_matches_candidate_asset": true,
   "verification": {
-    "reconstructed_example_records_independently_replayed": 7
+    "reconstructed_example_records_independently_replayed": 7,
+    "deep_chain_displayed_in_article": true,
+    "deep_chain_source_sha256": "d76960e39405019f95b1fda091266d710edb5a3d784d57e7f0562eeb1320650b",
+    "reverse_edges_independently_forward_replayed": 11,
+    "chain_nodes_passing_listed_necessary_conditions": 12,
+    "prefix_edges_independently_forward_replayed": 3,
+    "checker_report": "deep-reverse-chain-report.json",
+    "adversarial_report": "adversarial-check-report.json",
+    "new_solver_or_search_execution": false,
+    "drat_generated": false,
+    "drat_checked": false
   },
-  "additional_data": {
-    "deep-reverse-chain.json": "Additional verified analysis; not displayed in the currently published article."
-  }
+  "deep_chain_recorded_unsat": {
+    "root_stones": 61,
+    "root_hex": "e2711737b50b373f,158ce8c84a74c8c0",
+    "query": "general passes; board-only target; next player unrestricted",
+    "encoding_options": "occ",
+    "nopass": false,
+    "pass_window": 0,
+    "target_next_side": "unrestricted",
+    "cnf_file": "deep-root-general.cnf.gz",
+    "cnf_uncompressed_sha256": "09f670de7a3b86e2a7d5590d6ad1266e72fa87eb28adaa9cbe891dd0f4bd3b26",
+    "cnf_uncompressed_header": "p cnf 122100 511713",
+    "solver_log": "deep-root-general-solver.log",
+    "solver_output_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "solver_version_recorded": "4.0.3",
+    "solver_exit_code_recorded": 20,
+    "solver_result_recorded": "UNSAT",
+    "unsat_recomputed_by_supplement_checker": false,
+    "drat_generated": false,
+    "drat_independently_checked": false
+  },
+  "scope_limits": [
+    "Root board-only unreachability relies on the recorded general-CNF UNSAT result, not an independently checked proof trace.",
+    "Downstream states are unreachable only with the chain-specified next player, conditional on that root decision; downstream board-only unreachability with another next player is not established.",
+    "One eleven-edge chain is displayed, not complete-frontier survival, a minimum contradiction depth or an algorithmic lower bound.",
+    "Intermediate63/62-disc prefix nodes have no new board-only reachability label."
+  ],
+  "self_hash_policy": "All supplement files except this manifest; generated bytecode/cache files are excluded."
 }

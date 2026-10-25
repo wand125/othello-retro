@@ -15,7 +15,7 @@ Each environment completed 2,400 trials, 9,600 total. Common complete-case cover
 | [M1](benchmarks/m1-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.95663 | 1.16378 | 1.2165 | [1.0403, 1.3998] |
 | [Intel i9](benchmarks/intel-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.27192 | 1.45680 | 1.1454 | [1.0064, 1.2987] |
 
-Intervals compare auto/SAT within each environment. Auto has a larger mean on M4, M1 and Intel, with intervals above one. All four miss the 5% relative-CI-radius target. Individual intervals are not adjusted for multiple comparisons. Valid proofs for every case and precise speed-difference estimates are separate outcomes.
+Intervals compare auto/SAT within each environment. Auto has a larger mean on M4, M1 and Intel, with intervals above one. Relative 95% interval radii range from 10.55% to 15.06%. Individual intervals are not adjusted for multiple comparisons. Valid proofs for every case and precise speed-difference estimates are separate outcomes.
 
 [Paired four-environment report](benchmarks/four-environment-midgame-comparison-20261025.json). Auto starts directly with SAT on the 320 cases below 44 discs; eligible 44-disc cases may also finish in the initial SAT probe. The overall mean does not isolate model-only benefit.
 
@@ -62,7 +62,7 @@ First **average effective_wall_seconds across the three repeats of each case/slo
 
 The [distribution JSON](benchmarks/terminal-time-distribution-20261026.json) retains the calculation rule, every case mean, extremal case IDs, the two median case IDs, separate 60-trial distributions and raw hashes. The table rounds seconds to three decimal places.
 
-Terminal individual 95% intervals are above one for M4, M1 and Intel and include one for WSL. All four miss the 5% relative-radius target. This fixed 20-case auxiliary suite does not establish general terminal-position performance or simultaneous multiple-comparison coverage. A pass in a reference game does not prove that every valid reconstruction needs a pass.
+Terminal individual 95% intervals are above one for M4, M1 and Intel and include one for WSL. Relative 95% interval radii range from 24.49% to 27.44%. This fixed 20-case auxiliary suite does not establish general terminal-position performance or simultaneous multiple-comparison coverage. A pass in a reference game does not prove that every valid reconstruction needs a pass.
 
 [Paired four-environment report](benchmarks/four-environment-endgame-comparison-20261025.json). Every linked environment folder contains all records, controls, verification and its manifest. The mean tables retain the original NumPy intervals, with [independent CI reproduction reports](benchmarks/validation/). The public standard-library analyzer uses another RNG, so finite-bootstrap endpoints may differ slightly while arithmetic means agree.
 

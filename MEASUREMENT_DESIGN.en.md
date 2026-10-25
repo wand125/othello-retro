@@ -75,7 +75,7 @@ For each case and slot, first average the three effective times. Average case me
 
 Use paired, stratified case-cluster bootstrap intervals: retain all compared programs/environments and all repeats of a sampled case together. The original analysis uses 3,000 replicates and seed 730253 with NumPy's RNG. The dependency-free public analyzer uses Python `random.Random` (MT19937), explicitly reports that RNG, and therefore need not reproduce identical finite-bootstrap endpoints. Its percentile endpoints use linear quantiles.
 
-The independent sample sizes remain 400 and 20, not 1,200 and 60. The relative 95%CI radius target of 5% is a reporting target; report a miss as a miss. Do not declare zero uncertainty from a degenerate interval or all-success sample. A Wilson interval, when shown, concerns the separate binary outcome "all repeats for this case succeeded." Twenty terminal cases do not guarantee 5% precision.
+The independent sample sizes remain 400 and 20, not 1,200 and 60. Report relative 95%CI radius as max(R−L,U−R)/|R|. Interval width describes uncertainty; it is not a pass/fail threshold or a requirement for further measurement. Do not declare zero uncertainty from a degenerate interval or all-success sample. A Wilson interval, when shown, concerns the separate binary outcome "all repeats for this case succeeded."
 
 A partial common-case estimate is conditional on completed cases. If slow cases remain unfinished, their final times and the full mean remain unknown. Keep original stratum weights and withhold an overall estimate when a stratum has no common cases. Repeatedly checking for a narrow interval is not a reason to end early. Case bootstrap does not remove temporal load correlations, establish another-day reproducibility, or turn individual 95% intervals into simultaneous coverage.
 
@@ -96,4 +96,6 @@ Cases, references, schedules, verified records, timing, controls and hashes are 
 
 All four environments completed both frozen suites: 2,400 midgame trials and 120 terminal trials per environment, 10,080 trials in total. Every proof was independently replayed. Common complete-case coverage is 400/400 and 20/20 respectively; the suites are not pooled.
 
-The intended nice value was 19; metadata records 19 on M4/WSL and 20 on M1/Intel for both suites. The measurements retain this deviation rather than claiming exact priority matching. OS priority semantics and all child-process priorities were not established as equivalent. See the [execution-controls audit](benchmarks/execution-controls-20261026.json) and [results](BENCHMARK_RESULTS.en.md). Complete coverage does not guarantee matched controls or 5% CI precision.
+The intended nice value was 19; metadata records 19 on M4/WSL and 20 on M1/Intel for both suites. The measurements retain this deviation rather than claiming exact priority matching. OS priority semantics and all child-process priorities were not established as equivalent. See the [execution-controls audit](benchmarks/execution-controls-20261026.json) and [results](BENCHMARK_RESULTS.en.md). Complete coverage does not guarantee matched controls or small estimation uncertainty.
+
+The stored 0.05/precision flags in frozen banks and existing summaries remain records of the original plan. They are not a condition requiring additional measurements; raw data and bank hashes remain unchanged.
