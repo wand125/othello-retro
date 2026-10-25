@@ -5,4 +5,11 @@
 !*.jsonl
 !*.csv
 !.gitignore
+!runner/*.py
+!runner/tests/*.py
+!runner/LICENSE
+private-runtime.json
+.private-logs/
+.runs/
+*.local.json
 .DS_Store

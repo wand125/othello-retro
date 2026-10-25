@@ -1,0 +1,212 @@
+{
+  "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+  "protocol_sha256": "82801e6491b8abf9f06979878b79726571488752b5ba2d751e0cfe4f3edc1202",
+  "versions": {
+    "torch": "2.2.2+cpu",
+    "numpy": "1.26.4"
+  },
+  "native_source_hashes": {
+    "Cargo.toml": "ca7d730cce888862a2288613567d275e4b8f07efb73e376266e0129cc3a68dc3",
+    "Cargo.lock": "71471657ea7cd17f4c79f1cfbc8c792c22d28e9e2b7c1887fb9066e16b206cda",
+    "src/board.rs": "a79695526e6e588f9c0e838fc8e3b56b79fb22ae4df5caa64c6ba6d9d0f7ff37",
+    "src/edge.rs": "360916fd040e3d2dae730034ad191d02644dde00aa85ee4bf2cbe4048c9523d1",
+    "src/find.rs": "d1cdcca2290f650c74acb427b3888d478e497b6b1d5590f2c821c93070d72d47",
+    "src/fix.rs": "d9b966b80627cf917a62867713ad9ffe59211faa02647f6de0285b228dd4d1a8",
+    "src/main.rs": "5a30b04878c83ebb9e35c0f17af5454b74f1c3ad7811a9ec60e0eef5b0800e58",
+    "src/optimize.rs": "81685fe824bdb45e26d1d7317a82f9939a6b5e1dbd57d2af80afadcb3097b7dc",
+    "src/retro.rs": "ee2b12fde6df0d2ae2bdd8d119de92f56771639f8dcd4774d1a355c5090ae339",
+    "src/sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+    "src/solver.rs": "2f9decdd1e06735f3a11d829a30b72a18775d1e1d4180882e9a901bc6fb22aff"
+  },
+  "native_source_aggregate_sha256": "037720e71b2d8f64def7716176ce81d8c6fb9e08718ae9a6f1bffe860b972ce7",
+  "native_binary_sha256": "0a8eec3aa70d3e83195cf8c6f40de4ff675766ebfdde2647781c8728dad13576",
+  "rust_compiler": "rustc 1.98.0 (88d9e12ae 2026-08-18)",
+  "host_descriptor": {
+    "machine": "x86_64",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "logical_cpus": 24,
+    "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor"
+  },
+  "affinity": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "nice": 19,
+  "real_kissat_sha256": "c3390f443744dbe307eab03ec8b4dea7cd8a3f3b70cf320ced418e9547bb2d55",
+  "gate_sha256": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+  "real_solver_cap": 2,
+  "global_deadline": null,
+  "final_sat_argv_policy": "--no-time-limit at native solve; no --time forwarded to final Kissat",
+  "started_at": "2026-10-25T12:35:56.507738+00:00",
+  "split": "main",
+  "cases_sha256": "932b163d8d827eb6d3ae4ccc6935fc4418f5b30892e3a79e638474dc2a4ff802",
+  "schedule_sha256": "45dd8b16d77c76ef10ecc7bfc307d9f446df1bb7772efc55cc0e8de4576bf4eb",
+  "planned_trials": 2400,
+  "independent_cases": 400,
+  "protocol": {
+    "id": "midgame-stratified-cpu222-four-environments-unbounded-v1",
+    "created_at": "2026-10-25T12:32:40.670928+00:00",
+    "target_stones": [
+      12,
+      20,
+      28,
+      36,
+      44
+    ],
+    "main_cases_per_stratum": 80,
+    "main_independent_games": 400,
+    "main_repeats": 3,
+    "pilot_cases_per_stratum": 2,
+    "pilot_repeats": 1,
+    "seconds_per_trial": null,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch_version": "2.2.2",
+    "numpy_version": "1.26.4",
+    "torch_threads": 2,
+    "warm_condition": "Resident models loaded via original worker.load, fixed synchronized batch256 standard-net warmup3 forwards outside timing. Benchmark-only unbounded guided function retains widths/refine/model selection and bounded2s/20s internal probes; beam has no deadline.",
+    "sampling": "one position from each independently seeded uniform-legal-move game, conditioned on reaching the requested nonterminal stone count; rejection is determined before solver measurements and logged",
+    "seed_rule": "main base202610250000000, pilot base202610250900000; add stratum_index*100000 plus candidate_index starting0",
+    "order_rule": "repeat outer; within each stratum exactly half SAT-first and half auto-first, then random permutation of paired cases using frozen split seed",
+    "primary_metrics": [
+      "uncensored time to strictly verified accepted proof",
+      "per-case3-repeat mean and paired auto/SAT cost ratio, stratified independent-case cluster bootstrap95percent CI",
+      "all planned cases are known reachable; no trial is completed as timeout/unknown"
+    ],
+    "inference": "stratified case-cluster bootstrap95percent percentile CI on per-case repeat means; all repeats of each case remain in one cluster. Repeat count never inflates independent N. Wilson is a separate binary all-repeats-success estimand. N400 worst-case5percentage-point planning is not a precision guarantee. Degenerate boundary bootstrap intervals do not establish precision.",
+    "scope": "nonterminal random legal midgames at12/20/28/36/44 stones; not a proxy for52+ or terminal/pass-heavy performance",
+    "precision_rule": {
+      "cost_ratio_ci95_relative_radius_target": 0.05,
+      "bootstrap_seed": 730253,
+      "bootstrap_replicates": 3000,
+      "unit": "independent case with all paired method/repeat observations",
+      "success_note": "All-success observations are a boundary and do not establish zero population uncertainty. Wilson is separate all-repeats-success case estimand. N20 is an auxiliary set."
+    },
+    "diagnostics": "guided worker returns one final JSON with stage counts and completed CNN forward count; direct initial SAT is distinguished from actual CNN use; no extra stdout progress lines",
+    "completion": "Complete the entire frozen schedule without time-based early stop or case filtering. Manual/resource interruption is not a completed timeout trial.",
+    "comparison_environments": [
+      "M4",
+      "M1",
+      "WSL",
+      "Intel"
+    ],
+    "benchmark_cpu_affinity_linux": [
+      16,
+      17,
+      18,
+      19
+    ],
+    "production_cpu_affinity_linux": [
+      20,
+      21,
+      22,
+      23
+    ],
+    "rust_toolchain": "1.98.0",
+    "native_source_aggregate_sha256": "037720e71b2d8f64def7716176ce81d8c6fb9e08718ae9a6f1bffe860b972ce7",
+    "algorithm_source_hashes": {
+      "ml/search.py": "7dde92020cd83964cec7f8fed8788822a298ffbdd32614fb0f69093406cb6470",
+      "ml/worker.py": "2cbaf49eaf316cfa863d48c5c8df8653d0bdfdf6864442abdce960106455d9d6",
+      "ml/train.py": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+      "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+      "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+      "ui/server.py": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729"
+    },
+    "common_runner_sha256": "dbc702ecc5ee1287ab6848f2a05420f94975565d8e4ce56fc0443dba816eb36e",
+    "common_engine_sha256": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+    "sat_concurrency": {
+      "real_solver_cap": 2,
+      "gate_sha256": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+      "gate_source": "benchmarks/kissat_gate.py",
+      "policy": "Benchmark-only shared flock slots0/1. The selected lock descriptor is inheritable across execv into real Kissat, preserving its child PID and process group. Rust Child.kill(SIGKILL PID) therefore kills the real solver and releases the lock. Version queries bypass locks.",
+      "timing": "Python wrapper startup and queued-slot waiting are included; never subtracted. Native source/portfolio/search policy are unchanged, but real simultaneous SAT jobs are capped2, unlike production3/6."
+    },
+    "compatibility_note": "PyTorch2.2.2 with NumPy1.26.4 and CPython3.12 provides CPU wheels across macOS ARM, macOS Intel and Linux x86_64. Package versions are enforced by the common runner. CPU hardware, operating system and native numerical backend remain different and are recorded.",
+    "environment_controls": "CPU/FP32,2 Torch/OMP/BLAS threads,nice19. WSL benchmark affinity16-19, public service20-23; macOS does not provide matching strict affinity. Actual affinity/load/resource conditions are logged. Native SAT portfolio/search policy and Kissat4.0.3 remain identical; benchmark-only wrapper caps simultaneously active real solvers at2 and its startup/wait are measured.",
+    "prior_cpu26_note": "Completed WSL2.6 configuration is retained separately as production-reference data and is not pooled with the four-environment2.2.2 comparison.",
+    "trial_time_limit_seconds": null,
+    "final_sat_time_limit_seconds": null,
+    "common_source_hashes": {
+      "benchmarks/benchmark_unbounded.py": "dbc702ecc5ee1287ab6848f2a05420f94975565d8e4ce56fc0443dba816eb36e",
+      "benchmarks/unbounded_engine.py": "ae32f83fbcff3ac2e065bd75bad2073c68cbd6b8c791b17f5b89fb0cbee7b48b",
+      "benchmarks/study_engine.py": "199ccecef43ab26cd5a1b8da8912138cd557c5b2ff0c58f708c59b695a849a6a",
+      "benchmarks/kissat_gate.py": "c4b3a96b87cdca57ad9353f3fd773c83e3d6546eb49924297392ef3d65fc82c8",
+      "ml/search.py": "7dde92020cd83964cec7f8fed8788822a298ffbdd32614fb0f69093406cb6470",
+      "ml/worker.py": "2cbaf49eaf316cfa863d48c5c8df8653d0bdfdf6864442abdce960106455d9d6",
+      "ml/train.py": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+      "ml/model.pt": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+      "ml/model_passes.pt": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+      "ui/server.py": "ed262a2c874041e88b9206da9c4d6efabb937b8111eef0b3f07909dc7aeb2729",
+      "cloud/records.py": "9f7ac0659afdb24eec3190cd632984a30d0edee509ed2eb713171dc39aae0c7b"
+    },
+    "native_unbounded_option": "solve --json --no-time-limit",
+    "final_solver_argv": "Three native portfolio solvers omit --time entirely. Duration::MAX sentinel remains unbounded after elapsed-time subtraction.",
+    "final_portfolio_resource_policy": {
+      "native_jobs": 3,
+      "simultaneously_running_real_kissat_cap": 2,
+      "queued_jobs": 1,
+      "queue_wait_included": true,
+      "note": "All three portfolio jobs have no solver time flag. With cap2 the third waits for a slot; this queueing is part of the measured configuration, not a timeout."
+    },
+    "guided_policy": {
+      "initial_nopass_probe_seconds": 2,
+      "candidate_sat_seconds": 20,
+      "beam_global_deadline": null,
+      "fast_width": 32,
+      "careful_width": 32,
+      "with_passes_width": 64,
+      "stop": 30,
+      "candidate_limit": 18,
+      "candidate_batch": 6,
+      "note": "Internal finite probes are algorithm policy, not trial deadlines. Guided exhaustion or rejection always falls back to original-board exact SAT with no time limit."
+    },
+    "secondary_metrics": [
+      "median/p95/total runtime",
+      "guided stage and real CNN forward diagnostics",
+      "model setup and whole-program wall",
+      "interrupted attempt work retained and added to effective cost"
+    ],
+    "pause_and_resume": "PAUSE file acts only between completed trials. Manual cancellation kills tracked process groups, logs incomplete work and reruns that same schedule position on --resume. No elapsed-time automatic cutoff.",
+    "timing": "Model load/warmup excluded and logged; solver accepted-proof receipt ends timing before final independent replay. Rejected guided candidate validation is part of fallback work. Interrupted attempt work is included in effective cost.",
+    "main_search_budget_upper_seconds": null,
+    "main_search_budget_upper_hours": null,
+    "pilot_search_budget_upper_seconds": null
+  },
+  "attempts": [
+    {
+      "started_at": "2026-10-25T12:35:56.507762+00:00",
+      "first_trial_index": 0,
+      "host_before": {
+        "time": "2026-10-25T12:35:56.507886+00:00",
+        "load_average": [
+          2.16015625,
+          2.07763671875,
+          2.080078125
+        ],
+        "mem_available_bytes": 39102451712
+      },
+      "finished_at": "2026-10-25T13:00:36.016819+00:00",
+      "host_after": {
+        "time": "2026-10-25T13:00:36.016892+00:00",
+        "load_average": [
+          3.68115234375,
+          3.59619140625,
+          3.3896484375
+        ],
+        "mem_available_bytes": 39219720192
+      },
+      "completed_trials": 2400
+    }
+  ],
+  "timing": "accepted-proof receipt excludes model preparation/final independent replay; rejected-guided proof checks count before exact fallback. Interrupted attempt work is retained separately and added to effective cost.",
+  "status": "complete",
+  "completed_trials": 2400,
+  "finished_at": "2026-10-25T13:00:36.016902+00:00",
+  "analysis_wall_seconds": 0.05341411510016769,
+  "program_wall_seconds": 1479.7064254198922,
+  "publication_state": "complete",
+  "source_state": "complete",
+  "snapshot_completed_trials": 2400
+}

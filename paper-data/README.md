@@ -1,5 +1,7 @@
 # 論文の補足データ
 
+[日本語](README.md) | [English](README.en.md)
+
 [論文（日本語）](https://othello-retro.logicpuzzle.app/paper?lang=ja)・[English](https://othello-retro.logicpuzzle.app/paper?lang=en)の根拠となる盤面、棋譜、図表の元データ、検証条件を、このディレクトリで公開します。分析の説明は論文本文にまとめます。
 
 | ファイル | 内容 |

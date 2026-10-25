@@ -1,0 +1,29 @@
+{
+  "env": {
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "programs": {
+    "sat": {
+      "label": "REPLACE: your baseline adapter / version / CPU / actual thread count",
+      "fixture": false,
+      "mode": "oneshot",
+      "cwd": "../..",
+      "command": [
+        "python3",
+        "my_sat_adapter.py"
+      ]
+    },
+    "auto": {
+      "label": "REPLACE: your candidate adapter / version / device / actual thread count",
+      "fixture": false,
+      "mode": "resident",
+      "cwd": "../..",
+      "command": [
+        "python3",
+        "my_candidate_adapter.py"
+      ]
+    }
+  }
+}

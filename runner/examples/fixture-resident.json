@@ -1,0 +1,37 @@
+{
+  "env": {
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "programs": {
+    "sat": {
+      "label": "FIXTURE reference lookup (resident); NOT solver performance",
+      "fixture": true,
+      "mode": "resident",
+      "cwd": "../..",
+      "command": [
+        "python3",
+        "runner/fixture_adapter.py",
+        "--bank",
+        "benchmarks/study-midgame-cpu222-unbounded-v1.json",
+        "--mode",
+        "resident"
+      ]
+    },
+    "auto": {
+      "label": "FIXTURE reference lookup (resident); NOT solver performance",
+      "fixture": true,
+      "mode": "resident",
+      "cwd": "../..",
+      "command": [
+        "python3",
+        "runner/fixture_adapter.py",
+        "--bank",
+        "benchmarks/study-midgame-cpu222-unbounded-v1.json",
+        "--mode",
+        "resident"
+      ]
+    }
+  }
+}
