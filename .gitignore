@@ -1,0 +1,8 @@
+*
+!*/
+!*.md
+!*.json
+!*.jsonl
+!*.csv
+!.gitignore
+.DS_Store
