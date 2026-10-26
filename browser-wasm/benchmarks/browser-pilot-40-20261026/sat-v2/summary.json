@@ -1,0 +1,75 @@
+{
+  "variant": "sat-v2",
+  "scope": "Pilot only: one observation per method/case; desktop M4 Chrome, not a smartphone measurement",
+  "unknown_handling": "Watchdog expiry is unknown, never unreachable. No finite failure cost or PAR2 is assigned. Found-time summaries omit censored observations and are conditional, not directly comparable across different solved sets.",
+  "overall": {
+    "observations": 40,
+    "found": 37,
+    "verified_found": 37,
+    "unknown": 3,
+    "error": 0,
+    "found_time_seconds": {
+      "n": 37,
+      "min": 0.04910000002384186,
+      "mean": 6.4282540540517985,
+      "median": 4.677800000011921,
+      "max": 29.50130000001192,
+      "p90_linear": 16.220500000035763
+    },
+    "observed_wall_seconds_sum": 417.8516999999285,
+    "unknown_observed_seconds": [
+      60.00209999996424,
+      60.002100000023844,
+      60.002100000023844
+    ]
+  },
+  "midgame": {
+    "observations": 20,
+    "found": 20,
+    "verified_found": 20,
+    "unknown": 0,
+    "error": 0,
+    "found_time_seconds": {
+      "n": 20,
+      "min": 0.04910000002384186,
+      "mean": 3.175304999998212,
+      "median": 0.7499000000059606,
+      "max": 29.50130000001192,
+      "p90_linear": 6.175159999978543
+    },
+    "observed_wall_seconds_sum": 63.506099999964235,
+    "unknown_observed_seconds": []
+  },
+  "terminal": {
+    "observations": 20,
+    "found": 17,
+    "verified_found": 17,
+    "unknown": 3,
+    "error": 0,
+    "found_time_seconds": {
+      "n": 17,
+      "min": 1.2737999999523162,
+      "mean": 10.255252941173666,
+      "median": 7.201300000011921,
+      "max": 22.96519999998808,
+      "p90_linear": 19.03566000002623
+    },
+    "observed_wall_seconds_sum": 354.34559999996424,
+    "unknown_observed_seconds": [
+      60.00209999996424,
+      60.002100000023844,
+      60.002100000023844
+    ]
+  },
+  "solved_by": {
+    "passfree_probe": 31,
+    "general_sat": 6
+  },
+  "found_with_inference_calls": 0,
+  "unknown_cases": [
+    "endgame-full-reference-no-pass-s202610255200028",
+    "endgame-full-reference-no-pass-s202610255200107",
+    "endgame-full-reference-with-pass-s202610255300185"
+  ],
+  "assets_unchanged": true
+}

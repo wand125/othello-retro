@@ -1,0 +1,27 @@
+{
+  "purpose": "Post-screening diagnosis of three hard cases, not an unbiased performance benchmark",
+  "selection": "Exactly the three terminal cases unresolved by the preceding M4 candidate-only60s screening",
+  "case_ids": [
+    "endgame-full-reference-no-pass-s202610255200028",
+    "endgame-full-reference-no-pass-s202610255200107",
+    "endgame-full-reference-with-pass-s202610255300185"
+  ],
+  "order": "For each frozen case: default then SAT-directed options",
+  "repeat": 1,
+  "trial_count": 6,
+  "mode": 2,
+  "encoding": "occ=true,pass_window=12,nopass=false",
+  "options_default": "Kissat default target1/restartint1",
+  "options_satpreset": {
+    "target": 2,
+    "restartint": 50
+  },
+  "conflict_limit": 100000,
+  "decision_limit": 1000000,
+  "observation_watchdog_seconds": 60,
+  "work_limit_unknown": "Kissat result0, no reachability verdict; distinct from the external60s watchdog",
+  "soundness": "Only found records independently replayed to the64-cell target are accepted. Restricted UNSAT/unknown never establishes general unreachability; callers must continue general SAT.",
+  "CPU": "one single-thread solver Worker at a time; nice19; guest affinity16\u201319",
+  "models": false,
+  "LTO": false
+}

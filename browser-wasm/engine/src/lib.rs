@@ -22,12 +22,64 @@ struct Generated {
 }
 
 thread_local! {
+    static UNDOS: RefCell<Vec<u32>> = const { RefCell::new(Vec::new()) };
+    static UNDO_SCORES: RefCell<Vec<i32>> = const { RefCell::new(Vec::new()) };
+}
+
+/// Enumerate legal one-placement predecessors. A candidate is only a heuristic;
+/// its reachability is never asserted here. Records are six u32 words:
+/// black low/high, white low/high, mover, removed square.
+#[no_mangle]
+pub extern "C" fn undo_board(bl: u32, bh: u32, wl: u32, wh: u32, next: u32, passfree: u32) -> i32 {
+    let b = u64::from(bl) | (u64::from(bh) << 32);
+    let w = u64::from(wl) | (u64::from(wh) << 32);
+    UNDOS.with(|cell| {
+        let mut out = cell.borrow_mut();
+        out.clear();
+        let stones = (b | w).count_ones();
+        if b & w != 0 || stones < 4 || next > 3 { return -1; }
+        if stones == 4 { return 0; }
+        let n = stones - 4;
+        let nxt = if passfree & 1 != 0 {
+            if board::legal_moves(b, w) == 0 && board::legal_moves(w, b) == 0 {
+                retro::ANY
+            } else { (n % 2) as u8 }
+        } else { next as u8 };
+        let mut children: Vec<_> = if passfree & 2 != 0 {
+            retro::undos(b, w, nxt, &mut || 0).into_iter().map(|c| ((c.2,c.3,c.4,c.5),c.0)).collect()
+        } else { retro::undos_plain(b, w, nxt).into_iter().map(|c| (c,0)).collect() };
+        if passfree & 1 != 0 { children.retain(|(c,_)| c.3 == ((n - 1) % 2) as u8); }
+        children.sort_unstable_by_key(|(c,_)| (c.1, c.2, c.3));
+        children.dedup_by_key(|(c,_)| (c.1, c.2, c.3));
+        let mut scores=Vec::with_capacity(children.len());
+        for ((square, qb, qw, mover), score) in children {
+            out.extend_from_slice(&[qb as u32, (qb >> 32) as u32, qw as u32, (qw >> 32) as u32,
+                u32::from(mover), u32::from(square)]);
+            scores.push(score);
+        }
+        UNDO_SCORES.with(|cell| *cell.borrow_mut()=scores);
+        (out.len() / 6) as i32
+    })
+}
+
+#[no_mangle]
+pub extern "C" fn undos_ptr() -> *const u32 { UNDOS.with(|v| v.borrow().as_ptr()) }
+#[no_mangle]
+pub extern "C" fn undo_scores_ptr() -> *const i32 { UNDO_SCORES.with(|v| v.borrow().as_ptr()) }
+#[no_mangle]
+pub extern "C" fn free_undos() {
+    UNDOS.with(|v| *v.borrow_mut() = Vec::new());
+    UNDO_SCORES.with(|v| *v.borrow_mut() = Vec::new());
+}
+
+thread_local! {
     static STATE: RefCell<Generated> = RefCell::new(Generated::default());
 }
 
 /// Return 0=encoded, 1=necessary condition disproves reachability,
-/// -1=invalid overlap. Mode 0 is general, 1 is the restricted no-pass heuristic.
-/// An UNSAT result for mode 1 MUST NOT be exposed as general unreachability.
+/// -1=invalid overlap/mode. Modes 0/3 are general (with/without redundant
+/// occupancy constraints); 1 is no-pass and 2 allows only late passes.
+/// UNSAT for either restricted mode MUST NOT mean general unreachability.
 #[no_mangle]
 pub extern "C" fn encode_board(black_low: u32, black_high: u32, white_low: u32, white_high: u32, mode: u32) -> i32 {
     let black = u64::from(black_low) | (u64::from(black_high) << 32);
@@ -35,7 +87,7 @@ pub extern "C" fn encode_board(black_low: u32, black_high: u32, white_low: u32, 
     STATE.with(|state| {
         let mut value = state.borrow_mut();
         *value = Generated::default();
-        if black & white != 0 {
+        if black & white != 0 || mode > 3 {
             value.error = b"invalid overlapping discs".to_vec();
             return -1;
         }
@@ -43,7 +95,8 @@ pub extern "C" fn encode_board(black_low: u32, black_high: u32, white_low: u32, 
             value.error = reason.into_bytes();
             return 1;
         }
-        let options = sat::EncOpts { occ: true, nopass: mode == 1, ..Default::default() };
+        let options = sat::EncOpts { occ: mode != 3, nopass: mode == 1,
+            pass_window: if mode == 2 { 12 } else { 0 }, ..Default::default() };
         let (cnf, encoding) = sat::encode_window((board::INIT_BLACK, board::INIT_WHITE), 0, (black, white), None, options);
         *value = Generated {
             literals: cnf.lits,

@@ -85,3 +85,6 @@ browser-wasm/validation/general-only-prototype-note.json
 !benchmarks/native-lightweight-32x3-20261026/sources/**/Cargo.lock
 !solver/history/v0.1.0/SOURCE_SHA256SUMS
 !benchmarks/native-lightweight-32x3-20261026/data/audits/native-candidate-*.log
+
+# Converted model payloads remain Release assets; the static builder verifies them.
+browser-wasm/ui/models/*.onnx

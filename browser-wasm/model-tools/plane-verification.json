@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "JS5-plane features match original PyTorch training/search feature arrays byte-for-byte on genuine legal reference reverse edges; no inference/search launched.",
+  "legal_batches": 4,
+  "candidates": 146,
+  "floats_compared": 46720,
+  "fixtures_sha256": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+  "tested_auto_js_sha256": "f1ede46ede8cfa5e6a695fba1b3a9011f9bb68cadb78955508f1405aed97f4e0"
+}

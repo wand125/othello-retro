@@ -1,0 +1,31 @@
+{
+  "measured_raw_sha256": "e2370d7ec589d3f415728c822a1cbc701d28f7047f071820f2ae8820d1f1239d",
+  "measured_harness_sha256": "2d30da387bea80d12da1f25421d9cd0a9d97c9832a5cfc113b4f0fe433e626e0",
+  "published_harness_sha256": "ea686d0d61902fcf8d8fd54458a006e93a5f56ae191c4bd1dd97ba91c70e9ba5",
+  "harness_changes": [
+    "Replace fixed temporary directory with module-relative source/input paths",
+    "Reuse existing UI Kissat/verify artifacts and preserved measured-engine.js instead of duplicating binaries",
+    "Require a new output directory and check actual artifacts against measured hashes; optionally allow explicitly recorded artifact changes",
+    "Add SPDX notice; SAT setup/options, decoding, replay and Worker observation loop unchanged"
+  ],
+  "encoder_source_sha256": {
+    "Cargo.toml": "87974d4ec89d8e20ee4b6b6ca0baeee15c327ec0662e05c4569f2daf3c85b506",
+    "Cargo.lock": "b101036c52be016e9876ace130335670b569a23f850f4409083451d229b73d22",
+    "native/SOURCE.json": "b2271fa98b1ff048520a8a9c16fd2ed7f3a091dfc866a0abba5be80955d81a11",
+    "native/solver.rs": "2f9decdd1e06735f3a11d829a30b72a18775d1e1d4180882e9a901bc6fb22aff",
+    "native/edge.rs": "360916fd040e3d2dae730034ad191d02644dde00aa85ee4bf2cbe4048c9523d1",
+    "native/board.rs": "a79695526e6e588f9c0e838fc8e3b56b79fb22ae4df5caa64c6ba6d9d0f7ff37",
+    "native/sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45",
+    "native/retro.rs": "ee2b12fde6df0d2ae2bdd8d119de92f56771639f8dcd4774d1a355c5090ae339",
+    "src/lib.rs": "ed5bc7d5258de8fc7244a41e7ff0346ecdc9db09d9dfc8487e076506c9cbe1d9"
+  },
+  "encoder_build": {
+    "toolchain": "Rust1.98.0",
+    "target": "wasm32-unknown-unknown",
+    "profile": "release, opt-level3, lto=true, codegen-units1, panic=abort, strip=symbols",
+    "rustflags": [],
+    "measured_wasm_sha256": "49fb8a52f07b4b548780f0edf06db8ec3cb839bfbe5c4884a34bc999403b19f4",
+    "scope": "Snapshot of the isolated experimental wrapper/native modules used for the measured input; independent rebuild/hash check is provided, not silently substituted with the current main encoder."
+  },
+  "no_duplicate_binary_or_model_payload": true
+}

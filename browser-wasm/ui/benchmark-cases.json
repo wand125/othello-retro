@@ -1,0 +1,246 @@
+{
+  "license": "MIT",
+  "purpose": "Fixed browser device measurement inputs; same 40 cases as the desktop comparison. Not a new representative population.",
+  "cases": [
+    {
+      "id": "main-n12-s202610250000000",
+      "board": "-----------O-O-----OOX-----OX------XX-----X--X---X--------------",
+      "stones": 12,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n12-s202610250000001",
+      "board": "---------------------XX----OXX-----OOOO----X-O----X-------------",
+      "stones": 12,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n12-s202610250000002",
+      "board": "------------------X------OOOOO-----XO------OX-------OX----------",
+      "stones": 12,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n12-s202610250000003",
+      "board": "---------------------X-----OXX----OXXX---O-X-O----X-------------",
+      "stones": 12,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n20-s202610250100000",
+      "board": "---O----X-O------XX-------XOOOO----XOOO----OX-X---XXX-----------",
+      "stones": 20,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n20-s202610250100001",
+      "board": "--OO------OO------OOXXXX---OOX----XOOO----O-O-O-----------------",
+      "stones": 20,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n20-s202610250100002",
+      "board": "--O--O-X---OO-X--OOOXX-----XXX----OOOOX------O------------------",
+      "stones": 20,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n20-s202610250100003",
+      "board": "------O----O-O---XXOXXX----OO------OO------OOO-----X------XXX---",
+      "stones": 20,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n28-s202610250200000",
+      "board": "--X-------OXOO----XOOO--XXXOOX---XOXXX---OOXO-X--O---O-X--------",
+      "stones": 28,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n28-s202610250200001",
+      "board": "---------XX-------XXO--O--OXXOO---OOOXXX---O-X-O--OOOXX----O-X-X",
+      "stones": 28,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n28-s202610250200002",
+      "board": "-----O--X--O-O-X-XX-OOOO--XXXX-OOOXXOOO---XXXO------X-----------",
+      "stones": 28,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n28-s202610250200003",
+      "board": "X--------XO----O--OO--O-OOOXOO---XOXO---XXXOX---O-O-OX---O-X----",
+      "stones": 28,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n36-s202610250300000",
+      "board": "XXXXX----OOXX---OOXX-X--OOXOXXO-XXOOOXO---XO-O---O-XOOO---------",
+      "stones": 36,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n36-s202610250300001",
+      "board": "XXXXX---X-OXXX---XXOOX---XXXOOOO-X-XOO----XOXO----OX-XO------X-O",
+      "stones": 36,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n36-s202610250300002",
+      "board": "-O-XOO-X-XOXXXX---XOOO--XOXXOOX-OOOOXOX---OXXX------X-X-----X---",
+      "stones": 36,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n36-s202610250300003",
+      "board": "--------X-X-XXX-XXOXO---XXXOO---OOOOOOO-OO-OXO----OXOOX--OXO---X",
+      "stones": 36,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n44-s202610250400000",
+      "board": "XXX--O--XXO--O---XXOOO-OXXXXOOO--OOXXXXXOOXXX-O-OOOOOO--OOX-X---",
+      "stones": 44,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n44-s202610250400001",
+      "board": "XXO---O-OXXOOO--OOXXO-X--OOXOXXOOOOOXOO--OOOXOO---OOOXXO---O--X-",
+      "stones": 44,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n44-s202610250400002",
+      "board": "O-OOOOO--OXOX-O---OXXO---OOOOX-O-OOXOXO--O-OXOX-OOOOOXXX-O-OX--O",
+      "stones": 44,
+      "expected": "reachable"
+    },
+    {
+      "id": "main-n44-s202610250400003",
+      "board": "-O-O-X----OOXXOOXXXXXXO-XXXXOXO-X-XXOOXX-XXXOOOXXX--OOOX-------X",
+      "stones": 44,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200028",
+      "board": "OOOOOXXXOOXOOOXXOOOXOOOOOOXOXXOOOOXOXXXOOOOXXXXOOOXOOOOOOOOOOOOO",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200107",
+      "board": "OOOOOOOOXXXXXXOOXXXXXXXOXXXXOXXOXXXXXOXOXXXOOXXOXXXOOOXOXXXXXXXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200006",
+      "board": "XXXXXXXXXOXOOOXXXOOOOXOXXOXXXOXXXOOXOXOXXOXOOOOOXXOOOXOOXXXOOOOO",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200034",
+      "board": "OOOXXXXXOOOOOXXXOOXXXXOXOOOXXXOXOOXOXXOXOXOXOOOXOOXXXOOXOOOOOOOX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200001",
+      "board": "XXXXXXXXXOXOOOOOXXOXOOOOXXXXXXXOXXOOXXXXXXXXXXXXOOXXXXOOOXXXXXXO",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200076",
+      "board": "XOOOOXXOXXOOOXXXXXXOOOXXXXXXOXXXXXOOOOXXXXXOXXOXXXXXXXXXXXXXXOXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-no-pass-s202610255200038",
+      "board": "OOOOOOOOOOXOXOOOOXOXOXOOOXXOOXOOOXOXXOXXOOOXOXOOOOOXXXOOOXXXXXXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300152",
+      "board": "XXXXOOXXXOXXOOXXXOOXXXOXXOOXXOOXXOXXXOOXXXOXOXOXXXXOOOOXXXXXOOOX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300009",
+      "board": "XXXXXXXXXXXXXXOXOOXXOXXXOOXXXXXXOXXXXXOXOXXXXOOXOXXXOOXXOXXXXXXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300026",
+      "board": "XXXXXXXXOOOXOOXXXOXXXXXXXOOOXXXOXOOXOXXOXXXXXXXOXXXXXOXOXXXXXXXO",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300171",
+      "board": "XXXXXXXOXXXXXXOXXXXXXOXXXXXXXXOXXOXOXXOXXXOXOXOXXXXOXXXXXXXXXXXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300034",
+      "board": "XXXXXXXXXXXXOXXXXXXOOOOOXXXXOXOXXXXOXOOXXXXOOXOXXXXXXOXXXOOXXXXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300080",
+      "board": "XXOOOOOOXXXOOOOOXXXXOXOOXOXXXOOOXOOXXOOOXOXOXXOOXOOXOXOOXXXXXXXO",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-full-reference-with-pass-s202610255300185",
+      "board": "XXOOOOOOXXXXXXXXXXXXOOXXXXXOXXXXXXXOXXOXXXOXOOXXXOXXXXOXOOXXXXXX",
+      "stones": 64,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-early-terminal-s202610255406852",
+      "board": "OXXXOOOXOXXOOXXXOXOOOXXXOXOXXXXXOXOXXXXXOXXXOXXXOXXXXXXX--XXXXXX",
+      "stones": 62,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-early-terminal-s202610255400242",
+      "board": "OOOOOOOXOOOOOOXXOOOOOXXXOOOOXOOXOOOXXXOXOOXXXXXX-XXXXXXXXXXXXXXO",
+      "stones": 63,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-early-terminal-s202610255407633",
+      "board": "OXXXXXXXOXXOOOXXXXOXOOXXXXXXXXXOXXOOXXXOXXXXXXXXOXXXXXXXO-XXXXXX",
+      "stones": 63,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-early-terminal-s202610255405805",
+      "board": "OOOOOXXXOOOOOOXXOOOOOOOXOXOOXOOXOXXOOOOXOOXOOOOXOOOXXOOXOOOOOOO-",
+      "stones": 63,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-early-terminal-s202610255405665",
+      "board": "OOOOOOOXOOOOOOXXOOOXOXOXOOXOXOOXOOXOOOOXXOXOOOOXXOOXOOOXOOOOOOO-",
+      "stones": 63,
+      "expected": "reachable"
+    },
+    {
+      "id": "endgame-early-terminal-s202610255401016",
+      "board": "XXXX-XXXXXXXOXXXXXXOOOXXXXOXOOOXXOOXOOOXXOXOOOOXXXOOOOOXXXXXOOOX",
+      "stones": 63,
+      "expected": "reachable"
+    }
+  ]
+}

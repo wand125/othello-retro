@@ -10,7 +10,7 @@ const {solve} = require('../ui/engine.js');
 const board = '---------------------------OX------XO---------------------------';
 const results = [];
 
-function fixture(codes, {preprocess = false, badVerify = false} = {}) {
+function fixture(codes, {preprocess = false, badVerify = false, target = board} = {}) {
   const pending = codes.slice(), modes = [], limits = [], released = [], events = [];
   let solver = 0, checks = 0;
   const encoder = {
@@ -39,7 +39,7 @@ function fixture(codes, {preprocess = false, badVerify = false} = {}) {
     return {moves, terminal: false};
   }};
   return {
-    run: () => solve(board, encoder, sat, rules, event => events.push(event)),
+    run: () => solve(target, encoder, sat, rules, event => events.push(event)),
     modes, limits, released, events, checks: () => checks
   };
 }
@@ -54,7 +54,7 @@ for (const code of [20, 0]) {
   check(`probe ${code === 20 ? 'UNSAT' : 'unknown'} falls through to verified full SAT`, () => {
     const f = fixture([code, 10]), result = f.run();
     assert.equal(result.status, 'found');
-    assert.deepEqual(f.modes, [1, 0]);
+    assert.deepEqual(f.modes, [1, 3]);
     assert.equal(result.stats.attempts.length, 2);
     assert.deepEqual(f.released, [1, 2]);
     assert.deepEqual(f.limits, [[1, 'conflicts', 2000], [1, 'decisions', 20000]]);
@@ -74,13 +74,13 @@ check('probe SAT is independently verified and released', () => {
 check('only full UNSAT gives final unreachability', () => {
   const f = fixture([0, 20]), result = f.run();
   assert.equal(result.status, 'unreachable');
-  assert.deepEqual(f.modes, [1, 0]);
+  assert.deepEqual(f.modes, [1, 3]);
   assert.equal(result.stats.attempts[1].general_pass_encoding, true);
 });
 check('restricted UNSAT plus full unknown stays unknown', () => {
   const f = fixture([20, 0]), result = f.run();
   assert.equal(result.status, 'unknown');
-  assert.deepEqual(f.modes, [1, 0]);
+  assert.deepEqual(f.modes, [1, 3]);
   assert.equal(result.stats.attempts[0].status, 'unsat');
 });
 check('common preprocessing rejection is authoritative', () => {
@@ -103,11 +103,32 @@ check('policy records SAT-only work limits and an unlimited full stage', () => {
   assert.deepEqual(f.events.map(event => event.phase), ['probe', 'probe', 'probe']);
 });
 
+const largeBoard = JSON.parse(fs.readFileSync(path.join(__dirname,'cases.json'))).cases.find(c=>c.id.startsWith('main-n44-')).board;
+check('neither restricted UNSAT is a general refutation on a large board',()=>{
+  const f=fixture([20,20,10],{target:largeBoard}), result=f.run();
+  assert.equal(result.status,'found');assert.deepEqual(f.modes,[1,2,3]);
+  assert.equal(result.stats.attempts[1].general_pass_encoding,false);
+  assert.equal(result.stats.attempts[2].general_pass_encoding,true);
+  assert.equal(f.checks(),1);
+});
+check('late-pass work-limit exhaustion continues to the unlimited general formula',()=>{
+  const f=fixture([0,0,20],{target:largeBoard}), result=f.run();
+  assert.equal(result.status,'unreachable');assert.deepEqual(f.modes,[1,2,3]);
+  assert.deepEqual(f.limits,[[1,'conflicts',100000],[1,'decisions',1000000],[2,'conflicts',100000],[2,'decisions',1000000]]);
+  assert.equal(result.stats.attempts[2].conflict_limit,null);
+});
+check('a late-pass SAT witness is independently replayed and stops the search',()=>{
+  const f=fixture([0,10],{target:largeBoard}), result=f.run();
+  assert.equal(result.status,'found');assert.deepEqual(f.modes,[1,2]);
+  assert.equal(result.stats.solved_by,'late_pass_probe');assert.equal(f.checks(),1);
+  assert.deepEqual(f.released,[1,2]);
+});
+
 after(() => {
   const directory = path.join(__dirname, '../validation');
   fs.mkdirSync(directory, {recursive: true});
   fs.writeFileSync(path.join(directory, 'policy-regression.json'), JSON.stringify({
-    status: results.length === 8 && results.every(row => row.status === 'passed') ? 'passed' : 'failed',
+    status: results.length === 11 && results.every(row => row.status === 'passed') ? 'passed' : 'failed',
     purpose: 'Mock encoder/SAT control-flow regression; real solver acceptance is separate',
     runtime: process.version,
     tests: results

@@ -1,0 +1,9 @@
+{
+  "updated_at": "2026-10-26T03:25:34.018019+00:00",
+  "last_trial_index": 39,
+  "case": "endgame-early-terminal-s202610255401016",
+  "engine": "sat",
+  "status": "found",
+  "completed_observations": 40,
+  "planned_trials": 40
+}

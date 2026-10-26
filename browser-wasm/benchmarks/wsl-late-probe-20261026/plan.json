@@ -1,0 +1,56 @@
+[
+  {
+    "name": "late12-100k",
+    "case": "endgame-full-reference-no-pass-s202610255200028",
+    "mode": 2,
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "sat_preset": false,
+    "observe_ms": 60000
+  },
+  {
+    "name": "late12-100k-satpreset",
+    "case": "endgame-full-reference-no-pass-s202610255200028",
+    "mode": 2,
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "sat_preset": true,
+    "observe_ms": 60000
+  },
+  {
+    "name": "late12-100k",
+    "case": "endgame-full-reference-no-pass-s202610255200107",
+    "mode": 2,
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "sat_preset": false,
+    "observe_ms": 60000
+  },
+  {
+    "name": "late12-100k-satpreset",
+    "case": "endgame-full-reference-no-pass-s202610255200107",
+    "mode": 2,
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "sat_preset": true,
+    "observe_ms": 60000
+  },
+  {
+    "name": "late12-100k",
+    "case": "endgame-full-reference-with-pass-s202610255300185",
+    "mode": 2,
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "sat_preset": false,
+    "observe_ms": 60000
+  },
+  {
+    "name": "late12-100k-satpreset",
+    "case": "endgame-full-reference-with-pass-s202610255300185",
+    "mode": 2,
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "sat_preset": true,
+    "observe_ms": 60000
+  }
+]

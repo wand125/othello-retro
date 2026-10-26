@@ -1,0 +1,88 @@
+{
+  "status": "complete",
+  "trials": 6,
+  "source_hashes_unchanged": true,
+  "rows": [
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200028",
+      "option": "default",
+      "status": "found",
+      "seconds": 9.868320052,
+      "solver_seconds": 9.796040264000002,
+      "strict_replay": true,
+      "passes_after_placements": [
+        48,
+        59
+      ],
+      "solver_heap_bytes": 80216064,
+      "solver_result": 10
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200028",
+      "option": "satpreset",
+      "status": "unknown",
+      "seconds": 19.115218094,
+      "solver_seconds": 19.051778277999997,
+      "strict_replay": false,
+      "passes_after_placements": [],
+      "solver_heap_bytes": 80216064,
+      "solver_result": 0
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "option": "default",
+      "status": "found",
+      "seconds": 7.821378209999999,
+      "solver_seconds": 7.752526520000003,
+      "strict_replay": true,
+      "passes_after_placements": [
+        57
+      ],
+      "solver_heap_bytes": 96993280,
+      "solver_result": 10
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "option": "satpreset",
+      "status": "found",
+      "seconds": 7.491767055999997,
+      "solver_seconds": 7.422577295000003,
+      "strict_replay": true,
+      "passes_after_placements": [],
+      "solver_heap_bytes": 80216064,
+      "solver_result": 10
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300185",
+      "option": "default",
+      "status": "found",
+      "seconds": 14.418328627000003,
+      "solver_seconds": 14.346965558999997,
+      "strict_replay": true,
+      "passes_after_placements": [
+        59
+      ],
+      "solver_heap_bytes": 80216064,
+      "solver_result": 10
+    },
+    {
+      "case": "endgame-full-reference-with-pass-s202610255300185",
+      "option": "satpreset",
+      "status": "unknown",
+      "seconds": 15.905498757000002,
+      "solver_seconds": 15.840430488000006,
+      "strict_replay": false,
+      "passes_after_placements": [],
+      "solver_heap_bytes": 96993280,
+      "solver_result": 0
+    }
+  ],
+  "limits": {
+    "conflicts": 100000,
+    "decisions": 1000000,
+    "observation_seconds": 60
+  },
+  "scope": "Three known hard cases, one run per setting on WSL. This is not a direct M4 or smartphone speed comparison. Restricted UNSAT or unknown never establishes general unreachability.",
+  "production_changed": false,
+  "available_memory_kib": 39035308
+}

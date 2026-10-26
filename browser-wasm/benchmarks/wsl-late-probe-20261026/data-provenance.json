@@ -1,0 +1,7 @@
+{
+  "recorded_source_bank_sha256": "16b4f04370c8c6ec1b94b94e3bffe4d7026b7f2c634cf5d7fa7d3c1d69feab1f",
+  "available_public_bank": "../../../benchmarks/study-endgame-cpu222-unbounded-v1.json",
+  "available_public_bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+  "all_three_case_objects_match_public_bank": true,
+  "note": "The recorded input bank had earlier timed-protocol metadata; the public unbounded bank retains these exact case objects. Original recorded hash is preserved rather than rewritten."
+}

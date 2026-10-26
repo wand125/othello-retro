@@ -1,0 +1,206 @@
+{
+  "status": "passed",
+  "browser": "155.0.8059.86",
+  "cpu_threads": 1,
+  "provider": "wasm",
+  "cross_origin_isolated": false,
+  "coep_coop_headers": false,
+  "same_origin_only": true,
+  "network_origins": [
+    "http://127.0.0.1:18820"
+  ],
+  "page_errors": [],
+  "missing_model_rejects_for_caller_sat_fallback": {
+    "status": "passed",
+    "fallback_required": true,
+    "rejection_observed": true,
+    "stats": {
+      "runtime": "onnxruntime-web",
+      "version": "1.30.0",
+      "execution_provider": "wasm",
+      "num_threads": 1,
+      "input_type": "float32",
+      "input_layout": "NCHW",
+      "quantized": false,
+      "fp16": false,
+      "runtime_load_seconds": 0.003099999964237213,
+      "models": [
+        {
+          "session_load_seconds": null,
+          "calls": 0,
+          "failures": 1,
+          "last_batch": null,
+          "last_run_seconds": null,
+          "total_run_seconds": 0
+        },
+        {
+          "session_load_seconds": null,
+          "calls": 0,
+          "failures": 0,
+          "last_batch": null,
+          "last_run_seconds": null,
+          "total_run_seconds": 0
+        }
+      ]
+    }
+  },
+  "runtime_version": "1.30.0",
+  "fixture_file_sha256": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+  "models_sha256": {
+    "model.fused.onnx": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+    "model_passes.fused.onnx": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f"
+  },
+  "final_memory": {
+    "wasm_memory_bytes": 20185088,
+    "peak_observed_wasm_bytes": 20185088,
+    "wasm_memory_instances": 2,
+    "buffers": [
+      "SharedArrayBuffer",
+      "SharedArrayBuffer"
+    ]
+  },
+  "memory_scope": "Instrumented WebAssembly.Memory constructor/grow and instantiated exports; linear memory capacity, not total process RSS. Peak is at observed allocation/grow/run boundaries. Instrumentation retains observed Memory references and can include capability-probe allocations; this is not a measurement of total model download, compiled-code or browser-process memory.",
+  "rows": [
+    {
+      "batch": "legal-batch-1",
+      "N": 1,
+      "model": "model",
+      "first_call_seconds": 0.205,
+      "warm_median_seconds": 0.0015,
+      "max_abs_error_fused": 2.86102294921875e-06,
+      "max_abs_error_original": 1.9073486328125e-06,
+      "wasm_memory_bytes": 16777216
+    },
+    {
+      "batch": "legal-batch-1",
+      "N": 1,
+      "model": "model_passes",
+      "first_call_seconds": 0.01119999998807907,
+      "warm_median_seconds": 0.0014000000357627868,
+      "max_abs_error_fused": 2.86102294921875e-06,
+      "max_abs_error_original": 2.384185791015625e-06,
+      "wasm_memory_bytes": 16777216
+    },
+    {
+      "batch": "legal-batch-16",
+      "N": 16,
+      "model": "model",
+      "first_call_seconds": 0.021400000035762787,
+      "warm_median_seconds": 0.021200000047683715,
+      "max_abs_error_fused": 3.4332275390625e-05,
+      "max_abs_error_original": 3.2901763916015625e-05,
+      "wasm_memory_bytes": 16777216
+    },
+    {
+      "batch": "legal-batch-16",
+      "N": 16,
+      "model": "model_passes",
+      "first_call_seconds": 0.021100000023841856,
+      "warm_median_seconds": 0.020799999952316284,
+      "max_abs_error_fused": 6.008148193359375e-05,
+      "max_abs_error_original": 6.818771362304688e-05,
+      "wasm_memory_bytes": 16777216
+    },
+    {
+      "batch": "legal-batch-128",
+      "N": 128,
+      "model": "model",
+      "first_call_seconds": 0.16609999996423722,
+      "warm_median_seconds": 0.16519999998807908,
+      "max_abs_error_fused": 0.00010585784912109375,
+      "max_abs_error_original": 0.000125885009765625,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "legal-batch-128",
+      "N": 128,
+      "model": "model_passes",
+      "first_call_seconds": 0.17189999997615815,
+      "warm_median_seconds": 0.22220000004768373,
+      "max_abs_error_fused": 7.43865966796875e-05,
+      "max_abs_error_original": 6.818771362304688e-05,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "legal-after-forced-pass-batch-1",
+      "N": 1,
+      "model": "model",
+      "first_call_seconds": 0.0016000000238418578,
+      "warm_median_seconds": 0.0015,
+      "max_abs_error_fused": 0,
+      "max_abs_error_original": 2.86102294921875e-06,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "legal-after-forced-pass-batch-1",
+      "N": 1,
+      "model": "model_passes",
+      "first_call_seconds": 0.0015,
+      "warm_median_seconds": 0.001599999964237213,
+      "max_abs_error_fused": 0,
+      "max_abs_error_original": 9.5367431640625e-07,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "random-binary-batch-1",
+      "N": 1,
+      "model": "model",
+      "first_call_seconds": 0.001800000011920929,
+      "warm_median_seconds": 0.001399999976158142,
+      "max_abs_error_fused": 1.9073486328125e-06,
+      "max_abs_error_original": 3.814697265625e-06,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "random-binary-batch-1",
+      "N": 1,
+      "model": "model_passes",
+      "first_call_seconds": 0.0016000000238418578,
+      "warm_median_seconds": 0.001599999964237213,
+      "max_abs_error_fused": 0,
+      "max_abs_error_original": 1.9073486328125e-06,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "random-binary-batch-16",
+      "N": 16,
+      "model": "model",
+      "first_call_seconds": 0.023099999964237214,
+      "warm_median_seconds": 0.02080000001192093,
+      "max_abs_error_fused": 3.814697265625e-05,
+      "max_abs_error_original": 6.866455078125e-05,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "random-binary-batch-16",
+      "N": 16,
+      "model": "model_passes",
+      "first_call_seconds": 0.02069999998807907,
+      "warm_median_seconds": 0.02069999998807907,
+      "max_abs_error_fused": 8.96453857421875e-05,
+      "max_abs_error_original": 3.4332275390625e-05,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "random-binary-batch-128",
+      "N": 128,
+      "model": "model",
+      "first_call_seconds": 0.16380000001192094,
+      "warm_median_seconds": 0.19769999998807908,
+      "max_abs_error_fused": 0.000118255615234375,
+      "max_abs_error_original": 9.441375732421875e-05,
+      "wasm_memory_bytes": 20185088
+    },
+    {
+      "batch": "random-binary-batch-128",
+      "N": 128,
+      "model": "model_passes",
+      "first_call_seconds": 0.2454000000357628,
+      "warm_median_seconds": 0.16730000001192094,
+      "max_abs_error_fused": 7.2479248046875e-05,
+      "max_abs_error_original": 9.1552734375e-05,
+      "wasm_memory_bytes": 20185088
+    }
+  ],
+  "shared_array_buffer_global_available": false
+}

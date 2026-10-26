@@ -141,3 +141,5 @@ python3 -m unittest discover -s runner/tests -p 'test_verify.py'
 ```
 
 同じcaseの3反復を独立3盤面とは数えません。途中400と終局20、未完成の進捗と完成済み結果、fixtureと性能測定を分けて扱ってください。
+
+[ブラウザのWebAssembly版を接続する手順](../browser-wasm/benchmarks/README.md)もあります。

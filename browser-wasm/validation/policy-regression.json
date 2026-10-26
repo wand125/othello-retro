@@ -34,6 +34,18 @@
     {
       "name": "policy records SAT-only work limits and an unlimited full stage",
       "status": "passed"
+    },
+    {
+      "name": "neither restricted UNSAT is a general refutation on a large board",
+      "status": "passed"
+    },
+    {
+      "name": "late-pass work-limit exhaustion continues to the unlimited general formula",
+      "status": "passed"
+    },
+    {
+      "name": "a late-pass SAT witness is independently replayed and stops the search",
+      "status": "passed"
     }
   ]
 }

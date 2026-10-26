@@ -1,0 +1,108 @@
+{
+  "scope": "Model-format conversion and numeric equivalence only; no training, search, model-quality evaluation, repository edit or deployment.",
+  "torch": "2.2.2",
+  "numpy": "1.26.4",
+  "onnx": "1.17.0",
+  "python": "3.12.2",
+  "torch_threads": 2,
+  "nice_observed": 19,
+  "device": "cpu",
+  "dtype": "float32",
+  "opset": 17,
+  "layout": "NCHW",
+  "input": {
+    "name": "planes",
+    "shape": [
+      "batch",
+      5,
+      8,
+      8
+    ]
+  },
+  "output": {
+    "name": "logits",
+    "shape": [
+      "batch"
+    ]
+  },
+  "license": "CC-BY-4.0",
+  "attribution": "wand125",
+  "source": "https://github.com/wand125/othello-retro/releases/tag/v0.1.0",
+  "changes": "Strict-loaded eval checkpoints cloned;9 Conv-BN pairs folded and graph exported to ONNX. No checkpoint file was written. Channels-last is a runtime layout choice, not a change to logical NCHW input.",
+  "source_code_sha256": {
+    "ml/train.py": "5b81c693bff3426491fca250dc3d25a31fbb9e3cf3b60a4e81d31c318d9edb63",
+    "ml/search.py": "540cb9d2607cf29fedb5f7ff762ac46f95211457892ef6204f5c4315ad4bbdd1",
+    "ml/inference_opt.py": "ddbec5625b41fc7af2bf1b68f78ffe3fb5e35b97aef842e76caabd836e1c40dc"
+  },
+  "exporter_sha256": "a4ee8880c8c5f7d1d0e3fdacf7a845d4c3297a3deb361150e906102a5c366edd",
+  "historical_original_export": {
+    "exporter_sha256": "57558733cd9797489e537d3f31151921216aa2ff935e6392898df1f385efd9df",
+    "manifest_sha256": "7f3923f933dcbc932ae7f95387ce5a2ef2c6ab605782e3312e641169600014c9",
+    "numeric_fixtures_sha256": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+    "scope": "Historical first isolated export; its original source used fixed local paths. This portable CLI is a new source artifact; graph output identity is checked separately."
+  },
+  "legal_edges_sha256": "fbe5499d71671928b9eb8ea6ad2105e6436769cc00232cda8c21f782b778f1d5",
+  "models": {
+    "model": {
+      "checkpoint_sha256": "dfb1f2e6a7ad4536415d3df9758c0a2e72af95abb40dfaae3c55f1921aee9820",
+      "checkpoint_bytes": 1257333,
+      "onnx_file": "model.fused.onnx",
+      "onnx_sha256": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+      "onnx_bytes": 1231991,
+      "folded_conv_bn_pairs": 9,
+      "ir_version": 8,
+      "node_count": 30,
+      "operators": [
+        "Add",
+        "Concat",
+        "Constant",
+        "Conv",
+        "Gemm",
+        "ReduceMax",
+        "ReduceMean",
+        "Relu",
+        "Squeeze"
+      ],
+      "max_abs_pytorch_folding_error": 0.000156402587890625,
+      "export_seconds": 0.6953987090382725,
+      "checkpoint_unchanged": true
+    },
+    "model_passes": {
+      "checkpoint_sha256": "8c3bc353fc136feb0561263bf75bac0dc7e491d261c124ca408fc100e6ce3c2d",
+      "checkpoint_bytes": 1256602,
+      "onnx_file": "model_passes.fused.onnx",
+      "onnx_sha256": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f",
+      "onnx_bytes": 1231991,
+      "folded_conv_bn_pairs": 9,
+      "ir_version": 8,
+      "node_count": 30,
+      "operators": [
+        "Add",
+        "Concat",
+        "Constant",
+        "Conv",
+        "Gemm",
+        "ReduceMax",
+        "ReduceMean",
+        "Relu",
+        "Squeeze"
+      ],
+      "max_abs_pytorch_folding_error": 0.000125885009765625,
+      "export_seconds": 0.5872666250215843,
+      "checkpoint_unchanged": true
+    }
+  },
+  "numeric_fixtures_sha256": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+  "files_sha256": {
+    "legal-after-forced-pass-batch-1.input.npy": "c6b7487f83601f7c64eb638e7d3ab66b6b17ffe8ff2421cff779cfc899eba83e",
+    "legal-batch-1.input.npy": "609183c5a25a2ac1e52c78bf7913c8787e91e1c73b7a1a58c2cc59586f497606",
+    "legal-batch-128.input.npy": "09144a799f92b95f59996f3f89daeefc50818f0f5a57b8f32722ff3b076081ed",
+    "legal-batch-16.input.npy": "dff36e5becb0efa443637527fc90d15223a5f7f7cb6fc4b8a230530227d342bd",
+    "model.fused.onnx": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+    "model_passes.fused.onnx": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f",
+    "numeric-fixtures.json": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+    "random-binary-batch-1.input.npy": "11542d356d4049f3e3f03994c5d837fe77d024f8e564d37949412d2c84be03b5",
+    "random-binary-batch-128.input.npy": "8ca814da98749217a03a41808f01840201461b1fe165fcce5c0f84f5d64bbae5",
+    "random-binary-batch-16.input.npy": "a284d9aca07f2f048e969716f7b59000e1069cadee52a5061b545260fc7a36cf"
+  }
+}

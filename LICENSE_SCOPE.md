@@ -11,6 +11,8 @@ Copyright (c) 2026 wand125 and contributors.
 | Compiled WASM and third-party/runtime material in `browser-wasm/` | Original code retains MIT; Kissat, Rust standard library, Emscripten and other components retain their respective terms. See `browser-wasm/ui/kissat.LICENSES.txt`, `browser-wasm/ui/RUST-LICENSES.txt`, referenced runtime notices and `browser-wasm/tests/LICENSE.md` |
 | Original generated case/record/measurement data in `benchmarks/` and `records/`, including the two fixed synthetic benchmark banks | Existing [MIT scope](BENCHMARK_LICENSE.md); frozen bytes and hashes are unchanged |
 | `model.pt` and `model_passes.pt` distributed in Release v0.1.0; accompanying original model cards and README documents | [CC BY 4.0](licenses/CC-BY-4.0.txt), attribution **wand125**, source https://github.com/wand125/othello-retro/releases/tag/v0.1.0 |
+| Converted browser ONNX weights (`browser-models-v1` Release) | CC BY 4.0, attribution **wand125**; original checkpoint source v0.1.0; Conv/BatchNorm folding and format conversion recorded in `browser-wasm/ui/models/model-export-manifest.json` and `LICENSE-MODELS.md` |
+| ONNX Runtime Web in `browser-wasm/ui/inference/` | Microsoft MIT and retained third-party notices; see `LICENSE`, `ThirdPartyNotices.txt` and `runtime-manifest.json` in that directory |
 | Original article prose and original figures in `solver/ui/paper.html`, and original supplementary analysis in `paper-data/` | [CC BY 4.0](licenses/CC-BY-4.0.txt), attribution **wand125**, source https://othello-retro.logicpuzzle.app/paper |
 | Third-party software, license texts, quotations and cited works | Their respective terms; see `solver/THIRD_PARTY_NOTICES.md` and the web notices. No third-party rights are reassigned |
 

@@ -1,0 +1,94 @@
+{
+  "package": "onnxruntime-web",
+  "version": "1.30.0",
+  "registry_url": "https://registry.npmjs.org/onnxruntime-web/1.30.0",
+  "tarball_url": "https://registry.npmjs.org/onnxruntime-web/-/onnxruntime-web-1.30.0.tgz",
+  "registry_integrity": "sha512-q0y+JrrtukXSzsBWEMccVfqX25LRmosXHF+CaRJmg8pZClzcV7svNc4rKY3jL02Vb7QmRMDs1SigqR4CXAfKYQ==",
+  "integrity_verified": true,
+  "tarball_sha256": "d2228df7e4616bc3348bf504ee888f3bec43789a273f0a63f3e68d203ce3bf71",
+  "tarball_bytes": 33106585,
+  "npm_license": "MIT",
+  "selected_files": {
+    "ort.wasm.min.js": {
+      "upstream_member": "package/dist/ort.wasm.min.js",
+      "bytes": 50196,
+      "sha256": "faece07e84faa9001f5104bbe4e5c70861d06cb2376a0dea1fa0ad33a67adc81",
+      "modified": false
+    },
+    "ort-wasm-simd-threaded.mjs": {
+      "upstream_member": "package/dist/ort-wasm-simd-threaded.mjs",
+      "bytes": 24381,
+      "sha256": "e13f7f94fc51b4ca72b12faeb1ee95f4ace6dfbc8939bc718aabdc0a27c4299b",
+      "modified": false
+    },
+    "ort-wasm-simd-threaded.wasm": {
+      "upstream_member": "package/dist/ort-wasm-simd-threaded.wasm",
+      "bytes": 14239897,
+      "sha256": "3398c10d07d229bd91b364548e130e0e51a8e5704b88c7c083ebbeb78842dee2",
+      "modified": false
+    }
+  },
+  "license_files": {
+    "LICENSE": {
+      "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.30.0/LICENSE",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "modified": false
+    },
+    "ThirdPartyNotices.txt": {
+      "source_url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.30.0/ThirdPartyNotices.txt",
+      "bytes": 338088,
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+      "modified": false
+    }
+  },
+  "license_note": "The official npm tarball does not include license/notice text files. Full MIT license and unabridged upstream ThirdPartyNotices from tag v1.30.0 are retained separately. The upstream notice list covers more components than this CPU/WASM subset.",
+  "adapter": {
+    "file": "infer.js",
+    "sha256": "bb3db0ca9db5e456c1e80c5aff0984c18a066e1e033289b1647135df0b568a87",
+    "bytes": 5531,
+    "license": "MIT",
+    "api": "RetroInference.score(Float32Array,N,passes=false) -> Promise<Float32Array>",
+    "execution_provider": "wasm",
+    "num_threads": 1,
+    "fp16": false,
+    "quantized": false,
+    "same_origin_only": true,
+    "failure_contract": "Rejects; caller must continue with exact SAT",
+    "lazy_sessions": 2,
+    "input": {
+      "name": "planes",
+      "dtype": "float32",
+      "shape": [
+        "N",
+        5,
+        8,
+        8
+      ],
+      "layout": "NCHW"
+    },
+    "output": {
+      "name": "logits",
+      "dtype": "float32",
+      "shape": [
+        "N"
+      ]
+    },
+    "license_file": "ADAPTER-LICENSE.txt",
+    "license_sha256": "0d596ac66b81ef6212bd808dc8c8ffe2a83f172d735ac0648dbbf8d95ff35a98"
+  },
+  "validation": {
+    "chrome-summary.json": {
+      "sha256": "119c02c3276641d024c46af20b6ae0cb281d416d0b0af825992d58e99951355b"
+    },
+    "chrome-numeric-report.json": {
+      "sha256": "b60d8b3eaa65222481e6981f7a5e69dd44271047dc45240bab375d5ca2558b60"
+    },
+    "fixture-ranking-check.json": {
+      "sha256": "51c02a1ba5a0f02304fd88ce516a11a082555dc261ce90fb67eb21e127c6eab5"
+    },
+    "node-smoke.json": {
+      "sha256": "2e30d6afd54d7237e4e8969d6d4b93edbc76557c789e3ac0846c6879e3c4abf9"
+    }
+  }
+}

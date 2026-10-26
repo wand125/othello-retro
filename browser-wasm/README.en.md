@@ -1,16 +1,31 @@
-# Othello Retro — browser SAT edition
+# Othello Retro — browser SAT and lightweight Auto
 
-A Rust CNF encoder and Kissat 4.0.3 WebAssembly search for a legal history from the standard initial position, entirely in the browser. Distribution consists of static files. Computation uses SAT, without a computation server or trained model. The native implementation and its auto benchmarks are separate implementations and measurements.
+[日本語](README.md) | [English](README.en.md) · [Open the preview](https://wand125.github.io/othello-retro/)
 
-The UI supports board entry and transformations, playback, seeking, sound, browser-local record storage, and JSON import/export. Newly created records stay in that browser; sharing requires exporting the JSON or another explicit publication step. Previously published records bundled with the static site have a library and individual URLs.
+Search runs locally using SAT or optional lightweight Auto. The Rust encoder, Kissat 4.0.3 and Auto's ONNX Runtime Web 1.30.0 are same-origin static assets, without a computation backend or CDN. Auto uses CPU FP32/one inference thread to rank candidates from existing checkpoints; misses return to complete general SAT. The native 400/20-case benchmark and later 32-case diagnosis are separate implementations and conditions.
 
-Every `found` witness is replayed by independent JavaScript rules: Black starts, placements must flip discs legally, only forced passes are permitted, and all 64 target cells must agree. `unreachable` comes only from a necessary-condition rejection or UNSAT of the general encoding that allows passes. Restricted no-pass UNSAT never establishes general unreachability. Cancellation, resource exhaustion and errors are distinct outcomes. Independent DRAT certificate checking is not provided.
+The UI retains board entry and color/rotation/reflection transforms, playback/seeking, sound voices and standard/screen-recording audio output, local record storage, JSON import/export and compressed record-sharing URLs. New records stay in the browser; the existing public snapshot has a library and individual URLs.
 
-Search runs in a Worker; cancellation terminates that Worker. Some positions require substantial time or memory. Mobile search performance and memory use have not been measured. Native benchmark timings do not guarantee browser performance.
+## Search and testing your device
 
-## Build
+Every `found` witness is independently replayed under standard rules, including Black first, flips, forced passes and all 64 target cells. Restricted-probe failure and Auto misses never establish unreachability. Only necessary-condition rejection or UNSAT of the complete pass-aware formula returns `unreachable`. Normal final SAT has no time limit; cancellation terminates the Worker. Independent DRAT checking is not provided.
 
-Prepare Rust 1.98.0 with the `wasm32-unknown-unknown` target, Emscripten, Python 3 and Node.js. From the repository root:
+Current Auto considers boards with at least 36 discs using width 8, cap 2 per parent, shortlist 128, a 30-placement stopping point and an approximately 12-second guidance budget. Bounded candidate SAT retains complete fallback. For boards with at least 44 discs, SAT also tries a stronger no-pass probe before the complete general formula without redundant occupancy constraints. Probe work limits are not wall-time promises.
+
+No smartphone 60-second guarantee has been established. [Benchmark this device](https://wand125.github.io/othello-retro/benchmark.html): start with quick5 across occupancy strata, then optionally 20 midgames, 20 terminals or all 40 cases, using SAT/Auto. Each case gets a fresh Worker, bypasses cached witnesses and independently checks the result. The observational limit is 60 seconds per case; interruption means unresolved. Results stay local and can be downloaded as JSON, without POST. Real Chrome runs controlled by Python are distinct from physical-phone measurements.
+
+## Download models and build
+
+Prepare Rust 1.98.0 with the wasm32 target, Emscripten, Python 3 and Node.js. From the repository root, first download [browser-models-v1](https://github.com/wand125/othello-retro/releases/tag/browser-models-v1), verify the archive SHA-256 and copy **only the two ONNX files** to `ui/models/`. They are eval Conv–BN-folded conversions of unchanged trained checkpoints.
+
+```sh
+BROWSER_MODEL_STAGE="$(mktemp -d)"
+curl -fL 'https://github.com/wand125/othello-retro/releases/download/browser-models-v1/browser-models-v1.tar.gz' -o "$BROWSER_MODEL_STAGE/browser-models-v1.tar.gz"
+printf '%s  %s\n' 'da61f0c2da3d518ebe6c6a5f5c02e9b6f20fe1f68a67a1258200617f17a0c248' "$BROWSER_MODEL_STAGE/browser-models-v1.tar.gz" | shasum -a 256 -c -
+tar -xzf "$BROWSER_MODEL_STAGE/browser-models-v1.tar.gz" -C "$BROWSER_MODEL_STAGE"
+mkdir -p browser-wasm/ui/models
+cp "$BROWSER_MODEL_STAGE/model.fused.onnx" "$BROWSER_MODEL_STAGE/model_passes.fused.onnx" browser-wasm/ui/models/
+```
 
 ```sh
 cargo +1.98.0 build --manifest-path browser-wasm/engine/Cargo.toml --target wasm32-unknown-unknown --release --locked -j2
@@ -18,29 +33,29 @@ cp browser-wasm/engine/target/wasm32-unknown-unknown/release/othello_retro_brows
 EMCC="$(command -v emcc)" EM_CACHE=/tmp/othello-emcache python3 browser-wasm/solver/build.py
 ```
 
-Provide a usable Emscripten SDK cache. [solver/README.md](solver/README.md) and its manifests describe the upstream source, small wasm32 portability change, build flags, hashes and notices.
+Use a prepared SDK cache for `EM_CACHE`, or select an existing compatible cache. See [Kissat build notes](solver/README.md) for sources/wasm32 changes/flags/notices, and [model conversion and numerical fixtures](model-tools/README.en.md). The historical `model_passes` filename does not imply pass-only training.
 
-## Verification and static assembly
+## Verify, assemble and use offline
 
 ```sh
-node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs
+node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs browser-wasm/tests/test-auto.cjs
+node browser-wasm/model-tools/verify-planes.cjs
 node browser-wasm/tests/test-solver.cjs --smoke
 node browser-wasm/solver/smoke.cjs
-python3 browser-wasm/build_static.py --public-repo /path/to/othello-retro --records /path/to/public-records-snapshot.json --output /tmp/othello-static-new
+python3 browser-wasm/build_static.py --public-repo . --output /tmp/othello-static-new
 python3 -m http.server 8000 --directory /tmp/othello-static-new
 ```
 
-`--public-repo` selects the public repository containing the four existing paper assets. `--output` must be a new directory. The builder does not deploy. `--records` selects a public snapshot shaped as `{ "examples": [...] }`. Every record is independently replayed; only safe IDs and allowlisted public metadata are distributed. Without it, the UI's bundled records are used. The bundled 72 records are a verified snapshot; supplying another snapshot replaces that input.
+The first command runs 27 rule/probe-control/Auto unit tests. Run `node browser-wasm/tests/test-solver.cjs --stress` separately for expensive full acceptance. Listing that command does not claim completion on every device.
 
-The generated `/paper/` preserves the manuscript, CSS, mathematics and language switching; only links and asset references change. Static redirects support `paper.html`, `examples/` and each record URL, carrying the query and fragment. Relative URLs work on both a custom domain and a GitHub Pages project subpath. `asset-manifest.json` records the version and file hashes. A Service Worker stores successfully fetched assets for offline use; first-use offline operation and continued browser storage retention are not guaranteed.
+Download models before `build_static.py`. Its output directory must be new; `--public-repo` selects the public repository containing the article. Optional `--records` supplies an `{"examples":[...]}` snapshot, otherwise bundled records are used. The builder does not deploy. Article prose, CSS, mathematics and languages stay unchanged; asset/link references become relative.
 
-The browser smoke additionally requires Playwright and Chromium. After starting the static preview, run `OTHELLO_PREVIEW_URL=http://127.0.0.1:8000/ node browser-wasm/tests/browser-smoke.cjs`. Its observational deadline is never interpreted as an unreachability verdict. The 61-disc deep-unreachable fixture in `tests/cases.json` is an optional stress case, excluded from ordinary smoke.
+The roughly 14.24MB inference runtime and one needed 1.232MB model load only when Auto first needs them, outside the initial bulk precache. After successful fetching under Service Worker control, model/runtime assets work offline while the browser retains their cache. First-use offline downloads are unavailable; loading/inference errors fall back to SAT.
 
 ## Licensing
 
-Original Rust, JavaScript, build scripts and verification scripts are MIT. Kissat retains its authors' MIT notices. Rust standard-library components require their applicable MIT OR Apache-2.0 and third-party notices; Emscripten, musl, compiler-rt and other runtime components retain their own notices. The compiled WebAssembly must not be treated as containing only original code. Kissat-side notices are in `ui/kissat.LICENSES.txt` and `solver/licenses/`. The original article prose and figures retain the existing CC BY 4.0 policy. See `LICENSE_SCOPE.md` in the public repository for the full scope.
+Original Rust/JS/build/verification code is [MIT](LICENSE). Kissat, Rust standard-library, Emscripten, ONNX Runtime and bundled runtimes retain their notices: see `ui/kissat.LICENSES.txt`, `ui/RUST-LICENSES.txt` and references, plus `ui/inference/LICENSE`. ONNX derivatives retain [CC BY 4.0](tests/licenses/CC-BY-4.0.txt), attribution **wand125**, the source Release and conversion changes.
 
+[Acceptance-fixture terms](tests/LICENSE.md) distinguish 12 MIT examples from two existing CC BY 4.0 article-derived examples. [Model tooling](model-tools/README.en.md) distinguishes MIT bank inputs from model attribution. Original article prose/figures, benchmark data and hashes are unchanged. See the repository-wide [LICENSE_SCOPE](../LICENSE_SCOPE.md).
 
-### Acceptance-fixture terms
-
-Each of the 14 entries in `tests/cases.json` has `license`, `attribution`, original JSON location and source hashes. The 12 bank-derived/original-example fixtures retain MIT terms. The two article-derived fixtures, `paper-two-placement-unreachable` and `paper-deep-root-61`, retain the existing CC BY 4.0 policy. Attribute **wand125**, the [article](https://othello-retro.logicpuzzle.app/paper), and each case's `source_data`. Extraction into fixture format and added verification metadata are recorded changes; boards and reference moves are unchanged. [Fixture terms](tests/LICENSE.md) and the [CC BY 4.0 text](tests/licenses/CC-BY-4.0.txt) are supplied. Verification code remains MIT, and third-party runtime notices remain separate.
+For boards with at least 44 discs, the final browser policy tries a bounded no-pass formula, then a bounded late-pass (last 12 placements) formula before general SAT or model guidance. Neither restricted UNSAT is a general refutation. The final general formula remains unlimited. Work limits are conflicts/decisions, not wall-clock promises.

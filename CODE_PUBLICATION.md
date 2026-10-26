@@ -39,9 +39,11 @@ v0.1.0のRustソースでRust1.98.0 locked release build、Kissat4.0.3付き全9
 
 現在の`solver/`へ軽量探索・推論のopt-in、未満盤終局の逆算修正、診断・再開・解析・検証コードを追加しました。[AUTO_DIAGNOSIS.md](AUTO_DIAGNOSIS.md)と[新データ](benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json)を参照してください。現在版はnative11・Python17テスト、全288棋譜の独立再生を確認しています。v0.1.0の9テスト等は[歴史記録](solver/history/v0.1.0/README.md)として数値を保持し、[現在の検証](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json)へ置き換えて解釈しません。モデルcheckpoint、Cargo、元bank・raw・結果表・論文は変更していません。これはv0.1.0の既存ソース添付を書き換えたという意味ではありません。
 
-## 別配布のブラウザSAT版
+## 別配布のブラウザSAT／軽量Auto版
 
-[`browser-wasm/`](browser-wasm/README.md)は計算サーバー・学習モデルを使わない純静的版です。Rust製CNF encoderとKissat 4.0.3のコンパイル済みWASM、再ビルド用ソース、ビルド記録、ライセンス・runtime通知を収録します。Kissat・Rust標準ライブラリ・Emscripten等の条件は自作コードMITと区別し、`ui/kissat.LICENSES.txt`・`ui/RUST-LICENSES.txt`と参照先を保持します。
+[`browser-wasm/`](browser-wasm/README.md)は計算サーバー不要の純静的版で、SATと任意の軽量Autoを備えます。AutoはONNX Runtime Web1.30.0・CPU FP32・1スレッドで動き、完全SATへfallbackします。Rust製CNF encoderとKissat 4.0.3のコンパイル済みWASM、再ビルド用ソース、ビルド記録、ライセンス・runtime通知を収録します。Kissat・Rust標準ライブラリ・Emscripten等の条件は自作コードMITと区別し、`ui/kissat.LICENSES.txt`・`ui/RUST-LICENSES.txt`と参照先を保持します。
+
+ONNXは[別Release browser-models-v1](https://github.com/wand125/othello-retro/releases/tag/browser-models-v1)で配布し、元checkpointを変更せずeval Conv–BN foldingで変換しています。[取得・archive SHA照合・2モデルのみのコピー](browser-wasm/README.md)と[再変換・数値fixture](browser-wasm/model-tools/README.md)を公開しています。runtime約14.24MBと必要モデルは遅延読込し、CDN・計算APIは使いません。モデル派生物はCC BY4.0・wand125の帰属と変換表示、ONNX Runtimeは同梱の通知を維持します。
 
 受入れfixture14件のうち、既存bank・自作例由来の12件はMIT、論文由来の2件は既存のCC BY 4.0方針です。後者は著作者wand125・[論文](https://othello-retro.logicpuzzle.app/paper)・元データ・抽出による変更をcaseメタに記載します。[fixture条件](browser-wasm/tests/LICENSE.md)を参照してください。旧nativeベンチマークの条件・値・hashと論文本文はこのブラウザ配布で変更しません。
 

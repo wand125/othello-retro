@@ -1,16 +1,31 @@
-# Othello Retro — ブラウザSAT版
+# Othello Retro — ブラウザSAT／軽量Auto版
 
-盤面から標準初期配置につながる合法棋譜を、ブラウザ内のRust製CNF生成器とKissat 4.0.3 WebAssemblyで探索します。配布物は純静的ファイルです。計算サーバーと学習モデルを使わず、SATだけを実行します。元のnative版やautoの比較試験は別の実装・測定です。
+[日本語](README.md) | [English](README.en.md) · [試験版を開く](https://wand125.github.io/othello-retro/)
 
-入力・再生・シーク・音声・盤面変換と、作成した棋譜のブラウザ内保存、JSON入出力を提供します。ローカルに作成した棋譜はそのブラウザに保存され、公開共有にはJSONの持ち出しなどが必要です。静的配布に含めた既存棋譜は一覧と個別URLから閲覧できます。
+盤面から標準初期配置につながる合法棋譜を、端末内で探索します。方式はSATと任意の軽量Autoです。Rust encoder・Kissat 4.0.3と、Auto用ONNX Runtime Web 1.30.0を同一originの静的assetとして配布し、計算サーバーやCDNを使いません。AutoはCPU FP32・推論1スレッドで既存checkpointの候補順位を評価し、見つからなければ完全な一般SATへ戻ります。native版の400／20盤面測定・後続32盤面診断は別の実装・条件です。
 
-`found` は独立したJavaScriptのルール実装で黒先手・合法配置・反転・強制パスと目標64セルを再検証します。`unreachable` は必要条件による排除またはパスを許す一般SATのUNSATからだけ返します。制限付きno-passのUNSATを一般の到達不能とは扱いません。取消し・資源不足・エラーは到達不能ではありません。DRAT証明書の独立検査は行いません。
+盤面の入力と白黒反転・回転・鏡映、棋譜の再生・シーク、音色と音出力（標準／画面収録向け）、ブラウザ内保存、JSON入出力、圧縮URLでの棋譜共有に対応します。作成した棋譜はそのブラウザへ保存し、既存公開棋譜のsnapshotは一覧・個別URLから開けます。
 
-探索はWorker内で行います。取消しはWorkerの終了によって処理します。端末によっては計算やメモリが多く必要です。モバイルでの探索時間・メモリ性能は未測定で、nativeベンチマークの値からブラウザの速度を保証しません。
+## 探索と端末での確認
 
-## ビルド
+`found`は別のJavaScriptルール実装で黒先手・反転・強制パス・目標64セルを厳密再生します。限定probeやAutoのmissは到達不能ではありません。必要条件違反か、パスを許す完全一般式のUNSATだけを`unreachable`とします。通常探索の一般SATには時間上限を設けず、取消しはWorkerを終了します。DRATの独立検査は行いません。
 
-Rust 1.98.0、`wasm32-unknown-unknown` target、Emscripten、Python 3、Node.jsを用意します。リポジトリルートから実行します。
+現在のAutoは36石以上を対象に候補を絞り、幅8・親ごと2・事前選択128・30配置まで戻す探索と約12秒のガイド予算を使います。候補SATは制限付きで、失敗は一般SATへ戻します。SAT側も44石以上では強めのパスなしprobeを試し、未解決なら占有の冗長制約を省いた完全一般式へ進みます。work単位のprobe制限はwall秒数の保証ではありません。
+
+スマートフォン実機での60秒以内を保証していません。[この端末で比較する](https://wand125.github.io/othello-retro/benchmark.html)から、まず5石数層のquick5、必要なら途中20・終局20・全40盤面をSAT／Autoで試せます。新しいWorkerで計算し、保存済みwitnessを再利用せず独立再生します。観測上限は1盤面60秒で、打切りは未解決です。結果は端末内でJSON保存し、POSTしません。Pythonで制御する実Chrome比較もスマートフォン実測とは区別します。
+
+## モデル取得とビルド
+
+Rust1.98.0（wasm32 target）・Emscripten・Python3・Node.jsを用意し、repo rootから実行します。まず[browser-models-v1](https://github.com/wand125/othello-retro/releases/tag/browser-models-v1)を取得し、archiveのSHA-256を照合して、**2個のONNXだけ**を`ui/models/`へコピーします。元の学習済みcheckpointは変えず、eval Conv–BN foldingで変換したモデルです。
+
+```sh
+BROWSER_MODEL_STAGE="$(mktemp -d)"
+curl -fL 'https://github.com/wand125/othello-retro/releases/download/browser-models-v1/browser-models-v1.tar.gz' -o "$BROWSER_MODEL_STAGE/browser-models-v1.tar.gz"
+printf '%s  %s\n' 'da61f0c2da3d518ebe6c6a5f5c02e9b6f20fe1f68a67a1258200617f17a0c248' "$BROWSER_MODEL_STAGE/browser-models-v1.tar.gz" | shasum -a 256 -c -
+tar -xzf "$BROWSER_MODEL_STAGE/browser-models-v1.tar.gz" -C "$BROWSER_MODEL_STAGE"
+mkdir -p browser-wasm/ui/models
+cp "$BROWSER_MODEL_STAGE/model.fused.onnx" "$BROWSER_MODEL_STAGE/model_passes.fused.onnx" browser-wasm/ui/models/
+```
 
 ```sh
 cargo +1.98.0 build --manifest-path browser-wasm/engine/Cargo.toml --target wasm32-unknown-unknown --release --locked -j2
@@ -18,29 +33,29 @@ cp browser-wasm/engine/target/wasm32-unknown-unknown/release/othello_retro_brows
 EMCC="$(command -v emcc)" EM_CACHE=/tmp/othello-emcache python3 browser-wasm/solver/build.py
 ```
 
-Emscriptenのcacheは利用できるSDK cacheを用意してください。Kissatの元ソース、wasm32向けの小修正、使用flags・ハッシュ・通知は [solver/README.md](solver/README.md) と同ディレクトリのmanifestに記録します。
+`EM_CACHE`には利用できるSDK cacheを用意するか、既存の適切なcacheへ変更してください。Kissatのソース・wasm32差分・flags・通知は[solver/README.md](solver/README.md)、モデル再変換と数値fixtureは[model-tools/README.md](model-tools/README.md)にあります。`model_passes`という名前はpass専用学習を意味しません。
 
-## 検証と静的配布
+## 検証・静的配布・オフライン
 
 ```sh
-node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs
+node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs browser-wasm/tests/test-auto.cjs
+node browser-wasm/model-tools/verify-planes.cjs
 node browser-wasm/tests/test-solver.cjs --smoke
 node browser-wasm/solver/smoke.cjs
-python3 browser-wasm/build_static.py --public-repo /path/to/othello-retro --records /path/to/public-records-snapshot.json --output /tmp/othello-static-new
+python3 browser-wasm/build_static.py --public-repo . --output /tmp/othello-static-new
 python3 -m http.server 8000 --directory /tmp/othello-static-new
 ```
 
-`--public-repo` は既存論文4ファイルを含む公開リポジトリ、`--output` はまだ存在しない新しいディレクトリです。ビルダーは自動デプロイしません。`--records` は `{ "examples": [...] }` 形式の公開棋譜snapshotです。指定した全棋譜を独立再生し、安全なIDと公開用フィールドだけを配布します。省略時はUI同梱の棋譜を使用します。同梱の72棋譜は検証済みsnapshotです。別のsnapshotを指定すると、そちらを使用します。
+最初のcommandはルール・probe制御・Autoの27単体テストです。重い全受入れ検査は`node browser-wasm/tests/test-solver.cjs --stress`を別途実行します。commandの掲載は、その全stressを全端末で完走したという主張ではありません。
 
-生成物の `/paper/` は既存論文の本文・CSS・数式・日英切替を保持し、リンクとasset参照だけを相対化します。`paper.html` と `examples/`・各棋譜URLに静的redirectを用意し、queryとhashを引き継ぎます。独自ドメインとGitHub Pagesのproject subpathの両方で利用できます。`asset-manifest.json` は配布物のversionとハッシュを記録し、Service Workerは最初の取得が成功したassetをオフライン用に保存します。初回からのオフライン利用やブラウザによる保存領域の維持は保証しません。
+モデル取得を済ませてから`build_static.py`を実行します。`--output`は新しいdirectory、`--public-repo`は論文を含む公開repoです。任意の`--records`で`{"examples":[...]}`snapshotを指定でき、省略時は同梱棋譜を使います。ビルダーはデプロイしません。論文の本文・CSS・数式・日英切替を保持し、asset/linkだけを相対化します。
 
-ブラウザsmokeには別途PlaywrightとChromiumが必要です。配布先を起動してから `OTHELLO_PREVIEW_URL=http://127.0.0.1:8000/ node browser-wasm/tests/browser-smoke.cjs` を実行します。この試験の観測用deadlineは、探索結果としての到達不能判定には使いません。`tests/cases.json` の深い61石不能例は任意のstress fixtureで、通常smokeには含めません。
+約14.24MBの推論runtimeと、必要なモデル1個約1.232MBはAutoで初めて必要になった時に読み込み、初回の一括precacheへ含めません。Service Workerに制御された状態で取得が成功したmodel/runtimeは、cacheが保持される間オフラインで利用できます。初回からオフラインでは取得できず、読込・推論のエラーはSATへfallbackします。
 
 ## ライセンス
 
-自作のRust・JavaScript・ビルド／検証スクリプトはMITです。Kissatは著作者のMIT通知を維持します。Rust標準ライブラリはMIT OR Apache-2.0等の適用通知、Emscripten・musl・compiler-rt等はそれぞれの通知を確認してください。生成したWebAssembly全体を自作コードだけとみなして通知を省略しません。Kissat側の通知は `ui/kissat.LICENSES.txt` と `solver/licenses/` にあります。元論文の本文・図は既存のCC BY 4.0方針を引き継ぎます。詳細は公開リポジトリの `LICENSE_SCOPE.md` を参照してください。
+自作Rust・JS・ビルド／検証コードは[MIT](LICENSE)。Kissat・Rust標準ライブラリ・Emscripten・ONNX Runtimeと同梱runtimeは各通知を保持します。`ui/kissat.LICENSES.txt`、`ui/RUST-LICENSES.txt`と参照先、`ui/inference/LICENSE`を確認してください。ONNX派生物は[CC BY 4.0](tests/licenses/CC-BY-4.0.txt)、著作者 **wand125**、元Releaseと変換変更を表示します。
 
+[受入れfixture条件](tests/LICENSE.md)はMIT12件・既存論文CC BY 4.0由来2件を区別し、[model-tools](model-tools/README.md)の数値fixtureはMIT bank入力とmodel帰属を区別します。元論文本文・図、元bank、元測定値・hashは変更しません。全体の[LICENSE_SCOPE](../LICENSE_SCOPE.md)を参照してください。
 
-### 受入れfixtureの条件
-
-`tests/cases.json`の14件はcaseごとに`license`・`attribution`・元JSONの位置と出典ハッシュを持ちます。既存bank・自作例由来12件はMIT、論文由来の`paper-two-placement-unreachable`と`paper-deep-root-61`の2件は既存のCC BY 4.0方針を維持します。著作者は **wand125**、出典は[論文](https://othello-retro.logicpuzzle.app/paper)と各caseの`source_data`です。fixture形式へ抽出し検証メタデータを追加した変更を記録し、盤面・参照棋譜は変更していません。[fixture条件](tests/LICENSE.md)と[CC BY 4.0本文](tests/licenses/CC-BY-4.0.txt)を同梱します。検証コードはMIT、第三者runtimeの通知は別です。
+44石以上では、制限付きのパスなし式、終盤12配置だけパスを許す式の順に試してから、一般SATまたはモデル誘導へ進みます。制限付きのUNSATを一般の到達不能とは扱いません。最後の一般式は無制限です。内部制限は衝突数・決定数であり、実時間の保証ではありません。

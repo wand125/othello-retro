@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "runtime": "v24.22.1",
+  "results": [
+    {
+      "model": "model",
+      "actual": [
+        -10.891206741333008
+      ],
+      "expected_fused": [
+        -10.891209602355957
+      ]
+    },
+    {
+      "model": "model_passes",
+      "actual": [
+        -5.999081134796143
+      ],
+      "expected_fused": [
+        -5.999078273773193
+      ]
+    }
+  ],
+  "stats": {
+    "runtime": "onnxruntime-web",
+    "version": "1.30.0",
+    "execution_provider": "wasm",
+    "num_threads": 1,
+    "input_type": "float32",
+    "input_layout": "NCHW",
+    "quantized": false,
+    "fp16": false,
+    "runtime_load_seconds": 0.003430957999999997,
+    "models": [
+      {
+        "session_load_seconds": 0.16668629100000001,
+        "calls": 1,
+        "failures": 0,
+        "last_batch": 1,
+        "last_run_seconds": 0.013803083000000015,
+        "total_run_seconds": 0.013803083000000015
+      },
+      {
+        "session_load_seconds": 0.008087208000000004,
+        "calls": 1,
+        "failures": 0,
+        "last_batch": 1,
+        "last_run_seconds": 0.0018301250000000095,
+        "total_run_seconds": 0.0018301250000000095
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "origin": "https://github.com/wand125/othello-retro/tree/v0.1.0/solver/src",
+  "license": "MIT",
+  "modifications": false,
+  "sha256": {
+    "board.rs": "a79695526e6e588f9c0e838fc8e3b56b79fb22ae4df5caa64c6ba6d9d0f7ff37",
+    "edge.rs": "360916fd040e3d2dae730034ad191d02644dde00aa85ee4bf2cbe4048c9523d1",
+    "solver.rs": "2f9decdd1e06735f3a11d829a30b72a18775d1e1d4180882e9a901bc6fb22aff",
+    "retro.rs": "ee2b12fde6df0d2ae2bdd8d119de92f56771639f8dcd4774d1a355c5090ae339",
+    "sat.rs": "cc3ac77baad342b861079f723afdd8a8609be2421db8159d6e928639442aec45"
+  }
+}

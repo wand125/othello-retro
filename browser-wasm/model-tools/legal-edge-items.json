@@ -1,0 +1,4481 @@
+{
+  "scope": "Genuine legal forward edges, usable as one-step reverse candidates. No native Undo process or model required.",
+  "source_fixtures_sha256": "3eff562554b875a5b7b1a87a38a5d93aa792d31fdf8aa31efac8f777cebec083",
+  "items": [
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 1,
+      "move": "e6",
+      "child": "0000000810000000,0000001008000000",
+      "parent": "0000101810000000,0000000008000000",
+      "n_parent": 1,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        8,
+        134217728,
+        16
+      ],
+      "parent_words": [
+        268435456,
+        4120,
+        134217728,
+        0
+      ],
+      "removed_square": 44,
+      "child_board": "---------------------------OX------XO---------------------------",
+      "parent_board": "---------------------------OX------XX-------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 2,
+      "move": "f6",
+      "child": "0000101810000000,0000000008000000",
+      "parent": "0000100810000000,0000201008000000",
+      "n_parent": 2,
+      "mover": 1,
+      "child_words": [
+        268435456,
+        4120,
+        134217728,
+        0
+      ],
+      "parent_words": [
+        268435456,
+        4104,
+        134217728,
+        8208
+      ],
+      "removed_square": 45,
+      "child_board": "---------------------------OX------XX-------X-------------------",
+      "parent_board": "---------------------------OX------XO-------XO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 3,
+      "move": "g6",
+      "child": "0000100810000000,0000201008000000",
+      "parent": "0000700810000000,0000001008000000",
+      "n_parent": 3,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        4104,
+        134217728,
+        8208
+      ],
+      "parent_words": [
+        268435456,
+        28680,
+        134217728,
+        16
+      ],
+      "removed_square": 46,
+      "child_board": "---------------------------OX------XO-------XO------------------",
+      "parent_board": "---------------------------OX------XO-------XXX-----------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 4,
+      "move": "g7",
+      "child": "0000700810000000,0000001008000000",
+      "parent": "0000500810000000,0040201008000000",
+      "n_parent": 4,
+      "mover": 1,
+      "child_words": [
+        268435456,
+        28680,
+        134217728,
+        16
+      ],
+      "parent_words": [
+        268435456,
+        20488,
+        134217728,
+        4202512
+      ],
+      "removed_square": 54,
+      "child_board": "---------------------------OX------XO-------XXX-----------------",
+      "parent_board": "---------------------------OX------XO-------XOX-------O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 5,
+      "move": "c4",
+      "child": "0000500810000000,0040201008000000",
+      "parent": "000050081c000000,0040201000000000",
+      "n_parent": 5,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        20488,
+        134217728,
+        4202512
+      ],
+      "parent_words": [
+        469762048,
+        20488,
+        0,
+        4202512
+      ],
+      "removed_square": 26,
+      "child_board": "---------------------------OX------XO-------XOX-------O---------",
+      "parent_board": "--------------------------XXX------XO-------XOX-------O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 6,
+      "move": "d6",
+      "child": "000050081c000000,0040201000000000",
+      "parent": "000040081c000000,0040381000000000",
+      "n_parent": 6,
+      "mover": 1,
+      "child_words": [
+        469762048,
+        20488,
+        0,
+        4202512
+      ],
+      "parent_words": [
+        469762048,
+        16392,
+        0,
+        4208656
+      ],
+      "removed_square": 43,
+      "child_board": "--------------------------XXX------XO-------XOX-------O---------",
+      "parent_board": "--------------------------XXX------XO------OOOX-------O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 7,
+      "move": "c6",
+      "child": "000040081c000000,0040381000000000",
+      "parent": "00007c081c000000,0040001000000000",
+      "n_parent": 7,
+      "mover": 0,
+      "child_words": [
+        469762048,
+        16392,
+        0,
+        4208656
+      ],
+      "parent_words": [
+        469762048,
+        31752,
+        0,
+        4194320
+      ],
+      "removed_square": 42,
+      "child_board": "--------------------------XXX------XO------OOOX-------O---------",
+      "parent_board": "--------------------------XXX------XO-----XXXXX-------O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 8,
+      "move": "e3",
+      "child": "00007c081c000000,0040001000000000",
+      "parent": "00007c080c000000,0040001010100000",
+      "n_parent": 8,
+      "mover": 1,
+      "child_words": [
+        469762048,
+        31752,
+        0,
+        4194320
+      ],
+      "parent_words": [
+        201326592,
+        31752,
+        269484032,
+        4194320
+      ],
+      "removed_square": 20,
+      "child_board": "--------------------------XXX------XO-----XXXXX-------O---------",
+      "parent_board": "--------------------O-----XXO------XO-----XXXXX-------O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 9,
+      "move": "f3",
+      "child": "00007c080c000000,0040001010100000",
+      "parent": "00007c081c200000,0040001000100000",
+      "n_parent": 9,
+      "mover": 0,
+      "child_words": [
+        201326592,
+        31752,
+        269484032,
+        4194320
+      ],
+      "parent_words": [
+        471859200,
+        31752,
+        1048576,
+        4194320
+      ],
+      "removed_square": 21,
+      "child_board": "--------------------O-----XXO------XO-----XXXXX-------O---------",
+      "parent_board": "--------------------OX----XXX------XO-----XXXXX-------O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 10,
+      "move": "e7",
+      "child": "00007c081c200000,0040001000100000",
+      "parent": "00006c081c200000,0050101000100000",
+      "n_parent": 10,
+      "mover": 1,
+      "child_words": [
+        471859200,
+        31752,
+        1048576,
+        4194320
+      ],
+      "parent_words": [
+        471859200,
+        27656,
+        1048576,
+        5246992
+      ],
+      "removed_square": 52,
+      "child_board": "--------------------OX----XXX------XO-----XXXXX-------O---------",
+      "parent_board": "--------------------OX----XXX------XO-----XXOXX-----O-O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 11,
+      "move": "e2",
+      "child": "00006c081c200000,0050101000100000",
+      "parent": "00006c081c301000,0050101000000000",
+      "n_parent": 11,
+      "mover": 0,
+      "child_words": [
+        471859200,
+        27656,
+        1048576,
+        5246992
+      ],
+      "parent_words": [
+        472911872,
+        27656,
+        0,
+        5246992
+      ],
+      "removed_square": 12,
+      "child_board": "--------------------OX----XXX------XO-----XXOXX-----O-O---------",
+      "parent_board": "------------X-------XX----XXX------XO-----XXOXX-----O-O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 12,
+      "move": "e1",
+      "child": "00006c081c301000,0050101000000000",
+      "parent": "00006c080c200000,0050101010101010",
+      "n_parent": 12,
+      "mover": 1,
+      "child_words": [
+        472911872,
+        27656,
+        0,
+        5246992
+      ],
+      "parent_words": [
+        203423744,
+        27656,
+        269488144,
+        5246992
+      ],
+      "removed_square": 4,
+      "child_board": "------------X-------XX----XXX------XO-----XXOXX-----O-O---------",
+      "parent_board": "----O-------O-------OX----XXO------XO-----XXOXX-----O-O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 13,
+      "move": "f5",
+      "child": "00006c080c200000,0050101010101010",
+      "parent": "00006c380c200000,0050100010101010",
+      "n_parent": 13,
+      "mover": 0,
+      "child_words": [
+        203423744,
+        27656,
+        269488144,
+        5246992
+      ],
+      "parent_words": [
+        203423744,
+        27704,
+        269488144,
+        5246976
+      ],
+      "removed_square": 37,
+      "child_board": "----O-------O-------OX----XXO------XO-----XXOXX-----O-O---------",
+      "parent_board": "----O-------O-------OX----XXO------XXX----XXOXX-----O-O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 14,
+      "move": "b4",
+      "child": "00006c380c200000,0050100010101010",
+      "parent": "00006c3800200000,005010001e101010",
+      "n_parent": 14,
+      "mover": 1,
+      "child_words": [
+        203423744,
+        27704,
+        269488144,
+        5246976
+      ],
+      "parent_words": [
+        2097152,
+        27704,
+        504369168,
+        5246976
+      ],
+      "removed_square": 25,
+      "child_board": "----O-------O-------OX----XXO------XXX----XXOXX-----O-O---------",
+      "parent_board": "----O-------O-------OX---OOOO------XXX----XXOXX-----O-O---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 15,
+      "move": "f7",
+      "child": "00006c3800200000,005010001e101010",
+      "parent": "00207c3800200000,005000001e101010",
+      "n_parent": 15,
+      "mover": 0,
+      "child_words": [
+        2097152,
+        27704,
+        504369168,
+        5246976
+      ],
+      "parent_words": [
+        2097152,
+        2128952,
+        504369168,
+        5242880
+      ],
+      "removed_square": 53,
+      "child_board": "----O-------O-------OX---OOOO------XXX----XXOXX-----O-O---------",
+      "parent_board": "----O-------O-------OX---OOOO------XXX----XXXXX-----OXO---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 16,
+      "move": "h7",
+      "child": "00207c3800200000,005000001e101010",
+      "parent": "00203c1800200000,00d040201e101010",
+      "n_parent": 16,
+      "mover": 1,
+      "child_words": [
+        2097152,
+        2128952,
+        504369168,
+        5242880
+      ],
+      "parent_words": [
+        2097152,
+        2112536,
+        504369168,
+        13647904
+      ],
+      "removed_square": 55,
+      "child_board": "----O-------O-------OX---OOOO------XXX----XXXXX-----OXO---------",
+      "parent_board": "----O-------O-------OX---OOOO------XXO----XXXXO-----OXOO--------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 17,
+      "move": "h6",
+      "child": "00203c1800200000,00d040201e101010",
+      "parent": "0020fc1800200000,00d000201e101010",
+      "n_parent": 17,
+      "mover": 0,
+      "child_words": [
+        2097152,
+        2112536,
+        504369168,
+        13647904
+      ],
+      "parent_words": [
+        2097152,
+        2161688,
+        504369168,
+        13631520
+      ],
+      "removed_square": 47,
+      "child_board": "----O-------O-------OX---OOOO------XXO----XXXXO-----OXOO--------",
+      "parent_board": "----O-------O-------OX---OOOO------XXO----XXXXXX----OXOO--------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 18,
+      "move": "f8",
+      "child": "0020fc1800200000,00d000201e101010",
+      "parent": "0000dc1800200000,20f020201e101010",
+      "n_parent": 18,
+      "mover": 1,
+      "child_words": [
+        2097152,
+        2161688,
+        504369168,
+        13631520
+      ],
+      "parent_words": [
+        2097152,
+        56344,
+        504369168,
+        552607776
+      ],
+      "removed_square": 61,
+      "child_board": "----O-------O-------OX---OOOO------XXO----XXXXXX----OXOO--------",
+      "parent_board": "----O-------O-------OX---OOOO------XXO----XXXOXX----OOOO-----O--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 19,
+      "move": "c3",
+      "child": "0000dc1800200000,20f020201e101010",
+      "parent": "0000dc1808240000,20f0202016101010",
+      "n_parent": 19,
+      "mover": 0,
+      "child_words": [
+        2097152,
+        56344,
+        504369168,
+        552607776
+      ],
+      "parent_words": [
+        136577024,
+        56344,
+        370151440,
+        552607776
+      ],
+      "removed_square": 18,
+      "child_board": "----O-------O-------OX---OOOO------XXO----XXXOXX----OOOO-----O--",
+      "parent_board": "----O-------O-----X-OX---OOXO------XXO----XXXOXX----OOOO-----O--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 20,
+      "move": "d7",
+      "child": "0000dc1808240000,20f0202016101010",
+      "parent": "0000cc1808240000,20f8302016101010",
+      "n_parent": 20,
+      "mover": 1,
+      "child_words": [
+        136577024,
+        56344,
+        370151440,
+        552607776
+      ],
+      "parent_words": [
+        136577024,
+        52248,
+        370151440,
+        553136160
+      ],
+      "removed_square": 51,
+      "child_board": "----O-------O-----X-OX---OOXO------XXO----XXXOXX----OOOO-----O--",
+      "parent_board": "----O-------O-----X-OX---OOXO------XXO----XXOOXX---OOOOO-----O--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 21,
+      "move": "e8",
+      "child": "0000cc1808240000,20f8302016101010",
+      "parent": "1038dc1808240000,20c0202016101010",
+      "n_parent": 21,
+      "mover": 0,
+      "child_words": [
+        136577024,
+        52248,
+        370151440,
+        553136160
+      ],
+      "parent_words": [
+        136577024,
+        272161816,
+        370151440,
+        549462048
+      ],
+      "removed_square": 60,
+      "child_board": "----O-------O-----X-OX---OOXO------XXO----XXOOXX---OOOOO-----O--",
+      "parent_board": "----O-------O-----X-OX---OOXO------XXO----XXXOXX---XXXOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 22,
+      "move": "b2",
+      "child": "1038dc1808240000,20c0202016101010",
+      "parent": "1038dc0800200000,20c020301e141210",
+      "n_parent": 22,
+      "mover": 1,
+      "child_words": [
+        136577024,
+        272161816,
+        370151440,
+        549462048
+      ],
+      "parent_words": [
+        2097152,
+        272161800,
+        504631824,
+        549462064
+      ],
+      "removed_square": 9,
+      "child_board": "----O-------O-----X-OX---OOXO------XXO----XXXOXX---XXXOO----XO--",
+      "parent_board": "----O----O--O-----O-OX---OOOO------XOO----XXXOXX---XXXOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 23,
+      "move": "d1",
+      "child": "1038dc0800200000,20c020301e141210",
+      "parent": "1038dc0800201008,20c020301e140210",
+      "n_parent": 23,
+      "mover": 0,
+      "child_words": [
+        2097152,
+        272161800,
+        504631824,
+        549462064
+      ],
+      "parent_words": [
+        2101256,
+        272161800,
+        504627728,
+        549462064
+      ],
+      "removed_square": 3,
+      "child_board": "----O----O--O-----O-OX---OOOO------XOO----XXXOXX---XXXOO----XO--",
+      "parent_board": "---XO----O--X-----O-OX---OOOO------XOO----XXXOXX---XXXOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 24,
+      "move": "c1",
+      "child": "1038dc0800201008,20c020301e140210",
+      "parent": "1038dc0800201000,20c020301e14021c",
+      "n_parent": 24,
+      "mover": 1,
+      "child_words": [
+        2101256,
+        272161800,
+        504627728,
+        549462064
+      ],
+      "parent_words": [
+        2101248,
+        272161800,
+        504627740,
+        549462064
+      ],
+      "removed_square": 2,
+      "child_board": "---XO----O--X-----O-OX---OOOO------XOO----XXXOXX---XXXOO----XO--",
+      "parent_board": "--OOO----O--X-----O-OX---OOOO------XOO----XXXOXX---XXXOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 25,
+      "move": "g5",
+      "child": "1038dc0800201000,20c020301e14021c",
+      "parent": "1038fc7800201000,20c000001e14021c",
+      "n_parent": 25,
+      "mover": 0,
+      "child_words": [
+        2101248,
+        272161800,
+        504627740,
+        549462064
+      ],
+      "parent_words": [
+        2101248,
+        272170104,
+        504627740,
+        549453824
+      ],
+      "removed_square": 38,
+      "child_board": "--OOO----O--X-----O-OX---OOOO------XOO----XXXOXX---XXXOO----XO--",
+      "parent_board": "--OOO----O--X-----O-OX---OOOO------XXXX---XXXXXX---XXXOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 26,
+      "move": "c7",
+      "child": "1038fc7800201000,20c000001e14021c",
+      "parent": "1000fc7800201000,20fc00001e14021c",
+      "n_parent": 26,
+      "mover": 1,
+      "child_words": [
+        2101248,
+        272170104,
+        504627740,
+        549453824
+      ],
+      "parent_words": [
+        2101248,
+        268500088,
+        504627740,
+        553385984
+      ],
+      "removed_square": 50,
+      "child_board": "--OOO----O--X-----O-OX---OOOO------XXXX---XXXXXX---XXXOO----XO--",
+      "parent_board": "--OOO----O--X-----O-OX---OOOO------XXXX---XXXXXX--OOOOOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 27,
+      "move": "a1",
+      "child": "1000fc7800201000,20fc00001e14021c",
+      "parent": "1000fc7808241201,20fc00001610001c",
+      "n_parent": 27,
+      "mover": 0,
+      "child_words": [
+        2101248,
+        268500088,
+        504627740,
+        553385984
+      ],
+      "parent_words": [
+        136581633,
+        268500088,
+        370147356,
+        553385984
+      ],
+      "removed_square": 0,
+      "child_board": "--OOO----O--X-----O-OX---OOOO------XXXX---XXXXXX--OOOOOO----XO--",
+      "parent_board": "X-OOO----X--X-----X-OX---OOXO------XXXX---XXXXXX--OOOOOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 28,
+      "move": "c2",
+      "child": "1000fc7808241201,20fc00001610001c",
+      "parent": "1000fc7808201201,20fc00001614041c",
+      "n_parent": 28,
+      "mover": 1,
+      "child_words": [
+        136581633,
+        268500088,
+        370147356,
+        553385984
+      ],
+      "parent_words": [
+        136319489,
+        268500088,
+        370410524,
+        553385984
+      ],
+      "removed_square": 10,
+      "child_board": "X-OOO----X--X-----X-OX---OOXO------XXXX---XXXXXX--OOOOOO----XO--",
+      "parent_board": "X-OOO----XO-X-----O-OX---OOXO------XXXX---XXXXXX--OOOOOO----XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 29,
+      "move": "b8",
+      "child": "1000fc7808201201,20fc00001614041c",
+      "parent": "1204fc7808201201,20f800001614041c",
+      "n_parent": 29,
+      "mover": 0,
+      "child_words": [
+        136319489,
+        268500088,
+        370410524,
+        553385984
+      ],
+      "parent_words": [
+        136319489,
+        302316664,
+        370410524,
+        553123840
+      ],
+      "removed_square": 57,
+      "child_board": "X-OOO----XO-X-----O-OX---OOXO------XXXX---XXXXXX--OOOOOO----XO--",
+      "parent_board": "X-OOO----XO-X-----O-OX---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 30,
+      "move": "a2",
+      "child": "1204fc7808201201,20f800001614041c",
+      "parent": "1204fc7808201001,20f800001614071c",
+      "n_parent": 30,
+      "mover": 1,
+      "child_words": [
+        136319489,
+        302316664,
+        370410524,
+        553123840
+      ],
+      "parent_words": [
+        136318977,
+        302316664,
+        370411292,
+        553123840
+      ],
+      "removed_square": 8,
+      "child_board": "X-OOO----XO-X-----O-OX---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "parent_board": "X-OOO---OOO-X-----O-OX---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 31,
+      "move": "a3",
+      "child": "1204fc7808201001,20f800001614071c",
+      "parent": "1204fc7808211101,20f800001614061c",
+      "n_parent": 31,
+      "mover": 0,
+      "child_words": [
+        136318977,
+        302316664,
+        370411292,
+        553123840
+      ],
+      "parent_words": [
+        136384769,
+        302316664,
+        370411036,
+        553123840
+      ],
+      "removed_square": 16,
+      "child_board": "X-OOO---OOO-X-----O-OX---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "parent_board": "X-OOO---XOO-X---X-O-OX---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 32,
+      "move": "g2",
+      "child": "1204fc7808211101,20f800001614061c",
+      "parent": "1204fc7808011101,20f800001634461c",
+      "n_parent": 32,
+      "mover": 1,
+      "child_words": [
+        136384769,
+        302316664,
+        370411036,
+        553123840
+      ],
+      "parent_words": [
+        134287617,
+        302316664,
+        372524572,
+        553123840
+      ],
+      "removed_square": 14,
+      "child_board": "X-OOO---XOO-X---X-O-OX---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "parent_board": "X-OOO---XOO-X-O-X-O-OO---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 33,
+      "move": "g8",
+      "child": "1204fc7808011101,20f800001634461c",
+      "parent": "7264fc7808011101,009800001634461c",
+      "n_parent": 33,
+      "mover": 0,
+      "child_words": [
+        134287617,
+        302316664,
+        372524572,
+        553123840
+      ],
+      "parent_words": [
+        134287617,
+        1919220856,
+        372524572,
+        9961472
+      ],
+      "removed_square": 62,
+      "child_board": "X-OOO---XOO-X-O-X-O-OO---OOXO------XXXX---XXXXXX--XOOOOO-X--XO--",
+      "parent_board": "X-OOO---XOO-X-O-X-O-OO---OOXO------XXXX---XXXXXX--XOOXXO-X--XXX-",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 34,
+      "move": "h4",
+      "child": "7264fc7808011101,009800001634461c",
+      "parent": "7264dc3808011101,009820409634461c",
+      "n_parent": 34,
+      "mover": 1,
+      "child_words": [
+        134287617,
+        1919220856,
+        372524572,
+        9961472
+      ],
+      "parent_words": [
+        134287617,
+        1919212600,
+        2520008220,
+        9969728
+      ],
+      "removed_square": 31,
+      "child_board": "X-OOO---XOO-X-O-X-O-OO---OOXO------XXXX---XXXXXX--XOOXXO-X--XXX-",
+      "parent_board": "X-OOO---XOO-X-O-X-O-OO---OOXO--O---XXXO---XXXOXX--XOOXXO-X--XXX-",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 35,
+      "move": "h1",
+      "child": "7264dc3808011101,009820409634461c",
+      "parent": "7264dc3818215181,009820408614061c",
+      "n_parent": 35,
+      "mover": 0,
+      "child_words": [
+        134287617,
+        1919212600,
+        2520008220,
+        9969728
+      ],
+      "parent_words": [
+        404836737,
+        1919212600,
+        2249459228,
+        9969728
+      ],
+      "removed_square": 7,
+      "child_board": "X-OOO---XOO-X-O-X-O-OO---OOXO--O---XXXO---XXXOXX--XOOXXO-X--XXX-",
+      "parent_board": "X-OOO--XXOO-X-X-X-O-OX---OOXX--O---XXXO---XXXOXX--XOOXXO-X--XXX-",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 36,
+      "move": "d3",
+      "child": "7264dc3818215181,009820408614061c",
+      "parent": "7264941000215181,009868689e1c061c",
+      "n_parent": 36,
+      "mover": 1,
+      "child_words": [
+        404836737,
+        1919212600,
+        2249459228,
+        9969728
+      ],
+      "parent_words": [
+        2183553,
+        1919194128,
+        2652636700,
+        9988200
+      ],
+      "removed_square": 19,
+      "child_board": "X-OOO--XXOO-X-X-X-O-OX---OOXX--O---XXXO---XXXOXX--XOOXXO-X--XXX-",
+      "parent_board": "X-OOO--XXOO-X-X-X-OOOX---OOOO--O---OXOO---XOXOOX--XOOXXO-X--XXX-",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 37,
+      "move": "f4",
+      "child": "7264941000215181,009868689e1c061c",
+      "parent": "7264b47020215181,009848089e1c061c",
+      "n_parent": 37,
+      "mover": 0,
+      "child_words": [
+        2183553,
+        1919194128,
+        2652636700,
+        9988200
+      ],
+      "parent_words": [
+        539054465,
+        1919202416,
+        2652636700,
+        9979912
+      ],
+      "removed_square": 29,
+      "child_board": "X-OOO--XXOO-X-X-X-OOOX---OOOO--O---OXOO---XOXOOX--XOOXXO-X--XXX-",
+      "parent_board": "X-OOO--XXOO-X-X-X-OOOX---OOOOX-O---OXXX---XOXXOX--XOOXXO-X--XXX-",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 38,
+      "move": "h8",
+      "child": "7264b47020215181,009848089e1c061c",
+      "parent": "7224946020215181,80d868189e1c061c",
+      "n_parent": 38,
+      "mover": 1,
+      "child_words": [
+        539054465,
+        1919202416,
+        2652636700,
+        9979912
+      ],
+      "parent_words": [
+        539054465,
+        1914999904,
+        2652636700,
+        2161666072
+      ],
+      "removed_square": 63,
+      "child_board": "X-OOO--XXOO-X-X-X-OOOX---OOOOX-O---OXXX---XOXXOX--XOOXXO-X--XXX-",
+      "parent_board": "X-OOO--XXOO-X-X-X-OOOX---OOOOX-O---OOXX---XOXOOX--XOOXOO-X--XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 39,
+      "move": "c8",
+      "child": "7224946020215181,80d868189e1c061c",
+      "parent": "762c946020215181,80d068189e1c061c",
+      "n_parent": 39,
+      "mover": 0,
+      "child_words": [
+        539054465,
+        1914999904,
+        2652636700,
+        2161666072
+      ],
+      "parent_words": [
+        539054465,
+        1982633056,
+        2652636700,
+        2161141784
+      ],
+      "removed_square": 58,
+      "child_board": "X-OOO--XXOO-X-X-X-OOOX---OOOOX-O---OOXX---XOXOOX--XOOXOO-X--XXXO",
+      "parent_board": "X-OOO--XXOO-X-X-X-OOOX---OOOOX-O---OOXX---XOXOOX--XXOXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 40,
+      "move": "g3",
+      "child": "762c946020215181,80d068189e1c061c",
+      "parent": "762c946000015181,80d06818be7c061c",
+      "n_parent": 40,
+      "mover": 1,
+      "child_words": [
+        539054465,
+        1982633056,
+        2652636700,
+        2161141784
+      ],
+      "parent_words": [
+        86401,
+        1982633056,
+        3195799068,
+        2161141784
+      ],
+      "removed_square": 22,
+      "child_board": "X-OOO--XXOO-X-X-X-OOOX---OOOOX-O---OOXX---XOXOOX--XXOXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOO-X-X-X-OOOOO--OOOOO-O---OOXX---XOXOOX--XXOXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 41,
+      "move": "b5",
+      "child": "762c946000015181,80d06818be7c061c",
+      "parent": "762c946204095181,80d06818ba74061c",
+      "n_parent": 41,
+      "mover": 0,
+      "child_words": [
+        86401,
+        1982633056,
+        3195799068,
+        2161141784
+      ],
+      "parent_words": [
+        67719553,
+        1982633058,
+        3128165916,
+        2161141784
+      ],
+      "removed_square": 33,
+      "child_board": "X-OOO--XXOO-X-X-X-OOOOO--OOOOO-O---OOXX---XOXOOX--XXOXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOO-X-X-X-OXOOO--OXOOO-O-X-OOXX---XOXOOX--XXOXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 42,
+      "move": "b6",
+      "child": "762c946204095181,80d06818ba74061c",
+      "parent": "762c906004095181,80d06e1aba74061c",
+      "n_parent": 42,
+      "mover": 1,
+      "child_words": [
+        67719553,
+        1982633058,
+        3128165916,
+        2161141784
+      ],
+      "parent_words": [
+        67719553,
+        1982632032,
+        3128165916,
+        2161143322
+      ],
+      "removed_square": 41,
+      "child_board": "X-OOO--XXOO-X-X-X-OXOOO--OXOOO-O-X-OOXX---XOXOOX--XXOXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOO-X-X-X-OXOOO--OXOOO-O-O-OOXX--OOOXOOX--XXOXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 43,
+      "move": "c5",
+      "child": "762c906004095181,80d06e1aba74061c",
+      "parent": "763c9c7c06095181,80c06202b874061c",
+      "n_parent": 43,
+      "mover": 0,
+      "child_words": [
+        67719553,
+        1982632032,
+        3128165916,
+        2161143322
+      ],
+      "parent_words": [
+        101273985,
+        1983683708,
+        3094611484,
+        2160091650
+      ],
+      "removed_square": 34,
+      "child_board": "X-OOO--XXOO-X-X-X-OXOOO--OXOOO-O-O-OOXX--OOOXOOX--XXOXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOO-X-X-X-OXOOO--XXOOO-O-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 44,
+      "move": "d2",
+      "child": "763c9c7c06095181,80c06202b874061c",
+      "parent": "763c9c7c06015181,80c06202b87c0e1c",
+      "n_parent": 44,
+      "mover": 1,
+      "child_words": [
+        101273985,
+        1983683708,
+        3094611484,
+        2160091650
+      ],
+      "parent_words": [
+        100749697,
+        1983683708,
+        3095137820,
+        2160091650
+      ],
+      "removed_square": 11,
+      "child_board": "X-OOO--XXOO-X-X-X-OXOOO--XXOOO-O-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOOOX-X-X-OOOOO--XXOOO-O-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 45,
+      "move": "g4",
+      "child": "763c9c7c06015181,80c06202b87c0e1c",
+      "parent": "763c9c7c7e615181,80c06202801c0e1c",
+      "n_parent": 45,
+      "mover": 0,
+      "child_words": [
+        100749697,
+        1983683708,
+        3095137820,
+        2160091650
+      ],
+      "parent_words": [
+        2120307073,
+        1983683708,
+        2149322268,
+        2160091650
+      ],
+      "removed_square": 30,
+      "child_board": "X-OOO--XXOOOX-X-X-OOOOO--XXOOO-O-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOOOX-X-X-OOOXX--XXXXXXO-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 46,
+      "move": "h3",
+      "child": "763c9c7c7e615181,80c06202801c0e1c",
+      "parent": "763c9c7c7e015181,80c0620280fc0e1c",
+      "n_parent": 46,
+      "mover": 1,
+      "child_words": [
+        2120307073,
+        1983683708,
+        2149322268,
+        2160091650
+      ],
+      "parent_words": [
+        2114015617,
+        1983683708,
+        2164002332,
+        2160091650
+      ],
+      "removed_square": 23,
+      "child_board": "X-OOO--XXOOOX-X-X-OOOXX--XXXXXXO-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOOOX-X-X-OOOOOO-XXXXXXO-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 47,
+      "move": "b7",
+      "child": "763c9c7c7e015181,80c0620280fc0e1c",
+      "parent": "763e9e7e7e015181,80c0600080fc0e1c",
+      "n_parent": 47,
+      "mover": 0,
+      "child_words": [
+        2114015617,
+        1983683708,
+        2164002332,
+        2160091650
+      ],
+      "parent_words": [
+        2114015617,
+        1983815294,
+        2164002332,
+        2160091136
+      ],
+      "removed_square": 49,
+      "child_board": "X-OOO--XXOOOX-X-X-OOOOOO-XXXXXXO-OXXXXX--OXXXOOX--XXXXOO-XX-XXXO",
+      "parent_board": "X-OOO--XXOOOX-X-X-OOOOOO-XXXXXXO-XXXXXX--XXXXOOX-XXXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 48,
+      "move": "f1",
+      "child": "763e9e7e7e015181,80c0600080fc0e1c",
+      "parent": "763e9e7e7e010181,80c0600080fc5e3c",
+      "n_parent": 48,
+      "mover": 1,
+      "child_words": [
+        2114015617,
+        1983815294,
+        2164002332,
+        2160091136
+      ],
+      "parent_words": [
+        2113995137,
+        1983815294,
+        2164022844,
+        2160091136
+      ],
+      "removed_square": 5,
+      "child_board": "X-OOO--XXOOOX-X-X-OOOOOO-XXXXXXO-XXXXXX--XXXXOOX-XXXXXOO-XX-XXXO",
+      "parent_board": "X-OOOO-XXOOOO-O-X-OOOOOO-XXXXXXO-XXXXXX--XXXXOOX-XXXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 49,
+      "move": "g1",
+      "child": "763e9e7e7e010181,80c0600080fc5e3c",
+      "parent": "763e9e7e7e4141c1,80c0600080bc1e3c",
+      "n_parent": 49,
+      "mover": 0,
+      "child_words": [
+        2113995137,
+        1983815294,
+        2164022844,
+        2160091136
+      ],
+      "parent_words": [
+        2118205889,
+        1983815294,
+        2159812156,
+        2160091136
+      ],
+      "removed_square": 6,
+      "child_board": "X-OOOO-XXOOOO-O-X-OOOOOO-XXXXXXO-XXXXXX--XXXXOOX-XXXXXOO-XX-XXXO",
+      "parent_board": "X-OOOOXXXOOOO-X-X-OOOOXO-XXXXXXO-XXXXXX--XXXXOOX-XXXXXOO-XX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 50,
+      "move": "a8",
+      "child": "763e9e7e7e4141c1,80c0600080bc1e3c",
+      "parent": "763c9a766e4141c1,81c2640890bc1e3c",
+      "n_parent": 50,
+      "mover": 1,
+      "child_words": [
+        2118205889,
+        1983815294,
+        2159812156,
+        2160091136
+      ],
+      "parent_words": [
+        1849770433,
+        1983683190,
+        2428247612,
+        2177000456
+      ],
+      "removed_square": 56,
+      "child_board": "X-OOOOXXXOOOO-X-X-OOOOXO-XXXXXXO-XXXXXX--XXXXOOX-XXXXXOO-XX-XXXO",
+      "parent_board": "X-OOOOXXXOOOO-X-X-OOOOXO-XXXOXXO-XXOXXX--XOXXOOX-OXXXXOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 51,
+      "move": "b1",
+      "child": "763c9a766e4141c1,81c2640890bc1e3c",
+      "parent": "763c9a767e4945ff,81c2640880b41a00",
+      "n_parent": 51,
+      "mover": 0,
+      "child_words": [
+        1849770433,
+        1983683190,
+        2428247612,
+        2177000456
+      ],
+      "parent_words": [
+        2118731263,
+        1983683190,
+        2159286784,
+        2177000456
+      ],
+      "removed_square": 1,
+      "child_board": "X-OOOOXXXOOOO-X-X-OOOOXO-XXXOXXO-XXOXXX--XOXXOOX-OXXXXOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-X-OXOOXO-XXXXXXO-XXOXXX--XOXXOOX-OXXXXOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 52,
+      "move": "b3",
+      "child": "763c9a767e4945ff,81c2640880b41a00",
+      "parent": "763c9874784945ff,81c2660a86b61a00",
+      "n_parent": 52,
+      "mover": 1,
+      "child_words": [
+        2118731263,
+        1983683190,
+        2159286784,
+        2177000456
+      ],
+      "parent_words": [
+        2018067967,
+        1983682676,
+        2260081152,
+        2177000970
+      ],
+      "removed_square": 17,
+      "child_board": "XXXXXXXXXOXOO-X-X-OXOOXO-XXXXXXO-XXOXXX--XOXXOOX-OXXXXOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-XOOXOOXO-OOXXXXO-OXOXXX--OOXXOOX-OXXXXOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 53,
+      "move": "a6",
+      "child": "763c9874784945ff,81c2660a86b61a00",
+      "parent": "763e9f767c4945ff,81c0600882b61a00",
+      "n_parent": 53,
+      "mover": 0,
+      "child_words": [
+        2018067967,
+        1983682676,
+        2260081152,
+        2177000970
+      ],
+      "parent_words": [
+        2085176831,
+        1983815542,
+        2192972288,
+        2176868360
+      ],
+      "removed_square": 40,
+      "child_board": "XXXXXXXXXOXOO-X-XOOXOOXO-OOXXXXO-OXOXXX--OOXXOOX-OXXXXOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-XOOXOOXO-OXXXXXO-XXOXXX-XXXXXOOX-XXXXXOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 54,
+      "move": "a5",
+      "child": "763e9f767c4945ff,81c0600882b61a00",
+      "parent": "763e9f707c4945ff,81c0600f82b61a00",
+      "n_parent": 54,
+      "mover": 1,
+      "child_words": [
+        2085176831,
+        1983815542,
+        2192972288,
+        2176868360
+      ],
+      "parent_words": [
+        2085176831,
+        1983815536,
+        2192972288,
+        2176868367
+      ],
+      "removed_square": 32,
+      "child_board": "XXXXXXXXXOXOO-X-XOOXOOXO-OXXXXXO-XXOXXX-XXXXXOOX-XXXXXOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-XOOXOOXO-OXXXXXOOOOOXXX-XXXXXOOX-XXXXXOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 55,
+      "move": "a4",
+      "child": "763e9f707c4945ff,81c0600f82b61a00",
+      "parent": "763e9f737f4b45ff,81c0600c80b41a00",
+      "n_parent": 55,
+      "mover": 0,
+      "child_words": [
+        2085176831,
+        1983815536,
+        2192972288,
+        2176868367
+      ],
+      "parent_words": [
+        2135639551,
+        1983815539,
+        2159286784,
+        2176868364
+      ],
+      "removed_square": 24,
+      "child_board": "XXXXXXXXXOXOO-X-XOOXOOXO-OXXXXXOOOOOXXX-XXXXXOOX-XXXXXOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-XXOXOOXOXXXXXXXOXXOOXXX-XXXXXOOX-XXXXXOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 56,
+      "move": "a7",
+      "child": "763e9f737f4b45ff,81c0600c80b41a00",
+      "parent": "76009d737f4b45ff,81ff620c80b41a00",
+      "n_parent": 56,
+      "mover": 1,
+      "child_words": [
+        2135639551,
+        1983815539,
+        2159286784,
+        2176868364
+      ],
+      "parent_words": [
+        2135639551,
+        1979751795,
+        2159286784,
+        2180997644
+      ],
+      "removed_square": 48,
+      "child_board": "XXXXXXXXXOXOO-X-XXOXOOXOXXXXXXXOXXOOXXX-XXXXXOOX-XXXXXOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-XXOXOOXOXXXXXXXOXXOOXXX-XOXXXOOXOOOOOOOOOXX-XXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 57,
+      "move": "d8",
+      "child": "76009d737f4b45ff,81ff620c80b41a00",
+      "parent": "7e1cbf737f4b45ff,81e3400c80b41a00",
+      "n_parent": 57,
+      "mover": 0,
+      "child_words": [
+        2135639551,
+        1979751795,
+        2159286784,
+        2180997644
+      ],
+      "parent_words": [
+        2135639551,
+        2115813235,
+        2159286784,
+        2179153932
+      ],
+      "removed_square": 59,
+      "child_board": "XXXXXXXXXOXOO-X-XXOXOOXOXXXXXXXOXXOOXXX-XOXXXOOXOOOOOOOOOXX-XXXO",
+      "parent_board": "XXXXXXXXXOXOO-X-XXOXOOXOXXXXXXXOXXOOXXX-XXXXXXOXOOXXXOOOOXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 58,
+      "move": "f2",
+      "child": "7e1cbf737f4b45ff,81e3400c80b41a00",
+      "parent": "7e1cbf737f0b45ff,81e3400c80f43a00",
+      "n_parent": 58,
+      "mover": 1,
+      "child_words": [
+        2135639551,
+        2115813235,
+        2159286784,
+        2179153932
+      ],
+      "parent_words": [
+        2131445247,
+        2115813235,
+        2163489280,
+        2179153932
+      ],
+      "removed_square": 13,
+      "child_board": "XXXXXXXXXOXOO-X-XXOXOOXOXXXXXXXOXXOOXXX-XXXXXXOXOOXXXOOOOXXXXXXO",
+      "parent_board": "XXXXXXXXXOXOOOX-XXOXOOOOXXXXXXXOXXOOXXX-XXXXXXOXOOXXXOOOOXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 59,
+      "move": "h5",
+      "child": "7e1cbf737f0b45ff,81e3400c80f43a00",
+      "parent": "7e3cfff37f0b45ff,81c3000c80f43a00",
+      "n_parent": 59,
+      "mover": 0,
+      "child_words": [
+        2131445247,
+        2115813235,
+        2163489280,
+        2179153932
+      ],
+      "parent_words": [
+        2131445247,
+        2117926899,
+        2163489280,
+        2177040396
+      ],
+      "removed_square": 39,
+      "child_board": "XXXXXXXXXOXOOOX-XXOXOOOOXXXXXXXOXXOOXXX-XXXXXXOXOOXXXOOOOXXXXXXO",
+      "parent_board": "XXXXXXXXXOXOOOX-XXOXOOOOXXXXXXXOXXOOXXXXXXXXXXXXOOXXXXOOOXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-no-pass-s202610255200001",
+      "normalized_move_index": 60,
+      "move": "h2",
+      "child": "7e3cfff37f0b45ff,81c3000c80f43a00",
+      "parent": "7e3cfff37f0b05ff,81c3000c80f4fa00",
+      "n_parent": 60,
+      "mover": 1,
+      "child_words": [
+        2131445247,
+        2117926899,
+        2163489280,
+        2177040396
+      ],
+      "parent_words": [
+        2131428863,
+        2117926899,
+        2163538432,
+        2177040396
+      ],
+      "removed_square": 15,
+      "child_board": "XXXXXXXXXOXOOOX-XXOXOOOOXXXXXXXOXXOOXXXXXXXXXXXXOOXXXXOOOXXXXXXO",
+      "parent_board": "XXXXXXXXXOXOOOOOXXOXOOOOXXXXXXXOXXOOXXXXXXXXXXXXOOXXXXOOOXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 1,
+      "move": "c4",
+      "child": "0000000810000000,0000001008000000",
+      "parent": "000000081c000000,0000001000000000",
+      "n_parent": 1,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        8,
+        134217728,
+        16
+      ],
+      "parent_words": [
+        469762048,
+        8,
+        0,
+        16
+      ],
+      "removed_square": 26,
+      "child_board": "---------------------------OX------XO---------------------------",
+      "parent_board": "--------------------------XXX------XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 2,
+      "move": "e3",
+      "child": "000000081c000000,0000001000000000",
+      "parent": "000000080c000000,0000001010100000",
+      "n_parent": 2,
+      "mover": 1,
+      "child_words": [
+        469762048,
+        8,
+        0,
+        16
+      ],
+      "parent_words": [
+        201326592,
+        8,
+        269484032,
+        16
+      ],
+      "removed_square": 20,
+      "child_board": "--------------------------XXX------XO---------------------------",
+      "parent_board": "--------------------O-----XXO------XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 3,
+      "move": "f3",
+      "child": "000000080c000000,0000001010100000",
+      "parent": "000000081c200000,0000001000100000",
+      "n_parent": 3,
+      "mover": 0,
+      "child_words": [
+        201326592,
+        8,
+        269484032,
+        16
+      ],
+      "parent_words": [
+        471859200,
+        8,
+        1048576,
+        16
+      ],
+      "removed_square": 21,
+      "child_board": "--------------------O-----XXO------XO---------------------------",
+      "parent_board": "--------------------OX----XXX------XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 4,
+      "move": "g3",
+      "child": "000000081c200000,0000001000100000",
+      "parent": "000000081c000000,0000001000700000",
+      "n_parent": 4,
+      "mover": 1,
+      "child_words": [
+        471859200,
+        8,
+        1048576,
+        16
+      ],
+      "parent_words": [
+        469762048,
+        8,
+        7340032,
+        16
+      ],
+      "removed_square": 22,
+      "child_board": "--------------------OX----XXX------XO---------------------------",
+      "parent_board": "--------------------OOO---XXX------XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 5,
+      "move": "f2",
+      "child": "000000081c000000,0000001000700000",
+      "parent": "000000081c102000,0000001000600000",
+      "n_parent": 5,
+      "mover": 0,
+      "child_words": [
+        469762048,
+        8,
+        7340032,
+        16
+      ],
+      "parent_words": [
+        470818816,
+        8,
+        6291456,
+        16
+      ],
+      "removed_square": 13,
+      "child_board": "--------------------OOO---XXX------XO---------------------------",
+      "parent_board": "-------------X------XOO---XXX------XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 6,
+      "move": "e2",
+      "child": "000000081c102000,0000001000600000",
+      "parent": "000000080c002000,0000001010701000",
+      "n_parent": 6,
+      "mover": 1,
+      "child_words": [
+        470818816,
+        8,
+        6291456,
+        16
+      ],
+      "parent_words": [
+        201334784,
+        8,
+        275779584,
+        16
+      ],
+      "removed_square": 12,
+      "child_board": "-------------X------XOO---XXX------XO---------------------------",
+      "parent_board": "------------OX------OOO---XXO------XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 7,
+      "move": "h4",
+      "child": "000000080c002000,0000001010701000",
+      "parent": "000000088c402000,0000001010301000",
+      "n_parent": 7,
+      "mover": 0,
+      "child_words": [
+        201334784,
+        8,
+        275779584,
+        16
+      ],
+      "parent_words": [
+        2353012736,
+        8,
+        271585280,
+        16
+      ],
+      "removed_square": 31,
+      "child_board": "------------OX------OOO---XXO------XO---------------------------",
+      "parent_board": "------------OX------OOX---XXO--X---XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 8,
+      "move": "c3",
+      "child": "000000088c402000,0000001010301000",
+      "parent": "0000000884402000,0000001018341000",
+      "n_parent": 8,
+      "mover": 1,
+      "child_words": [
+        2353012736,
+        8,
+        271585280,
+        16
+      ],
+      "parent_words": [
+        2218795008,
+        8,
+        406065152,
+        16
+      ],
+      "removed_square": 18,
+      "child_board": "------------OX------OOX---XXO--X---XO---------------------------",
+      "parent_board": "------------OX----O-OOX---XOO--X---XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 9,
+      "move": "c2",
+      "child": "0000000884402000,0000001018341000",
+      "parent": "0000000884442400,0000001018301000",
+      "n_parent": 9,
+      "mover": 0,
+      "child_words": [
+        2218795008,
+        8,
+        406065152,
+        16
+      ],
+      "parent_words": [
+        2219058176,
+        8,
+        405803008,
+        16
+      ],
+      "removed_square": 10,
+      "child_board": "------------OX----O-OOX---XOO--X---XO---------------------------",
+      "parent_board": "----------X-OX----X-OOX---XOO--X---XO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 10,
+      "move": "c5",
+      "child": "0000000884442400,0000001018301000",
+      "parent": "0000000084442400,0000001c18301000",
+      "n_parent": 10,
+      "mover": 1,
+      "child_words": [
+        2219058176,
+        8,
+        405803008,
+        16
+      ],
+      "parent_words": [
+        2219058176,
+        0,
+        405803008,
+        28
+      ],
+      "removed_square": 34,
+      "child_board": "----------X-OX----X-OOX---XOO--X---XO---------------------------",
+      "parent_board": "----------X-OX----X-OOX---XOO--X--OOO---------------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 11,
+      "move": "e6",
+      "child": "0000000084442400,0000001c18301000",
+      "parent": "0000100884442400,0000001418301000",
+      "n_parent": 11,
+      "mover": 0,
+      "child_words": [
+        2219058176,
+        0,
+        405803008,
+        28
+      ],
+      "parent_words": [
+        2219058176,
+        4104,
+        405803008,
+        20
+      ],
+      "removed_square": 44,
+      "child_board": "----------X-OX----X-OOX---XOO--X--OOO---------------------------",
+      "parent_board": "----------X-OX----X-OOX---XOO--X--OXO-------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 12,
+      "move": "f1",
+      "child": "0000100884442400,0000001418301000",
+      "parent": "0000100884440400,0000001418303020",
+      "n_parent": 12,
+      "mover": 1,
+      "child_words": [
+        2219058176,
+        4104,
+        405803008,
+        20
+      ],
+      "parent_words": [
+        2219049984,
+        4104,
+        405811232,
+        20
+      ],
+      "removed_square": 5,
+      "child_board": "----------X-OX----X-OOX---XOO--X--OXO-------X-------------------",
+      "parent_board": "-----O----X-OO----X-OOX---XOO--X--OXO-------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 13,
+      "move": "b5",
+      "child": "0000100884440400,0000001418303020",
+      "parent": "0000100e84440400,0000001018303020",
+      "n_parent": 13,
+      "mover": 0,
+      "child_words": [
+        2219049984,
+        4104,
+        405811232,
+        20
+      ],
+      "parent_words": [
+        2219049984,
+        4110,
+        405811232,
+        16
+      ],
+      "removed_square": 33,
+      "child_board": "-----O----X-OO----X-OOX---XOO--X--OXO-------X-------------------",
+      "parent_board": "-----O----X-OO----X-OOX---XOO--X-XXXO-------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 14,
+      "move": "b2",
+      "child": "0000100e84440400,0000001018303020",
+      "parent": "0000100e84400400,0000001018343220",
+      "n_parent": 14,
+      "mover": 1,
+      "child_words": [
+        2219049984,
+        4110,
+        405811232,
+        16
+      ],
+      "parent_words": [
+        2218787840,
+        4110,
+        406073888,
+        16
+      ],
+      "removed_square": 9,
+      "child_board": "-----O----X-OO----X-OOX---XOO--X-XXXO-------X-------------------",
+      "parent_board": "-----O---OX-OO----O-OOX---XOO--X-XXXO-------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 15,
+      "move": "f5",
+      "child": "0000100e84400400,0000001018343220",
+      "parent": "0000103e84400400,0000000018343220",
+      "n_parent": 15,
+      "mover": 0,
+      "child_words": [
+        2218787840,
+        4110,
+        406073888,
+        16
+      ],
+      "parent_words": [
+        2218787840,
+        4158,
+        406073888,
+        0
+      ],
+      "removed_square": 37,
+      "child_board": "-----O---OX-OO----O-OOX---XOO--X-XXXO-------X-------------------",
+      "parent_board": "-----O---OX-OO----O-OOX---XOO--X-XXXXX------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 16,
+      "move": "c1",
+      "child": "0000103e84400400,0000000018343220",
+      "parent": "0000103e84400000,0000000018343624",
+      "n_parent": 16,
+      "mover": 1,
+      "child_words": [
+        2218787840,
+        4158,
+        406073888,
+        0
+      ],
+      "parent_words": [
+        2218786816,
+        4158,
+        406074916,
+        0
+      ],
+      "removed_square": 2,
+      "child_board": "-----O---OX-OO----O-OOX---XOO--X-XXXXX------X-------------------",
+      "parent_board": "--O--O---OO-OO----O-OOX---XOO--X-XXXXX------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 17,
+      "move": "g1",
+      "child": "0000103e84400000,0000000018343624",
+      "parent": "0000103e8c502040,0000000010241624",
+      "n_parent": 17,
+      "mover": 0,
+      "child_words": [
+        2218786816,
+        4158,
+        406074916,
+        0
+      ],
+      "parent_words": [
+        2354061376,
+        4158,
+        270800420,
+        0
+      ],
+      "removed_square": 6,
+      "child_board": "--O--O---OO-OO----O-OOX---XOO--X-XXXXX------X-------------------",
+      "parent_board": "--O--OX--OO-OX----O-XOX---XXO--X-XXXXX------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 18,
+      "move": "g2",
+      "child": "0000103e8c502040,0000000010241624",
+      "parent": "0000103e8c500040,0000000010247624",
+      "n_parent": 18,
+      "mover": 1,
+      "child_words": [
+        2354061376,
+        4158,
+        270800420,
+        0
+      ],
+      "parent_words": [
+        2354053184,
+        4158,
+        270824996,
+        0
+      ],
+      "removed_square": 14,
+      "child_board": "--O--OX--OO-OX----O-XOX---XXO--X-XXXXX------X-------------------",
+      "parent_board": "--O--OX--OO-OOO---O-XOX---XXO--X-XXXXX------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 19,
+      "move": "f4",
+      "child": "0000103e8c500040,0000000010247624",
+      "parent": "0000103ebc500040,0000000000247624",
+      "n_parent": 19,
+      "mover": 0,
+      "child_words": [
+        2354053184,
+        4158,
+        270824996,
+        0
+      ],
+      "parent_words": [
+        3159359552,
+        4158,
+        2389540,
+        0
+      ],
+      "removed_square": 29,
+      "child_board": "--O--OX--OO-OOO---O-XOX---XXO--X-XXXXX------X-------------------",
+      "parent_board": "--O--OX--OO-OOO---O-XOX---XXXX-X-XXXXX------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 20,
+      "move": "b6",
+      "child": "0000103ebc500040,0000000000247624",
+      "parent": "0000103ab4400040,0000020408347624",
+      "n_parent": 20,
+      "mover": 1,
+      "child_words": [
+        3159359552,
+        4158,
+        2389540,
+        0
+      ],
+      "parent_words": [
+        3024093248,
+        4154,
+        137655844,
+        516
+      ],
+      "removed_square": 41,
+      "child_board": "--O--OX--OO-OOO---O-XOX---XXXX-X-XXXXX------X-------------------",
+      "parent_board": "--O--OX--OO-OOO---O-OOX---XOXX-X-XOXXX---O--X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 21,
+      "move": "h1",
+      "child": "0000103ab4400040,0000020408347624",
+      "parent": "0000103ab46040c0,0000020408143624",
+      "n_parent": 21,
+      "mover": 0,
+      "child_words": [
+        3024093248,
+        4154,
+        137655844,
+        516
+      ],
+      "parent_words": [
+        3026206912,
+        4154,
+        135542308,
+        516
+      ],
+      "removed_square": 7,
+      "child_board": "--O--OX--OO-OOO---O-OOX---XOXX-X-XOXXX---O--X-------------------",
+      "parent_board": "--O--OXX-OO-OOX---O-OXX---XOXX-X-XOXXX---O--X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 22,
+      "move": "h2",
+      "child": "0000103ab46040c0,0000020408143624",
+      "parent": "0000103ab46000c0,000002040814f624",
+      "n_parent": 22,
+      "mover": 1,
+      "child_words": [
+        3026206912,
+        4154,
+        135542308,
+        516
+      ],
+      "parent_words": [
+        3026190528,
+        4154,
+        135591460,
+        516
+      ],
+      "removed_square": 15,
+      "child_board": "--O--OXX-OO-OOX---O-OXX---XOXX-X-XOXXX---O--X-------------------",
+      "parent_board": "--O--OXX-OO-OOOO--O-OXX---XOXX-X-XOXXX---O--X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 23,
+      "move": "h3",
+      "child": "0000103ab46000c0,000002040814f624",
+      "parent": "0000103ab4e080c0,0000020408147624",
+      "n_parent": 23,
+      "mover": 0,
+      "child_words": [
+        3026190528,
+        4154,
+        135591460,
+        516
+      ],
+      "parent_words": [
+        3034611904,
+        4154,
+        135558692,
+        516
+      ],
+      "removed_square": 23,
+      "child_board": "--O--OXX-OO-OOOO--O-OXX---XOXX-X-XOXXX---O--X-------------------",
+      "parent_board": "--O--OXX-OO-OOOX--O-OXXX--XOXX-X-XOXXX---O--X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 24,
+      "move": "b4",
+      "child": "0000103ab4e080c0,0000020408147624",
+      "parent": "00001038b0e080c0,000002060e147624",
+      "n_parent": 24,
+      "mover": 1,
+      "child_words": [
+        3034611904,
+        4154,
+        135558692,
+        516
+      ],
+      "parent_words": [
+        2967503040,
+        4152,
+        236221988,
+        518
+      ],
+      "removed_square": 25,
+      "child_board": "--O--OXX-OO-OOOX--O-OXXX--XOXX-X-XOXXX---O--X-------------------",
+      "parent_board": "--O--OXX-OO-OOOX--O-OXXX-OOOXX-X-OOXXX---O--X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 25,
+      "move": "a7",
+      "child": "00001038b0e080c0,000002060e147624",
+      "parent": "0001123cb8f0a0c0,0000000206045624",
+      "n_parent": 25,
+      "mover": 0,
+      "child_words": [
+        2967503040,
+        4152,
+        236221988,
+        518
+      ],
+      "parent_words": [
+        3102777536,
+        70204,
+        100947492,
+        2
+      ],
+      "removed_square": 48,
+      "child_board": "--O--OXX-OO-OOOX--O-OXXX-OOOXX-X-OOXXX---O--X-------------------",
+      "parent_board": "--O--OXX-OO-OXOX--O-XXXX-OOXXX-X-OXXXX---X--X---X---------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 26,
+      "move": "g5",
+      "child": "0001123cb8f0a0c0,0000000206045624",
+      "parent": "00011200b8f0a0c0,0000007e06045624",
+      "n_parent": 26,
+      "mover": 1,
+      "child_words": [
+        3102777536,
+        70204,
+        100947492,
+        2
+      ],
+      "parent_words": [
+        3102777536,
+        70144,
+        100947492,
+        126
+      ],
+      "removed_square": 38,
+      "child_board": "--O--OXX-OO-OXOX--O-XXXX-OOXXX-X-OXXXX---X--X---X---------------",
+      "parent_board": "--O--OXX-OO-OXOX--O-XXXX-OOXXX-X-OOOOOO--X--X---X---------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 27,
+      "move": "d2",
+      "child": "00011200b8f0a0c0,0000007e06045624",
+      "parent": "00011200b8f0b8c0,0000007e06044624",
+      "n_parent": 27,
+      "mover": 0,
+      "child_words": [
+        3102777536,
+        70144,
+        100947492,
+        126
+      ],
+      "parent_words": [
+        3102783680,
+        70144,
+        100943396,
+        126
+      ],
+      "removed_square": 11,
+      "child_board": "--O--OXX-OO-OXOX--O-XXXX-OOXXX-X-OOOOOO--X--X---X---------------",
+      "parent_board": "--O--OXX-OOXXXOX--O-XXXX-OOXXX-X-OOOOOO--X--X---X---------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 28,
+      "move": "b7",
+      "child": "00011200b8f0b8c0,0000007e06044624",
+      "parent": "00011000b8f0b8c0,0002027e06044624",
+      "n_parent": 28,
+      "mover": 1,
+      "child_words": [
+        3102783680,
+        70144,
+        100943396,
+        126
+      ],
+      "parent_words": [
+        3102783680,
+        69632,
+        100943396,
+        131710
+      ],
+      "removed_square": 49,
+      "child_board": "--O--OXX-OOXXXOX--O-XXXX-OOXXX-X-OOOOOO--X--X---X---------------",
+      "parent_board": "--O--OXX-OOXXXOX--O-XXXX-OOXXX-X-OOOOOO--O--X---XO--------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 29,
+      "move": "a5",
+      "child": "00011000b8f0b8c0,0002027e06044624",
+      "parent": "00011001baf4b8c0,0002027e04004624",
+      "n_parent": 29,
+      "mover": 0,
+      "child_words": [
+        3102783680,
+        69632,
+        100943396,
+        131710
+      ],
+      "parent_words": [
+        3136600256,
+        69633,
+        67126820,
+        131710
+      ],
+      "removed_square": 32,
+      "child_board": "--O--OXX-OOXXXOX--O-XXXX-OOXXX-X-OOOOOO--O--X---XO--------------",
+      "parent_board": "--O--OXX-OOXXXOX--X-XXXX-XOXXX-XXOOOOOO--O--X---XO--------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 30,
+      "move": "e1",
+      "child": "00011001baf4b8c0,0002027e04004624",
+      "parent": "00011001aae4a8c0,0002027e14105634",
+      "n_parent": 30,
+      "mover": 1,
+      "child_words": [
+        3136600256,
+        69633,
+        67126820,
+        131710
+      ],
+      "parent_words": [
+        2867112128,
+        69633,
+        336614964,
+        131710
+      ],
+      "removed_square": 4,
+      "child_board": "--O--OXX-OOXXXOX--X-XXXX-XOXXX-XXOOOOOO--O--X---XO--------------",
+      "parent_board": "--O-OOXX-OOXOXOX--X-OXXX-XOXOX-XXOOOOOO--O--X---XO--------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 31,
+      "move": "g4",
+      "child": "00011001aae4a8c0,0002027e14105634",
+      "parent": "00011021eae4a8c0,0002025e14105634",
+      "n_parent": 31,
+      "mover": 0,
+      "child_words": [
+        2867112128,
+        69633,
+        336614964,
+        131710
+      ],
+      "parent_words": [
+        3940853952,
+        69665,
+        336614964,
+        131678
+      ],
+      "removed_square": 30,
+      "child_board": "--O-OOXX-OOXOXOX--X-OXXX-XOXOX-XXOOOOOO--O--X---XO--------------",
+      "parent_board": "--O-OOXX-OOXOXOX--X-OXXX-XOXOXXXXOOOOXO--O--X---XO--------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 32,
+      "move": "b3",
+      "child": "00011021eae4a8c0,0002025e14105634",
+      "parent": "00011021e8e4a8c0,0002025e16125634",
+      "n_parent": 32,
+      "mover": 1,
+      "child_words": [
+        3940853952,
+        69665,
+        336614964,
+        131678
+      ],
+      "parent_words": [
+        3907299520,
+        69665,
+        370300468,
+        131678
+      ],
+      "removed_square": 17,
+      "child_board": "--O-OOXX-OOXOXOX--X-OXXX-XOXOXXXXOOOOXO--O--X---XO--------------",
+      "parent_board": "--O-OOXX-OOXOXOX-OX-OXXX-OOXOXXXXOOOOXO--O--X---XO--------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 33,
+      "move": "d1",
+      "child": "00011021e8e4a8c0,0002025e16125634",
+      "parent": "00011021e8e4b8f8,0002025e16124604",
+      "n_parent": 33,
+      "mover": 0,
+      "child_words": [
+        3907299520,
+        69665,
+        370300468,
+        131678
+      ],
+      "parent_words": [
+        3907303672,
+        69665,
+        370296324,
+        131678
+      ],
+      "removed_square": 3,
+      "child_board": "--O-OOXX-OOXOXOX-OX-OXXX-OOXOXXXXOOOOXO--O--X---XO--------------",
+      "parent_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOXO--O--X---XO--------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 34,
+      "move": "f7",
+      "child": "00011021e8e4b8f8,0002025e16124604",
+      "parent": "00010021e8e4b8f8,0022125e16124604",
+      "n_parent": 34,
+      "mover": 1,
+      "child_words": [
+        3907303672,
+        69665,
+        370296324,
+        131678
+      ],
+      "parent_words": [
+        3907303672,
+        65569,
+        370296324,
+        2232926
+      ],
+      "removed_square": 53,
+      "child_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOXO--O--X---XO--------------",
+      "parent_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOXO--O--O---XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 35,
+      "move": "g6",
+      "child": "00010021e8e4b8f8,0022125e16124604",
+      "parent": "00014061e8e4b8f8,0022121e16124604",
+      "n_parent": 35,
+      "mover": 0,
+      "child_words": [
+        3907303672,
+        65569,
+        370296324,
+        2232926
+      ],
+      "parent_words": [
+        3907303672,
+        82017,
+        370296324,
+        2232862
+      ],
+      "removed_square": 46,
+      "child_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOXO--O--O---XO---O----------",
+      "parent_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOXX--O--O-X-XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 36,
+      "move": "h5",
+      "child": "00014061e8e4b8f8,0022121e16124604",
+      "parent": "00010001e8e4b8f8,002252fe16124604",
+      "n_parent": 36,
+      "mover": 1,
+      "child_words": [
+        3907303672,
+        82017,
+        370296324,
+        2232862
+      ],
+      "parent_words": [
+        3907303672,
+        65537,
+        370296324,
+        2249470
+      ],
+      "removed_square": 39,
+      "child_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOXX--O--O-X-XO---O----------",
+      "parent_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOOOO-O--O-O-XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 37,
+      "move": "a2",
+      "child": "00010001e8e4b8f8,002252fe16124604",
+      "parent": "00010001e8e4bff8,002252fe16124004",
+      "n_parent": 37,
+      "mover": 0,
+      "child_words": [
+        3907303672,
+        65537,
+        370296324,
+        2249470
+      ],
+      "parent_words": [
+        3907305464,
+        65537,
+        370294788,
+        2249470
+      ],
+      "removed_square": 8,
+      "child_board": "--OXXXXX-OOXXXOX-OX-OXXX-OOXOXXXXOOOOOOO-O--O-O-XO---O----------",
+      "parent_board": "--OXXXXXXXXXXXOX-OX-OXXX-OOXOXXXXOOOOOOO-O--O-O-XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 38,
+      "move": "b1",
+      "child": "00010001e8e4bff8,002252fe16124004",
+      "parent": "00010001e8e4bdf8,002252fe16124206",
+      "n_parent": 38,
+      "mover": 1,
+      "child_words": [
+        3907305464,
+        65537,
+        370294788,
+        2249470
+      ],
+      "parent_words": [
+        3907304952,
+        65537,
+        370295302,
+        2249470
+      ],
+      "removed_square": 1,
+      "child_board": "--OXXXXXXXXXXXOX-OX-OXXX-OOXOXXXXOOOOOOO-O--O-O-XO---O----------",
+      "parent_board": "-OOXXXXXXOXXXXOX-OX-OXXX-OOXOXXXXOOOOOOO-O--O-O-XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 39,
+      "move": "f6",
+      "child": "00010001e8e4bdf8,002252fe16124206",
+      "parent": "00012071e8e4bdf8,0022528e16124206",
+      "n_parent": 39,
+      "mover": 0,
+      "child_words": [
+        3907304952,
+        65537,
+        370295302,
+        2249470
+      ],
+      "parent_words": [
+        3907304952,
+        73841,
+        370295302,
+        2249358
+      ],
+      "removed_square": 45,
+      "child_board": "-OOXXXXXXOXXXXOX-OX-OXXX-OOXOXXXXOOOOOOO-O--O-O-XO---O----------",
+      "parent_board": "-OOXXXXXXOXXXXOX-OX-OXXX-OOXOXXXXOOOXXXO-O--OXO-XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 40,
+      "move": "d3",
+      "child": "00012071e8e4bdf8,0022528e16124206",
+      "parent": "00012071e0e0b9f8,0022528e1e1e4606",
+      "n_parent": 40,
+      "mover": 1,
+      "child_words": [
+        3907304952,
+        73841,
+        370295302,
+        2249358
+      ],
+      "parent_words": [
+        3772824056,
+        73841,
+        505300486,
+        2249358
+      ],
+      "removed_square": 19,
+      "child_board": "-OOXXXXXXOXXXXOX-OX-OXXX-OOXOXXXXOOOXXXO-O--OXO-XO---O----------",
+      "parent_board": "-OOXXXXXXOOXXXOX-OOOOXXX-OOOOXXXXOOOXXXO-O--OXO-XO---O----------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 41,
+      "move": "g7",
+      "child": "00012071e0e0b9f8,0022528e1e1e4606",
+      "parent": "00416071e0e0b9f8,0022128e1e1e4606",
+      "n_parent": 41,
+      "mover": 0,
+      "child_words": [
+        3772824056,
+        73841,
+        505300486,
+        2249358
+      ],
+      "parent_words": [
+        3772824056,
+        4284529,
+        505300486,
+        2232974
+      ],
+      "removed_square": 54,
+      "child_board": "-OOXXXXXXOOXXXOX-OOOOXXX-OOOOXXXXOOOXXXO-O--OXO-XO---O----------",
+      "parent_board": "-OOXXXXXXOOXXXOX-OOOOXXX-OOOOXXXXOOOXXXO-O--OXX-XO---OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 42,
+      "move": "h6",
+      "child": "00416071e0e0b9f8,0022128e1e1e4606",
+      "parent": "00410031c0e0b9f8,0022f2ce3e1e4606",
+      "n_parent": 42,
+      "mover": 1,
+      "child_words": [
+        3772824056,
+        4284529,
+        505300486,
+        2232974
+      ],
+      "parent_words": [
+        3235953144,
+        4259889,
+        1042171398,
+        2290382
+      ],
+      "removed_square": 47,
+      "child_board": "-OOXXXXXXOOXXXOX-OOOOXXX-OOOOXXXXOOOXXXO-O--OXX-XO---OX---------",
+      "parent_board": "-OOXXXXXXOOXXXOX-OOOOXXX-OOOOOXXXOOOXXOO-O--OOOOXO---OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 43,
+      "move": "a4",
+      "child": "00410031c0e0b9f8,0022f2ce3e1e4606",
+      "parent": "00410031ffe2bdf8,0022f2ce001c4206",
+      "n_parent": 43,
+      "mover": 0,
+      "child_words": [
+        3235953144,
+        4259889,
+        1042171398,
+        2290382
+      ],
+      "parent_words": [
+        4293049848,
+        4259889,
+        1851910,
+        2290382
+      ],
+      "removed_square": 24,
+      "child_board": "-OOXXXXXXOOXXXOX-OOOOXXX-OOOOOXXXOOOXXOO-O--OOOOXO---OX---------",
+      "parent_board": "-OOXXXXXXOXXXXOX-XOOOXXXXXXXXXXXXOOOXXOO-O--OOOOXO---OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 44,
+      "move": "h7",
+      "child": "00410031ffe2bdf8,0022f2ce001c4206",
+      "parent": "00010031ffe2bdf8,00e2f2ce001c4206",
+      "n_parent": 44,
+      "mover": 1,
+      "child_words": [
+        4293049848,
+        4259889,
+        1851910,
+        2290382
+      ],
+      "parent_words": [
+        4293049848,
+        65585,
+        1851910,
+        14873294
+      ],
+      "removed_square": 55,
+      "child_board": "-OOXXXXXXOXXXXOX-XOOOXXXXXXXXXXXXOOOXXOO-O--OOOOXO---OX---------",
+      "parent_board": "-OOXXXXXXOXXXXOX-XOOOXXXXXXXXXXXXOOOXXOO-O--OOOOXO---OOO--------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 45,
+      "move": "a1",
+      "child": "00010031ffe2bdf8,00e2f2ce001c4206",
+      "parent": "00010031ffe6bfff,00e2f2ce00184000",
+      "n_parent": 45,
+      "mover": 0,
+      "child_words": [
+        4293049848,
+        65585,
+        1851910,
+        14873294
+      ],
+      "parent_words": [
+        4293312511,
+        65585,
+        1589248,
+        14873294
+      ],
+      "removed_square": 0,
+      "child_board": "-OOXXXXXXOXXXXOX-XOOOXXXXXXXXXXXXOOOXXOO-O--OOOOXO---OOO--------",
+      "parent_board": "XXXXXXXXXXXXXXOX-XXOOXXXXXXXXXXXXOOOXXOO-O--OOOOXO---OOO--------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 46,
+      "move": "a3",
+      "child": "00010031ffe6bfff,00e2f2ce00184000",
+      "parent": "00010031fde0bfff,00e2f2ce021f4000",
+      "n_parent": 46,
+      "mover": 1,
+      "child_words": [
+        4293312511,
+        65585,
+        1589248,
+        14873294
+      ],
+      "parent_words": [
+        4259364863,
+        65585,
+        35602432,
+        14873294
+      ],
+      "removed_square": 16,
+      "child_board": "XXXXXXXXXXXXXXOX-XXOOXXXXXXXXXXXXOOOXXOO-O--OOOOXO---OOO--------",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOOXXOO-O--OOOOXO---OOO--------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 47,
+      "move": "h8",
+      "child": "00010031fde0bfff,00e2f2ce021f4000",
+      "parent": "80c1a0b1fde0bfff,0022524e021f4000",
+      "n_parent": 47,
+      "mover": 0,
+      "child_words": [
+        4259364863,
+        65585,
+        35602432,
+        14873294
+      ],
+      "parent_words": [
+        4259364863,
+        2160173233,
+        35602432,
+        2249294
+      ],
+      "removed_square": 63,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOOXXOO-O--OOOOXO---OOO--------",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOOXXOX-O--OXOXXO---OXX-------X",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 48,
+      "move": "e7",
+      "child": "80c1a0b1fde0bfff,0022524e021f4000",
+      "parent": "80c180b1fde0bfff,0032724e021f4000",
+      "n_parent": 48,
+      "mover": 1,
+      "child_words": [
+        4259364863,
+        2160173233,
+        35602432,
+        2249294
+      ],
+      "parent_words": [
+        4259364863,
+        2160165041,
+        35602432,
+        3306062
+      ],
+      "removed_square": 52,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOOXXOX-O--OXOXXO---OXX-------X",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOOXXOX-O--OOOXXO--OOXX-------X",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 49,
+      "move": "g8",
+      "child": "80c180b1fde0bfff,0032724e021f4000",
+      "parent": "c0e190b9fde0bfff,00126246021f4000",
+      "n_parent": 49,
+      "mover": 0,
+      "child_words": [
+        4259364863,
+        2160165041,
+        35602432,
+        3306062
+      ],
+      "parent_words": [
+        4259364863,
+        3236008121,
+        35602432,
+        1204806
+      ],
+      "removed_square": 62,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOOXXOX-O--OOOXXO--OOXX-------X",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOXXXOX-O--XOOXXO--OXXX------XX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 50,
+      "move": "d6",
+      "child": "c0e190b9fde0bfff,00126246021f4000",
+      "parent": "c0e180b1f5e0bfff,00127a4e0a1f4000",
+      "n_parent": 50,
+      "mover": 1,
+      "child_words": [
+        4259364863,
+        3236008121,
+        35602432,
+        1204806
+      ],
+      "parent_words": [
+        4125147135,
+        3236004017,
+        169820160,
+        1210958
+      ],
+      "removed_square": 43,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXXXXXXXOOXXXOX-O--XOOXXO--OXXX------XX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXOXXXXXOOOXXOX-O-OOOOXXO--OXXX------XX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 51,
+      "move": "e8",
+      "child": "c0e180b1f5e0bfff,00127a4e0a1f4000",
+      "parent": "d0f190b1f5e0bfff,00026a4e0a1f4000",
+      "n_parent": 51,
+      "mover": 0,
+      "child_words": [
+        4125147135,
+        3236004017,
+        169820160,
+        1210958
+      ],
+      "parent_words": [
+        4125147135,
+        3505492145,
+        169820160,
+        158286
+      ],
+      "removed_square": 60,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXOXXXXXOOOXXOX-O-OOOOXXO--OXXX------XX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXOXXXXXOOOXXOX-O-OXOOXXO--XXXX----X-XX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 52,
+      "move": "d8",
+      "child": "d0f190b1f5e0bfff,00026a4e0a1f4000",
+      "parent": "d0e190b1f5e0bfff,08126a4e0a1f4000",
+      "n_parent": 52,
+      "mover": 1,
+      "child_words": [
+        4125147135,
+        3505492145,
+        169820160,
+        158286
+      ],
+      "parent_words": [
+        4125147135,
+        3504443569,
+        169820160,
+        135424590
+      ],
+      "removed_square": 59,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXOXXXXXOOOXXOX-O-OXOOXXO--XXXX----X-XX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXOXXXXXOOOXXOX-O-OXOOXXO--OXXX---OX-XX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 53,
+      "move": "d7",
+      "child": "d0e190b1f5e0bfff,08126a4e0a1f4000",
+      "parent": "d0f998b9fde8bfff,0802624602174000",
+      "n_parent": 53,
+      "mover": 0,
+      "child_words": [
+        4125147135,
+        3504443569,
+        169820160,
+        135424590
+      ],
+      "parent_words": [
+        4259889151,
+        3506018489,
+        35078144,
+        134373958
+      ],
+      "removed_square": 51,
+      "child_board": "XXXXXXXXXXXXXXOXOOOOOXXXXOXOXXXXXOOOXXOX-O-OXOOXXO--OXXX---OX-XX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOXOXXXXOXXXXXXXOOXXXOX-O-XXOOXXO-XXXXX---OX-XX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 54,
+      "move": "f8",
+      "child": "d0f998b9fde8bfff,0802624602174000",
+      "parent": "c0c990b9fde8bfff,38326a4602174000",
+      "n_parent": 54,
+      "mover": 1,
+      "child_words": [
+        4259889151,
+        3506018489,
+        35078144,
+        134373958
+      ],
+      "parent_words": [
+        4259889151,
+        3234435257,
+        35078144,
+        942828102
+      ],
+      "removed_square": 61,
+      "child_board": "XXXXXXXXXXXXXXOXOOOXOXXXXOXXXXXXXOOXXXOX-O-XXOOXXO-XXXXX---OX-XX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOXOXXXXOXXXXXXXOOXXXOX-O-OXOOXXO-XOOXX---OOOXX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 55,
+      "move": "a6",
+      "child": "c0c990b9fde8bfff,38326a4602174000",
+      "parent": "c0c991bbfde8bfff,38326a4402174000",
+      "n_parent": 55,
+      "mover": 0,
+      "child_words": [
+        4259889151,
+        3234435257,
+        35078144,
+        942828102
+      ],
+      "parent_words": [
+        4259889151,
+        3234435515,
+        35078144,
+        942828100
+      ],
+      "removed_square": 40,
+      "child_board": "XXXXXXXXXXXXXXOXOOOXOXXXXOXXXXXXXOOXXXOX-O-OXOOXXO-XOOXX---OOOXX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOXOXXXXOXXXXXXXXOXXXOXXO-OXOOXXO-XOOXX---OOOXX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 56,
+      "move": "a8",
+      "child": "c0c991bbfde8bfff,38326a4402174000",
+      "parent": "c0c890bafce8bfff,39336b4503174000",
+      "n_parent": 56,
+      "mover": 1,
+      "child_words": [
+        4259889151,
+        3234435515,
+        35078144,
+        942828100
+      ],
+      "parent_words": [
+        4243111935,
+        3234369722,
+        51855360,
+        959671109
+      ],
+      "removed_square": 56,
+      "child_board": "XXXXXXXXXXXXXXOXOOOXOXXXXOXXXXXXXXOXXXOXXO-OXOOXXO-XOOXX---OOOXX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOXOXXXOOXXXXXXOXOXXXOXOO-OXOOXOO-XOOXXO--OOOXX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 57,
+      "move": "c6",
+      "child": "c0c890bafce8bfff,39336b4503174000",
+      "parent": "c0c89cbefce8bfff,3933634103174000",
+      "n_parent": 57,
+      "mover": 0,
+      "child_words": [
+        4243111935,
+        3234369722,
+        51855360,
+        959671109
+      ],
+      "parent_words": [
+        4243111935,
+        3234372798,
+        51855360,
+        959669057
+      ],
+      "removed_square": 42,
+      "child_board": "XXXXXXXXXXXXXXOXOOOXOXXXOOXXXXXXOXOXXXOXOO-OXOOXOO-XOOXXO--OOOXX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOXOXXXOOXXXXXXOXXXXXOXOOXXXOOXOO-XOOXXO--OOOXX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 58,
+      "move": "c7",
+      "child": "c0c89cbefce8bfff,3933634103174000",
+      "parent": "c0c098baf8e8bfff,393f674507174000",
+      "n_parent": 58,
+      "mover": 1,
+      "child_words": [
+        4243111935,
+        3234372798,
+        51855360,
+        959669057
+      ],
+      "parent_words": [
+        4176003071,
+        3233847482,
+        118964224,
+        960456517
+      ],
+      "removed_square": 50,
+      "child_board": "XXXXXXXXXXXXXXOXOOOXOXXXOOXXXXXXOXXXXXOXOOXXXOOXOO-XOOXXO--OOOXX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOOXOXXXOOOXXXXXOXOXXXOXOOOXXOOXOOOOOOXXO--OOOXX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 59,
+      "move": "c8",
+      "child": "c0c098baf8e8bfff,393f674507174000",
+      "parent": "fccc9cbefcecbfff,0133634103134000",
+      "n_parent": 59,
+      "mover": 0,
+      "child_words": [
+        4176003071,
+        3233847482,
+        118964224,
+        960456517
+      ],
+      "parent_words": [
+        4243374079,
+        4241267902,
+        51593216,
+        20144961
+      ],
+      "removed_square": 58,
+      "child_board": "XXXXXXXXXXXXXXOXOOOXOXXXOOOXXXXXOXOXXXOXOOOXXOOXOOOOOOXXO--OOOXX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOXXOXXXOOXXXXXXOXXXXXOXOOXXXOOXOOXXOOXXO-XXXXXX",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-full-reference-with-pass-s202610255300009",
+      "normalized_move_index": 61,
+      "move": "b8",
+      "child": "fccc9cbefcecbfff,0133634103134000",
+      "parent": "fece9ebefcecbfff,0131614103134000",
+      "n_parent": 60,
+      "mover": 0,
+      "child_words": [
+        4243374079,
+        4241267902,
+        51593216,
+        20144961
+      ],
+      "parent_words": [
+        4243374079,
+        4274953918,
+        51593216,
+        20013377
+      ],
+      "removed_square": 57,
+      "child_board": "XXXXXXXXXXXXXXOXOOXXOXXXOOXXXXXXOXXXXXOXOOXXXOOXOOXXOOXXO-XXXXXX",
+      "parent_board": "XXXXXXXXXXXXXXOXOOXXOXXXOOXXXXXXOXXXXXOXOXXXXOOXOXXXOOXXOXXXXXXX",
+      "follows_explicit_forced_pass": true
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 1,
+      "move": "e6",
+      "child": "0000000810000000,0000001008000000",
+      "parent": "0000101810000000,0000000008000000",
+      "n_parent": 1,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        8,
+        134217728,
+        16
+      ],
+      "parent_words": [
+        268435456,
+        4120,
+        134217728,
+        0
+      ],
+      "removed_square": 44,
+      "child_board": "---------------------------OX------XO---------------------------",
+      "parent_board": "---------------------------OX------XX-------X-------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 2,
+      "move": "f6",
+      "child": "0000101810000000,0000000008000000",
+      "parent": "0000100810000000,0000201008000000",
+      "n_parent": 2,
+      "mover": 1,
+      "child_words": [
+        268435456,
+        4120,
+        134217728,
+        0
+      ],
+      "parent_words": [
+        268435456,
+        4104,
+        134217728,
+        8208
+      ],
+      "removed_square": 45,
+      "child_board": "---------------------------OX------XX-------X-------------------",
+      "parent_board": "---------------------------OX------XO-------XO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 3,
+      "move": "f5",
+      "child": "0000100810000000,0000201008000000",
+      "parent": "0000103810000000,0000200008000000",
+      "n_parent": 3,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        4104,
+        134217728,
+        8208
+      ],
+      "parent_words": [
+        268435456,
+        4152,
+        134217728,
+        8192
+      ],
+      "removed_square": 37,
+      "child_board": "---------------------------OX------XO-------XO------------------",
+      "parent_board": "---------------------------OX------XXX------XO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 4,
+      "move": "d6",
+      "child": "0000103810000000,0000200008000000",
+      "parent": "0000003010000000,0000380808000000",
+      "n_parent": 4,
+      "mover": 1,
+      "child_words": [
+        268435456,
+        4152,
+        134217728,
+        8192
+      ],
+      "parent_words": [
+        268435456,
+        48,
+        134217728,
+        14344
+      ],
+      "removed_square": 43,
+      "child_board": "---------------------------OX------XXX------XO------------------",
+      "parent_board": "---------------------------OX------OXX-----OOO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 5,
+      "move": "c3",
+      "child": "0000003010000000,0000380808000000",
+      "parent": "0000003018040000,0000380800000000",
+      "n_parent": 5,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        48,
+        134217728,
+        14344
+      ],
+      "parent_words": [
+        402915328,
+        48,
+        0,
+        14344
+      ],
+      "removed_square": 18,
+      "child_board": "---------------------------OX------OXX-----OOO------------------",
+      "parent_board": "------------------X--------XX------OXX-----OOO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 6,
+      "move": "g5",
+      "child": "0000003018040000,0000380800000000",
+      "parent": "0000000018040000,0000387800000000",
+      "n_parent": 6,
+      "mover": 1,
+      "child_words": [
+        402915328,
+        48,
+        0,
+        14344
+      ],
+      "parent_words": [
+        402915328,
+        0,
+        0,
+        14456
+      ],
+      "removed_square": 38,
+      "child_board": "------------------X--------XX------OXX-----OOO------------------",
+      "parent_board": "------------------X--------XX------OOOO----OOO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 7,
+      "move": "c6",
+      "child": "0000000018040000,0000387800000000",
+      "parent": "0000040818040000,0000387000000000",
+      "n_parent": 7,
+      "mover": 0,
+      "child_words": [
+        402915328,
+        0,
+        0,
+        14456
+      ],
+      "parent_words": [
+        402915328,
+        1032,
+        0,
+        14448
+      ],
+      "removed_square": 42,
+      "child_board": "------------------X--------XX------OOOO----OOO------------------",
+      "parent_board": "------------------X--------XX------XOOO---XOOO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 8,
+      "move": "c4",
+      "child": "0000040818040000,0000387000000000",
+      "parent": "0000040018040000,0000387804000000",
+      "n_parent": 8,
+      "mover": 1,
+      "child_words": [
+        402915328,
+        1032,
+        0,
+        14448
+      ],
+      "parent_words": [
+        402915328,
+        1024,
+        67108864,
+        14456
+      ],
+      "removed_square": 26,
+      "child_board": "------------------X--------XX------XOOO---XOOO------------------",
+      "parent_board": "------------------X-------OXX------OOOO---XOOO------------------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 9,
+      "move": "g7",
+      "child": "0000040018040000,0000387804000000",
+      "parent": "0040241018040000,0000186804000000",
+      "n_parent": 9,
+      "mover": 0,
+      "child_words": [
+        402915328,
+        1024,
+        67108864,
+        14456
+      ],
+      "parent_words": [
+        402915328,
+        4203536,
+        67108864,
+        6248
+      ],
+      "removed_square": 54,
+      "child_board": "------------------X-------OXX------OOOO---XOOO------------------",
+      "parent_board": "------------------X-------OXX------OXOO---XOOX--------X---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 10,
+      "move": "f7",
+      "child": "0040241018040000,0000186804000000",
+      "parent": "0040041018040000,0020386804000000",
+      "n_parent": 10,
+      "mover": 1,
+      "child_words": [
+        402915328,
+        4203536,
+        67108864,
+        6248
+      ],
+      "parent_words": [
+        402915328,
+        4195344,
+        67108864,
+        2111592
+      ],
+      "removed_square": 53,
+      "child_board": "------------------X-------OXX------OXOO---XOOX--------X---------",
+      "parent_board": "------------------X-------OXX------OXOO---XOOO-------OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 11,
+      "move": "c7",
+      "child": "0040041018040000,0020386804000000",
+      "parent": "00440c1018040000,0020306804000000",
+      "n_parent": 11,
+      "mover": 0,
+      "child_words": [
+        402915328,
+        4195344,
+        67108864,
+        2111592
+      ],
+      "parent_words": [
+        402915328,
+        4459536,
+        67108864,
+        2109544
+      ],
+      "removed_square": 50,
+      "child_board": "------------------X-------OXX------OXOO---XOOO-------OX---------",
+      "parent_board": "------------------X-------OXX------OXOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 12,
+      "move": "b2",
+      "child": "00440c1018040000,0020306804000000",
+      "parent": "00440c0010000000,002030780c040200",
+      "n_parent": 12,
+      "mover": 1,
+      "child_words": [
+        402915328,
+        4459536,
+        67108864,
+        2109544
+      ],
+      "parent_words": [
+        268435456,
+        4459520,
+        201589248,
+        2109560
+      ],
+      "removed_square": 9,
+      "child_board": "------------------X-------OXX------OXOO---XXOO----X--OX---------",
+      "parent_board": "---------O--------O-------OOX------OOOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 13,
+      "move": "b4",
+      "child": "00440c0010000000,002030780c040200",
+      "parent": "00440c001e000000,0020307800040200",
+      "n_parent": 13,
+      "mover": 0,
+      "child_words": [
+        268435456,
+        4459520,
+        201589248,
+        2109560
+      ],
+      "parent_words": [
+        503316480,
+        4459520,
+        262656,
+        2109560
+      ],
+      "removed_square": 25,
+      "child_board": "---------O--------O-------OOX------OOOO---XXOO----X--OX---------",
+      "parent_board": "---------O--------O------XXXX------OOOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 14,
+      "move": "b3",
+      "child": "00440c001e000000,0020307800040200",
+      "parent": "00440c001a000000,0020307804060200",
+      "n_parent": 14,
+      "mover": 1,
+      "child_words": [
+        503316480,
+        4459520,
+        262656,
+        2109560
+      ],
+      "parent_words": [
+        436207616,
+        4459520,
+        67502592,
+        2109560
+      ],
+      "removed_square": 17,
+      "child_board": "---------O--------O------XXXX------OOOO---XXOO----X--OX---------",
+      "parent_board": "---------O-------OO------XOXX------OOOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 15,
+      "move": "f4",
+      "child": "00440c001a000000,0020307804060200",
+      "parent": "00440c103a000000,0020306804060200",
+      "n_parent": 15,
+      "mover": 0,
+      "child_words": [
+        436207616,
+        4459520,
+        67502592,
+        2109560
+      ],
+      "parent_words": [
+        973078528,
+        4459536,
+        67502592,
+        2109544
+      ],
+      "removed_square": 29,
+      "child_board": "---------O-------OO------XOXX------OOOO---XXOO----X--OX---------",
+      "parent_board": "---------O-------OO------XOXXX-----OXOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 16,
+      "move": "b5",
+      "child": "00440c103a000000,0020306804060200",
+      "parent": "00440c1038000000,0020306a06060200",
+      "n_parent": 16,
+      "mover": 1,
+      "child_words": [
+        973078528,
+        4459536,
+        67502592,
+        2109544
+      ],
+      "parent_words": [
+        939524096,
+        4459536,
+        101057024,
+        2109546
+      ],
+      "removed_square": 33,
+      "child_board": "---------O-------OO------XOXXX-----OXOO---XXOO----X--OX---------",
+      "parent_board": "---------O-------OO------OOXXX---O-OXOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 17,
+      "move": "a4",
+      "child": "00440c1038000000,0020306a06060200",
+      "parent": "00440c123f000000,0020306800060200",
+      "n_parent": 17,
+      "mover": 0,
+      "child_words": [
+        939524096,
+        4459536,
+        101057024,
+        2109546
+      ],
+      "parent_words": [
+        1056964608,
+        4459538,
+        393728,
+        2109544
+      ],
+      "removed_square": 24,
+      "child_board": "---------O-------OO------OOXXX---O-OXOO---XXOO----X--OX---------",
+      "parent_board": "---------O-------OO-----XXXXXX---X-OXOO---XXOO----X--OX---------",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 18,
+      "move": "h8",
+      "child": "00440c123f000000,0020306800060200",
+      "parent": "00040c123f000000,8060306800060200",
+      "n_parent": 18,
+      "mover": 1,
+      "child_words": [
+        1056964608,
+        4459538,
+        393728,
+        2109544
+      ],
+      "parent_words": [
+        1056964608,
+        265234,
+        393728,
+        2153787496
+      ],
+      "removed_square": 63,
+      "child_board": "---------O-------OO-----XXXXXX---X-OXOO---XXOO----X--OX---------",
+      "parent_board": "---------O-------OO-----XXXXXX---X-OXOO---XXOO----X--OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 19,
+      "move": "h6",
+      "child": "00040c123f000000,8060306800060200",
+      "parent": "00048c523f000000,8060302800060200",
+      "n_parent": 19,
+      "mover": 0,
+      "child_words": [
+        1056964608,
+        265234,
+        393728,
+        2153787496
+      ],
+      "parent_words": [
+        1056964608,
+        298066,
+        393728,
+        2153787432
+      ],
+      "removed_square": 47,
+      "child_board": "---------O-------OO-----XXXXXX---X-OXOO---XXOO----X--OO--------O",
+      "parent_board": "---------O-------OO-----XXXXXX---X-OXOX---XXOO-X--X--OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 20,
+      "move": "b7",
+      "child": "00048c523f000000,8060302800060200",
+      "parent": "000488523f000000,8062342800060200",
+      "n_parent": 20,
+      "mover": 1,
+      "child_words": [
+        1056964608,
+        298066,
+        393728,
+        2153787432
+      ],
+      "parent_words": [
+        1056964608,
+        297042,
+        393728,
+        2153919528
+      ],
+      "removed_square": 49,
+      "child_board": "---------O-------OO-----XXXXXX---X-OXOX---XXOO-X--X--OO--------O",
+      "parent_board": "---------O-------OO-----XXXXXX---X-OXOX---OXOO-X-OX--OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 21,
+      "move": "b1",
+      "child": "000488523f000000,8062342800060200",
+      "parent": "000488523f020202,8062342800040000",
+      "n_parent": 21,
+      "mover": 0,
+      "child_words": [
+        1056964608,
+        297042,
+        393728,
+        2153919528
+      ],
+      "parent_words": [
+        1057096194,
+        297042,
+        262144,
+        2153919528
+      ],
+      "removed_square": 1,
+      "child_board": "---------O-------OO-----XXXXXX---X-OXOX---OXOO-X-OX--OO--------O",
+      "parent_board": "-X-------X-------XO-----XXXXXX---X-OXOX---OXOO-X-OX--OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 22,
+      "move": "a3",
+      "child": "000488523f020202,8062342800040000",
+      "parent": "000488523f000202,8062342800070000",
+      "n_parent": 22,
+      "mover": 1,
+      "child_words": [
+        1057096194,
+        297042,
+        262144,
+        2153919528
+      ],
+      "parent_words": [
+        1056965122,
+        297042,
+        458752,
+        2153919528
+      ],
+      "removed_square": 16,
+      "child_board": "-X-------X-------XO-----XXXXXX---X-OXOX---OXOO-X-OX--OO--------O",
+      "parent_board": "-X-------X------OOO-----XXXXXX---X-OXOX---OXOO-X-OX--OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 23,
+      "move": "d7",
+      "child": "000488523f000202,8062342800070000",
+      "parent": "000c8c523f000202,8062302800070000",
+      "n_parent": 23,
+      "mover": 0,
+      "child_words": [
+        1056965122,
+        297042,
+        458752,
+        2153919528
+      ],
+      "parent_words": [
+        1056965122,
+        822354,
+        458752,
+        2153918504
+      ],
+      "removed_square": 51,
+      "child_board": "-X-------X------OOO-----XXXXXX---X-OXOX---OXOO-X-OX--OO--------O",
+      "parent_board": "-X-------X------OOO-----XXXXXX---X-OXOX---XXOO-X-OXX-OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 24,
+      "move": "a1",
+      "child": "000c8c523f000202,8062302800070000",
+      "parent": "000c8c523f000002,8062302800070201",
+      "n_parent": 24,
+      "mover": 1,
+      "child_words": [
+        1056965122,
+        822354,
+        458752,
+        2153918504
+      ],
+      "parent_words": [
+        1056964610,
+        822354,
+        459265,
+        2153918504
+      ],
+      "removed_square": 0,
+      "child_board": "-X-------X------OOO-----XXXXXX---X-OXOX---XXOO-X-OXX-OO--------O",
+      "parent_board": "OX-------O------OOO-----XXXXXX---X-OXOX---XXOO-X-OXX-OO--------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 25,
+      "move": "a8",
+      "child": "000c8c523f000002,8062302800070201",
+      "parent": "010e8c523f000002,8060302800070201",
+      "n_parent": 25,
+      "mover": 0,
+      "child_words": [
+        1056964610,
+        822354,
+        459265,
+        2153918504
+      ],
+      "parent_words": [
+        1056964610,
+        17730642,
+        459265,
+        2153787432
+      ],
+      "removed_square": 56,
+      "child_board": "OX-------O------OOO-----XXXXXX---X-OXOX---XXOO-X-OXX-OO--------O",
+      "parent_board": "OX-------O------OOO-----XXXXXX---X-OXOX---XXOO-X-XXX-OO-X------O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 26,
+      "move": "c8",
+      "child": "010e8c523f000002,8060302800070201",
+      "parent": "01068c523f000002,8468302800070201",
+      "n_parent": 26,
+      "mover": 1,
+      "child_words": [
+        1056964610,
+        17730642,
+        459265,
+        2153787432
+      ],
+      "parent_words": [
+        1056964610,
+        17206354,
+        459265,
+        2221420584
+      ],
+      "removed_square": 58,
+      "child_board": "OX-------O------OOO-----XXXXXX---X-OXOX---XXOO-X-XXX-OO-X------O",
+      "parent_board": "OX-------O------OOO-----XXXXXX---X-OXOX---XXOO-X-XXO-OO-X-O----O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 27,
+      "move": "a2",
+      "child": "01068c523f000002,8468302800070201",
+      "parent": "01068c523f030102,8468302800040201",
+      "n_parent": 27,
+      "mover": 0,
+      "child_words": [
+        1056964610,
+        17206354,
+        459265,
+        2221420584
+      ],
+      "parent_words": [
+        1057161474,
+        17206354,
+        262657,
+        2221420584
+      ],
+      "removed_square": 8,
+      "child_board": "OX-------O------OOO-----XXXXXX---X-OXOX---XXOO-X-XXO-OO-X-O----O",
+      "parent_board": "OX------XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXO-OO-X-O----O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 28,
+      "move": "c1",
+      "child": "01068c523f030102,8468302800040201",
+      "parent": "01068c523f030100,8468302800040207",
+      "n_parent": 28,
+      "mover": 1,
+      "child_words": [
+        1057161474,
+        17206354,
+        262657,
+        2221420584
+      ],
+      "parent_words": [
+        1057161472,
+        17206354,
+        262663,
+        2221420584
+      ],
+      "removed_square": 2,
+      "child_board": "OX------XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXO-OO-X-O----O",
+      "parent_board": "OOO-----XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXO-OO-X-O----O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 29,
+      "move": "d8",
+      "child": "01068c523f030100,8468302800040207",
+      "parent": "090e8c523f030100,8460302800040207",
+      "n_parent": 29,
+      "mover": 0,
+      "child_words": [
+        1057161472,
+        17206354,
+        262663,
+        2221420584
+      ],
+      "parent_words": [
+        1057161472,
+        151948370,
+        262663,
+        2220896296
+      ],
+      "removed_square": 59,
+      "child_board": "OOO-----XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXO-OO-X-O----O",
+      "parent_board": "OOO-----XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXX-OO-X-OX---O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 30,
+      "move": "e8",
+      "child": "090e8c523f030100,8460302800040207",
+      "parent": "010e8c523f030100,9c60302800040207",
+      "n_parent": 30,
+      "mover": 1,
+      "child_words": [
+        1057161472,
+        151948370,
+        262663,
+        2220896296
+      ],
+      "parent_words": [
+        1057161472,
+        17730642,
+        262663,
+        2623549480
+      ],
+      "removed_square": 60,
+      "child_board": "OOO-----XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXX-OO-X-OX---O",
+      "parent_board": "OOO-----XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXX-OO-X-OOO--O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 31,
+      "move": "f8",
+      "child": "010e8c523f030100,9c60302800040207",
+      "parent": "216eac723f030100,9c00100800040207",
+      "n_parent": 31,
+      "mover": 0,
+      "child_words": [
+        1057161472,
+        17730642,
+        262663,
+        2623549480
+      ],
+      "parent_words": [
+        1057161472,
+        560901234,
+        262663,
+        2617249800
+      ],
+      "removed_square": 61,
+      "child_board": "OOO-----XO------XXO-----XXXXXX---X-OXOX---XXOO-X-XXX-OO-X-OOO--O",
+      "parent_board": "OOO-----XO------XXO-----XXXXXX---X-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 32,
+      "move": "a5",
+      "child": "216eac723f030100,9c00100800040207",
+      "parent": "216eac723c020000,9c00100903050307",
+      "n_parent": 32,
+      "mover": 1,
+      "child_words": [
+        1057161472,
+        560901234,
+        262663,
+        2617249800
+      ],
+      "parent_words": [
+        1006764032,
+        560901234,
+        50660103,
+        2617249801
+      ],
+      "removed_square": 32,
+      "child_board": "OOO-----XO------XXO-----XXXXXX---X-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "parent_board": "OOO-----OO------OXO-----OOXXXX--OX-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 33,
+      "move": "c2",
+      "child": "216eac723c020000,9c00100903050307",
+      "parent": "216eac723c060400,9c00100903010307",
+      "n_parent": 33,
+      "mover": 0,
+      "child_words": [
+        1006764032,
+        560901234,
+        50660103,
+        2617249801
+      ],
+      "parent_words": [
+        1007027200,
+        560901234,
+        50397959,
+        2617249801
+      ],
+      "removed_square": 10,
+      "child_board": "OOO-----OO------OXO-----OOXXXX--OX-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "parent_board": "OOO-----OOX-----OXX-----OOXXXX--OX-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 34,
+      "move": "f3",
+      "child": "216eac723c060400,9c00100903010307",
+      "parent": "216eac722c060400,9c00100913210307",
+      "n_parent": 34,
+      "mover": 1,
+      "child_words": [
+        1007027200,
+        560901234,
+        50397959,
+        2617249801
+      ],
+      "parent_words": [
+        738591744,
+        560901234,
+        320930567,
+        2617249801
+      ],
+      "removed_square": 21,
+      "child_board": "OOO-----OOX-----OXX-----OOXXXX--OX-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "parent_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 35,
+      "move": "e7",
+      "child": "216eac722c060400,9c00100913210307",
+      "parent": "217ebc722c060400,9c00000913210307",
+      "n_parent": 35,
+      "mover": 0,
+      "child_words": [
+        738591744,
+        560901234,
+        320930567,
+        2617249801
+      ],
+      "parent_words": [
+        738591744,
+        561953906,
+        320930567,
+        2617245705
+      ],
+      "removed_square": 52,
+      "child_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXXX---XXOX-X-XXX-XX-X-OOOX-O",
+      "parent_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXXX---XXXX-X-XXXXXX-X-OOOX-O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 36,
+      "move": "g6",
+      "child": "217ebc722c060400,9c00000913210307",
+      "parent": "215ebc522c060400,9c20402913210307",
+      "n_parent": 36,
+      "mover": 1,
+      "child_words": [
+        738591744,
+        561953906,
+        320930567,
+        2617245705
+      ],
+      "parent_words": [
+        738591744,
+        559856722,
+        320930567,
+        2619359273
+      ],
+      "removed_square": 46,
+      "child_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXXX---XXXX-X-XXXXXX-X-OOOX-O",
+      "parent_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOX---XXXXOX-XXXXOX-X-OOOX-O",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 37,
+      "move": "g8",
+      "child": "215ebc522c060400,9c20402913210307",
+      "parent": "617ebc522c060400,9c00402913210307",
+      "n_parent": 37,
+      "mover": 0,
+      "child_words": [
+        738591744,
+        559856722,
+        320930567,
+        2619359273
+      ],
+      "parent_words": [
+        738591744,
+        1635695698,
+        320930567,
+        2617262121
+      ],
+      "removed_square": 62,
+      "child_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOX---XXXXOX-XXXXOX-X-OOOX-O",
+      "parent_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOX---XXXXOX-XXXXXX-X-OOOXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 38,
+      "move": "h5",
+      "child": "617ebc522c060400,9c00402913210307",
+      "parent": "617ebc122c060400,9c0040e913210307",
+      "n_parent": 38,
+      "mover": 1,
+      "child_words": [
+        738591744,
+        1635695698,
+        320930567,
+        2617262121
+      ],
+      "parent_words": [
+        738591744,
+        1635695634,
+        320930567,
+        2617262313
+      ],
+      "removed_square": 39,
+      "child_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOX---XXXXOX-XXXXXX-X-OOOXXO",
+      "parent_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-X-OOOXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 39,
+      "move": "b8",
+      "child": "617ebc122c060400,9c0040e913210307",
+      "parent": "7f7ebc122c060400,800040e913210307",
+      "n_parent": 39,
+      "mover": 0,
+      "child_words": [
+        738591744,
+        1635695634,
+        320930567,
+        2617262313
+      ],
+      "parent_words": [
+        738591744,
+        2139012114,
+        320930567,
+        2147500265
+      ],
+      "removed_square": 57,
+      "child_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-X-OOOXXO",
+      "parent_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 40,
+      "move": "e3",
+      "child": "7f7ebc122c060400,800040e913210307",
+      "parent": "7f7ebc120c060400,800040e933310307",
+      "n_parent": 40,
+      "mover": 1,
+      "child_words": [
+        738591744,
+        2139012114,
+        320930567,
+        2147500265
+      ],
+      "parent_words": [
+        201720832,
+        2139012114,
+        858850055,
+        2147500265
+      ],
+      "removed_square": 20,
+      "child_board": "OOO-----OOX-----OXX--O--OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOO-----OOX-----OXX-OO--OOXXOO--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 41,
+      "move": "g3",
+      "child": "7f7ebc120c060400,800040e933310307",
+      "parent": "7f7ebc122c460400,800040e913310307",
+      "n_parent": 41,
+      "mover": 0,
+      "child_words": [
+        201720832,
+        2139012114,
+        858850055,
+        2147500265
+      ],
+      "parent_words": [
+        742786048,
+        2139012114,
+        321979143,
+        2147500265
+      ],
+      "removed_square": 22,
+      "child_board": "OOO-----OOX-----OXX-OO--OOXXOO--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOO-----OOX-----OXX-OOX-OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 42,
+      "move": "d1",
+      "child": "7f7ebc122c460400,800040e913310307",
+      "parent": "7f7ebc122c440000,800040e91333070f",
+      "n_parent": 42,
+      "mover": 1,
+      "child_words": [
+        742786048,
+        2139012114,
+        321979143,
+        2147500265
+      ],
+      "parent_words": [
+        742653952,
+        2139012114,
+        322111247,
+        2147500265
+      ],
+      "removed_square": 3,
+      "child_board": "OOO-----OOX-----OXX-OOX-OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO-----OOX-OOX-OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 43,
+      "move": "h4",
+      "child": "7f7ebc122c440000,800040e91333070f",
+      "parent": "7f7ebcd2ac440000,800040291333070f",
+      "n_parent": 43,
+      "mover": 0,
+      "child_words": [
+        742653952,
+        2139012114,
+        322111247,
+        2147500265
+      ],
+      "parent_words": [
+        2890137600,
+        2139012306,
+        322111247,
+        2147500073
+      ],
+      "removed_square": 31,
+      "child_board": "OOOO----OOO-----OOX-OOX-OOXXOX--OX-OXOOO--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO-----OOX-OOX-OOXXOX-XOX-OXOXX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 44,
+      "move": "g4",
+      "child": "7f7ebcd2ac440000,800040291333070f",
+      "parent": "7f7ebc928c440000,800040697333070f",
+      "n_parent": 44,
+      "mover": 1,
+      "child_words": [
+        2890137600,
+        2139012306,
+        322111247,
+        2147500073
+      ],
+      "parent_words": [
+        2353266688,
+        2139012242,
+        1932723983,
+        2147500137
+      ],
+      "removed_square": 30,
+      "child_board": "OOOO----OOO-----OOX-OOX-OOXXOX-XOX-OXOXX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO-----OOX-OOX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 45,
+      "move": "d3",
+      "child": "7f7ebc928c440000,800040697333070f",
+      "parent": "7f7ebc928c7c0000,800040697303070f",
+      "n_parent": 45,
+      "mover": 0,
+      "child_words": [
+        2353266688,
+        2139012242,
+        1932723983,
+        2147500137
+      ],
+      "parent_words": [
+        2356936704,
+        2139012242,
+        1929578255,
+        2147500137
+      ],
+      "removed_square": 19,
+      "child_board": "OOOO----OOO-----OOX-OOX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO-----OOXXXXX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 46,
+      "move": "h2",
+      "child": "7f7ebc928c7c0000,800040697303070f",
+      "parent": "7f7ebc928c3c0000,800040697343870f",
+      "n_parent": 46,
+      "mover": 1,
+      "child_words": [
+        2356936704,
+        2139012242,
+        1929578255,
+        2147500137
+      ],
+      "parent_words": [
+        2352742400,
+        2139012242,
+        1933805327,
+        2147500137
+      ],
+      "removed_square": 15,
+      "child_board": "OOOO----OOO-----OOXXXXX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO----OOOXXXXO-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 47,
+      "move": "f2",
+      "child": "7f7ebc928c3c0000,800040697343870f",
+      "parent": "7f7ebc928c7c2000,800040697303870f",
+      "n_parent": 47,
+      "mover": 0,
+      "child_words": [
+        2352742400,
+        2139012242,
+        1933805327,
+        2147500137
+      ],
+      "parent_words": [
+        2356944896,
+        2139012242,
+        1929611023,
+        2147500137
+      ],
+      "removed_square": 13,
+      "child_board": "OOOO----OOO----OOOXXXXO-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO--X-OOOXXXXX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 48,
+      "move": "e2",
+      "child": "7f7ebc928c7c2000,800040697303870f",
+      "parent": "7f7ebc928c4c2000,800040697333970f",
+      "n_parent": 48,
+      "mover": 1,
+      "child_words": [
+        2356944896,
+        2139012242,
+        1929611023,
+        2147500137
+      ],
+      "parent_words": [
+        2353799168,
+        2139012242,
+        1932760847,
+        2147500137
+      ],
+      "removed_square": 12,
+      "child_board": "OOOO----OOO--X-OOOXXXXX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO-OX-OOOXXOOX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 49,
+      "move": "c5",
+      "child": "7f7ebc928c4c2000,800040697333970f",
+      "parent": "7f7ebc9e8c4c2000,800040617333970f",
+      "n_parent": 49,
+      "mover": 0,
+      "child_words": [
+        2353799168,
+        2139012242,
+        1932760847,
+        2147500137
+      ],
+      "parent_words": [
+        2353799168,
+        2139012254,
+        1932760847,
+        2147500129
+      ],
+      "removed_square": 34,
+      "child_board": "OOOO----OOO-OX-OOOXXOOX-OOXXOOOXOX-OXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO----OOO-OX-OOOXXOOX-OOXXOOOXOXXXXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 50,
+      "move": "g1",
+      "child": "7f7ebc9e8c4c2000,800040617333970f",
+      "parent": "7f7ebc9e8c4c0000,800040617333b74f",
+      "n_parent": 50,
+      "mover": 1,
+      "child_words": [
+        2353799168,
+        2139012254,
+        1932760847,
+        2147500129
+      ],
+      "parent_words": [
+        2353790976,
+        2139012254,
+        1932769103,
+        2147500129
+      ],
+      "removed_square": 6,
+      "child_board": "OOOO----OOO-OX-OOOXXOOX-OOXXOOOXOXXXXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO--O-OOO-OO-OOOXXOOX-OOXXOOOXOXXXXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 51,
+      "move": "h3",
+      "child": "7f7ebc9e8c4c0000,800040617333b74f",
+      "parent": "7f7ebcbecccc0000,800040413333b74f",
+      "n_parent": 51,
+      "mover": 0,
+      "child_words": [
+        2353790976,
+        2139012254,
+        1932769103,
+        2147500129
+      ],
+      "parent_words": [
+        3435921408,
+        2139012286,
+        859027279,
+        2147500097
+      ],
+      "removed_square": 23,
+      "child_board": "OOOO--O-OOO-OO-OOOXXOOX-OOXXOOOXOXXXXOOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO--O-OOO-OO-OOOXXOOXXOOXXOOXXOXXXXXOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 52,
+      "move": "d2",
+      "child": "7f7ebcbecccc0000,800040413333b74f",
+      "parent": "7f7ebcbeccc80000,800040413337bf4f",
+      "n_parent": 52,
+      "mover": 1,
+      "child_words": [
+        3435921408,
+        2139012286,
+        859027279,
+        2147500097
+      ],
+      "parent_words": [
+        3435659264,
+        2139012286,
+        859291471,
+        2147500097
+      ],
+      "removed_square": 11,
+      "child_board": "OOOO--O-OOO-OO-OOOXXOOXXOOXXOOXXOXXXXXOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO--O-OOOOOO-OOOOXOOXXOOXXOOXXOXXXXXOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 53,
+      "move": "h7",
+      "child": "7f7ebcbeccc80000,800040413337bf4f",
+      "parent": "7ffefcbeccc80000,800000413337bf4f",
+      "n_parent": 53,
+      "mover": 0,
+      "child_words": [
+        3435659264,
+        2139012286,
+        859291471,
+        2147500097
+      ],
+      "parent_words": [
+        3435659264,
+        2147417278,
+        859291471,
+        2147483713
+      ],
+      "removed_square": 55,
+      "child_board": "OOOO--O-OOOOOO-OOOOXOOXXOOXXOOXXOXXXXXOX--XXXXOX-XXXXXX-XXXXXXXO",
+      "parent_board": "OOOO--O-OOOOOO-OOOOXOOXXOOXXOOXXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 54,
+      "move": "g2",
+      "child": "7ffefcbeccc80000,800000413337bf4f",
+      "parent": "7ffefcbe8c880000,800000417377ff4f",
+      "n_parent": 54,
+      "mover": 1,
+      "child_words": [
+        3435659264,
+        2147417278,
+        859291471,
+        2147483713
+      ],
+      "parent_words": [
+        2357723136,
+        2147417278,
+        1937243983,
+        2147483713
+      ],
+      "removed_square": 14,
+      "child_board": "OOOO--O-OOOOOO-OOOOXOOXXOOXXOOXXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "parent_board": "OOOO--O-OOOOOOOOOOOXOOOXOOXXOOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 55,
+      "move": "e1",
+      "child": "7ffefcbe8c880000,800000417377ff4f",
+      "parent": "7ffefcbe9cd83010,800000416327cf4f",
+      "n_parent": 55,
+      "mover": 0,
+      "child_words": [
+        2357723136,
+        2147417278,
+        1937243983,
+        2147483713
+      ],
+      "parent_words": [
+        2631413776,
+        2147417278,
+        1663553359,
+        2147483713
+      ],
+      "removed_square": 4,
+      "child_board": "OOOO--O-OOOOOOOOOOOXOOOXOOXXOOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "parent_board": "OOOOX-O-OOOOXXOOOOOXXOXXOOXXXOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 56,
+      "move": "f1",
+      "child": "7ffefcbe9cd83010,800000416327cf4f",
+      "parent": "7ffefcbe9cd81000,800000416327ef7f",
+      "n_parent": 56,
+      "mover": 1,
+      "child_words": [
+        2631413776,
+        2147417278,
+        1663553359,
+        2147483713
+      ],
+      "parent_words": [
+        2631405568,
+        2147417278,
+        1663561599,
+        2147483713
+      ],
+      "removed_square": 5,
+      "child_board": "OOOOX-O-OOOOXXOOOOOXXOXXOOXXXOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "parent_board": "OOOOOOO-OOOOXOOOOOOXXOXXOOXXXOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 57,
+      "move": "h1",
+      "child": "7ffefcbe9cd81000,800000416327ef7f",
+      "parent": "7ffefcbe9cf8d080,8000004163072f7f",
+      "n_parent": 57,
+      "mover": 0,
+      "child_words": [
+        2631405568,
+        2147417278,
+        1663561599,
+        2147483713
+      ],
+      "parent_words": [
+        2633552000,
+        2147417278,
+        1661415295,
+        2147483713
+      ],
+      "removed_square": 7,
+      "child_board": "OOOOOOO-OOOOXOOOOOOXXOXXOOXXXOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "parent_board": "OOOOOOOXOOOOXOXXOOOXXXXXOOXXXOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 58,
+      "move": "a6",
+      "child": "7ffefcbe9cf8d080,8000004163072f7f",
+      "parent": "7ffefcbc98f0c080,80000143670f3f7f",
+      "n_parent": 58,
+      "mover": 1,
+      "child_words": [
+        2633552000,
+        2147417278,
+        1661415295,
+        2147483713
+      ],
+      "parent_words": [
+        2565914752,
+        2147417276,
+        1729052543,
+        2147483971
+      ],
+      "removed_square": 40,
+      "child_board": "OOOOOOOXOOOOXOXXOOOXXXXXOOXXXOOXOXXXXXOX--XXXXXX-XXXXXXXXXXXXXXO",
+      "parent_board": "OOOOOOOXOOOOOOXXOOOOXXXXOOOXXOOXOOXXXXOXO-XXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": false
+    },
+    {
+      "source_case": "endgame-early-terminal-s202610255400242",
+      "normalized_move_index": 60,
+      "move": "b6",
+      "child": "7ffefcbc98f0c080,80000143670f3f7f",
+      "parent": "7ffefcb890e0c080,800003476f1f3f7f",
+      "n_parent": 59,
+      "mover": 1,
+      "child_words": [
+        2565914752,
+        2147417276,
+        1729052543,
+        2147483971
+      ],
+      "parent_words": [
+        2430648448,
+        2147417272,
+        1864318847,
+        2147484487
+      ],
+      "removed_square": 41,
+      "child_board": "OOOOOOOXOOOOOOXXOOOOXXXXOOOXXOOXOOXXXXOXO-XXXXXX-XXXXXXXXXXXXXXO",
+      "parent_board": "OOOOOOOXOOOOOOXXOOOOOXXXOOOOXOOXOOOXXXOXOOXXXXXX-XXXXXXXXXXXXXXO",
+      "follows_explicit_forced_pass": true
+    }
+  ]
+}

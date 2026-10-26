@@ -1,0 +1,73 @@
+{
+  "variant": "auto-v1",
+  "scope": "Pilot only: one observation per method/case; desktop M4 Chrome, not a smartphone measurement",
+  "unknown_handling": "Watchdog expiry is unknown, never unreachable. No finite failure cost or PAR2 is assigned. Found-time summaries omit censored observations and are conditional, not directly comparable across different solved sets.",
+  "overall": {
+    "observations": 40,
+    "found": 38,
+    "verified_found": 38,
+    "unknown": 2,
+    "error": 0,
+    "found_time_seconds": {
+      "n": 38,
+      "min": 0.03610000002384186,
+      "mean": 9.596023684211467,
+      "median": 8.349700000017883,
+      "max": 30.23210000002384,
+      "p90_linear": 24.079280000025047
+    },
+    "observed_wall_seconds_sum": 484.65410000002385,
+    "unknown_observed_seconds": [
+      60.00259999996424,
+      60.00260000002384
+    ]
+  },
+  "midgame": {
+    "observations": 20,
+    "found": 20,
+    "verified_found": 20,
+    "unknown": 0,
+    "error": 0,
+    "found_time_seconds": {
+      "n": 20,
+      "min": 0.03610000002384186,
+      "mean": 3.4260950000047683,
+      "median": 0.6759500000178814,
+      "max": 26.221,
+      "p90_linear": 8.114949999982118
+    },
+    "observed_wall_seconds_sum": 68.52190000009537,
+    "unknown_observed_seconds": []
+  },
+  "terminal": {
+    "observations": 20,
+    "found": 18,
+    "verified_found": 18,
+    "unknown": 2,
+    "error": 0,
+    "found_time_seconds": {
+      "n": 18,
+      "min": 8.278,
+      "mean": 16.451499999996688,
+      "median": 14.332999999970198,
+      "max": 30.23210000002384,
+      "p90_linear": 28.61280999997854
+    },
+    "observed_wall_seconds_sum": 416.13219999992845,
+    "unknown_observed_seconds": [
+      60.00259999996424,
+      60.00260000002384
+    ]
+  },
+  "solved_by": {
+    "passfree_probe": 30,
+    "general_sat": 5,
+    "lightweight_auto": 3
+  },
+  "found_with_inference_calls": 26,
+  "unknown_cases": [
+    "endgame-full-reference-no-pass-s202610255200028",
+    "endgame-full-reference-with-pass-s202610255300185"
+  ],
+  "assets_unchanged": true
+}

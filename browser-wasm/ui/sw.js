@@ -72,7 +72,21 @@ self.addEventListener('fetch', event => {
         return directoryEntry;
       }
     }
-    try { return await fetch(request); }
+    try {
+      const response = await fetch(request);
+      if (response.ok) {
+        const savedManifest = await cache.match(MANIFEST_URL);
+        const manifest = savedManifest ? await savedManifest.json() : null;
+        const name = url.pathname.slice(SCOPE.pathname.length);
+        if (manifest?.lazy_files?.includes(name)) {
+          const bytes = await response.clone().arrayBuffer();
+          const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');
+          if (digest !== manifest.files_sha256[name]) throw Error('Inference asset version mismatch');
+          try { await cache.put(new URL(name, SCOPE), response.clone()); } catch { /* Online inference can still proceed if storage is full. */ }
+        }
+      }
+      return response;
+    }
     catch (error) {
       if (request.mode === 'navigate') {
         const entry = await cache.match(INDEX_URL);

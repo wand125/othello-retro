@@ -1,4 +1,4 @@
-name: Browser SAT app
+name: Browser app
 
 on:
   push:
@@ -25,10 +25,17 @@ jobs:
         with:
           node-version: '24'
       - uses: actions/configure-pages@v5
+      - name: Install pinned browser models from Release
+        run: |
+          curl --fail --location --retry 3 https://github.com/wand125/othello-retro/releases/download/browser-models-v1/browser-models-v1.tar.gz -o "$RUNNER_TEMP/browser-models-v1.tar.gz"
+          echo "da61f0c2da3d518ebe6c6a5f5c02e9b6f20fe1f68a67a1258200617f17a0c248  $RUNNER_TEMP/browser-models-v1.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/browser-models"
+          tar -xzf "$RUNNER_TEMP/browser-models-v1.tar.gz" -C "$RUNNER_TEMP/browser-models"
+          cp "$RUNNER_TEMP/browser-models/"*.onnx browser-wasm/ui/models/
       - name: Verify independent rules and SAT verdict handling
         env:
           RETRO_FIXTURE_SOURCE_REPO: ${{ github.workspace }}
-        run: node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs
+        run: node --test browser-wasm/tests/test-verify.cjs browser-wasm/tests/test-policy.cjs browser-wasm/tests/test-auto.cjs
       - name: Test browser solver binaries
         run: node browser-wasm/tests/test-solver.cjs --smoke
       - name: Assemble static files

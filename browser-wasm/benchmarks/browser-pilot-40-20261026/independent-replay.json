@@ -1,0 +1,1165 @@
+{
+  "status": "passed",
+  "verifier": "../../../runner/verify.py",
+  "verifier_sha256": "d2dd9f32bd858a639fd50acc98278bb7c3dffff53d6deb6936ee8b856f989e0d",
+  "implementation": "Independent Python standard-library array replay; no SAT, ML or JS engine import",
+  "found_witnesses_checked": 115,
+  "observations": 120,
+  "variant_counts": {
+    "auto-v1": 38,
+    "sat-v2": 37,
+    "auto-v3": 40
+  },
+  "records": [
+    {
+      "variant": "auto-v1",
+      "case": "main-n12-s202610250000000",
+      "trial_index": 0,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "99132ed2f669d3e3a08fbc850e3af652d97a3e4022097d9f00042d991f20892f"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n12-s202610250000001",
+      "trial_index": 1,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "02f65c9c446543e6e7ffc94f2346536af59acbeb8dfe84cb9c034abcde4d88a8"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n12-s202610250000002",
+      "trial_index": 2,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "7398da0e274ec88f10543230eb9dfdc9b32a7716eb8584326b0c16488b0f4a97"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n12-s202610250000003",
+      "trial_index": 3,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "6abbe4556dc1c0599a136cfcd126c768d506842917912f92ec18049145900608"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n20-s202610250100000",
+      "trial_index": 4,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "7e7e2b5622245226fca69f7269092ae18cd2832097b700713de673742f563382"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n20-s202610250100001",
+      "trial_index": 5,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "60ad0f204154fd37afc8b9eedac8b7ac225955c2fde45dfa06ea9166505dbf51"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n20-s202610250100002",
+      "trial_index": 6,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "edaf4278a433d5cd91fc3af9042e96a6e23a0757262ed1491df5792243edf0bf"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n20-s202610250100003",
+      "trial_index": 7,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "bb5199f7868becd012fe2272d6be58a7953f6193615c4fb0360febb23cb0797c"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n28-s202610250200000",
+      "trial_index": 8,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "cd3b14e18ba3e813309d793ac5a01f2f3c8868d59ccbebdd9e8dbf8ec6c4c527"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n28-s202610250200001",
+      "trial_index": 9,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "401521ec0999bd5dc5f0ccd805c639b45a560186a0c1cb52f3cf2e1f81f81b94"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n28-s202610250200002",
+      "trial_index": 10,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "5e348ce39d6604aa192c19815d31311b70ad6b39f8a4a39cf26ca986607c192f"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n28-s202610250200003",
+      "trial_index": 11,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "772b46a3eeb649a8317b4f8cd7164474ba3454b1d1cad8c74841b55587b3d4dd"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n36-s202610250300000",
+      "trial_index": 12,
+      "status": "passed",
+      "placements": 32,
+      "passes": 1,
+      "terminal": false,
+      "record_sha256": "b5e185d55efde4fe91c8d7c80e7fe0170fe2e6db9126c5d5945e54445965eb78"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n36-s202610250300001",
+      "trial_index": 13,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a24ef88b56cec919d5d83aa6c41b044a3672b9f73b1608680c862f1600d257c6"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n36-s202610250300002",
+      "trial_index": 14,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "b454176fb1999b8c6ca4cb39d969368283863ded25a215bd34ec5fa8bcef61e6"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n36-s202610250300003",
+      "trial_index": 15,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a7f2ac940ef3935eccf2c6d339f4297a35f1cd0c1b79f6df9d8cdd50bbb1097f"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n44-s202610250400000",
+      "trial_index": 16,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a121751f1cd96efcf02e5c8c90515d1d98c62882a79871d395bb65d88c5ab0eb"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n44-s202610250400001",
+      "trial_index": 17,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "919387c2123570b555833d97d138c1af136600674b8ba123817a5dd03494d12c"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n44-s202610250400002",
+      "trial_index": 18,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "c028a1cc32682c80a432d7418b4d6abfd01f452e7fec7421001b92cb1e3c7d26"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "main-n44-s202610250400003",
+      "trial_index": 19,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a79c0c905cbbf2d35dc3be60aefe6d607e2aa25cda37a001acb87e576f131b77"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "trial_index": 21,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "ca8683e60faa8dc99c8dafe53a6296076b29b882ef40cb2747fa65542bdf79cc"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-no-pass-s202610255200006",
+      "trial_index": 22,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "272f51f37ec2fc5cf25217ec7f409373da7e0f5ada04b11b596ab4edd764285d"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-no-pass-s202610255200034",
+      "trial_index": 23,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "c88f3f205380196097dd7705bdcdba1731b40d65d7e7b37f253107643a2d7886"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-no-pass-s202610255200001",
+      "trial_index": 24,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "6354f5eeaf907df11734442e00f301575274c3ad4648b34325c1263d8cabc7c8"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-no-pass-s202610255200076",
+      "trial_index": 25,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "4618004c5c0e0bac0d5e0a176db06dac79d38685ead7128b362b5dc5383f5ec3"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-no-pass-s202610255200038",
+      "trial_index": 26,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "1b03b6a2cafc326a886ac964ab843ce8ca9e5cbcf1e50f40c42069d4f64710df"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-with-pass-s202610255300152",
+      "trial_index": 27,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "e8233510368085ac12741e24dec92653ab01927969afa2e840dd2711cfc9233b"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-with-pass-s202610255300009",
+      "trial_index": 28,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0477f22f6be4d1fc89b0d118ec67dbcbaaf276eb5366e1e8a8cc0d7bb07efed7"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-with-pass-s202610255300026",
+      "trial_index": 29,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "73d4f2423ab80fc39f14307cceae626dd98cda0313a208cf128b09806cf50e0c"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-with-pass-s202610255300171",
+      "trial_index": 30,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "103f76967cec391e1cae3b2a9f61143119977794d9d89b805cb1aa8aae4e1260"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-with-pass-s202610255300034",
+      "trial_index": 31,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "5cc2b9e07198d597482973214059445d35fb33553cf2315e1d7218663d0fcc24"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-full-reference-with-pass-s202610255300080",
+      "trial_index": 32,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "3a78347fcb4478b563c3fbf9aa415eb986bba25dbee1f163b1e232ee213ff06e"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-early-terminal-s202610255406852",
+      "trial_index": 34,
+      "status": "passed",
+      "placements": 58,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "90bf060b3d32d59a7d56d920b4f9096179b0a1ae13cbf2feaceb1cdc60f5c184"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-early-terminal-s202610255400242",
+      "trial_index": 35,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "f1edb3d375fedd461624cdfe6c5d9e151a36b25627a40ad09390c0626b1e3f59"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-early-terminal-s202610255407633",
+      "trial_index": 36,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "107760d76eb9d09287717a475b97614c367f9dcd6d8d20b302a1f6e089631461"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-early-terminal-s202610255405805",
+      "trial_index": 37,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0ba724feb148d15bfcdbaef4480ae70e6268228dbfa8b7f646d3127f749ff0fd"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-early-terminal-s202610255405665",
+      "trial_index": 38,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "f49beb7fd0dded36bccde1c128f43370ae874de4c8b8faaa7f021360dfb5c1fc"
+    },
+    {
+      "variant": "auto-v1",
+      "case": "endgame-early-terminal-s202610255401016",
+      "trial_index": 39,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0b4c5efb67abd7274d19fa0fd80d573ae71543ced54443ff80773b73df08cb85"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n12-s202610250000000",
+      "trial_index": 0,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "99132ed2f669d3e3a08fbc850e3af652d97a3e4022097d9f00042d991f20892f"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n12-s202610250000001",
+      "trial_index": 1,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "02f65c9c446543e6e7ffc94f2346536af59acbeb8dfe84cb9c034abcde4d88a8"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n12-s202610250000002",
+      "trial_index": 2,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "7398da0e274ec88f10543230eb9dfdc9b32a7716eb8584326b0c16488b0f4a97"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n12-s202610250000003",
+      "trial_index": 3,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "6abbe4556dc1c0599a136cfcd126c768d506842917912f92ec18049145900608"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n20-s202610250100000",
+      "trial_index": 4,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "7e7e2b5622245226fca69f7269092ae18cd2832097b700713de673742f563382"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n20-s202610250100001",
+      "trial_index": 5,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "60ad0f204154fd37afc8b9eedac8b7ac225955c2fde45dfa06ea9166505dbf51"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n20-s202610250100002",
+      "trial_index": 6,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "edaf4278a433d5cd91fc3af9042e96a6e23a0757262ed1491df5792243edf0bf"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n20-s202610250100003",
+      "trial_index": 7,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "bb5199f7868becd012fe2272d6be58a7953f6193615c4fb0360febb23cb0797c"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n28-s202610250200000",
+      "trial_index": 8,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "cd3b14e18ba3e813309d793ac5a01f2f3c8868d59ccbebdd9e8dbf8ec6c4c527"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n28-s202610250200001",
+      "trial_index": 9,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "401521ec0999bd5dc5f0ccd805c639b45a560186a0c1cb52f3cf2e1f81f81b94"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n28-s202610250200002",
+      "trial_index": 10,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "5e348ce39d6604aa192c19815d31311b70ad6b39f8a4a39cf26ca986607c192f"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n28-s202610250200003",
+      "trial_index": 11,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "772b46a3eeb649a8317b4f8cd7164474ba3454b1d1cad8c74841b55587b3d4dd"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n36-s202610250300000",
+      "trial_index": 12,
+      "status": "passed",
+      "placements": 32,
+      "passes": 1,
+      "terminal": false,
+      "record_sha256": "b5e185d55efde4fe91c8d7c80e7fe0170fe2e6db9126c5d5945e54445965eb78"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n36-s202610250300001",
+      "trial_index": 13,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a24ef88b56cec919d5d83aa6c41b044a3672b9f73b1608680c862f1600d257c6"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n36-s202610250300002",
+      "trial_index": 14,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "6c6034c04ebc41ef400234715a2ddb3e884724484e9b7664f1ec95f5b8428667"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n36-s202610250300003",
+      "trial_index": 15,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a7f2ac940ef3935eccf2c6d339f4297a35f1cd0c1b79f6df9d8cdd50bbb1097f"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n44-s202610250400000",
+      "trial_index": 16,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "cee96c55cbc11e90c05807777958ff6f5b8d1a9baa4efef0d2859232abad5c2f"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n44-s202610250400001",
+      "trial_index": 17,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "919387c2123570b555833d97d138c1af136600674b8ba123817a5dd03494d12c"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n44-s202610250400002",
+      "trial_index": 18,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "c028a1cc32682c80a432d7418b4d6abfd01f452e7fec7421001b92cb1e3c7d26"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "main-n44-s202610250400003",
+      "trial_index": 19,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a79c0c905cbbf2d35dc3be60aefe6d607e2aa25cda37a001acb87e576f131b77"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-no-pass-s202610255200006",
+      "trial_index": 22,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "272f51f37ec2fc5cf25217ec7f409373da7e0f5ada04b11b596ab4edd764285d"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-no-pass-s202610255200034",
+      "trial_index": 23,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "c88f3f205380196097dd7705bdcdba1731b40d65d7e7b37f253107643a2d7886"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-no-pass-s202610255200001",
+      "trial_index": 24,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "6354f5eeaf907df11734442e00f301575274c3ad4648b34325c1263d8cabc7c8"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-no-pass-s202610255200076",
+      "trial_index": 25,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "4618004c5c0e0bac0d5e0a176db06dac79d38685ead7128b362b5dc5383f5ec3"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-no-pass-s202610255200038",
+      "trial_index": 26,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "1b03b6a2cafc326a886ac964ab843ce8ca9e5cbcf1e50f40c42069d4f64710df"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-with-pass-s202610255300152",
+      "trial_index": 27,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "e8233510368085ac12741e24dec92653ab01927969afa2e840dd2711cfc9233b"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-with-pass-s202610255300009",
+      "trial_index": 28,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0477f22f6be4d1fc89b0d118ec67dbcbaaf276eb5366e1e8a8cc0d7bb07efed7"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-with-pass-s202610255300026",
+      "trial_index": 29,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "73d4f2423ab80fc39f14307cceae626dd98cda0313a208cf128b09806cf50e0c"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-with-pass-s202610255300171",
+      "trial_index": 30,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "103f76967cec391e1cae3b2a9f61143119977794d9d89b805cb1aa8aae4e1260"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-with-pass-s202610255300034",
+      "trial_index": 31,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "5cc2b9e07198d597482973214059445d35fb33553cf2315e1d7218663d0fcc24"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-full-reference-with-pass-s202610255300080",
+      "trial_index": 32,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "3a78347fcb4478b563c3fbf9aa415eb986bba25dbee1f163b1e232ee213ff06e"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-early-terminal-s202610255406852",
+      "trial_index": 34,
+      "status": "passed",
+      "placements": 58,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "90bf060b3d32d59a7d56d920b4f9096179b0a1ae13cbf2feaceb1cdc60f5c184"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-early-terminal-s202610255400242",
+      "trial_index": 35,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "f1edb3d375fedd461624cdfe6c5d9e151a36b25627a40ad09390c0626b1e3f59"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-early-terminal-s202610255407633",
+      "trial_index": 36,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "107760d76eb9d09287717a475b97614c367f9dcd6d8d20b302a1f6e089631461"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-early-terminal-s202610255405805",
+      "trial_index": 37,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0ba724feb148d15bfcdbaef4480ae70e6268228dbfa8b7f646d3127f749ff0fd"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-early-terminal-s202610255405665",
+      "trial_index": 38,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "f49beb7fd0dded36bccde1c128f43370ae874de4c8b8faaa7f021360dfb5c1fc"
+    },
+    {
+      "variant": "sat-v2",
+      "case": "endgame-early-terminal-s202610255401016",
+      "trial_index": 39,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0b4c5efb67abd7274d19fa0fd80d573ae71543ced54443ff80773b73df08cb85"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n12-s202610250000000",
+      "trial_index": 0,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "99132ed2f669d3e3a08fbc850e3af652d97a3e4022097d9f00042d991f20892f"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n12-s202610250000001",
+      "trial_index": 1,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "02f65c9c446543e6e7ffc94f2346536af59acbeb8dfe84cb9c034abcde4d88a8"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n12-s202610250000002",
+      "trial_index": 2,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "7398da0e274ec88f10543230eb9dfdc9b32a7716eb8584326b0c16488b0f4a97"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n12-s202610250000003",
+      "trial_index": 3,
+      "status": "passed",
+      "placements": 8,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "6abbe4556dc1c0599a136cfcd126c768d506842917912f92ec18049145900608"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n20-s202610250100000",
+      "trial_index": 4,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "7e7e2b5622245226fca69f7269092ae18cd2832097b700713de673742f563382"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n20-s202610250100001",
+      "trial_index": 5,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "60ad0f204154fd37afc8b9eedac8b7ac225955c2fde45dfa06ea9166505dbf51"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n20-s202610250100002",
+      "trial_index": 6,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "edaf4278a433d5cd91fc3af9042e96a6e23a0757262ed1491df5792243edf0bf"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n20-s202610250100003",
+      "trial_index": 7,
+      "status": "passed",
+      "placements": 16,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "bb5199f7868becd012fe2272d6be58a7953f6193615c4fb0360febb23cb0797c"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n28-s202610250200000",
+      "trial_index": 8,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "cd3b14e18ba3e813309d793ac5a01f2f3c8868d59ccbebdd9e8dbf8ec6c4c527"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n28-s202610250200001",
+      "trial_index": 9,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "401521ec0999bd5dc5f0ccd805c639b45a560186a0c1cb52f3cf2e1f81f81b94"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n28-s202610250200002",
+      "trial_index": 10,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "5e348ce39d6604aa192c19815d31311b70ad6b39f8a4a39cf26ca986607c192f"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n28-s202610250200003",
+      "trial_index": 11,
+      "status": "passed",
+      "placements": 24,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "772b46a3eeb649a8317b4f8cd7164474ba3454b1d1cad8c74841b55587b3d4dd"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n36-s202610250300000",
+      "trial_index": 12,
+      "status": "passed",
+      "placements": 32,
+      "passes": 1,
+      "terminal": false,
+      "record_sha256": "b5e185d55efde4fe91c8d7c80e7fe0170fe2e6db9126c5d5945e54445965eb78"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n36-s202610250300001",
+      "trial_index": 13,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a24ef88b56cec919d5d83aa6c41b044a3672b9f73b1608680c862f1600d257c6"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n36-s202610250300002",
+      "trial_index": 14,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "b454176fb1999b8c6ca4cb39d969368283863ded25a215bd34ec5fa8bcef61e6"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n36-s202610250300003",
+      "trial_index": 15,
+      "status": "passed",
+      "placements": 32,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a7f2ac940ef3935eccf2c6d339f4297a35f1cd0c1b79f6df9d8cdd50bbb1097f"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n44-s202610250400000",
+      "trial_index": 16,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "cee96c55cbc11e90c05807777958ff6f5b8d1a9baa4efef0d2859232abad5c2f"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n44-s202610250400001",
+      "trial_index": 17,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "919387c2123570b555833d97d138c1af136600674b8ba123817a5dd03494d12c"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n44-s202610250400002",
+      "trial_index": 18,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "c028a1cc32682c80a432d7418b4d6abfd01f452e7fec7421001b92cb1e3c7d26"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "main-n44-s202610250400003",
+      "trial_index": 19,
+      "status": "passed",
+      "placements": 40,
+      "passes": 0,
+      "terminal": false,
+      "record_sha256": "a79c0c905cbbf2d35dc3be60aefe6d607e2aa25cda37a001acb87e576f131b77"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200028",
+      "trial_index": 20,
+      "status": "passed",
+      "placements": 60,
+      "passes": 2,
+      "terminal": true,
+      "record_sha256": "f09ff86a0886354126dfc2ff6776723f8e6be07f914e882b06bd693a2da735c5"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "trial_index": 21,
+      "status": "passed",
+      "placements": 60,
+      "passes": 1,
+      "terminal": true,
+      "record_sha256": "b327d2e2d31eb98766860f6103d160ca7d34aa63eb1d38b59b5b10de9939456d"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200006",
+      "trial_index": 22,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "272f51f37ec2fc5cf25217ec7f409373da7e0f5ada04b11b596ab4edd764285d"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200034",
+      "trial_index": 23,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "c88f3f205380196097dd7705bdcdba1731b40d65d7e7b37f253107643a2d7886"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200001",
+      "trial_index": 24,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "6354f5eeaf907df11734442e00f301575274c3ad4648b34325c1263d8cabc7c8"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200076",
+      "trial_index": 25,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "4618004c5c0e0bac0d5e0a176db06dac79d38685ead7128b362b5dc5383f5ec3"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-no-pass-s202610255200038",
+      "trial_index": 26,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "1b03b6a2cafc326a886ac964ab843ce8ca9e5cbcf1e50f40c42069d4f64710df"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300152",
+      "trial_index": 27,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "e8233510368085ac12741e24dec92653ab01927969afa2e840dd2711cfc9233b"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300009",
+      "trial_index": 28,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0477f22f6be4d1fc89b0d118ec67dbcbaaf276eb5366e1e8a8cc0d7bb07efed7"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300026",
+      "trial_index": 29,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "73d4f2423ab80fc39f14307cceae626dd98cda0313a208cf128b09806cf50e0c"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300171",
+      "trial_index": 30,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "103f76967cec391e1cae3b2a9f61143119977794d9d89b805cb1aa8aae4e1260"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300034",
+      "trial_index": 31,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "5cc2b9e07198d597482973214059445d35fb33553cf2315e1d7218663d0fcc24"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300080",
+      "trial_index": 32,
+      "status": "passed",
+      "placements": 60,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "3a78347fcb4478b563c3fbf9aa415eb986bba25dbee1f163b1e232ee213ff06e"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-full-reference-with-pass-s202610255300185",
+      "trial_index": 33,
+      "status": "passed",
+      "placements": 60,
+      "passes": 1,
+      "terminal": true,
+      "record_sha256": "352167d3f2d622acc418fef8ff26d935d60836f1bdec87a767d6d64fd8be18de"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-early-terminal-s202610255406852",
+      "trial_index": 34,
+      "status": "passed",
+      "placements": 58,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "90bf060b3d32d59a7d56d920b4f9096179b0a1ae13cbf2feaceb1cdc60f5c184"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-early-terminal-s202610255400242",
+      "trial_index": 35,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "f1edb3d375fedd461624cdfe6c5d9e151a36b25627a40ad09390c0626b1e3f59"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-early-terminal-s202610255407633",
+      "trial_index": 36,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "107760d76eb9d09287717a475b97614c367f9dcd6d8d20b302a1f6e089631461"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-early-terminal-s202610255405805",
+      "trial_index": 37,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0ba724feb148d15bfcdbaef4480ae70e6268228dbfa8b7f646d3127f749ff0fd"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-early-terminal-s202610255405665",
+      "trial_index": 38,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "f49beb7fd0dded36bccde1c128f43370ae874de4c8b8faaa7f021360dfb5c1fc"
+    },
+    {
+      "variant": "auto-v3",
+      "case": "endgame-early-terminal-s202610255401016",
+      "trial_index": 39,
+      "status": "passed",
+      "placements": 59,
+      "passes": 0,
+      "terminal": true,
+      "record_sha256": "0b4c5efb67abd7274d19fa0fd80d573ae71543ced54443ff80773b73df08cb85"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 wand125 and contributors.
-"""Assemble a serverless SAT application in a new directory; never deploy it."""
+"""Assemble a browser-only application in a new directory; never deploy it."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -121,10 +121,20 @@ def build(public_repo, output, records_path=None):
         if path.is_symlink(): raise ValueError('UI assets must not contain symlinks')
         if not path.is_file() or any(part.startswith('.') for part in path.relative_to(ui).parts): continue
         content = read_regular(path); assets[path.relative_to(ui).as_posix()] = content; watched[path] = content
-    required = ('index.html','short.css','short.js','verify.js','engine.js','solver-worker.js',
-                'encoder.wasm','kissat.js','kissat.wasm','kissat.LICENSES.txt','register-sw.js','sw.js')
+    required = ('index.html','short.css','short.js','record-codec.js','verify.js','engine.js','auto.js','solver-worker.js',
+                'encoder.wasm','kissat.js','kissat.wasm','kissat.LICENSES.txt','register-sw.js','sw.js',
+                'inference/infer.js','inference/LICENSE','inference/ThirdPartyNotices.txt','models/LICENSE-MODELS.md')
     for name in required:
         if name not in assets: raise ValueError('required UI asset not ready: '+name)
+    model_manifest = json.loads(assets['models/model-export-manifest.json'])
+    for model in model_manifest['models'].values():
+        name = 'models/' + model['onnx_file']
+        if name not in assets or sha(assets[name]) != model['onnx_sha256']:
+            raise ValueError('model missing or hash mismatch; install the pinned browser-models-v1 Release assets: '+name)
+    runtime_manifest = json.loads(assets['inference/runtime-manifest.json'])
+    for name, details in runtime_manifest['selected_files'].items():
+        if 'inference/'+name not in assets or sha(assets['inference/'+name]) != details['sha256']:
+            raise ValueError('inference runtime missing or hash mismatch: '+name)
     template = assets.pop('sw.js').decode()
     if template.count('__ASSET_VERSION__') != 1: raise ValueError('SW must contain exactly one version token')
     for forbidden in ('asset-manifest.json','paper.html','paper','examples'):
@@ -149,7 +159,10 @@ def build(public_repo, output, records_path=None):
     core_hashes = {name:sha(content) for name,content in sorted(assets.items())}
     version = sha(json.dumps(core_hashes,sort_keys=True,separators=(',',':')).encode())
     assets['sw.js'] = template.replace('__ASSET_VERSION__',version).encode()
-    manifest = {'version':version,'files':sorted(core_hashes),
+    # Large inference assets are fetched only when needed, then retained for
+    # offline use. Opening the simple board must not download a 14 MB runtime.
+    lazy = sorted(name for name in core_hashes if name.endswith('.onnx') or name == 'inference/ort-wasm-simd-threaded.wasm')
+    manifest = {'version':version,'files':sorted(set(core_hashes)-set(lazy)), 'lazy_files':lazy,
         'files_sha256':{name:sha(content) for name,content in sorted(assets.items())},
         'version_digest_rule':'SHA256 of UTF-8 compact sorted-key JSON mapping relative asset paths to SHA256; manifest and sw.js excluded.',
         'self_hash_note':'asset-manifest.json excludes its own hash; files_sha256 covers all other output files including generated sw.js.',
@@ -170,7 +183,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--public-repo',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--records',type=Path,help='Public API snapshot with {examples:[...]}; otherwise bundled7 records')
+    parser.add_argument('--records',type=Path,help='Public API snapshot with {examples:[...]}; otherwise bundled72 records')
     args=parser.parse_args()
     try:
         manifest=build(args.public_repo,args.output,args.records)

@@ -3,15 +3,15 @@
   "target": "wasm32-unknown-unknown",
   "dependencies": [],
   "native_source_manifest": "native/SOURCE.json",
-  "operations": "Pure preprocessing and CNF generation. Native process/thread/time routines are not called.",
+  "operations": "Pure preprocessing, CNF generation, and legal predecessor generation with optional cheap ranking. Native process/thread/time routines are not called.",
   "source_sha256": {
     "Cargo.toml": "87974d4ec89d8e20ee4b6b6ca0baeee15c327ec0662e05c4569f2daf3c85b506",
     "Cargo.lock": "b101036c52be016e9876ace130335670b569a23f850f4409083451d229b73d22",
-    "src/lib.rs": "0201741194e59cad55d8889de1f5bdb284f802a7ee2201904c6ef469a6868389",
-    "build.py": "12911e03293213e29cfc27c9ed127de79a0454a420175b23bae3b27b47cfe4c6"
+    "src/lib.rs": "33ff7a6bdca016abce90a761bb32b9132dbb02e727d247ca6dabece264bcf365",
+    "build.py": "c2a5b84bae309e7dd380f81adbc092b51efaf5809e03c4cdf1c86f6d435e12f8"
   },
   "encoder_wasm": {
-    "bytes": 75293,
-    "sha256": "978f37e76cbe2832c30795986327c0f83af6425caa0a12cc059b094571134889"
+    "bytes": 93868,
+    "sha256": "ff6166ec29f29c1db59caab8cb383638aa4c856ab438cf4b8e0e491589d6f514"
   }
 }

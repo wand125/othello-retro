@@ -1,0 +1,22 @@
+{
+  "scope": "Existing publication policy, without reassigning third-party rights.",
+  "numeric_fixture_sha256": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+  "tool_code": "MIT",
+  "legal_input_provenance": {
+    "license": "MIT",
+    "source": "existing synthetic benchmark banks",
+    "case_ids": [
+      "endgame-early-terminal-s202610255400242",
+      "endgame-full-reference-no-pass-s202610255200001",
+      "endgame-full-reference-with-pass-s202610255300009"
+    ],
+    "article_derived_impossible_cases_used": false
+  },
+  "model_derivatives": {
+    "license": "CC-BY-4.0",
+    "author": "wand125",
+    "source": "https://github.com/wand125/othello-retro/releases/tag/v0.1.0",
+    "changes": "CPU eval clone,9 Conv-BN folds, ONNX serialization; no retraining/checkpoint overwrite"
+  },
+  "numeric_outputs": "Retain model attribution and conversion provenance with these expected logits; synthetic inputs are not training data or reachability labels."
+}

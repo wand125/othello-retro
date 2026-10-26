@@ -4,7 +4,7 @@
 
 オセロの盤面から、標準初期配置を出発点とする合法な棋譜を一つ復元する実験です。元の対局の特定や、最善手の計算を目的としていません。
 
-- [ブラウザ試験版（SAT/WebAssembly）](https://wand125.github.io/othello-retro/) — [ブラウザ版のビルド・利用手順](browser-wasm/README.md)
+- [ブラウザ試験版（SAT／軽量Auto）](https://wand125.github.io/othello-retro/) — [ブラウザ版のビルド・利用手順](browser-wasm/README.md)
 - [従来のサーバー版試験公開アプリ](https://othello-retro.logicpuzzle.app/) / [作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
 - インタラクティブ論文: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
@@ -16,9 +16,15 @@ Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/REA
 
 `SHA256SUMS`は個別の二つの重み用です。ソース・モデル用archiveを含む全添付ファイルには[RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS)を使います。
 
+## ブラウザで利用・端末で測定
+
+ブラウザ版はSATと任意の軽量Autoを同一originの静的assetだけで実行し、計算バックエンドやCDNを使いません。音出力・盤面変換・JSONと圧縮URL共有を保持します。推論runtime（約14.24MB）と必要なONNXモデルは遅延取得し、Service Worker制御後の取得成功時にオフラインcacheへ保存します。読込失敗はSATへ戻ります。[モデル取得・SHA照合・ビルド](browser-wasm/README.md)を参照してください。
+
+[実機での比較ページ](https://wand125.github.io/othello-retro/benchmark.html)はquick5／途中20／終局20／全40、SAT／Autoを選べます。1盤面60秒の観測上限、毎回新Worker、独立再生、結果はlocal JSONでPOSTしません。スマートフォン実機の60秒以内は未検証で保証せず、Python制御の実Chrome比較を実機測定とは扱いません。
+
 ## native軽量autoの更新
 
-[32盤面・各3反復の診断](AUTO_DIAGNOSIS.md)では、終局20盤面の軽量／従来auto平均時間比は0.6930（95% CI0.5646–0.8511）、44石中盤12盤面は0.9273（0.7990–1.0760）でした。新規学習はなく、native逆算修正・推論・候補幅・終局routingを組み合わせた別実験です。元の400／20盤面・4環境結果は不変です。WSL nativeへ適用済みで、本番Torch2.6の機能smokeは測定Torch2.2.2の速度比較と分けています。独立したブラウザSAT版にはautoを導入しません。
+[32盤面・各3反復の診断](AUTO_DIAGNOSIS.md)では、終局20盤面の軽量／従来auto平均時間比は0.6930（95% CI0.5646–0.8511）、44石中盤12盤面は0.9273（0.7990–1.0760）でした。新規学習はなく、native逆算修正・推論・候補幅・終局routingを組み合わせた別実験です。元の400／20盤面・4環境結果は不変です。WSL nativeへ適用済みで、本番Torch2.6の機能smokeは測定Torch2.2.2の速度比較と分けています。ブラウザ版の軽量AutoはONNX／CPU FP32・1スレッドによる別実装で、完全SATへのfallbackを保持します。
 
 現在の`solver/`はこの更新を含みます。従来policyのflagだけではnative修正を戻せません。元の凍結測定の再現にはv0.1.0のソース／記録または更新前commit`32e472e`を使い、固定bankのhashを書き換えません。[現在の検証](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json)と[旧検証記録](solver/history/v0.1.0/README.md)を区別しています。
 
@@ -65,3 +71,5 @@ Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/REA
 従来のサーバー版試験公開アプリでは、新規に作成する盤面・棋譜・計算時間などを取得・保存し、作成された棋譜として公開します。過去の利用ジョブを一括公開することはしません。
 
 利用記録、ブラウザ識別子、認証情報、私有インフラ設定は公開物へ含めません。測定ツールの私用出力は `.runs/`、利用者設定は `*.local.json` へ置き、公開時はrunnerのexportで別ディレクトリへ出力してください。第三者実装は依存関係として取得し、配布範囲と通知は[公開状況](CODE_PUBLICATION.md)へ記録しています。
+
+ブラウザ版も[共通ベンチマークへ接続](browser-wasm/benchmarks/README.md)しました。同じ途中400盤面・終局20盤面・SAT/Auto各3回の予定表を使います。[先行40盤面の試験](browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)では、最終版はM4上のChromeで40件すべての合法棋譜を返し、最長44.34秒でした。スマートフォン実機の値ではありません。

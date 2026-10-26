@@ -1,0 +1,71 @@
+{
+  "runtime": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "nice": 19,
+  "scope": "exploratory selected fixtures; desktop Node, not smartphone latency guarantee",
+  "watchdog_verdict": "unknown, never unreachable",
+  "files": {
+    "encoder.wasm": "49fb8a52f07b4b548780f0edf06db8ec3cb839bfbe5c4884a34bc999403b19f4",
+    "kissat.js": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+    "kissat.wasm": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3",
+    "verify.js": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9",
+    "probe.cjs": "2d30da387bea80d12da1f25421d9cd0a9d97c9832a5cfc113b4f0fe433e626e0"
+  },
+  "plan": [
+    {
+      "name": "late12-100k",
+      "case": "endgame-full-reference-no-pass-s202610255200028",
+      "mode": 2,
+      "conflicts": 100000,
+      "decisions": 1000000,
+      "sat_preset": false,
+      "observe_ms": 60000
+    },
+    {
+      "name": "late12-100k-satpreset",
+      "case": "endgame-full-reference-no-pass-s202610255200028",
+      "mode": 2,
+      "conflicts": 100000,
+      "decisions": 1000000,
+      "sat_preset": true,
+      "observe_ms": 60000
+    },
+    {
+      "name": "late12-100k",
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "mode": 2,
+      "conflicts": 100000,
+      "decisions": 1000000,
+      "sat_preset": false,
+      "observe_ms": 60000
+    },
+    {
+      "name": "late12-100k-satpreset",
+      "case": "endgame-full-reference-no-pass-s202610255200107",
+      "mode": 2,
+      "conflicts": 100000,
+      "decisions": 1000000,
+      "sat_preset": true,
+      "observe_ms": 60000
+    },
+    {
+      "name": "late12-100k",
+      "case": "endgame-full-reference-with-pass-s202610255300185",
+      "mode": 2,
+      "conflicts": 100000,
+      "decisions": 1000000,
+      "sat_preset": false,
+      "observe_ms": 60000
+    },
+    {
+      "name": "late12-100k-satpreset",
+      "case": "endgame-full-reference-with-pass-s202610255300185",
+      "mode": 2,
+      "conflicts": 100000,
+      "decisions": 1000000,
+      "sat_preset": true,
+      "observe_ms": 60000
+    }
+  ]
+}

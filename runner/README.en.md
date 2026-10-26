@@ -141,3 +141,5 @@ python3 -m unittest discover -s runner/tests -p 'test_verify.py'
 ```
 
 Three repetitions of one case are not three independent boards. Keep the 400 midgame and 20 terminal samples separate, distinguish incomplete progress from completed results, and separate fixtures from performance measurements.
+
+A [browser WebAssembly adapter guide](../browser-wasm/benchmarks/README.en.md) is also available.

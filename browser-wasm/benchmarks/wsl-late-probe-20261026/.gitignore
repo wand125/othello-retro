@@ -1,0 +1,4 @@
+encoder-source/target/
+artifacts/
+.runs/
+__pycache__/

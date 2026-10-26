@@ -1,0 +1,40 @@
+{
+  "schema": "portable-model-export-tooling-v1",
+  "status": "conversion-and-plane-checks-passed; browser-runtime-numeric-check-is-separate",
+  "historical_original_export": {
+    "exporter_sha256": "57558733cd9797489e537d3f31151921216aa2ff935e6392898df1f385efd9df",
+    "manifest_sha256": "7f3923f933dcbc932ae7f95387ce5a2ef2c6ab605782e3312e641169600014c9",
+    "copied_manifest": "model-export-manifest.json",
+    "original_measured_files_modified": false
+  },
+  "portable_export": {
+    "exporter_sha256": "a4ee8880c8c5f7d1d0e3fdacf7a845d4c3297a3deb361150e906102a5c366edd",
+    "manifest_file": "portable-export-manifest.json",
+    "generator_sha256": "89b824c2b0cb8674b4f07b0e5325e662458ec10653a42c706b1e15361efa12f4"
+  },
+  "reproduction": {
+    "models_byte_identical": true,
+    "numeric_fixtures_byte_identical": true,
+    "legal_edges_byte_identical": true,
+    "scope": "same CPU/PyTorch2.2.2/NumPy1.26.4/ONNX1.17.0 environment; no cross-platform bit-identity promise",
+    "onnx_sha256": {
+      "model": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+      "model_passes": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f"
+    }
+  },
+  "licensing": "numeric-fixtures.license.json",
+  "payload_note": "No checkpoint, ONNX, NPY or Python dependency package is committed here. Historical/export manifests describe generated artifacts outside this Git directory.",
+  "files_sha256": {
+    "README.en.md": "76315721a7cda771b95e45c5318af6cc726ed2668cd121e364c5ce65fad39095",
+    "README.md": "6ead99cca659ebd8743b28d76ffd1b32009ff5379702220126bb322948370c51",
+    "export_models.py": "a4ee8880c8c5f7d1d0e3fdacf7a845d4c3297a3deb361150e906102a5c366edd",
+    "generate-edge-items.cjs": "89b824c2b0cb8674b4f07b0e5325e662458ec10653a42c706b1e15361efa12f4",
+    "legal-edge-items.json": "fbe5499d71671928b9eb8ea6ad2105e6436769cc00232cda8c21f782b778f1d5",
+    "model-export-manifest.json": "7f3923f933dcbc932ae7f95387ce5a2ef2c6ab605782e3312e641169600014c9",
+    "numeric-fixtures.json": "3835e721ffd1f302a9082e172fc509b5a6cbd325e6098a1e50e290cd56256380",
+    "numeric-fixtures.license.json": "2ff0647e29b77357aa083660188348afbeae8e558bb53bb744529b939a4e5db1",
+    "plane-verification.json": "1e62a61fd3e6d4fd9da7a62c5717ea46bf298ed18cc2d107ffd3b3de9b6c1f2a",
+    "portable-export-manifest.json": "87c94ee5fcfaa6d9ec7b93afedd45673da8b3bc2fc2d6c643b1f28cf45322fcd",
+    "verify-planes.cjs": "0b8dc27bd592310a4038d5980c38eae770381871a64bfabc1b6797c2604c83d7"
+  }
+}

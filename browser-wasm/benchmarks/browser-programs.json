@@ -1,0 +1,144 @@
+{
+  "declared_environment": {
+    "device": "cpu-wasm",
+    "dtype": "float32",
+    "inference_threads": 1,
+    "solver_parallelism": 1
+  },
+  "programs": {
+    "sat": {
+      "label": "Browser sat: fresh Worker, cold WASM/models; Chrome ready excluded",
+      "mode": "resident",
+      "cwd": "../..",
+      "command": [
+        "python3",
+        "browser-wasm/benchmarks/adapter.py",
+        "--engine",
+        "sat",
+        "--ui-dir",
+        "browser-wasm/ui"
+      ],
+      "artifacts": [
+        {
+          "name": "browser_asset_1",
+          "path": "browser-wasm/ui/solver-worker.js"
+        },
+        {
+          "name": "browser_asset_2",
+          "path": "browser-wasm/ui/verify.js"
+        },
+        {
+          "name": "browser_asset_3",
+          "path": "browser-wasm/ui/engine.js"
+        },
+        {
+          "name": "browser_asset_4",
+          "path": "browser-wasm/ui/encoder.wasm"
+        },
+        {
+          "name": "browser_asset_5",
+          "path": "browser-wasm/ui/kissat.js"
+        },
+        {
+          "name": "browser_asset_6",
+          "path": "browser-wasm/ui/kissat.wasm"
+        },
+        {
+          "name": "browser_asset_7",
+          "path": "browser-wasm/ui/auto.js"
+        },
+        {
+          "name": "browser_asset_8",
+          "path": "browser-wasm/ui/inference/infer.js"
+        },
+        {
+          "name": "browser_asset_9",
+          "path": "browser-wasm/ui/inference/ort.wasm.min.js"
+        },
+        {
+          "name": "browser_asset_10",
+          "path": "browser-wasm/ui/inference/ort-wasm-simd-threaded.mjs"
+        },
+        {
+          "name": "browser_asset_11",
+          "path": "browser-wasm/ui/inference/ort-wasm-simd-threaded.wasm"
+        },
+        {
+          "name": "browser_asset_12",
+          "path": "browser-wasm/ui/models/model.fused.onnx"
+        },
+        {
+          "name": "browser_asset_13",
+          "path": "browser-wasm/ui/models/model_passes.fused.onnx"
+        }
+      ]
+    },
+    "auto": {
+      "label": "Browser auto: fresh Worker, cold WASM/models; Chrome ready excluded",
+      "mode": "resident",
+      "cwd": "../..",
+      "command": [
+        "python3",
+        "browser-wasm/benchmarks/adapter.py",
+        "--engine",
+        "auto",
+        "--ui-dir",
+        "browser-wasm/ui"
+      ],
+      "artifacts": [
+        {
+          "name": "browser_asset_1",
+          "path": "browser-wasm/ui/solver-worker.js"
+        },
+        {
+          "name": "browser_asset_2",
+          "path": "browser-wasm/ui/verify.js"
+        },
+        {
+          "name": "browser_asset_3",
+          "path": "browser-wasm/ui/engine.js"
+        },
+        {
+          "name": "browser_asset_4",
+          "path": "browser-wasm/ui/encoder.wasm"
+        },
+        {
+          "name": "browser_asset_5",
+          "path": "browser-wasm/ui/kissat.js"
+        },
+        {
+          "name": "browser_asset_6",
+          "path": "browser-wasm/ui/kissat.wasm"
+        },
+        {
+          "name": "browser_asset_7",
+          "path": "browser-wasm/ui/auto.js"
+        },
+        {
+          "name": "browser_asset_8",
+          "path": "browser-wasm/ui/inference/infer.js"
+        },
+        {
+          "name": "browser_asset_9",
+          "path": "browser-wasm/ui/inference/ort.wasm.min.js"
+        },
+        {
+          "name": "browser_asset_10",
+          "path": "browser-wasm/ui/inference/ort-wasm-simd-threaded.mjs"
+        },
+        {
+          "name": "browser_asset_11",
+          "path": "browser-wasm/ui/inference/ort-wasm-simd-threaded.wasm"
+        },
+        {
+          "name": "browser_asset_12",
+          "path": "browser-wasm/ui/models/model.fused.onnx"
+        },
+        {
+          "name": "browser_asset_13",
+          "path": "browser-wasm/ui/models/model_passes.fused.onnx"
+        }
+      ]
+    }
+  }
+}

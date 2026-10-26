@@ -4,7 +4,7 @@
 
 This experiment reconstructs one legal Othello move sequence from the standard opening position to a given board. It does not identify the original game or calculate optimal play.
 
-- [Browser SAT/WebAssembly preview](https://wand125.github.io/othello-retro/) — [browser build and usage guide](browser-wasm/README.en.md)
+- [Browser SAT / lightweight Auto preview](https://wand125.github.io/othello-retro/) — [browser build and usage guide](browser-wasm/README.en.md)
 - [Original server-backed experimental app](https://othello-retro.logicpuzzle.app/) / [Created records](https://othello-retro.logicpuzzle.app/examples)
 - Interactive article: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
@@ -16,9 +16,15 @@ Test boards, reference records, measured results and **measurement tools for con
 
 `SHA256SUMS` checks the two individual weights. [RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS) covers all other assets, including both source and model archives.
 
+## Browser use and your own device
+
+SAT and optional lightweight Auto run from same-origin static assets without a computation backend or CDN. Audio outputs, transforms, JSON and compressed record-sharing URLs remain available. The roughly 14.24MB inference runtime and needed ONNX model load lazily and cache after successful fetching under Service Worker control; loading errors return to SAT. See [model download, checksum and build](browser-wasm/README.en.md).
+
+The [on-device comparison page](https://wand125.github.io/othello-retro/benchmark.html) offers quick5/midgame20/terminal20/all40 and SAT/Auto. Each case uses a fresh Worker and independent replay, with a 60-second observational limit. Results are local JSON with no POST. Smartphone completion within 60 seconds is unverified and not guaranteed; Python-controlled real Chrome is not a physical-phone measurement.
+
 ## Native lightweight-auto update
 
-The separate [32-case, three-repeat diagnosis](AUTO_DIAGNOSIS.en.md) reports a lightweight/old-auto mean ratio of 0.6930 (95% CI 0.5646–0.8511) on 20 terminal cases and 0.9273 (0.7990–1.0760) on 12 midgame cases with 44 discs. It combines native undo, inference, candidate-width and terminal-routing changes without retraining. The original 400/20-case four-environment results are unchanged. Native WSL has adopted the update; its Torch 2.6 functional smoke is separate from the Torch 2.2.2 timing comparison. The independent browser SAT edition does not use auto.
+The separate [32-case, three-repeat diagnosis](AUTO_DIAGNOSIS.en.md) reports a lightweight/old-auto mean ratio of 0.6930 (95% CI 0.5646–0.8511) on 20 terminal cases and 0.9273 (0.7990–1.0760) on 12 midgame cases with 44 discs. It combines native undo, inference, candidate-width and terminal-routing changes without retraining. The original 400/20-case four-environment results are unchanged. Native WSL has adopted the update; its Torch 2.6 functional smoke is separate from the Torch 2.2.2 timing comparison. The separate browser lightweight Auto uses ONNX/CPU FP32 with one inference thread and complete SAT fallback.
 
 Current `solver/` contains these changes. Selecting the old policy flag does not revert the native fix. To reproduce the original frozen engine, use v0.1.0 source/records or pre-update commit `32e472e`, without rewriting bank hashes. Distinguish [current validation](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json) from the [historical records](solver/history/v0.1.0/README.md).
 
@@ -65,3 +71,5 @@ The browser preview computes locally and stores new records in the browser; shar
 The original server-backed experimental app collects and stores newly created boards, move sequences, computation times, and related creation information, and publishes them as created records. Past usage jobs are not bulk-published.
 
 Usage logs, browser identifiers, credentials, and private infrastructure configuration are excluded from publication. Keep private runner output in `.runs/` and user configuration in `*.local.json`; use the runner's export tool to write a separate public directory. Third-party implementations are obtained as dependencies; see the [publication scope](CODE_PUBLICATION.en.md) for the shipped files and notices.
+
+The browser now has an [adapter for the common benchmark](browser-wasm/benchmarks/README.en.md), preserving the same 400 midgame /20 terminal inputs and three SAT/Auto repetitions. In the [40-case preliminary check](browser-wasm/benchmarks/browser-pilot-40-20261026/README.en.md), the final version returned independently verified legal histories for all40 cases on M4 Chrome, with a maximum of44.34 seconds. These are not smartphone measurements.

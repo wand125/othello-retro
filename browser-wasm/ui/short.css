@@ -92,7 +92,11 @@ html,body,main,#theater,.panel,button,input{touch-action:manipulation}.board,.ce
 
 .film[data-audio-pattern="classic"] .disc,.film[data-audio-pattern="wave"] .disc{transition-timing-function:linear}#settings-dialog>form{position:sticky;top:0;background:#151515;z-index:3}
 
-/* Local calculation controls. */
-#search-text{position:static!important;width:auto!important;height:auto!important;margin:0!important;clip:auto!important;clip-path:none!important;overflow:visible!important;white-space:normal!important;font-size:10px;color:#aaa}.search-line{gap:8px}.search-line time{white-space:nowrap}#transform-controls button:disabled{opacity:.4}#file-status{font-size:12px;line-height:1.6}.solve-slot .primary:disabled{opacity:.3}.solve-slot .primary svg{fill:currentColor}.input-error{white-space:normal;max-width:90%;margin-left:auto;margin-right:auto}.input-error:not(.error){color:#aaa}.policy{pointer-events:none}
-@media(max-width:600px) and (orientation:portrait){#search-controls{width:auto}.search-line{max-width:calc(100vw - 100px);height:auto;min-height:28px}#search-text{max-width:210px}}
-@media(max-width:600px) and (orientation:portrait) and (max-height:640px){.solve-slot{top:calc(50% + var(--board-half) - var(--board-lift) + 8px)}.solve-slot .primary{width:40px;height:40px}.solve-slot .rewind-icon{width:30px;height:30px}.input-error{margin-top:4px;font-size:11px;line-height:1.5}}
+.panel>#share-board{position:absolute;right:0;bottom:calc(100% + 8px);color:#ddd;width:44px;height:48px;z-index:2}
+.panel>#share-board svg{width:26px;height:26px}
+#share-url{width:100%;margin:22px 0 14px;padding:12px;border:1px solid #444;border-radius:5px;background:#090909;color:#ddd;font:16px/1.5 ui-monospace,monospace;user-select:text;-webkit-user-select:text}
+.share-options{display:grid;gap:10px}.share-options button,.share-options a{display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid #444;border-radius:5px;padding:13px;background:#252525;color:#eee;text-decoration:none;font:inherit;min-height:48px}.share-options svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}#share-status{min-height:1.5em;margin:12px 0 0;color:#bbb;font-size:13px}
+
+/* Browser-local tools retain the current short layout. */
+.setting-buttons{display:flex;flex-wrap:wrap;gap:8px}.setting-buttons button{border:1px solid #454545;background:#202020;color:#ddd;border-radius:6px;min-height:40px;padding:8px 10px;font-size:12px}#settings-dialog{max-height:90svh;overflow:auto}#file-status{font-size:12px;line-height:1.6}.policy{pointer-events:none}.input-error{white-space:normal;max-width:90%;margin-inline:auto}#engine-options .toggle-button{min-width:64px}
+.setting-group .hint{font-size:12px;line-height:1.7;color:#999;margin:10px 0 0}

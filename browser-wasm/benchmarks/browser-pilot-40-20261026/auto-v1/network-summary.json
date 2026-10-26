@@ -1,0 +1,17 @@
+{
+  "scope": "Browser-request log aggregate; raw GET log omitted. Python preflight digest fetches are outside this browser-request log.",
+  "browser_requests": 426,
+  "methods": {
+    "GET": 426
+  },
+  "origins": [
+    "http://127.0.0.1:18821"
+  ],
+  "api_requests": 0,
+  "non_get_requests": 0,
+  "raw_request_log_sha256": "665ba0ddb3b5d814d5802c809065b56cd1977efb1f9633f7fae82a788e75b775",
+  "raw_request_log_bytes": 62269,
+  "raw_request_log_published": false,
+  "network_violations": [],
+  "page_errors": []
+}

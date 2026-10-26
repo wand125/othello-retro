@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": {
+    "encoder.wasm": "49fb8a52f07b4b548780f0edf06db8ec3cb839bfbe5c4884a34bc999403b19f4",
+    "kissat.js": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+    "kissat.wasm": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3",
+    "verify.js": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9"
+  },
+  "notes": "No measured WASM is duplicated here; build the encoder-source snapshot. Existing ../../ui Kissat/verify currently match the recorded hashes."
+}

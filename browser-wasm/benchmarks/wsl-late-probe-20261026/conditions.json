@@ -1,0 +1,31 @@
+{
+  "runtime": "v24.19.0",
+  "os": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "cpu_model": "AMD Ryzen 9 9950X 16-Core Processor",
+  "affinity": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "nice": 19,
+  "CNN": false,
+  "LTO": false,
+  "source_sha256": {
+    "cases.json": "9ee5b69e1e2cf85529311c369d4b8c24e2ccd1f1a080dbb862f232e46a37c75b",
+    "plan.json": "cdfd10430ebcb479083176ec457789eedec89dcc924c47fb856f820cfa0cc868",
+    "probe.cjs": "2d30da387bea80d12da1f25421d9cd0a9d97c9832a5cfc113b4f0fe433e626e0",
+    "ui/encoder.wasm": "49fb8a52f07b4b548780f0edf06db8ec3cb839bfbe5c4884a34bc999403b19f4",
+    "ui/engine.js": "3cf33f015d5caf8a8917cb7b5a141654dd998ae3c9d551fc8d723b486fcad8ed",
+    "ui/verify.js": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9",
+    "ui/kissat.js": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+    "ui/kissat.wasm": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3"
+  },
+  "sanitization": "Only an allowlist of runtime/hardware/CPU-policy/input hashes is published; no SSH endpoints, service configuration, user paths or credentials are included.",
+  "affinity_scope": "Four guest logical CPUs; no host physical core exclusivity claim",
+  "postrun_same_launcher_check": {
+    "nice": 19,
+    "Cpus_allowed_list": "16-19"
+  },
+  "postrun_check_scope": "A lightweight post-run process using the same launcher confirmed these settings; not a per-solver thread-affinity trace."
+}
