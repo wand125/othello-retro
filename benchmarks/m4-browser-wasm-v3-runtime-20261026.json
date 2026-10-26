@@ -2,7 +2,7 @@
   "study": "m4-browser-wasm-v3-20261026",
   "source_commit": "0c7cc42de37b5b2952fa45ff2f9d1433df7cc7d6",
   "snapshot_version": "ce1c8127723cf969c766d146c6fdf7cff34a2575d1f660b7a911c470a393e610",
-  "status": "partial",
+  "status": "complete",
   "device": "actual Apple M4 Pro desktop Chrome; not a smartphone",
   "gpu_inference": false,
   "chrome_disable_gpu": true,
@@ -37,6 +37,36 @@
       ],
       "dataset": "benchmarks/m4-browser-wasm-v3-endgame-main-20261026",
       "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409"
+    },
+    "midgame": {
+      "status": "complete",
+      "accepted_trials": 2400,
+      "program_ready_events": {
+        "auto": 1,
+        "sat": 1
+      },
+      "protocol_logs": [
+        {
+          "program": "auto",
+          "sha256": "403b927c3b737e287026a641f37f1278c522641f8bb697306d3b1d312a612e7c",
+          "bytes": 5168313,
+          "events": {
+            "ready": 1,
+            "result": 1200
+          }
+        },
+        {
+          "program": "sat",
+          "sha256": "aab3d816cad1a97bd9993bd08cc4e7975380e9f9ff4db409a33c8e8ca4d77525",
+          "bytes": 4594142,
+          "events": {
+            "ready": 1,
+            "result": 1200
+          }
+        }
+      ],
+      "dataset": "benchmarks/m4-browser-wasm-v3-midgame-main-20261026",
+      "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909"
     }
   },
   "runtime": {

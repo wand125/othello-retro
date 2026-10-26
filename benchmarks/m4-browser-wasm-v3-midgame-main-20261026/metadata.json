@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "run_id": "6007e5dfbb270e858f8268e58a4cb33a",
+  "started_at": "2026-10-26T04:36:15.284812+00:00",
+  "bank_sha256": "98b78ec6b2b02d4b8a6986441109c0d4b70d257b9b88be3b535c49a7af740909",
+  "protocol_sha256": "82801e6491b8abf9f06979878b79726571488752b5ba2d751e0cfe4f3edc1202",
+  "split": "main",
+  "cases_sha256": "932b163d8d827eb6d3ae4ccc6935fc4418f5b30892e3a79e638474dc2a4ff802",
+  "original_schedule_sha256": "45dd8b16d77c76ef10ecc7bfc307d9f446df1bb7772efc55cc0e8de4576bf4eb",
+  "schedule_sha256": "45dd8b16d77c76ef10ecc7bfc307d9f446df1bb7772efc55cc0e8de4576bf4eb",
+  "derived_schedule_sha256": "45dd8b16d77c76ef10ecc7bfc307d9f446df1bb7772efc55cc0e8de4576bf4eb",
+  "schedule_derivation": "original order preserved; filtered by selected_methods",
+  "selected_methods": [
+    "sat",
+    "auto"
+  ],
+  "planned_trials": 2400,
+  "completed_trials": 2400,
+  "independent_cases": 400,
+  "config_sha256": "437c7649233e3006d41bcbea4c6cea7fdcf84e644b7859db16f512ca0908681d",
+  "run_fingerprint": "1e5a8324f409c787229ce7c12268ff6906e34714945afc4f5eff4dddf597a07f",
+  "code_hashes": {
+    "runner/benchmark.py": "e00274fbce3a2f39afb56dca7bca110ab8a23ff09912984476818c25d26d827b",
+    "runner/verify.py": "d2dd9f32bd858a639fd50acc98278bb7c3dffff53d6deb6936ee8b856f989e0d"
+  },
+  "programs": {
+    "sat": {
+      "label": "Browser sat: fresh Worker, cold WASM/models; Chrome ready excluded",
+      "mode": "resident",
+      "timing_profile": "external-resident-ready-before-timing-v1",
+      "fixture": false,
+      "environment": {},
+      "redacted_configured_env_count": 0,
+      "artifact_hashes": {
+        "executable": "937b76f9e3c33f8a5e6538ffb9d828f24201b4da541d961b70fac39ff5ca7d0a",
+        "argument_file_1": "e8400c626c53cedc333550bfc0289abddb6114c36242043271c2aee961a4943d",
+        "browser_asset_1": "03faed5aa0dd6b64c748e4b9d5fdf204782443e90e90d553a4db6f378a395808",
+        "browser_asset_2": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9",
+        "browser_asset_3": "4ea6d7cd07aac26a8a1a83de37a5a233f4ee7b72c8fec01fdd94f8987e2430b1",
+        "browser_asset_4": "ff6166ec29f29c1db59caab8cb383638aa4c856ab438cf4b8e0e491589d6f514",
+        "browser_asset_5": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+        "browser_asset_6": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3",
+        "browser_asset_7": "bd7f86b238a14bcc7ad771955aefeefde59f22e602862756878c033e61350144",
+        "browser_asset_8": "bb3db0ca9db5e456c1e80c5aff0984c18a066e1e033289b1647135df0b568a87",
+        "browser_asset_9": "faece07e84faa9001f5104bbe4e5c70861d06cb2376a0dea1fa0ad33a67adc81",
+        "browser_asset_10": "e13f7f94fc51b4ca72b12faeb1ee95f4ace6dfbc8939bc718aabdc0a27c4299b",
+        "browser_asset_11": "3398c10d07d229bd91b364548e130e0e51a8e5704b88c7c083ebbeb78842dee2",
+        "browser_asset_12": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+        "browser_asset_13": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f"
+      },
+      "declared_environment": {
+        "device": "cpu-wasm",
+        "dtype": "float32",
+        "inference_threads": 1,
+        "solver_parallelism": 1,
+        "cpu_model": "Apple M4 Pro",
+        "architecture": "arm64",
+        "os": "macOS"
+      }
+    },
+    "auto": {
+      "label": "Browser auto: fresh Worker, cold WASM/models; Chrome ready excluded",
+      "mode": "resident",
+      "timing_profile": "external-resident-ready-before-timing-v1",
+      "fixture": false,
+      "environment": {},
+      "redacted_configured_env_count": 0,
+      "artifact_hashes": {
+        "executable": "937b76f9e3c33f8a5e6538ffb9d828f24201b4da541d961b70fac39ff5ca7d0a",
+        "argument_file_1": "e8400c626c53cedc333550bfc0289abddb6114c36242043271c2aee961a4943d",
+        "browser_asset_1": "03faed5aa0dd6b64c748e4b9d5fdf204782443e90e90d553a4db6f378a395808",
+        "browser_asset_2": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9",
+        "browser_asset_3": "4ea6d7cd07aac26a8a1a83de37a5a233f4ee7b72c8fec01fdd94f8987e2430b1",
+        "browser_asset_4": "ff6166ec29f29c1db59caab8cb383638aa4c856ab438cf4b8e0e491589d6f514",
+        "browser_asset_5": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+        "browser_asset_6": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3",
+        "browser_asset_7": "bd7f86b238a14bcc7ad771955aefeefde59f22e602862756878c033e61350144",
+        "browser_asset_8": "bb3db0ca9db5e456c1e80c5aff0984c18a066e1e033289b1647135df0b568a87",
+        "browser_asset_9": "faece07e84faa9001f5104bbe4e5c70861d06cb2376a0dea1fa0ad33a67adc81",
+        "browser_asset_10": "e13f7f94fc51b4ca72b12faeb1ee95f4ace6dfbc8939bc718aabdc0a27c4299b",
+        "browser_asset_11": "3398c10d07d229bd91b364548e130e0e51a8e5704b88c7c083ebbeb78842dee2",
+        "browser_asset_12": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+        "browser_asset_13": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f"
+      },
+      "declared_environment": {
+        "device": "cpu-wasm",
+        "dtype": "float32",
+        "inference_threads": 1,
+        "solver_parallelism": 1,
+        "cpu_model": "Apple M4 Pro",
+        "architecture": "arm64",
+        "os": "macOS"
+      }
+    }
+  },
+  "fixture": false,
+  "status": "complete",
+  "global_deadline": null,
+  "final_sat_time_limit": null,
+  "timing_profile": "generic-external-programs-v1",
+  "timing_note": "oneshot includes program startup; resident excludes ready preparation. Clock ends at accepted proof receipt; final independent replay and cleanup are separate. Profiles must not be pooled with each other or an existing benchmark without matching controls.",
+  "host": {
+    "system": "Darwin",
+    "release": "25.2.0",
+    "machine": "arm64",
+    "python": "3.12.2",
+    "logical_cpus_visible": 14,
+    "affinity": null
+  },
+  "attempts": [
+    {
+      "started_at": "2026-10-26T04:36:15.295999+00:00",
+      "first_trial_index": 0,
+      "finished_at": "2026-10-26T05:36:47.646765+00:00",
+      "completed_trials": 2400,
+      "program_wall_seconds": 3632.426915333024
+    }
+  ],
+  "measurement_kind": "external-program-benchmark",
+  "performance_claims_allowed": true,
+  "updated_at": "2026-10-26T05:36:47.646801+00:00",
+  "finished_at": "2026-10-26T05:36:47.646795+00:00",
+  "program_wall_seconds": 3632.426922124985,
+  "publication_state": "complete"
+}
