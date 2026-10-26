@@ -73,3 +73,5 @@ The original server-backed experimental app collects and stores newly created bo
 Usage logs, browser identifiers, credentials, and private infrastructure configuration are excluded from publication. Keep private runner output in `.runs/` and user configuration in `*.local.json`; use the runner's export tool to write a separate public directory. Third-party implementations are obtained as dependencies; see the [publication scope](CODE_PUBLICATION.en.md) for the shipped files and notices.
 
 The browser now has an [adapter for the common benchmark](browser-wasm/benchmarks/README.en.md), preserving the same 400 midgame /20 terminal inputs and three SAT/Auto repetitions. In the [40-case preliminary check](browser-wasm/benchmarks/browser-pilot-40-20261026/README.en.md), the final version returned independently verified legal histories for all40 cases on M4 Chrome, with a maximum of44.34 seconds. These are not smartphone measurements.
+
+[Browser formal-study start record](BROWSER_BENCHMARK.en.md)

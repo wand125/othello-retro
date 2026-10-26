@@ -73,3 +73,5 @@ Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/REA
 利用記録、ブラウザ識別子、認証情報、私有インフラ設定は公開物へ含めません。測定ツールの私用出力は `.runs/`、利用者設定は `*.local.json` へ置き、公開時はrunnerのexportで別ディレクトリへ出力してください。第三者実装は依存関係として取得し、配布範囲と通知は[公開状況](CODE_PUBLICATION.md)へ記録しています。
 
 ブラウザ版も[共通ベンチマークへ接続](browser-wasm/benchmarks/README.md)しました。同じ途中400盤面・終局20盤面・SAT/Auto各3回の予定表を使います。[先行40盤面の試験](browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)では、最終版はM4上のChromeで40件すべての合法棋譜を返し、最長44.34秒でした。スマートフォン実機の値ではありません。
+
+[ブラウザ正式測定の開始記録](BROWSER_BENCHMARK.md)

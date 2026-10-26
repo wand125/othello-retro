@@ -1,6 +1,6 @@
 {
   "study": "m4-browser-wasm-v3-20261026",
-  "status": "prepared",
+  "status": "started",
   "environment": "Apple M4 Pro / actual Chrome / CPU WebAssembly FP32, one inference thread",
   "independent_cases": {
     "midgame": 400,
@@ -46,5 +46,13 @@
       "cases_sha256": "eb8a3306b0ef984694384e56c1c78fbba0980706ed4b3143be8e988b4b8fbddd",
       "schedule_sha256": "74a9525bb588951ec075fabd491fb4564f5347b341b23cfd4a2d3754077b8208"
     }
-  }
+  },
+  "started_at": "2026-10-26T04:01:22.914568+00:00",
+  "source_commit": "0c7cc42de37b5b2952fa45ff2f9d1433df7cc7d6",
+  "progress_note": "Start notice, not a live counter. Completion will be published only after independent checks; see runtime sidecar and dataset manifests.",
+  "completion_records": [
+    "benchmarks/m4-browser-wasm-v3-runtime-20261026.json",
+    "benchmarks/m4-browser-wasm-v3-endgame-main-20261026/manifest.json",
+    "benchmarks/m4-browser-wasm-v3-midgame-main-20261026/manifest.json"
+  ]
 }
