@@ -4,6 +4,14 @@
 
 Updated 2026-10-26. The two main tables answer **whether the native lightweight update improves speed** and **whether Auto improves speed in the browser**.
 
+| Name | Runtime | Relationship |
+|---|---|---|
+| Old Auto | Native: Python/Rust on a PC or server | Baseline before the improvements |
+| Lightweight Auto | Native: Python/Rust on a PC or server | Improved old Auto with cheaper inference, candidate search and routing |
+| Browser Auto v3 | Browser: JavaScript/WASM/ONNX | A browser implementation of the lightweight approach, with further changes to candidate counts and SAT preprobes |
+
+**v3 is a version number within the browser implementation.** It does not mean that native Auto progressed through old, lightweight and v3 releases. All use the same source model weights, without retraining. Native lightweight timings therefore do not directly describe browser v3 performance.
+
 Each row compares methods on the same environment and boards. Read horizontally to compare the methods. Lower times are faster. A ratio of 0.70 means about 30% less time; 1.20 means about 20% more. A 95% confidence interval (CI) containing one does not establish a speed difference.
 
 <a id="native-comparison"></a>
