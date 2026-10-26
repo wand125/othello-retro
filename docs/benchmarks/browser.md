@@ -13,8 +13,8 @@ M4 Pro上の実Chromeを、既存のnative4環境とは別の実装・実行環�
 
 ブラウザ起動を準備として除き、各試行の新Worker・WASM・必要なモデルの読込を含めます。nativeのモデル準備後の測定とは起動境界や探索方針が異なるため、値を純粋なハードウェア差とは扱いません。ブラウザ版はCPU/FP32・推論1スレッドです。
 
-完了結果は`benchmarks/m4-browser-wasm-v3-runtime-20261026.json`と、同じフォルダの`m4-browser-wasm-v3-endgame-main-20261026/`・`m4-browser-wasm-v3-midgame-main-20261026/`へ追加します。この文書と開始記録は、逐次更新する進捗カウンターではありません。
+完了結果は`benchmarks/m4-browser-wasm-v3-runtime-20261026.json`と、同じフォルダの`m4-browser-wasm-v3-endgame-main-20261026/`・`m4-browser-wasm-v3-midgame-main-20261026/`に追加済みです。この文書と開始記録は、逐次更新する進捗カウンターではありません。
 
 [先行40盤面試験](../../browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)は各版1回の予備試験で、正式試験へ混ぜません。最終版は40/40件の合法棋譜を返し、平均9.29秒、最長44.34秒でした。スマホ実機は[端末内の測定ページ](https://wand125.github.io/othello-retro/benchmark.html)で別に測れます。PCの値からスマホの1分以内を保証しません。
 
-[終局の正式測定結果](results.md#browser-formal)：全120試行が独立検証済みです。途中400盤面は継続しています。[実行環境の記録 (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json)も公開しました。
+[中盤・終局の正式測定結果](results.md#browser-formal)：途中2,400試行・終局120試行のすべてが独立検証済みです。[実行環境の記録 (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json)も公開しました。

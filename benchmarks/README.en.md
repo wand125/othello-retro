@@ -2,21 +2,49 @@
 
 [日本語](README.md) | [English](README.en.md)
 
-Updated 2026-10-26. Major results are ordered by importance.
+Updated 2026-10-26. The two main tables answer **whether the native lightweight update improves speed** and **whether Auto improves speed in the browser**.
 
-## Key findings
+Each row compares methods on the same environment and boards. Read horizontally to compare the methods. Lower times are faster. A ratio of 0.70 means about 30% less time; 1.20 means about 20% more. A 95% confidence interval (CI) containing one does not establish a speed difference.
 
-- **Current browser:** all 120 formal terminal trials are verified. Auto v3 averaged 17.46 seconds vs 16.42 for SAT; no Auto speed advantage is established.
-- **Improved native Auto:** the separate WSL terminal comparison improved from 9.91 to 6.87 seconds, about 31%. Its midgame advantage is uncertain.
-- **Still running:** the browser's 400-midgame / 2,400-trial study. Desktop measurements do not guarantee smartphone completion within a minute.
+<a id="native-comparison"></a>
 
-SAT solves constraints describing boards and moves. Auto combines SAT with model-guided candidate selection. “Native” refers to the Python/Rust implementation running outside the browser.
+## 1. Lightweight update: three methods on the same WSL host
 
-Browser Auto v3, lightweight native Auto, and the old native Auto are distinct versions. They use the same source weights, with different runtimes and search settings. The tables below name the version explicitly. Machine-readable links are marked `(JSON)` or `(生データ)`.
+**Each board is solved three times by SAT, old native Auto and lightweight native Auto.** SAT is the reference for whether Auto provides a benefit. The terminal comparison is complete. The midgame study expands the earlier twelve selected 44-disc boards to the frozen bank of 400; all three methods are measured anew.
 
-Lower times are faster. A time ratio below one favors the numerator; a 95% confidence interval (CI) containing one does not establish a speed difference. “Verified” means independently replayed histories with legal moves and an exact match to the input board.
+| Inputs | SAT mean (s) | Old native Auto mean (s) | Lightweight native Auto mean (s) | Lightweight / old [95% CI] | Status |
+|---|---:|---:|---:|---|---|
+| All 400 midgames | — | — | — | — | Running; 3,600 trials |
+| 80 boards with 44 discs, within those 400 | — | — | — | — | Subset of the row above |
+| 20 terminal boards | 9.9502 | 9.9076 | 6.8658 | 0.6930 [0.5646, 0.8511] | 180/180 histories verified |
 
-## 1. Current browser v3 — formal terminal results
+**The current conclusion: lightweight Auto reduced the terminal mean by about 31%; the 400-midgame result is pending.**
+
+The overall midgame row represents practical performance across 80 boards each with 12, 20, 28, 36 and 44 discs. Below 44 discs both Auto variants go straight to SAT, so the update is mainly evaluated in the 44-disc row. Even there, successful SAT preprobes do not use model inference. Actual model use, guided hits and exact-SAT fallbacks are reported separately. The 80 boards are part of the 400, not additional cases.
+
+Method order rotates while CPU allocation, inference threads, weights and SAT concurrency are held fixed. There is no overall trial or final general-SAT deadline. Timing starts after model preparation; returned histories are independently replayed for legality and an exact board match. The update combines native fixes, inference, candidate-search and routing changes; it is not a model-only effect.
+
+[400-midgame plan (JSON)](native-lightweight-midgame-400x3-20261026-plan.json) · [Existing 32-case conditions, including terminal boards](../docs/algorithms/auto-diagnosis.en.md) · [Existing analysis (JSON)](native-lightweight-32x3-20261026/data/analysis/analysis.json) · [All 288 existing histories (生データ)](native-lightweight-32x3-20261026/data/run/runs.jsonl).
+
+<a id="browser-comparison"></a>
+
+## 2. Browser: SAT and Auto on the same M4 Pro and Chrome
+
+This is **browser Auto v3**. It uses the same source weights as native lightweight Auto, with different search settings and runtime. These are distinct versions.
+
+| Inputs | Browser SAT v3 mean (s) | Browser Auto v3 mean (s) | Auto / SAT [95% CI] | Status |
+|---|---:|---:|---|---|
+| 400 midgames | 1.5870 | 1.4319 | 0.9023 [0.8279, 0.9728] | 2,400/2,400 histories verified |
+| 20 terminal boards | 16.4185 | 17.4604 | 1.0635 [0.9815, 1.1851] | 120/120 histories verified |
+
+**Auto reduced the mean by about 9.8% across 400 midgames. No speed advantage is established on the 20 terminal boards.** Each method has three repeats; all 2,520 returned histories passed independent replay. The speed difference concerns the whole Auto v3 pipeline, not the model alone.
+
+[400-midgame analysis (JSON)](m4-browser-wasm-v3-midgame-main-20261026/summary.json) · [All 2,400 histories (生データ)](m4-browser-wasm-v3-midgame-main-20261026/runs.jsonl) · [Independent verification (JSON)](m4-browser-wasm-v3-midgame-main-20261026/verification.json).
+
+Browser timing includes fresh-Worker WASM and any required model loading; native timing starts after model preparation. Dividing times across these two tables does not establish an implementation speed multiplier. These desktop measurements also do not establish smartphone completion within one minute.
+
+<details>
+<summary>Browser terminal minimum, median, maximum, timing conditions and raw data</summary>
 
 Actual M4 Pro / Chrome 155.0.8059.86. Same 20 independent terminal positions, three SAT and three Auto observations each; **120/120 histories independently verified**. No overall trial or final general-SAT deadline.
 
@@ -27,22 +55,16 @@ Actual M4 Pro / Chrome 155.0.8059.86. Same 20 independent terminal positions, th
 
 Minimum, median and maximum are across the 20 per-case means of three repeats, not 60 individual trials. Auto/SAT ratio is 1.0635, 95% CI [0.9815,1.1851]; it includes one. Each trial starts a fresh Worker, with WASM and any needed model loading included; Chrome startup is preparation. CPU/FP32, one inference thread, HTTP cache and Service Workers disabled.
 
-The 400-midgame bank is still running. [Conditions](../docs/benchmarks/browser.en.md) · [Summary (JSON)](m4-browser-wasm-v3-endgame-main-20261026/summary.json) · [All 120 histories (生データ)](m4-browser-wasm-v3-endgame-main-20261026/runs.jsonl) · [Runtime/hashes (JSON)](m4-browser-wasm-v3-runtime-20261026.json).
+The 400-midgame bank also completed all 2,400 trials. [Conditions](../docs/benchmarks/browser.en.md) · [Summary (JSON)](m4-browser-wasm-v3-endgame-main-20261026/summary.json) · [All 120 histories (生データ)](m4-browser-wasm-v3-endgame-main-20261026/runs.jsonl) · [Runtime/hashes (JSON)](m4-browser-wasm-v3-runtime-20261026.json).
 
-## 2. Improved native Auto — WSL comparison
+</details>
 
-12 selected 44-disc midgames and 20 terminal positions, three repetitions per method; **288/288 histories verified**. The weights were not retrained. The improvement combines native undo, inference, candidate-width and routing changes.
+## 3. Reference: original native version across four environments
 
-| Inputs | SAT mean (s) | Old native Auto mean (s) | Lightweight native Auto mean (s) | Lightweight / old Auto [95% CI] |
-|---|---:|---:|---:|---|
-| 12 midgames, 44 discs | 2.5873 | 1.7012 | 1.5776 | 0.9273 [0.7990,1.0760] |
-| 20 terminal boards | 9.9502 | 9.9076 | 6.8658 | 0.6930 [0.5646,0.8511] |
+These are pre-update records. Compare old Auto with SAT within each environment; do not combine these cells with the new WSL study or browser results.
 
-The terminal mean improved by about 31%; the midgame interval includes one. This is a separate 32-case comparison, not a rerun of all 400 midgames. Native models were prepared before timing, unlike fresh browser Workers.
-
-[Diagnosis and conditions](../docs/algorithms/auto-diagnosis.en.md) · [Analysis (JSON)](native-lightweight-32x3-20261026/data/analysis/analysis.json) · [All 288 histories (生データ)](native-lightweight-32x3-20261026/data/run/runs.jsonl).
-
-## 3. Original native version — four-environment formal study
+<details>
+<summary>M4 Pro, M1, WSL and Intel i9: 400 midgames and 20 terminal boards</summary>
 
 These results use the **old native Auto, before the lightweight update**. Each environment completed 400 midgames and 20 terminal boards, SAT/Auto three times each: **10,080 verified histories**. Three repeats do not multiply the independent sample size.
 
@@ -70,7 +92,20 @@ Priority, OS, backend and background-load differences are recorded in the detail
 
 [Detailed results and terminal distributions](../docs/benchmarks/results.en.md#midgame-results) · [Midgame aggregate (JSON)](four-environment-midgame-comparison-20261025.json) · [Terminal aggregate (JSON)](four-environment-endgame-comparison-20261025.json) · [Terminal distributions (JSON)](terminal-time-distribution-20261026.json).
 
+</details>
+
 ## 4. Preliminary experiments and diagnostics
+
+<details>
+<summary>Lightweight Auto: twelve midgames before expansion to the 400-case study</summary>
+
+| Inputs | SAT mean (s) | Old native Auto mean (s) | Lightweight native Auto mean (s) | Lightweight / old [95% CI] |
+|---|---:|---:|---:|---|
+| Twelve selected 44-disc boards | 2.5873 | 1.7012 | 1.5776 | 0.9273 [0.7990, 1.0760] |
+
+All 108 histories from three repeats were verified. The interval includes one, so the advantage was uncertain. These twelve cases do not establish overall midgame performance; the new 400-case study above addresses that question. [Conditions and analysis](../docs/algorithms/auto-diagnosis.en.md) · [Analysis (JSON)](native-lightweight-32x3-20261026/data/analysis/analysis.json).
+
+</details>
 
 <details>
 <summary>Browser 40-case preliminary comparison: three versions, one observation per case</summary>

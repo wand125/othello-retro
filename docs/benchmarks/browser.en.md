@@ -13,8 +13,8 @@ The existing banks, references and schedules are unchanged. Terminal and midgame
 
 Browser startup is preparation; each trial includes a fresh Worker, WASM initialization and any needed model loading. This differs from native measurements with models already prepared, and the search policies also differ. Comparisons are not hardware-only. Browser inference is CPU/FP32 with one thread.
 
-Completion records will appear at `benchmarks/m4-browser-wasm-v3-runtime-20261026.json`, `benchmarks/m4-browser-wasm-v3-endgame-main-20261026/` and `benchmarks/m4-browser-wasm-v3-midgame-main-20261026/`. This document and the start record are not live counters.
+Completion records are available at `benchmarks/m4-browser-wasm-v3-runtime-20261026.json`, `benchmarks/m4-browser-wasm-v3-endgame-main-20261026/` and `benchmarks/m4-browser-wasm-v3-midgame-main-20261026/`. This document and the start record are not live counters.
 
-The [40-case preliminary checks](../../browser-wasm/benchmarks/browser-pilot-40-20261026/README.en.md) are separate one-repeat experiments. The final version independently verified40/40 histories, averaging9.29 seconds with a44.34-second maximum. Smartphone hardware can be measured separately with the [on-device page](https://wand125.github.io/othello-retro/benchmark.html). Desktop times do not guarantee smartphone completion within a minute.
+The [40-case preliminary checks](../../browser-wasm/benchmarks/browser-pilot-40-20261026/README.en.md) are separate one-repeat experiments. The final version independently verified 40/40 histories, averaging 9.29 seconds with a 44.34-second maximum. Smartphone hardware can be measured separately with the [on-device page](https://wand125.github.io/othello-retro/benchmark.html). Desktop times do not guarantee smartphone completion within a minute.
 
-[Completed terminal results](results.en.md#browser-formal): all 120 trials independently verified. The 400-midgame bank continues. See the [runtime record (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json).
+[Completed midgame and terminal results](results.en.md#browser-formal): all 2,400 midgame and 120 terminal trials independently verified. See the [runtime record (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json).

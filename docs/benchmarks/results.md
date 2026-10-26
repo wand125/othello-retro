@@ -6,7 +6,8 @@ Auto改善後を含む、公開済みの全ベンチマークをまとめてい�
 
 | 測定 | 盤面・反復 | 完了状況 | 結果 |
 |---|---|---|---|
-| ブラウザv3・正式測定 | 同じ400／20盤面、SAT/Auto各3回 | 終局120/120検証済み・途中は実行中 | [正式ブラウザ結果](#browser-formal) |
+| ブラウザv3・正式測定 | 同じ400／20盤面、SAT/Auto各3回 | 途中2,400・終局120、全2,520試行を検証済み | [正式ブラウザ結果](#browser-formal) |
+| native軽量Auto・中盤400盤面再測定 | 400盤面 × 3方式 × 各3回 | 測定中・3,600試行 | [最終比較表](../../benchmarks/README.md#native-comparison) |
 | native軽量Auto改善後・WSL | 32盤面 × 3方式 × 各3回 | 全288試行を検証済み | [改善後Auto](#lightweight-auto) |
 | 元のnative版・M4 / M1 / WSL / Intel | 途中400・終局20、SAT/Auto各3回 | 全10,080試行を検証済み | [途中](#midgame-results)・[終局](#terminal-results) |
 | ブラウザ改良後v3・予備試験 | 40盤面 × 各1回、3版で全120観測 | v3は40/40、旧版には未確定あり | [ブラウザ比較](#browser-v3) |
@@ -29,20 +30,36 @@ WSLで44石中盤12盤面と終局20盤面を選び、SAT・従来Auto・軽量A
 
 <a id="browser-formal"></a>
 
-## ブラウザv3：正式な終局20盤面の結果
+## ブラウザv3：正式測定の結果
 
-予定した全120試行が完了しました。同じ独立20盤面をSAT・Auto各3回測定し、全棋譜が共通の独立検証を通過しています。途中400盤面・2,400試行は引き続き実行中です。
+これは**ブラウザAuto v3**です。上のnative軽量Autoとは探索設定・実行系が異なります。同じ元重みを使いますが、同一版ではありません。
 
-| 方式 | 検証済み試行 | 平均（秒） | 盤面平均の最短 | 盤面平均の中央値 | 盤面平均の最長 |
+| 対象 | ブラウザSAT v3平均（秒） | ブラウザAuto v3平均（秒） | Auto／SAT [95%CI] | 状況 |
+|---|---:|---:|---|---|
+| 中盤400盤面 | 1.5870 | 1.4319 | 0.9023 [0.8279, 0.9728] | 2,400/2,400試行を検証済み |
+| 終局20盤面 | 16.4185 | 17.4604 | 1.0635 [0.9815, 1.1851] | 120/120試行を検証済み |
+
+**中盤400盤面ではAutoの平均が約9.8%短縮しました。終局20盤面では速度優位は示されていません。** 両方とも各方式3反復、全2,520棋譜を独立検証済みです。これはAuto v3全体の差で、モデル単体の効果ではありません。
+
+[中盤400盤面の集計 (JSON)](../../benchmarks/m4-browser-wasm-v3-midgame-main-20261026/summary.json)・[全2,400棋譜 (生データ)](../../benchmarks/m4-browser-wasm-v3-midgame-main-20261026/runs.jsonl)・[独立検証 (JSON)](../../benchmarks/m4-browser-wasm-v3-midgame-main-20261026/verification.json)。
+
+ブラウザは新WorkerからのWASM・必要なモデルの読込を含み、nativeはモデル準備後の計時です。2つの表の秒数を直接割って実装間の速度倍率とはしません。スマホ実機の1分以内も、このPC測定からは判断しません。
+
+<details>
+<summary>ブラウザ終局の最短・中央値・最長、計時条件と生データ</summary>
+
+実M4 Pro／Chrome155.0.8059.86。同じ独立20盤面をSAT・Auto各3回測定し、**120/120試行の合法棋譜を独立検証**しました。試行全体・最後の一般SATは時間無制限です。
+
+| 方式 | 検証済み | 平均（秒） | 盤面平均の最短 | 盤面平均の中央値 | 盤面平均の最長 |
 |---|---:|---:|---:|---:|---:|
 | ブラウザSAT v3 | 60 / 60 | 16.4185 | 1.360 | 10.771 | 46.979 |
 | ブラウザAuto v3 | 60 / 60 | 17.4604 | 1.421 | 12.644 | 67.758 |
 
-最短・中央値・最長は、**各盤面の3反復を平均した20個の値**の分布です。単発60試行の最短・最長ではありません。Auto／SAT平均比は1.0635、対応するcase-cluster bootstrapの95%CIは [0.9815,1.1851] です。区間が1を含むため、Autoの速度優位は示されていません。
+最短・中央値・最長は、20盤面それぞれの3反復平均の分布です。単発60試行の最短・最長とは異なります。Auto/SAT比は1.0635、95%CIは [0.9815,1.1851] で、1を含みます。各試行は新Workerから実行し、WASM・必要なモデルの読込を含み、Chrome起動は準備として除きます。CPU/FP32・推論1スレッド、HTTP cache・Service Workerなしです。
 
-実M4 ProのChrome155.0.8059.86、CPU/FP32・推論1スレッドです。毎試行を新Workerで実行し、HTTP cache・Service Workerは使いません。Chrome起動は準備として除き、WASM・モデル読込と通信処理は試行時間に含めます。試行全体と最後の一般SATに時間上限はありません。nativeのモデル準備後や、各1回の予備試験とは条件が異なり、スマホ1分以内を示すものでもありません。
+途中400盤面・2,400試行も完了しました。[測定条件](browser.md)・[集計 (JSON)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/summary.json)・[全120棋譜 (生データ)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/runs.jsonl)・[実行環境・hash (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json)。
 
-[集計 (JSON)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/summary.json)・[全120棋譜 (生データ)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/runs.jsonl)・[独立検証 (JSON)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/verification.json)・[実行環境とasset hash (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json)・[測定条件](browser.md)。
+</details>
 
 <a id="browser-v3"></a>
 
@@ -62,7 +79,7 @@ WSLで44石中盤12盤面と終局20盤面を選び、SAT・従来Auto・軽量A
 | 途中20盤面 | 3.596 | 0.039 | 0.852 | 29.132 |
 | 終局20盤面 | 14.982 | 1.334 | 9.954 | 44.340 |
 
-v3はSATの予算配分・late-pass式・必要時の学習誘導を組み合わせた版です。実際のモデル推論は4件、学習補助経路での完了は1件でした。PCの測定であり、スマホでの1分以内を保証しません。正式測定は終局120試行が完了し、途中局面は時間無制限で継続中です。[予備試験の詳細](../../browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)・[集計データ (JSON)](../../browser-wasm/benchmarks/browser-pilot-40-20261026/summary.json)・[正式測定の条件](browser.md)。
+v3はSATの予算配分・late-pass式・必要時の学習誘導を組み合わせた版です。実際のモデル推論は4件、学習補助経路での完了は1件でした。PCの測定であり、スマホでの1分以内を保証しません。正式測定は途中2,400試行・終局120試行がすべて完了しています。[予備試験の詳細](../../browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)・[集計データ (JSON)](../../browser-wasm/benchmarks/browser-pilot-40-20261026/summary.json)・[正式測定の条件](browser.md)。
 
 以下の元native版は、全4環境で予定した10,080試行が完了し、全棋譜の合法性と目標64マスの一致を独立検証しています。[測定設計](design.md)を参照してください。
 

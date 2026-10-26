@@ -6,7 +6,8 @@ This page collects all published benchmark studies, including measurements after
 
 | Study | Cases and repetitions | Completion | Results |
 |---|---|---|---|
-| Browser v3, formal | Same 400/20 banks; SAT/Auto × 3 | Terminal: 120/120 verified; midgames in progress | [Formal browser results](#browser-formal) |
+| Browser v3, formal | Same 400/20 banks; SAT/Auto × 3 | All 2,520 histories verified: 2,400 midgame and 120 terminal | [Formal browser results](#browser-formal) |
+| Native lightweight Auto, full midgame rerun | 400 boards × 3 methods × 3 repeats | Running; 3,600 trials | [Main comparison table](../../benchmarks/README.en.md#native-comparison) |
 | Improved native lightweight Auto, WSL | 32 positions × 3 methods × 3 repetitions | 288 verified histories | [Improved Auto](#lightweight-auto) |
 | Original native, M4 / M1 / WSL / Intel | 400 midgames and 20 terminal positions; SAT/Auto × 3 | 10,080 verified histories | [Midgames](#midgame-results), [terminal](#terminal-results) |
 | Improved browser v3, preliminary | 40 positions × 1; three versions, 120 observations total | v3: 40/40; earlier versions include unknowns | [Browser comparison](#browser-v3) |
@@ -29,20 +30,36 @@ The terminal mean fell by about 31%. The midgame interval includes one, so this 
 
 <a id="browser-formal"></a>
 
-## Browser v3: completed formal terminal study
+## Browser v3: formal results
 
-All 120 scheduled terminal trials have completed: the same 20 independent positions, three SAT and three Auto trials each. Every history passed the common independent verifier. The 400-midgame study (2,400 trials) is still running.
+This is **browser Auto v3**. It uses the same source weights as native lightweight Auto, with different search settings and runtime. These are distinct versions.
 
-| Method | Verified trials | Mean (s) | Minimum case mean | Median case mean | Maximum case mean |
+| Inputs | Browser SAT v3 mean (s) | Browser Auto v3 mean (s) | Auto / SAT [95% CI] | Status |
+|---|---:|---:|---|---|
+| 400 midgames | 1.5870 | 1.4319 | 0.9023 [0.8279, 0.9728] | 2,400/2,400 histories verified |
+| 20 terminal boards | 16.4185 | 17.4604 | 1.0635 [0.9815, 1.1851] | 120/120 histories verified |
+
+**Auto reduced the mean by about 9.8% across 400 midgames. No speed advantage is established on the 20 terminal boards.** Each method has three repeats; all 2,520 returned histories passed independent replay. The speed difference concerns the whole Auto v3 pipeline, not the model alone.
+
+[400-midgame analysis (JSON)](../../benchmarks/m4-browser-wasm-v3-midgame-main-20261026/summary.json) · [All 2,400 histories (生データ)](../../benchmarks/m4-browser-wasm-v3-midgame-main-20261026/runs.jsonl) · [Independent verification (JSON)](../../benchmarks/m4-browser-wasm-v3-midgame-main-20261026/verification.json).
+
+Browser timing includes fresh-Worker WASM and any required model loading; native timing starts after model preparation. Dividing times across these two tables does not establish an implementation speed multiplier. These desktop measurements also do not establish smartphone completion within one minute.
+
+<details>
+<summary>Browser terminal minimum, median, maximum, timing conditions and raw data</summary>
+
+Actual M4 Pro / Chrome 155.0.8059.86. Same 20 independent terminal positions, three SAT and three Auto observations each; **120/120 histories independently verified**. No overall trial or final general-SAT deadline.
+
+| Program | Verified | Mean (s) | Minimum case mean | Median case mean | Maximum case mean |
 |---|---:|---:|---:|---:|---:|
 | Browser SAT v3 | 60 / 60 | 16.4185 | 1.360 | 10.771 | 46.979 |
 | Browser Auto v3 | 60 / 60 | 17.4604 | 1.421 | 12.644 | 67.758 |
 
-The extrema and median describe the **20 per-case means of three repetitions**, not the 60 individual trials. Auto/SAT mean ratio is 1.0635, with paired case-cluster 95% CI [0.9815, 1.1851]. The interval includes one; this study does not establish an Auto speed advantage.
+Minimum, median and maximum are across the 20 per-case means of three repeats, not 60 individual trials. Auto/SAT ratio is 1.0635, 95% CI [0.9815,1.1851]; it includes one. Each trial starts a fresh Worker, with WASM and any needed model loading included; Chrome startup is preparation. CPU/FP32, one inference thread, HTTP cache and Service Workers disabled.
 
-Actual desktop Chrome 155.0.8059.86 on M4 Pro, CPU/FP32, one inference thread, fresh Worker per trial, HTTP cache and Service Workers disabled. Chrome startup is preparation; WASM/model loading and protocol overhead are inside the trial. No trial/final-general-SAT deadline is used. These conditions differ from native warm-model runs and the one-repeat preliminary driver. They do not establish smartphone completion within a minute.
+The 400-midgame bank also completed all 2,400 trials. [Conditions](browser.en.md) · [Summary (JSON)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/summary.json) · [All 120 histories (生データ)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/runs.jsonl) · [Runtime/hashes (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json).
 
-[Summary (JSON)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/summary.json) · [All 120 histories (生データ)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/runs.jsonl) · [Independent verification (JSON)](../../benchmarks/m4-browser-wasm-v3-endgame-main-20261026/verification.json) · [Runtime and asset hashes (JSON)](../../benchmarks/m4-browser-wasm-v3-runtime-20261026.json) · [Study conditions](browser.en.md).
+</details>
 
 <a id="browser-v3"></a>
 
