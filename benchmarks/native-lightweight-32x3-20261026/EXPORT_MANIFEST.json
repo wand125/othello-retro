@@ -291,7 +291,7 @@
   ],
   "metadata_sanitization": "Only listed top-level audit fields removed; original/public hashes and removed key names are explicit. Main metadata/runs/summary and saved pre-resume metadata are byte-identical.",
   "data_files_sha256": {
-    "README.md": "135289cff8cd163e15c4ec901f9e1804fa117bd1cb811a04a420ea1fe1ac9a36",
+    "README.md": "ba35ab79072e25f37bf62d43b781b7168de89eba945dee73d469354b4fa918ce",
     "data/analysis/analysis.json": "d80d856780b1b451d8b644c667cb4a2dc2c779beddf3bedd7417984e55cf7954",
     "data/analysis/historical-wsl-guided-hit-context.json": "331039b6e8662f799731a1a138d75861b10dc3fefb128f85264973da3d1b79f0",
     "data/analysis/independent-audit.json": "351077e6dd5e52f1110e07bab1df68f53c78d1648a962ab7bcd89cf4d22b4a2e",
@@ -434,5 +434,9 @@
       "removed_top_level_keys": [],
       "published_repo_relative": "solver/benchmarks/test_lightweight.py"
     }
-  ]
+  ],
+  "documentation_update": {
+    "scope": "Markdown JSON link labels only",
+    "measurement_and_algorithm_files_changed": false
+  }
 }

@@ -51,8 +51,8 @@ WSL、Python3.12.13、Torch2.2.2+cpu／NumPy1.26.4、CPU FP32、推論・BLAS2�
 
 ## 公開する検証資料
 
-- [原288行・metadata・再開前prefix記録](../../benchmarks/native-lightweight-32x3-20261026/data/run/metadata.json)、[独立集計](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/analysis.json)、[追加監査](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/independent-audit.json)
-- [選別と原／公開hashの対応](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json)：main rawはbyte同一、auditの制御PID・運用情報だけを明示的に除去します。
+- [原288行・metadata・再開前prefix記録 (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/run/metadata.json)、[独立集計 (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/analysis.json)、[追加監査 (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/independent-audit.json)
+- [選別と原／公開hashの対応 (JSON)](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json)：main rawはbyte同一、auditの制御PID・運用情報だけを明示的に除去します。
 - 実行時のsource snapshotとdriver旧新、型付きmiss理由・段階timerを保存します。モデル・native binary実体はGitに含めず、実測時hashと既存[重みRelease](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)を参照します。
 
 再集計例（新しい出力先を使用）:
@@ -63,4 +63,4 @@ python3 solver/benchmarks/analyze_auto_diagnostic.py --input benchmarks/native-l
 
 ## 本番適用は別の機能確認
 
-WSLのnativeサービスには`lightweight`／`fused_channels_last`を適用済みです。記録されたsmoke環境はTorch2.6.0 CPU／NumPy2.2.6で、上のTorch2.2.2／NumPy1.26.4比較とは別です。44石・未満盤終局・満盤のsmokeと、導入済みrunnerの44石確認が厳密再生に合格しました。health、既存resource条件、DB件数は維持されています。単発の機能確認を速度比較とは扱いません。[公開用rollout要約](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/production-functional-summary.json)へ根拠hashを記録し、service設定・認証・私有pathは含めません。ブラウザSAT/WASM版は独立した実装です。
+WSLのnativeサービスには`lightweight`／`fused_channels_last`を適用済みです。記録されたsmoke環境はTorch2.6.0 CPU／NumPy2.2.6で、上のTorch2.2.2／NumPy1.26.4比較とは別です。44石・未満盤終局・満盤のsmokeと、導入済みrunnerの44石確認が厳密再生に合格しました。health、既存resource条件、DB件数は維持されています。単発の機能確認を速度比較とは扱いません。[公開用rollout要約 (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/production-functional-summary.json)へ根拠hashを記録し、service設定・認証・私有pathは含めません。ブラウザSAT/WASM版は独立した実装です。

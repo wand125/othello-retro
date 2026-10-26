@@ -25,9 +25,9 @@ The design below is the original frozen 400/20-case four-environment study. Curr
 
 There is one board per independently seeded game. Repeated runs and multiple prefixes of the same game are not independent input samples. Every main-suite board is reachable from the standard four-disc initial position. This benchmark measures reconstruction; difficult unreachable positions require a separate study. Reference records prove reachability and are never passed to the program under test.
 
-- [Frozen midgame dataset and schedule](../../benchmarks/study-midgame-cpu222-unbounded-v1.json)
-- [Frozen terminal dataset and schedule](../../benchmarks/study-endgame-cpu222-unbounded-v1.json)
-- [Original implementation / protocol hashes](../../benchmarks/unbounded-manifest.json)
+- [Frozen midgame dataset and schedule (JSON)](../../benchmarks/study-midgame-cpu222-unbounded-v1.json)
+- [Frozen terminal dataset and schedule (JSON)](../../benchmarks/study-endgame-cpu222-unbounded-v1.json)
+- [Original implementation / protocol hashes (JSON)](../../benchmarks/unbounded-manifest.json)
 
 With N occupied squares, N−4 placements have occurred; passes do not increase this count. The midgame strata therefore represent 8, 16, 24, 32 and 40 placements. A reference record containing passes does not establish that every reconstruction requires a pass. The six early terminal positions have 62 discs once and 63 discs five times.
 
@@ -100,6 +100,6 @@ Cases, references, schedules, verified records, timing, controls and hashes are 
 
 All four environments completed both frozen suites: 2,400 midgame trials and 120 terminal trials per environment, 10,080 trials in total. Every proof was independently replayed. Common complete-case coverage is 400/400 and 20/20 respectively; the suites are not pooled.
 
-The intended nice value was 19; metadata records 19 on M4/WSL and 20 on M1/Intel for both suites. The measurements retain this deviation rather than claiming exact priority matching. OS priority semantics and all child-process priorities were not established as equivalent. See the [execution-controls audit](../../benchmarks/execution-controls-20261026.json) and [results](results.en.md). Complete coverage does not guarantee matched controls or small estimation uncertainty.
+The intended nice value was 19; metadata records 19 on M4/WSL and 20 on M1/Intel for both suites. The measurements retain this deviation rather than claiming exact priority matching. OS priority semantics and all child-process priorities were not established as equivalent. See the [execution-controls audit (JSON)](../../benchmarks/execution-controls-20261026.json) and [results](results.en.md). Complete coverage does not guarantee matched controls or small estimation uncertainty.
 
 The stored 0.05/precision flags in frozen banks and existing summaries remain records of the original plan. They are not a condition requiring additional measurements; raw data and bank hashes remain unchanged.

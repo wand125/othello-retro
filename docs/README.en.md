@@ -6,7 +6,7 @@ Build and usage instructions stay with their implementations. This directory col
 
 | Topic | 日本語 | English |
 |---|---|---|
-| Formal measurements across four native environments | [結果](benchmarks/results.md) | [Results](benchmarks/results.en.md) |
+| All benchmark results | [結果](../benchmarks/README.md) | [Results](../benchmarks/README.en.md) |
 | Sampling, repetition, clocks, statistics | [測定設計](benchmarks/design.md) | [Measurement design](benchmarks/design.en.md) |
 | Browser formal-study conditions and start record | [ブラウザ測定](benchmarks/browser.md) | [Browser study](benchmarks/browser.en.md) |
 | Native lightweight-Auto diagnosis and comparison | [Auto診断](algorithms/auto-diagnosis.md) | [Auto diagnosis](algorithms/auto-diagnosis.en.md) |

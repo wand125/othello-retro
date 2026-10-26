@@ -23,9 +23,8 @@
 
 ## 結果と資料
 
+- [ベンチマーク結果](benchmarks/README.md)：主要な結果の表、Autoの版ごとの比較、測定中の項目、再実行と生データ。
 - [文書一覧](docs/README.md)：探索手法、測定設計、使用ソルバー、公開範囲。
-- [ベンチマークのデータ一覧](benchmarks/README.md)：固定bank・正式結果・予備試験の所在。
-- [native 4環境の正式測定結果](docs/benchmarks/results.md)
 - [ブラウザ正式測定の条件と開始記録](docs/benchmarks/browser.md)・[先行40盤面の結果](browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)
 - [native軽量Autoの診断](docs/algorithms/auto-diagnosis.md)
 

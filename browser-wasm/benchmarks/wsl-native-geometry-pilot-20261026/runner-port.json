@@ -1,0 +1,15 @@
+{
+  "measured_runner_sha256": "49fad9c7659afa7ad88811ca764e709fbbeada5150940bc8ab8aa1e38df50e6e",
+  "published_runner_sha256": "8792927371d8f555092ddd303f4e41550e2809a27a61a8ea096f242b6918d0df",
+  "changes": [
+    "Resolve UI inputs from RETRO_BROWSER_UI or repository-relative ../../ui",
+    "Require fresh --output directory; no append to published raw",
+    "Check actual artifacts against recorded hashes; any allowed mismatch is explicit in input-check.json",
+    "Generate B from native-geometry.patch in new output directory; do not modify A, UI or package source",
+    "Write metadata/results to new output and keep private filesystem paths out of metadata",
+    "Linux-only proc observations are optional on other systems",
+    "Add SPDX notice. Solver calls, model scoring, limits, progress and per-observation Worker watchdog loops unchanged.",
+    "Sanitize known UI/diagnostic/output paths in error messages and omit stack traces; successful measured rows are unchanged."
+  ],
+  "ui_paths_in_metadata": "Mapped relative aliases retain measured hashes; environment absolute paths are not serialized."
+}

@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "raw_rows": 6,
+  "byte_exact_raw_sha256": "ca44f7cad5b52bba24bf5e991a879d94b7e215ac543af47d892629c88de23330",
+  "raw_bytes_unmodified": true,
+  "successful_witnesses_independently_replayed": [
+    {
+      "case": "main-n44-s202610250400000",
+      "variant": "A",
+      "independent_python_replay": true,
+      "placements": 40
+    },
+    {
+      "case": "main-n44-s202610250400000",
+      "variant": "B",
+      "independent_python_replay": true,
+      "placements": 40
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200001",
+      "variant": "A",
+      "independent_python_replay": true,
+      "placements": 60
+    },
+    {
+      "case": "main-n36-s202610250300002",
+      "variant": "A",
+      "independent_python_replay": true,
+      "placements": 32
+    },
+    {
+      "case": "main-n36-s202610250300002",
+      "variant": "B",
+      "independent_python_replay": true,
+      "placements": 32
+    }
+  ],
+  "observation_unknown_rows": 1,
+  "planned_order_matches": true,
+  "source_hashes_unchanged": true,
+  "A_source_sha256": "bd7f86b238a14bcc7ad771955aefeefde59f22e602862756878c033e61350144",
+  "B_source_sha256": "57175b45c0900e29bb1080da6e0c236be1dafb69eddae0dff23895dbf040c34f",
+  "patch_sha256": "e48409f0c2a8af319a645cb37316e56e511fb1346cb2452caf22f2f9c972d763",
+  "verification_source": "https://github.com/wand125/othello-retro/blob/main/runner/verify.py",
+  "verification_source_sha256": "d2dd9f32bd858a639fd50acc98278bb7c3dffff53d6deb6936ee8b856f989e0d",
+  "privacy_mapping": "conditions uses an explicit safe-field allowlist; original metadata is not rewritten into raw rows. No sensitive values were found in raw.",
+  "nonfinite_encoding": "JSON null for B guided_budget_seconds means disabled; the JS prototype uses Infinity. Shortlist uses Number.MAX_SAFE_INTEGER and heuristic sort was removed."
+}

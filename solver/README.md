@@ -49,7 +49,7 @@ python -m pip install -r requirements-inference.txt
 ```
 
 別のRelease添付ファイルから`model.pt`と`model_passes.pt`を取得し、`ml/`直下へ置きます。
-このソース配布に重み・元学習データ・pycacheは含みません。[MODEL_FILES.json](MODEL_FILES.json)
+このソース配布に重み・元学習データ・pycacheは含みません。[MODEL_FILES.json (JSON)](MODEL_FILES.json)
 のSHA-256とサイズを照合してください。推論は重みを使い、学習元JSONLを読みません。
 Torch2.2.2／NumPy1.26.4は正式CPU試験の版です。これは過去の訓練環境の完全な復元
 を意味しません。CPU／FP32を明示する例は次のとおりです。
@@ -67,7 +67,7 @@ OTHELLO_DEVICE=cpu RETRO_HALF=0 RETRO_AUTO_POLICY=lightweight RETRO_INFERENCE_OP
 
 未満盤終局の`miss`理由`incomplete_terminal_exact_route`は予定した一般SAT直行です。worker単独は最後の一般SATを実行しないため、呼出側でSATへ渡してください。`ui/server.py`はこの経路をmodelの冷起動より前に判断します。checkpointは同じで、新規学習は行いません。CPU以外へ融合opt-inを無条件に適用しないでください。
 
-関連Python17テストは`python -m unittest benchmarks/test_lightweight.py benchmarks/test_analyze_auto_diagnostic.py`です。実行証拠とsource hashは[NATIVE_LIGHTWEIGHT_VALIDATION.json](NATIVE_LIGHTWEIGHT_VALIDATION.json)、3方式の測定・再開手順は[benchmarks/README.md](benchmarks/README.md)にあります。
+関連Python17テストは`python -m unittest benchmarks/test_lightweight.py benchmarks/test_analyze_auto_diagnostic.py`です。実行証拠とsource hashは[NATIVE_LIGHTWEIGHT_VALIDATION.json (JSON)](NATIVE_LIGHTWEIGHT_VALIDATION.json)、3方式の測定・再開手順は[benchmarks/README.md](benchmarks/README.md)にあります。
 
 ## auto／学習探索
 
@@ -115,7 +115,7 @@ python ml/train_final.py labels.jsonl --out my-model.pt --epochs 25
   比較用の追加依存は`pip install -r requirements-training.txt`です。
 - 補助研究コードの既定並列数・探索時間は大きいことがあります。必要な資源を明示します。
   `bench_fix.py`の広域pkillだけは配布版から除き、他のSATプロセスを止めないようにしました。
-  変更は[RELEASE_PATCHES.json](RELEASE_PATCHES.json)へ記録しています。
+  変更は[RELEASE_PATCHES.json (JSON)](RELEASE_PATCHES.json)へ記録しています。
 
 元400／20盤面の測定データとcheckpointは変更していません。現在のsource更新とWSL本番への適用は後続診断・rollout要約へ記録しています。
-各ソースhashと除外範囲は[ENGINE_SOURCE_MANIFEST.json](ENGINE_SOURCE_MANIFEST.json)に記録します。
+各ソースhashと除外範囲は[ENGINE_SOURCE_MANIFEST.json (JSON)](ENGINE_SOURCE_MANIFEST.json)に記録します。

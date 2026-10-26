@@ -51,8 +51,8 @@ This is an exploratory fixed 32-case comparison. Floating-point transformations 
 
 ## Verification material
 
-- [Original rows, metadata and pre-resume prefix](../../benchmarks/native-lightweight-32x3-20261026/data/run/metadata.json), [independent analysis](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/analysis.json), [additional audit](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/independent-audit.json)
-- [Export correspondence](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json): main raw files remain byte-identical; removed audit PID/operational fields and original/exported hashes are explicit.
+- [Original rows, metadata and pre-resume prefix (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/run/metadata.json), [independent analysis (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/analysis.json), [additional audit (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/independent-audit.json)
+- [Export correspondence (JSON)](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json): main raw files remain byte-identical; removed audit PID/operational fields and original/exported hashes are explicit.
 - Measured source snapshots, both driver versions, typed misses and stage timers are retained. Model/native binary payloads are excluded from Git; use measured hashes and the existing [weight Release](https://github.com/wand125/othello-retro/releases/tag/v0.1.0).
 
 Recompute into a new directory:
@@ -63,4 +63,4 @@ python3 solver/benchmarks/analyze_auto_diagnostic.py --input benchmarks/native-l
 
 ## Production application is a separate functional check
 
-The native WSL service has adopted `lightweight`/`fused_channels_last`. Its recorded smoke environment is Torch 2.6.0 CPU / NumPy 2.2.6, distinct from the Torch 2.2.2 / NumPy 1.26.4 comparison above. Recorded 44-disc, incomplete-terminal and full-terminal smoke witnesses passed strict replay; the installed runner also passed a 44-disc check. Health, existing resource controls and database counts remained unchanged. These single functional checks are not speed comparisons. The [allowlisted rollout summary](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/production-functional-summary.json) records their evidence hashes without copying service configuration, credentials or private paths. The browser SAT/WASM edition remains a separate implementation.
+The native WSL service has adopted `lightweight`/`fused_channels_last`. Its recorded smoke environment is Torch 2.6.0 CPU / NumPy 2.2.6, distinct from the Torch 2.2.2 / NumPy 1.26.4 comparison above. Recorded 44-disc, incomplete-terminal and full-terminal smoke witnesses passed strict replay; the installed runner also passed a 44-disc check. Health, existing resource controls and database counts remained unchanged. These single functional checks are not speed comparisons. The [allowlisted rollout summary (JSON)](../../benchmarks/native-lightweight-32x3-20261026/data/analysis/production-functional-summary.json) records their evidence hashes without copying service configuration, credentials or private paths. The browser SAT/WASM edition remains a separate implementation.

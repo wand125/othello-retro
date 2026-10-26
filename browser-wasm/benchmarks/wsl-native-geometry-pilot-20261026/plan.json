@@ -1,0 +1,32 @@
+[
+  {
+    "case": "main-n44-s202610250400000",
+    "variant": "A",
+    "observation_ms": 60000
+  },
+  {
+    "case": "main-n44-s202610250400000",
+    "variant": "B",
+    "observation_ms": 60000
+  },
+  {
+    "case": "endgame-full-reference-no-pass-s202610255200001",
+    "variant": "B",
+    "observation_ms": 60000
+  },
+  {
+    "case": "endgame-full-reference-no-pass-s202610255200001",
+    "variant": "A",
+    "observation_ms": 60000
+  },
+  {
+    "case": "main-n36-s202610250300002",
+    "variant": "A",
+    "observation_ms": 60000
+  },
+  {
+    "case": "main-n36-s202610250300002",
+    "variant": "B",
+    "observation_ms": 60000
+  }
+]

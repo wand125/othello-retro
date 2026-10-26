@@ -1,0 +1,43 @@
+--- a/auto.js
++++ b/auto-native-geometry.js
+@@ -7,10 +7,10 @@
+   root.RetroAuto = api;
+ })(globalThis, function (root) {
+   'use strict';
+-  const POLICY = Object.freeze({name:'browser-lightweight-v3', width:8, cap:2, shortlist:128,
+-    stop_placements:30, symmetry_count:1, refinement:0, batch:128,
+-    guided_budget_seconds:12, candidate_conflicts:2000, candidate_decisions:20000,
+-    max_candidates:16, min_stones:36, pass_zone:48});
++  const POLICY = Object.freeze({name:'native-geometry-prototype', width:16, cap:4, shortlist:Number.MAX_SAFE_INTEGER,
++    stop_placements:30, symmetry_count:1, refinement:0, batch:256,
++    guided_budget_seconds:Infinity, candidate_conflicts:2000, candidate_decisions:20000,
++    max_candidates:18, min_stones:44, pass_zone:48});
+   const stones = board => [...board].filter(c=>c!=='-').length;
+   function wordsBoard(v) {
+     let board='';
+@@ -68,7 +68,7 @@
+       const generated=items.length;
+       // A cheap native evaluator screens large frontiers before CNN inference.
+       // This is a heuristic restriction, never a reachability verdict.
+-      items.sort((a,b)=>b.heuristic-a.heuristic);
++      // Prototype: no heuristic ranking or shortlist reduction before CNN.
+       if(items.length>policy.shortlist) {
+         const per=new Map(),selected=[];
+         const parentLimit=Math.max(policy.cap,Math.ceil(policy.shortlist/level.length));
+@@ -108,14 +108,10 @@
+     if(stones(board)<policy.min_stones)return root.RetroEngine.solve(board,encoder,sat,rules,progress);
+     const search=root.RetroEngine.createSearch(board,encoder,sat,rules,progress);
+     const large=stones(board)>=root.RetroEngine.POLICY.large_board_min_stones;
+-    const direct=search.attempt(1,{conflicts:large?100000:2000,decisions:large?1000000:20000});
++    const direct=search.attempt(1,{conflicts:2000,decisions:20000});
+     if(direct.status==='found'||direct.preprocess_rejection)return search.finish(direct);
+     const prefixAttempts=[direct.stats];
+-    if(large) {
+-      const late=search.attempt(2,{conflicts:100000,decisions:1000000});
+-      prefixAttempts.push(late.stats);
+-      if(late.status==='found'||late.preprocess_rejection)return search.finish(late);
+-    }
++    // Prototype: enter guidance after short work-unit probe; no late-pass preprobe.
+     const guidance={policy,model:direct.status==='restricted_unsat'?'passes':'standard',hit:false,candidate_attempts:[]};
+     try {
+       const found=await beam(board,encoder,inference,guidance.model==='passes',progress,policy);

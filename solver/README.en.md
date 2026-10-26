@@ -71,7 +71,7 @@ OTHELLO_DEVICE=cpu RETRO_HALF=0 RETRO_AUTO_POLICY=lightweight RETRO_INFERENCE_OP
 
 An incomplete terminal returns `miss` reason `incomplete_terminal_exact_route`: planned general-SAT routing. The worker alone does not run final exact SAT; the caller must do so. `ui/server.py` checks this route before cold-starting the model. Checkpoints are unchanged; there is no retraining. CPU inference optimization is not an unconditional GPU setting.
 
-Run the 17 related Python tests with `python -m unittest benchmarks/test_lightweight.py benchmarks/test_analyze_auto_diagnostic.py`. [NATIVE_LIGHTWEIGHT_VALIDATION.json](NATIVE_LIGHTWEIGHT_VALIDATION.json) records evidence/hashes; see [benchmarks/README.md](benchmarks/README.md) for the separate three-variant experiment and resume semantics.
+Run the 17 related Python tests with `python -m unittest benchmarks/test_lightweight.py benchmarks/test_analyze_auto_diagnostic.py`. [NATIVE_LIGHTWEIGHT_VALIDATION.json (JSON)](NATIVE_LIGHTWEIGHT_VALIDATION.json) records evidence/hashes; see [benchmarks/README.md](benchmarks/README.md) for the separate three-variant experiment and resume semantics.
 
 ## Auto / guided search
 

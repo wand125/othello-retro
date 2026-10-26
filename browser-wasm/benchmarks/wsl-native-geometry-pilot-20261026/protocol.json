@@ -1,0 +1,32 @@
+{
+  "scope": "Six exploratory one-repeat pilots; browser native-geometry prototype, not an exact native port",
+  "A": "Canonical browserV3 code, unchanged",
+  "B": {
+    "width": 16,
+    "cap": 4,
+    "shortlist": "disabled; encoder still emits unused heuristic values",
+    "heuristic_sort": false,
+    "stop_placements": 30,
+    "symmetries": 1,
+    "refine": 0,
+    "batch": 256,
+    "max_candidates": 18,
+    "min_stones": 44,
+    "guided_budget_seconds": null,
+    "null_budget_meaning": "disabled; Infinity in code, observation watchdog only",
+    "initial_probe_conflicts": 2000,
+    "initial_probe_decisions": 20000,
+    "late_preprobe": false
+  },
+  "differences_from_native": [
+    "2000conflict/20000decision work-limit probe is not native2s",
+    "Single Kissat WASM solver differs from native SAT portfolio/concurrency and20s candidate budgets",
+    "ONNX Runtime WASM CPU1thread differs from native Torch CPU2threads",
+    "36-stone B routes to browserSAT, not the native SAT portfolio",
+    "CNN and undo remain browser implementations; numeric/tie/order/backend differences possible"
+  ],
+  "conditions": "WSL Node24, nice19, guest CPUs16-19, one observation Worker at a time",
+  "models": "Same two fusedONNX checkpoints; no training/model edits",
+  "watchdog": "60s observation =>unknown, never unreachable",
+  "ML_counting": "Score calls and item counts attempted/completed retained, including last progress at interruption"
+}

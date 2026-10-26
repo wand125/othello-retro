@@ -81,8 +81,8 @@
     "MODEL_FILES.json": "93aa25e17e904d6d761697c75179319777a6af3626d38da5f3fb2288226b9aa4",
     "NATIVE_LIGHTWEIGHT_VALIDATION.json": "455a960fd611c5f1f0feaf96b6703f7410622321c01aa4fbea59f4916cf60172",
     "PYTHON_DEPENDENCIES.md": "39fc2f1bad478ea47fccbe84e1be3617604ee772190a0fcf82e066bea97d29b4",
-    "README.en.md": "1779025c87e93580ca63de265f2c7998e126f672f52b7788bfedc25358dc14bd",
-    "README.md": "b726cec5428d43730248a677d7ae5b85ba5f291e760143c6c774a169647c4667",
+    "README.en.md": "eb1d80bc936126b6bf45037e06dcd1a4c93fc5267cc8701443d4004222cd4166",
+    "README.md": "7819c773cd1f88e2e83c0699bd6a4af2fe98ed413ee7009457560a9164882f81",
     "RELEASE_PATCHES.json": "b198f3328a20320ef6cdda180110932a281cb3795191cf9ff1d541f15b3b141d",
     "THIRD_PARTY_NOTICES.md": "4b535422c22299d1024dae778a160425f48d2af93f81c148fedbff5ed39c9236",
     "VALIDATION.json": "da2d8038b1bc7c5e470ba4190cc43b334e0d8a2ea5f615f30abc3aa713c4b602",
@@ -185,5 +185,9 @@
   },
   "historical_manifest": "history/v0.1.0/ENGINE_SOURCE_MANIFEST.json",
   "current_native_source_aggregate_sha256": "40c55c50b474420f459f0281d36d20885b62784a169dae31eaef24303074b490",
-  "original_source_sha256_scope": "Original pre-release v0.1.0 source, not the subsequent current checkout."
+  "original_source_sha256_scope": "Original pre-release v0.1.0 source, not the subsequent current checkout.",
+  "documentation_update": {
+    "scope": "Markdown JSON link labels only",
+    "measurement_and_algorithm_files_changed": false
+  }
 }

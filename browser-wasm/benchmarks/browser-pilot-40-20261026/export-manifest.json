@@ -113,12 +113,12 @@
   },
   "files": {
     "README.en.md": {
-      "bytes": 3831,
-      "sha256": "9bda1c91ba4c5a9eaf6520479987ff9bb2d29b91fdd385a9e6a029fa7517657b"
+      "bytes": 3859,
+      "sha256": "77c7e6b4e41a3d5cc1346d3bce3bf51868521c04006d12a2c2db29370079a82e"
     },
     "README.md": {
-      "bytes": 4128,
-      "sha256": "548caebb5eef6553e58774e16edcdd59b228aa5f40ec4dbeee308aa8b6bf6232"
+      "bytes": 4156,
+      "sha256": "b075bc93430eba7f45e51609b8747da42802ee3e73a44eec9f4e15dd656fe3bb"
     },
     "auto-v1/metadata.json": {
       "bytes": 11593,
@@ -196,5 +196,9 @@
       "bytes": 7684,
       "sha256": "b787b9105ba07589a9767ba1ad09214e10c89243f54a4b3e8c6786c654bf3e02"
     }
+  },
+  "documentation_update": {
+    "scope": "Markdown JSON link labels only",
+    "measurement_and_algorithm_files_changed": false
   }
 }

@@ -6,7 +6,7 @@
 
 | 分野 | 日本語 | English |
 |---|---|---|
-| native 4環境の正式測定結果 | [結果](benchmarks/results.md) | [Results](benchmarks/results.en.md) |
+| 全ベンチマークの測定結果 | [結果](../benchmarks/README.md) | [Results](../benchmarks/README.en.md) |
 | 標本、反復、計時、統計 | [測定設計](benchmarks/design.md) | [Measurement design](benchmarks/design.en.md) |
 | ブラウザ正式測定の条件と開始記録 | [ブラウザ測定](benchmarks/browser.md) | [Browser study](benchmarks/browser.en.md) |
 | native軽量Autoの原因分析・比較 | [Auto診断](algorithms/auto-diagnosis.md) | [Auto diagnosis](algorithms/auto-diagnosis.en.md) |

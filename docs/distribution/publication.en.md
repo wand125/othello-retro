@@ -34,7 +34,7 @@ The historical v0.1.0 Rust source passed a Rust 1.98.0 locked release build, all
 
 ## Subsequent native lightweight source
 
-Current `solver/` adds opt-in lightweight search/inference, incomplete-terminal undo correction, diagnosis/resume, analysis and tests. See [AUTO_DIAGNOSIS.en.md](../algorithms/auto-diagnosis.en.md) and the [new data](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json). Current validation covers 11 native and 17 Python tests plus independent replay of 288 records. The original nine-test v0.1.0 [historical record](../../solver/history/v0.1.0/README.md) retains its numbers and is distinct from [current validation](../../solver/NATIVE_LIGHTWEIGHT_VALIDATION.json). Checkpoints, Cargo, original banks/raw/results tables and manuscript are unchanged. This does not replace the existing v0.1.0 source asset.
+Current `solver/` adds opt-in lightweight search/inference, incomplete-terminal undo correction, diagnosis/resume, analysis and tests. See [AUTO_DIAGNOSIS.en.md](../algorithms/auto-diagnosis.en.md) and the [new data (JSON)](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json). Current validation covers 11 native and 17 Python tests plus independent replay of 288 records. The original nine-test v0.1.0 [historical record](../../solver/history/v0.1.0/README.md) retains its numbers and is distinct from [current validation (JSON)](../../solver/NATIVE_LIGHTWEIGHT_VALIDATION.json). Checkpoints, Cargo, original banks/raw/results tables and manuscript are unchanged. This does not replace the existing v0.1.0 source asset.
 
 ## Separate browser SAT / lightweight Auto distribution
 

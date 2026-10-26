@@ -37,7 +37,7 @@ v0.1.0のRustソースでRust1.98.0 locked release build、Kissat4.0.3付き全9
 
 ## native軽量版の追加公開
 
-現在の`solver/`へ軽量探索・推論のopt-in、未満盤終局の逆算修正、診断・再開・解析・検証コードを追加しました。[AUTO_DIAGNOSIS.md](../algorithms/auto-diagnosis.md)と[新データ](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json)を参照してください。現在版はnative11・Python17テスト、全288棋譜の独立再生を確認しています。v0.1.0の9テスト等は[歴史記録](../../solver/history/v0.1.0/README.md)として数値を保持し、[現在の検証](../../solver/NATIVE_LIGHTWEIGHT_VALIDATION.json)へ置き換えて解釈しません。モデルcheckpoint、Cargo、元bank・raw・結果表・論文は変更していません。これはv0.1.0の既存ソース添付を書き換えたという意味ではありません。
+現在の`solver/`へ軽量探索・推論のopt-in、未満盤終局の逆算修正、診断・再開・解析・検証コードを追加しました。[AUTO_DIAGNOSIS.md](../algorithms/auto-diagnosis.md)と[新データ (JSON)](../../benchmarks/native-lightweight-32x3-20261026/EXPORT_MANIFEST.json)を参照してください。現在版はnative11・Python17テスト、全288棋譜の独立再生を確認しています。v0.1.0の9テスト等は[歴史記録](../../solver/history/v0.1.0/README.md)として数値を保持し、[現在の検証 (JSON)](../../solver/NATIVE_LIGHTWEIGHT_VALIDATION.json)へ置き換えて解釈しません。モデルcheckpoint、Cargo、元bank・raw・結果表・論文は変更していません。これはv0.1.0の既存ソース添付を書き換えたという意味ではありません。
 
 ## 別配布のブラウザSAT／軽量Auto版
 

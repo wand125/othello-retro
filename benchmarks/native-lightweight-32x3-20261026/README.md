@@ -4,7 +4,7 @@ See [日本語](../../AUTO_DIAGNOSIS.md) / [English](../../AUTO_DIAGNOSIS.en.md)
 
 - `data/run/`: byte-identical completed 288-row log, metadata, summary and the saved 42-row pre-resume metadata.
 - `data/analysis/`: independent legality/statistics audit, separate production functional-smoke summary, and existing-log guided-hit context.
-- `data/audits/`: launch, interruption/resume, cleanup, source hashes and native build/test evidence. Exact removal/substitution and original/exported hashes are in [EXPORT_MANIFEST.json](EXPORT_MANIFEST.json).
+- `data/audits/`: launch, interruption/resume, cleanup, source hashes and native build/test evidence. Exact removal/substitution and original/exported hashes are in [EXPORT_MANIFEST.json (JSON)](EXPORT_MANIFEST.json).
 - `sources/`: allowlisted, measured **partial source snapshots**, both driver versions and analysis/tests. These are provenance artifacts, not a standalone engine checkout. The complete current engine is in [`solver/`](../../solver/README.en.md); its Cargo/native/ML tree and separately downloaded weights are needed for execution. Original baseline reproduction uses the frozen source/archive or commit`32e472e`.
 
 Model and native binary payloads are excluded; their measured hashes remain in metadata. Published source updates are listed with repository-relative paths in the export manifest. Ordinary original measurement data and original code retain the repository's [MIT scope](../../BENCHMARK_LICENSE.md); separately distributed weights and third-party components retain their own terms.

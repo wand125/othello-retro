@@ -2,7 +2,7 @@
 
 [English](README.en.md)
 
-実際のApple M4 Pro上のデスクトップChromeで、同じ40盤面を3方式それぞれ1回ずつ測定しました。途中盤面は12・20・28・36・44石の各層から先頭4件ずつの20件、終局図は既存セットの20件です。[盤面と選択方法](../cases.json)の順序を保持し、結果を見て盤面を除いていません。3方式で共通の40盤面なので、120観測を120の独立盤面とは数えません。
+実際のApple M4 Pro上のデスクトップChromeで、同じ40盤面を3方式それぞれ1回ずつ測定しました。途中盤面は12・20・28・36・44石の各層から先頭4件ずつの20件、終局図は既存セットの20件です。[盤面と選択方法 (JSON)](../cases.json)の順序を保持し、結果を見て盤面を除いていません。3方式で共通の40盤面なので、120観測を120の独立盤面とは数えません。
 
 | 方式 | 検証済みの復元 | 60秒で未判定 | エラー |
 |---|---:|---:|---:|
@@ -10,7 +10,7 @@
 | 旧SAT v2 | 37 / 40 | 3 | 0 |
 | 最終auto v3 | 40 / 40 | 0 | 0 |
 
-得られた115本の棋譜は、SATやモデルを使わない[Pythonの独立ルール実装](../../../runner/verify.py)でも初期配置から再生し、全着手・強制パス・入力64マスとの一致を確認しました。最終v3の40本も全て通過しています。結果は[independent-replay.json](independent-replay.json)にあります。
+得られた115本の棋譜は、SATやモデルを使わない[Pythonの独立ルール実装](../../../runner/verify.py)でも初期配置から再生し、全着手・強制パス・入力64マスとの一致を確認しました。最終v3の40本も全て通過しています。結果は[independent-replay.json (JSON)](independent-replay.json)にあります。
 
 ## 最終v3の時間
 
@@ -30,6 +30,6 @@
 
 各方式のフォルダには元の`runs.jsonl`・`metadata.json`・`progress.json`をバイト単位で保持しています。棋譜、途中通知、各SAT試行や推論の統計、計算環境、前後のasset SHA-256が含まれます。結果受信前にwatchdogが発動したケースでは、その時点までの通知だけが残り、内部の未終了試行の統計はありません。大量のGETログは公開せず、元ログのhashとAPI通信0件を含む集計を`network-summary.json`へ残しました。
 
-[旧auto v1](../prototype-auto-v1.js)・[旧SAT v2](../prototype-sat-v2.js)と[最終v3のソース](source-snapshots/)は別版です。各raw metadataのsource hashで識別できます。[export-manifest.json](export-manifest.json)に配布ファイルと元記録のhashを記載しています。[summary.json](summary.json)は全体の数値です。元rawや既存の正式測定結果は変更していません。
+[旧auto v1](../prototype-auto-v1.js)・[旧SAT v2](../prototype-sat-v2.js)と[最終v3のソース](source-snapshots/)は別版です。各raw metadataのsource hashで識別できます。[export-manifest.json (JSON)](export-manifest.json)に配布ファイルと元記録のhashを記載しています。[summary.json (JSON)](summary.json)は全体の数値です。元rawや既存の正式測定結果は変更していません。
 
 これは**予備実験**です。正式な途中400盤面・終局20盤面を各方式3回測る大きな試験の結果はまだ含めていません。

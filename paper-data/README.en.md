@@ -6,16 +6,16 @@ Figure inputs, boards, records and verification files for the [Japanese article]
 
 | File | Contents |
 |---|---|
-| [article-data.json](article-data.json) | Exact figure JSON: seven records, shallow predecessors, pass examples and the eleven-step chain |
-| [deep-reverse-chain.json](deep-reverse-chain.json) | Twelve positions/eleven edges from 61 to 50 discs, next players, recorded general-SAT result and scope |
+| [article-data.json (JSON)](article-data.json) | Exact figure JSON: seven records, shallow predecessors, pass examples and the eleven-step chain |
+| [deep-reverse-chain.json (JSON)](deep-reverse-chain.json) | Twelve positions/eleven edges from 61 to 50 discs, next players, recorded general-SAT result and scope |
 | [deep-root-general.cnf.gz](deep-root-general.cnf.gz) | Gzip-compressed general CNF for the 61-disc root |
 | [deep-root-general-solver.log](deep-root-general-solver.log) | Existing Kissat UNSAT output, not private user-access logs |
 | [check_deep_reverse_chain.py](check_deep_reverse_chain.py) | Independent array-rule verifier using the standard library; optional CNF/log hash checks |
 | [test_deep_reverse_chain.py](test_deep_reverse_chain.py) | Rejection tests for illegal moves, false passes, turn mismatches and overstated claims |
-| [forced-pass-reference.json](forced-pass-reference.json) | Separate reference testing explicit and omitted forced passes |
-| [deep-reverse-chain-report.json](deep-reverse-chain-report.json) | Replay, necessary-condition and existing-artifact checks |
-| [adversarial-check-report.json](adversarial-check-report.json) | Mutation, forced-pass and initial-position tests |
-| [manifest.json](manifest.json) | Hashes for every supplement file and the four corresponding article assets, with verification scope |
+| [forced-pass-reference.json (JSON)](forced-pass-reference.json) | Separate reference testing explicit and omitted forced passes |
+| [deep-reverse-chain-report.json (JSON)](deep-reverse-chain-report.json) | Replay, necessary-condition and existing-artifact checks |
+| [adversarial-check-report.json (JSON)](adversarial-check-report.json) | Mutation, forced-pass and initial-position tests |
+| [manifest.json (JSON)](manifest.json) | Hashes for every supplement file and the four corresponding article assets, with verification scope |
 
 ## Re-run verification
 

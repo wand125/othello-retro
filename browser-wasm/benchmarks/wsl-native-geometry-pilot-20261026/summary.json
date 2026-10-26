@@ -1,0 +1,112 @@
+{
+  "scope": "Three selected one-repeat pilot pairs. Native candidate-search geometry prototype, not an equivalent native port, Chrome test, phone test or formal benchmark.",
+  "found": 5,
+  "observation_unknown": 1,
+  "unknown_is_not_unreachable": true,
+  "cases": [
+    {
+      "case": "main-n44-s202610250400000",
+      "stones": 44,
+      "A": {
+        "status": "found",
+        "observed_seconds": 4.217387844,
+        "solved_by": "passfree_probe",
+        "actual_cnn": {
+          "cnn_calls_attempted": 0,
+          "cnn_calls_completed": 0,
+          "cnn_items_attempted": 0,
+          "cnn_items_completed": 0,
+          "cnn_seconds": 0,
+          "cnn_failures": 0
+        },
+        "strict_replay": true
+      },
+      "B": {
+        "status": "found",
+        "observed_seconds": 6.895507102,
+        "solved_by": "lightweight_auto",
+        "actual_cnn": {
+          "cnn_calls_attempted": 28,
+          "cnn_calls_completed": 28,
+          "cnn_items_attempted": 5509,
+          "cnn_items_completed": 5509,
+          "cnn_seconds": 4.905865243000002,
+          "cnn_failures": 0
+        },
+        "strict_replay": true
+      }
+    },
+    {
+      "case": "endgame-full-reference-no-pass-s202610255200001",
+      "stones": 64,
+      "B": {
+        "status": "observation_deadline_unknown",
+        "observed_seconds": 60.017610998,
+        "solved_by": null,
+        "actual_cnn": {
+          "cnn_calls_attempted": 166,
+          "cnn_calls_completed": 166,
+          "cnn_items_attempted": 38828,
+          "cnn_items_completed": 38828,
+          "cnn_seconds": 33.949988663,
+          "cnn_failures": 0
+        },
+        "strict_replay": false
+      },
+      "A": {
+        "status": "found",
+        "observed_seconds": 3.964165495999987,
+        "solved_by": "passfree_probe",
+        "actual_cnn": {
+          "cnn_calls_attempted": 0,
+          "cnn_calls_completed": 0,
+          "cnn_items_attempted": 0,
+          "cnn_items_completed": 0,
+          "cnn_seconds": 0,
+          "cnn_failures": 0
+        },
+        "strict_replay": true
+      }
+    },
+    {
+      "case": "main-n36-s202610250300002",
+      "stones": 36,
+      "A": {
+        "status": "found",
+        "observed_seconds": 0.557328674999997,
+        "solved_by": "lightweight_auto",
+        "actual_cnn": {
+          "cnn_calls_attempted": 2,
+          "cnn_calls_completed": 2,
+          "cnn_items_attempted": 90,
+          "cnn_items_completed": 90,
+          "cnn_seconds": 0.20114961500000209,
+          "cnn_failures": 0
+        },
+        "strict_replay": true
+      },
+      "B": {
+        "status": "found",
+        "observed_seconds": 2.94662380999999,
+        "solved_by": "general_sat",
+        "actual_cnn": {
+          "cnn_calls_attempted": 0,
+          "cnn_calls_completed": 0,
+          "cnn_items_attempted": 0,
+          "cnn_items_completed": 0,
+          "cnn_seconds": 0,
+          "cnn_failures": 0
+        },
+        "strict_replay": true
+      }
+    }
+  ],
+  "full_B_stage_accounting": {
+    "cnn_complete_at_seconds": 34.87910947700001,
+    "candidate_checks_started": 16,
+    "guided_fallback_at_seconds": 37.002050064,
+    "general_solve_started_at_seconds": 37.044534179,
+    "limitation": "Individual candidate SAT UNSAT/unknown/rejected-witness outcomes are not emitted in partial progress; do not infer their distribution."
+  },
+  "interpretation": "B was slower on both completed pairs; the full-board B observation remained unresolved at60s. Changes include routing and probe policy as well as beam geometry, so this is not an isolated beam-width causal estimate."
+}

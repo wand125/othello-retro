@@ -23,9 +23,8 @@ Download artifacts from [Releases](https://github.com/wand125/othello-retro/rele
 
 ## Results and documentation
 
+- [Benchmark results](benchmarks/README.en.md): major result tables, Auto versions, running studies, reproduction and raw data.
 - [Documentation index](docs/README.en.md): search methods, measurement design, solvers, and publication scope.
-- [Benchmark data index](benchmarks/README.en.md): frozen banks, formal results, and preliminary experiments.
-- [Formal results from four native environments](docs/benchmarks/results.en.md)
 - [Browser formal-study conditions and start record](docs/benchmarks/browser.en.md) and [preliminary 40-case results](browser-wasm/benchmarks/browser-pilot-40-20261026/README.en.md)
 - [Native lightweight-Auto diagnosis](docs/algorithms/auto-diagnosis.en.md)
 
