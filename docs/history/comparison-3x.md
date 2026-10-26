@@ -1,17 +1,19 @@
+> 旧60秒条件の予備比較です。現在の正式な無制限測定は [測定結果](../benchmarks/results.md) を参照してください。
+
 # 予備実験：同一盤面・各3回の比較
 
 これは少数の固定盤面で手順と環境差を調べる予備実験です。正式な短時間・長時間試験の設計と分けて扱います。固定8盤面、各方式・各盤面60秒、3反復。CPU比較は同じTorch2.6/NumPy2.2.6、CPU/FP32、推論2スレッド、同じモデル・Python探索コードに揃えています。プログラムの実行時間は同じCLI内部のタイマーで計測し、通信・待ち行列は除外します。読込込みと読込後は別の条件です。
 
 MacはCPU affinity/CPU時間のハード上限なし、nice19、WSLは4論理CPU（SMTの2物理コア）・nice19、Cloud Runは4vCPU/4GiBです。CPUアーキテクチャ、OS、割当の違いまで同一にはしていません。SATの内部並列数と同一コードは維持し、試行は各環境で1件ずつ実行します。これらの差は環境メタデータに残しています。
 
-[測定プロトコルと照合ハッシュ](benchmarks/protocol-3x.json)。推論デバイス未記録の初回Mac測定や、サービス常駐状態の観測とは分けて読みます。
+[測定プロトコルと照合ハッシュ](../../benchmarks/protocol-3x.json)。推論デバイス未記録の初回Mac測定や、サービス常駐状態の観測とは分けて読みます。
 
 
 表中は「正解数/3・実行時間の中央値 [最小–最大] 秒」。未知の盤面を不能と誤判定したものと、制限内に解けない unknown を区別します。中央値の時間には unknown の打切り時間も含めます。到達不能の例は中央石が欠ける不変条件違反です。
 
 ## Mac CPU
 
-[生データ・環境](benchmarks/results/mac-cpu3-20261025)
+[生データ・環境](../../benchmarks/results/mac-cpu3-20261025)
 
 | 盤面 | SAT 系 | 学習併用 auto |
 |---|---|---|
@@ -26,7 +28,7 @@ MacはCPU affinity/CPU時間のハード上限なし、nice19、WSLは4論理CPU
 
 ## WSL CPU
 
-[生データ・環境](benchmarks/results/wsl-cpu3-20261025)
+[生データ・環境](../../benchmarks/results/wsl-cpu3-20261025)
 
 | 盤面 | SAT 系 | 学習併用 auto |
 |---|---|---|
@@ -41,7 +43,7 @@ MacはCPU affinity/CPU時間のハード上限なし、nice19、WSLは4論理CPU
 
 ## Cloud Run CPU
 
-[生データ・環境](benchmarks/results/cloud-cpu3-20261025)
+[生データ・環境](../../benchmarks/results/cloud-cpu3-20261025)
 
 | 盤面 | SAT 系 | 学習併用 auto |
 |---|---|---|
@@ -56,7 +58,7 @@ MacはCPU affinity/CPU時間のハード上限なし、nice19、WSLは4論理CPU
 
 ## WSL CPU 読込後
 
-[生データ・環境](benchmarks/results/wsl-cpu3-warm-20261025)
+[生データ・環境](../../benchmarks/results/wsl-cpu3-warm-20261025)
 
 | 盤面 | SAT 系 | 学習併用 auto |
 |---|---|---|

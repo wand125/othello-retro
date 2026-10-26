@@ -1,77 +1,49 @@
-# Othello Retro — ソース・重み・ベンチマーク
+# Othello Retro
 
 [日本語](README.md) | [English](README.en.md)
 
-オセロの盤面から、標準初期配置を出発点とする合法な棋譜を一つ復元する実験です。元の対局の特定や、最善手の計算を目的としていません。
+オセロの盤面から、標準初期配置につながる合法な棋譜を復元します。ブラウザ版、Rust/Pythonの復元器、固定盤面を使う測定・検証ツールを公開しています。
 
-- [ブラウザ試験版（SAT／軽量Auto）](https://wand125.github.io/othello-retro/) — [ブラウザ版のビルド・利用手順](browser-wasm/README.md)
-- [従来のサーバー版試験公開アプリ](https://othello-retro.logicpuzzle.app/) / [作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
-- インタラクティブ論文: [日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
+- [ブラウザ試験版](https://wand125.github.io/othello-retro/)：SAT／軽量Autoを端末内で実行。計算バックエンドは不要です。
+- [端末での速度測定](https://wand125.github.io/othello-retro/benchmark.html)：スマホでも実行でき、結果をJSONで保存できます。
+- [サーバー版試験公開アプリ](https://othello-retro.logicpuzzle.app/)・[作成された棋譜](https://othello-retro.logicpuzzle.app/examples)
+- インタラクティブ論文：[日本語](https://othello-retro.logicpuzzle.app/paper?lang=ja) / [English](https://othello-retro.logicpuzzle.app/paper?lang=en)
 
-Rust/Pythonの復元器・探索・学習・UIソースを[`solver/`](solver/README.md)、縦長UIを[`short/`](short/README.md)で公開しています。学習済み重みは[最初の試験公開Release v0.1.0](https://github.com/wand125/othello-retro/releases/tag/v0.1.0)の添付ファイルです。Gitの`models/`には[モデルカード](models/MODEL_CARD.ja.md)、ライセンス、識別manifestだけを置き、`.pt`は含めません。
+## 使う・ビルドする
 
-[ソース `source.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/source.tar.gz)・[重み `models.tar.gz`](https://github.com/wand125/othello-retro/releases/download/v0.1.0/models.tar.gz)・[SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/SHA256SUMS)から取得し、[ビルド・SAT・autoの実行手順](solver/README.md)に従ってください。重みは`solver/ml/`へ配置します。このnative版Release v0.1.0のソース配布には実行バイナリ、外部依存のバイナリ、元訓練データを同梱しません。別の[`browser-wasm/`](browser-wasm/README.md)にはコンパイル済みRust encoderとKissatのWASM、再ビルド用ソース・通知を収録します。元データが現存しないため、過去の重みを完全に再学習できるという主張でもありません。
+| 目的 | 入口 |
+|---|---|
+| ブラウザ版を使う・静的サイトとして配布する | [ブラウザ版の手順](browser-wasm/README.md) |
+| native復元器をビルドし、SAT／Autoを実行する | [復元器の手順](solver/README.md) |
+| 別のプログラム・環境で同じ盤面を測定する | [共通runner](runner/README.md)・[検証手順](runner/VALIDATION.md) |
+| ブラウザを共通runnerへ接続する | [ブラウザ測定アダプター](browser-wasm/benchmarks/README.md) |
+| 学習済み重みを取得する | [モデルと利用条件](models/README.md) |
 
-テスト盤面・参照棋譜・実測結果と、**別環境・別プログラムを同じ固定bankへ接続する測定ツール**も公開しています。`runner/`はPython 3.10以降の標準ライブラリだけで動作します（Linux・macOS・WSL）。接続確認用fixtureは参照解の検索だけを行い、復元性能を測るものではありません。
+配布物は [Releases](https://github.com/wand125/othello-retro/releases) から取得できます。ブラウザ静的版は [v0.3.0](https://github.com/wand125/othello-retro/releases/tag/v0.3.0)、変換済みONNX重みは [browser-models-v1](https://github.com/wand125/othello-retro/releases/tag/browser-models-v1) にあります。ビルド時の取得・ハッシュ照合は各手順に記載しています。
 
-`SHA256SUMS`は個別の二つの重み用です。ソース・モデル用archiveを含む全添付ファイルには[RELEASE_SHA256SUMS](https://github.com/wand125/othello-retro/releases/download/v0.1.0/RELEASE_SHA256SUMS)を使います。
+## 結果と資料
 
-## ブラウザで利用・端末で測定
+- [文書一覧](docs/README.md)：探索手法、測定設計、使用ソルバー、公開範囲。
+- [ベンチマークのデータ一覧](benchmarks/README.md)：固定bank・正式結果・予備試験の所在。
+- [native 4環境の正式測定結果](docs/benchmarks/results.md)
+- [ブラウザ正式測定の条件と開始記録](docs/benchmarks/browser.md)・[先行40盤面の結果](browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)
+- [native軽量Autoの診断](docs/algorithms/auto-diagnosis.md)
 
-ブラウザ版はSATと任意の軽量Autoを同一originの静的assetだけで実行し、計算バックエンドやCDNを使いません。音出力・盤面変換・JSONと圧縮URL共有を保持します。推論runtime（約14.24MB）と必要なONNXモデルは遅延取得し、Service Worker制御後の取得成功時にオフラインcacheへ保存します。読込失敗はSATへ戻ります。[モデル取得・SHA照合・ビルド](browser-wasm/README.md)を参照してください。
+ブラウザ版はnative版と実装・起動条件が異なります。PCの測定値からスマホの1分以内を保証するものではありません。実機は上記の端末測定ページで別に確認します。
 
-[実機での比較ページ](https://wand125.github.io/othello-retro/benchmark.html)はquick5／途中20／終局20／全40、SAT／Autoを選べます。1盤面60秒の観測上限、毎回新Worker、独立再生、結果はlocal JSONでPOSTしません。スマートフォン実機の60秒以内は未検証で保証せず、Python制御の実Chrome比較を実機測定とは扱いません。
+## 配置
 
-## native軽量autoの更新
+| ディレクトリ | 内容 |
+|---|---|
+| `browser-wasm/` | ブラウザアプリ、WASMビルド、ONNX変換、ブラウザ測定 |
+| `solver/` | Rust/Pythonの復元器、学習・探索、サーバーUI |
+| `runner/` | 固定bankを使う共通の実行・独立検証・集計・公開用export |
+| `benchmarks/` | 固定入力、条件、公開済みの測定結果 |
+| `docs/` | 日英の説明文書と過去の公開・測定記録 |
+| `models/`・`licenses/` | モデルカード、配布物の識別情報、利用条件 |
+| `short/` | サーバー版の縦長UI |
+| `paper-data/`・`records/` | 論文の補足データ、作成された棋譜 |
 
-[32盤面・各3反復の診断](AUTO_DIAGNOSIS.md)では、終局20盤面の軽量／従来auto平均時間比は0.6930（95% CI0.5646–0.8511）、44石中盤12盤面は0.9273（0.7990–1.0760）でした。新規学習はなく、native逆算修正・推論・候補幅・終局routingを組み合わせた別実験です。元の400／20盤面・4環境結果は不変です。WSL nativeへ適用済みで、本番Torch2.6の機能smokeは測定Torch2.2.2の速度比較と分けています。ブラウザ版の軽量AutoはONNX／CPU FP32・1スレッドによる別実装で、完全SATへのfallbackを保持します。
+## ライセンス
 
-現在の`solver/`はこの更新を含みます。従来policyのflagだけではnative修正を戻せません。元の凍結測定の再現にはv0.1.0のソース／記録または更新前commit`32e472e`を使い、固定bankのhashを書き換えません。[現在の検証](solver/NATIVE_LIGHTWEIGHT_VALIDATION.json)と[旧検証記録](solver/history/v0.1.0/README.md)を区別しています。
-
-## 測定ツールと資料
-
-| 内容 | 日本語 | English |
-|---|---|---|
-| ブラウザSAT版・静的配布・オフライン | [ブラウザ版手順](browser-wasm/README.md) | [Browser guide](browser-wasm/README.en.md) |
-| 復元器のビルド・SAT・auto・学習 | [本体手順](solver/README.md) | [Engine guide](solver/README.en.md) |
-| モデルの来歴・取得・利用条件 | [モデルカード](models/MODEL_CARD.ja.md) | [Model card](models/MODEL_CARD.en.md) |
-| 外部プログラムの接続・実行・解析・公開用export | [runner利用手順](runner/README.md) | [Runner guide](runner/README.en.md) |
-| 生成規則・棋譜・ログ・集計・公開ファイルの検証 | [検証手順](runner/VALIDATION.md) | [Validation guide](runner/VALIDATION.en.md) |
-| 正式測定の完了状況・結果 | [測定結果](BENCHMARK_RESULTS.md) | [Results](BENCHMARK_RESULTS.en.md) |
-| 標本・反復・計時・統計の設計 | [測定設計](MEASUREMENT_DESIGN.md) | [Measurement design](MEASUREMENT_DESIGN.en.md) |
-| 使用ソルバーと依存関係 | [ソルバー情報](SOLVERS.md) | [Solvers](SOLVERS.en.md) |
-| コードの公開範囲と残る確認 | [公開状況](CODE_PUBLICATION.md) | [Publication status](CODE_PUBLICATION.en.md) |
-
-正式bankは、途中400盤面と終局20盤面を別々に、`sat` / `auto` 各3回の固定予定表で測定します。両方式なら途中2,400試行、終局120試行です。元プログラムの4環境比較はM4・M1・WSL・Intelを対象に、同じ盤面・予定表・モデル・探索コード、CPU/FP32、推論2スレッド、Torch2.2.2/NumPy1.26.4を使う設計です。試行全体と最後の一般SATには時間上限を設けません。完了状況と実際の条件は結果資料を参照してください。
-
-全4環境で途中2,400・終局120試行ずつ、合計10,080試行が完了し、棋譜を独立に検証しました。共通完了率は各セット100%です。記録されたniceはM4・WSLが19、M1・Intelが20で、予定19からの逸脱を含みます。条件差と信頼区間は[測定結果](BENCHMARK_RESULTS.md)へ明示しています。
-
-外部プログラムは元のモデル・探索実装に合わせる必要はありません。固定入力と予定表を維持し、自分の実装・環境・内部制限・計時modeを記録します。oneshotの起動込み時間とresidentの準備後時間を同じ条件として比較しません。bank内の元プログラムのソース・モデルhashと、外部プログラム自身の記録は区別します。
-
-[固定8盤面・各3回の比較](COMPARISON_3X.md)と[その条件](benchmarks/protocol-3x.json)は、Torch2.6/NumPy2.2.6・各60秒の予備実験です。正式な無制限測定へ混ぜません。モデル読込込みと読込後を分け、未解決数を記録しています。以前の各1回の比較は取り下げました。初回Mac測定は実際の推論デバイスを記録しておらず、MPS実測としては扱いません。
-
-## 公開データ
-
-- [途中400盤面とpilot10盤面](benchmarks/study-midgame-cpu222-unbounded-v1.json)
-- [終局20盤面](benchmarks/study-endgame-cpu222-unbounded-v1.json)
-- [固定8ケース](benchmarks/cases.json): 到達可能7例、到達不能1例。
-- [作成された棋譜7例](records/created-games.json): 合法性と到達盤面を独立に再生検証しています。付属する計算時間はその作成時の記録で、環境間の性能比較用ではありません。
-- [論文の補足データ](paper-data/README.md): 本文の説明・図で使う盤面、棋譜、検証条件。
-
-盤面はa1からh8まで行優先の64文字です。`X`=黒、`O`=白、`-`=空。棋譜の座標も同じ向きで、`pass` は合法手がない側の強制パスです。参照棋譜は到達可能性の証拠であり、唯一解を意味しません。固定8ケースの到達不能例は初期配置の中央4マスの一つが空で、石が除去されないという不変条件に違反します。
-
-固定8ケースのSHA-256: `292d782cdd23d794e33bc829286a9c0dd4d11979e1db06b27bbf362b0d1a8d64`
-
-## 利用条件と公開範囲
-
-自作ソース（`solver/`・`short/`・`runner/`・`browser-wasm/`、第三者とfixtureの例外を除く）と通常の自作プロジェクト文書は[MIT](LICENSE)、既存の二つの合成bankも従来の[MIT対象範囲](BENCHMARK_LICENSE.md)を維持します。重み・モデルカードと、自作論文本文・自作図は[CC BY 4.0](licenses/CC-BY-4.0.txt)です。著作者表示は **wand125**。改変時は変更を示してください。論文の機能コードと本文、第三者素材の区別は[LICENSE_SCOPE.md](LICENSE_SCOPE.md)を参照してください。外部ソルバー・ライブラリ・引用文献はそれぞれの条件を保持します。
-
-ブラウザ試験版は計算を端末内で行い、作成した棋譜をブラウザに保存します。共有にはJSONの書き出しなどが必要です。既存の公開棋譜snapshotを静的配布へ含めます。
-
-従来のサーバー版試験公開アプリでは、新規に作成する盤面・棋譜・計算時間などを取得・保存し、作成された棋譜として公開します。過去の利用ジョブを一括公開することはしません。
-
-利用記録、ブラウザ識別子、認証情報、私有インフラ設定は公開物へ含めません。測定ツールの私用出力は `.runs/`、利用者設定は `*.local.json` へ置き、公開時はrunnerのexportで別ディレクトリへ出力してください。第三者実装は依存関係として取得し、配布範囲と通知は[公開状況](CODE_PUBLICATION.md)へ記録しています。
-
-ブラウザ版も[共通ベンチマークへ接続](browser-wasm/benchmarks/README.md)しました。同じ途中400盤面・終局20盤面・SAT/Auto各3回の予定表を使います。[先行40盤面の試験](browser-wasm/benchmarks/browser-pilot-40-20261026/README.md)では、最終版はM4上のChromeで40件すべての合法棋譜を返し、最長44.34秒でした。スマートフォン実機の値ではありません。
-
-[ブラウザ正式測定の開始記録](BROWSER_BENCHMARK.md)
+自作コードは[MIT](LICENSE)、重み・自作論文の本文と図は[CC BY 4.0](licenses/CC-BY-4.0.txt)です。第三者runtime等はそれぞれの通知を保持します。[適用範囲](LICENSE_SCOPE.md)・[ベンチマークデータの条件](BENCHMARK_LICENSE.md)を参照してください。

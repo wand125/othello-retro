@@ -1,8 +1,8 @@
 # 時間無制限ベンチマークの測定結果
 
-[日本語](BENCHMARK_RESULTS.md) | [English](BENCHMARK_RESULTS.en.md)
+[日本語](results.md) | [English](results.en.md)
 
-2026-10-26更新。全4環境で、途中400盤面と終局20盤面を別々にSAT・auto各3回測定し、予定した全10,080試行が完了しました。全棋譜は合法性と目標64マスの一致を独立再生検証しています。[測定設計](MEASUREMENT_DESIGN.md)と各実行のmanifestを参照してください。
+2026-10-26更新。全4環境で、途中400盤面と終局20盤面を別々にSAT・auto各3回測定し、予定した全10,080試行が完了しました。全棋譜は合法性と目標64マスの一致を独立再生検証しています。[測定設計](design.md)と各実行のmanifestを参照してください。
 
 ## 4環境：途中400盤面
 
@@ -10,14 +10,14 @@
 
 | 環境 / Environment | SAT平均 / mean (s) | auto平均 / mean (s) | auto/SAT | 95%CI |
 |---|---:|---:|---:|---|
-| [WSL](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.62050 | 0.59461 | 0.9583 | [0.8586, 1.0594] |
-| [M4 Pro](benchmarks/m4-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.56193 | 2.45550 | 1.5721 | [1.3799, 1.7940] |
-| [M1](benchmarks/m1-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.95663 | 1.16378 | 1.2165 | [1.0403, 1.3998] |
-| [Intel i9](benchmarks/intel-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.27192 | 1.45680 | 1.1454 | [1.0064, 1.2987] |
+| [WSL](../../benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.62050 | 0.59461 | 0.9583 | [0.8586, 1.0594] |
+| [M4 Pro](../../benchmarks/m4-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.56193 | 2.45550 | 1.5721 | [1.3799, 1.7940] |
+| [M1](../../benchmarks/m1-cpu222-unbounded-midgame-main-20261025/summary.json) | 0.95663 | 1.16378 | 1.2165 | [1.0403, 1.3998] |
+| [Intel i9](../../benchmarks/intel-cpu222-unbounded-midgame-main-20261025/summary.json) | 1.27192 | 1.45680 | 1.1454 | [1.0064, 1.2987] |
 
 表は各環境内のauto／SAT比と個別95%CIです。M4・M1・Intelではauto平均がSATを上回り、区間も1より大きくなりました。95%CIの相対半径は10.55–15.06%で、複数比較補正はしていません。全件の棋譜が正しいことと、速度差の推定精度を区別します。
 
-[4環境の対応付き集計JSON](benchmarks/four-environment-midgame-comparison-20261025.json)。44石未満の320例ではautoも直接SATへ入り、44石層でも初期SATで完了する場合があります。全体平均だけをモデル単独の効果と解釈しません。
+[4環境の対応付き集計JSON](../../benchmarks/four-environment-midgame-comparison-20261025.json)。44石未満の320例ではautoも直接SATへ入り、44石層でも初期SATで完了する場合があります。全体平均だけをモデル単独の効果と解釈しません。
 
 <details>
 <summary>WSLの石数別内訳</summary>
@@ -30,7 +30,7 @@
 | 36 | 0.75857 | 0.83124 | 1.0958 | [0.9536, 1.2630] |
 | 44 | 2.22717 | 2.02808 | 0.9106 | [0.7880, 1.0456] |
 
-各層20%の固定重み、各80独立盤面です。層別区間も個別の95%CIで、同時95%保証ではありません。[元の集計JSON](benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json)に全体・層別の統計を保持しています。
+各層20%の固定重み、各80独立盤面です。層別区間も個別の95%CIで、同時95%保証ではありません。[元の集計JSON](../../benchmarks/wsl-cpu222-unbounded-midgame-main-20261025/summary.json)に全体・層別の統計を保持しています。
 
 </details>
 
@@ -40,10 +40,10 @@
 
 | 環境 | SAT平均（秒） | auto平均（秒） | auto／SAT | 95%CI |
 |---|---:|---:|---:|---|
-| [WSL](benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) | 9.20460 | 9.14890 | 0.9939 | [0.7963, 1.2605] |
-| [M4 Pro](benchmarks/m4-cpu222-unbounded-endgame-main-20261025/summary.json) | 16.74105 | 43.69341 | 2.6100 | [2.0733, 3.2491] |
-| [M1](benchmarks/m1-cpu222-unbounded-endgame-main-20261025/summary.json) | 11.50916 | 31.21702 | 2.7124 | [2.1779, 3.4251] |
-| [Intel i9](benchmarks/intel-cpu222-unbounded-endgame-main-20261025/summary.json) | 17.63237 | 32.69917 | 1.8545 | [1.4588, 2.3634] |
+| [WSL](../../benchmarks/wsl-cpu222-unbounded-endgame-main-20261025/summary.json) | 9.20460 | 9.14890 | 0.9939 | [0.7963, 1.2605] |
+| [M4 Pro](../../benchmarks/m4-cpu222-unbounded-endgame-main-20261025/summary.json) | 16.74105 | 43.69341 | 2.6100 | [2.0733, 3.2491] |
+| [M1](../../benchmarks/m1-cpu222-unbounded-endgame-main-20261025/summary.json) | 11.50916 | 31.21702 | 2.7124 | [2.1779, 3.4251] |
+| [Intel i9](../../benchmarks/intel-cpu222-unbounded-endgame-main-20261025/summary.json) | 17.63237 | 32.69917 | 1.8545 | [1.4588, 2.3634] |
 
 ### 終局の最短・中央値・最長
 
@@ -60,15 +60,15 @@
 | Intel i9 | SAT | 5.259 | 18.291 | 33.890 |
 | Intel i9 | auto | 1.695 | 34.710 | 66.101 |
 
-[分布JSON](benchmarks/terminal-time-distribution-20261026.json)に計算規則、各盤面平均、最短・最長のcase ID、中央値を構成するcase ID、別集計の単発60試行分布とraw hashを保持しています。表は小数第3位までの丸め値です。
+[分布JSON](../../benchmarks/terminal-time-distribution-20261026.json)に計算規則、各盤面平均、最短・最長のcase ID、中央値を構成するcase ID、別集計の単発60試行分布とraw hashを保持しています。表は小数第3位までの丸め値です。
 
 終局の個別95%CIはM4・M1・Intelで1より大きく、WSLでは1を含みます。95%CIの相対半径は24.49–27.44%です。この固定20例の補助試験を一般の終局盤面へ一律に外挿せず、複数比較の同時保証とも扱いません。参照棋譜のパスは、すべての復元棋譜にパスが必須という意味ではありません。
 
-[対応付き4環境集計](benchmarks/four-environment-endgame-comparison-20261025.json)。各平均表の環境リンクと同じフォルダに全棋譜・条件・検証・manifestがあります。表のCIは元のNumPy版で、[独立再計算レポート](benchmarks/validation/)も公開しています。公開の標準ライブラリ版analyzerは別RNGのため有限回bootstrapの端点が少し異なり得ますが、平均値は一致します。
+[対応付き4環境集計](../../benchmarks/four-environment-endgame-comparison-20261025.json)。各平均表の環境リンクと同じフォルダに全棋譜・条件・検証・manifestがあります。表のCIは元のNumPy版で、[独立再計算レポート](../../benchmarks/validation)も公開しています。公開の標準ライブラリ版analyzerは別RNGのため有限回bootstrapの端点が少し異なり得ますが、平均値は一致します。
 
 ## 実行条件の逸脱と解釈
 
-niceの予定値は19でしたが、両セットのmetadataは**M4・WSLが19、M1・Intelが20**を記録しています。[実条件監査](benchmarks/execution-controls-20261026.json)へ8セット分を保存し、予定値へ書き換えていません。これはrunner開始時の記録で、全子プロセスの優先度やOS間のスケジューラ効果の一致を保証しません。
+niceの予定値は19でしたが、両セットのmetadataは**M4・WSLが19、M1・Intelが20**を記録しています。[実条件監査](../../benchmarks/execution-controls-20261026.json)へ8セット分を保存し、予定値へ書き換えていません。これはrunner開始時の記録で、全子プロセスの優先度やOS間のスケジューラ効果の一致を保証しません。
 
 環境間の差にはnice、OS、数値backend、CPU割当て、背景負荷が混在します。M4には高い背景loadと試行間の診断用休止が記録され、休止は探索時間と分けて扱います。全プログラムの経過時間とケースの探索時間を区別し、独立したCPU性能順位とは解釈しません。共通完了率100%も条件の完全一致やCI精度の保証ではありません。
 
