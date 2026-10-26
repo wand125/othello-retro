@@ -1,0 +1,18 @@
+{
+  "exported_at": "2026-10-26T04:35:42.174827+00:00",
+  "status": "complete",
+  "split": "main",
+  "fixture": false,
+  "completed_trials": 120,
+  "planned_trials": 120,
+  "completed_formal_dataset": true,
+  "cross_environment_comparison_ready": false,
+  "comparison_note": "One exported dataset does not establish cross-environment coverage or matched timing profiles. Fixtures test the harness only.",
+  "files_sha256": {
+    "metadata.json": "95fb93602670fd8cee88eb20470bf33279b4168b97167de85ef5d0e0efd574af",
+    "runs.jsonl": "c9a16bd348d6ff35cbbc039c83ad40a09d707ae7761311d94d9cbf1958618858",
+    "preparation.jsonl": "8ebca72f327114131b97eb6dc4d51f77c76390ddd3395a1e180f21bcbc658488",
+    "summary.json": "8702a1b04e5b6f6515cdd3b9320fa2a442f0d6f1f8c6f52757cd9a3c025b9a4f",
+    "verification.json": "9ca07d221e59dd52999462fd42cdac415b30fd88c14d40ee71992c3d5e6e3074"
+  }
+}

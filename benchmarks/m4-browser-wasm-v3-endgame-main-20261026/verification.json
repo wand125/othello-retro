@@ -1,0 +1,11 @@
+{
+  "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409",
+  "completed_prefix_trials": 120,
+  "planned_trials": 120,
+  "computed_records_independently_replayed": 120,
+  "reference_records_independently_replayed": 20,
+  "trial_order_and_uniqueness": "passed",
+  "strict_legal_replay_and_target": "passed",
+  "source_metadata_sha256": "861bd8d3b3398b966c92d87e14564dcc7eb2a2d961941a964523412ae08b0da1",
+  "privacy": "private commands, runtime files, logs, secret-named fields and absolute local paths excluded"
+}

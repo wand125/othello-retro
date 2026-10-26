@@ -1,0 +1,71 @@
+{
+  "study": "m4-browser-wasm-v3-20261026",
+  "source_commit": "0c7cc42de37b5b2952fa45ff2f9d1433df7cc7d6",
+  "snapshot_version": "ce1c8127723cf969c766d146c6fdf7cff34a2575d1f660b7a911c470a393e610",
+  "status": "partial",
+  "device": "actual Apple M4 Pro desktop Chrome; not a smartphone",
+  "gpu_inference": false,
+  "chrome_disable_gpu": true,
+  "timing_note": "Chrome/harness ready excluded; each fresh Worker startup, WASM/models and result receipt included. Not a pure-hardware/native comparison.",
+  "banks": {
+    "endgame": {
+      "status": "complete",
+      "accepted_trials": 120,
+      "program_ready_events": {
+        "auto": 1,
+        "sat": 1
+      },
+      "protocol_logs": [
+        {
+          "program": "auto",
+          "sha256": "5c7c920fc43700974f6a854ceb7355ba5cc414af4e62fc0ea852ffe86d1b878d",
+          "bytes": 240139,
+          "events": {
+            "ready": 1,
+            "result": 60
+          }
+        },
+        {
+          "program": "sat",
+          "sha256": "77c0866e437f5d870168f0675bc7408af5d75ba358d702ca768a6ce7fbd7d878",
+          "bytes": 240061,
+          "events": {
+            "ready": 1,
+            "result": 60
+          }
+        }
+      ],
+      "dataset": "benchmarks/m4-browser-wasm-v3-endgame-main-20261026",
+      "bank_sha256": "9e6e594ce89e3e1b30bbb5072b9bf6dcd202195303d5c0c729a6b95588b0d409"
+    }
+  },
+  "runtime": {
+    "browser_version": "155.0.8059.86",
+    "browser_product": "Chrome/Chromium",
+    "timing_profile": "fresh-worker-cold-wasm-models-browser-ready-v1",
+    "worker_per_trial": "fresh",
+    "device": "cpu-wasm",
+    "dtype": "float32",
+    "inference_threads": 1,
+    "service_workers": "blocked",
+    "http_cache": "disabled",
+    "external_network": "blocked",
+    "trial_time_limit_seconds": null,
+    "final_sat_time_limit_seconds": null,
+    "asset_sha256": {
+      "solver-worker.js": "03faed5aa0dd6b64c748e4b9d5fdf204782443e90e90d553a4db6f378a395808",
+      "verify.js": "988ea3022ee639ad10f26085d074ced143535c1dfa76f3870ca48cfc570e83c9",
+      "engine.js": "4ea6d7cd07aac26a8a1a83de37a5a233f4ee7b72c8fec01fdd94f8987e2430b1",
+      "encoder.wasm": "ff6166ec29f29c1db59caab8cb383638aa4c856ab438cf4b8e0e491589d6f514",
+      "kissat.js": "39986f396bf5c4c7db8a59f52b656210e2b642baa0648ec3e850ff8106f692d4",
+      "kissat.wasm": "aeddc62bf94821df6347f9dfbdbcc8d02a59a0edfa2d4d5c61789066638dade3",
+      "auto.js": "bd7f86b238a14bcc7ad771955aefeefde59f22e602862756878c033e61350144",
+      "inference/infer.js": "bb3db0ca9db5e456c1e80c5aff0984c18a066e1e033289b1647135df0b568a87",
+      "inference/ort.wasm.min.js": "faece07e84faa9001f5104bbe4e5c70861d06cb2376a0dea1fa0ad33a67adc81",
+      "inference/ort-wasm-simd-threaded.mjs": "e13f7f94fc51b4ca72b12faeb1ee95f4ace6dfbc8939bc718aabdc0a27c4299b",
+      "inference/ort-wasm-simd-threaded.wasm": "3398c10d07d229bd91b364548e130e0e51a8e5704b88c7c083ebbeb78842dee2",
+      "models/model.fused.onnx": "2d826265c571381a50ea7efe00b891b7ce5982df5927921a741aa3dfc783f275",
+      "models/model_passes.fused.onnx": "39a45ca960328f80dc1023f660bd5d0204f39cbce86fc8704393cfbbb47c095f"
+    }
+  }
+}
